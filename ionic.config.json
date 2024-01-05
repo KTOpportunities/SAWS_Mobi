@@ -1,0 +1,7 @@
+{
+  "name": "SAWSMOBILE",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
