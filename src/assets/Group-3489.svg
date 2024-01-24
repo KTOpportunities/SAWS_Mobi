@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewBox="0 0 45 45">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_845" data-name="Rectangle 845" width="27" height="28" transform="translate(3458 1355)" fill="#00386c" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_3489" data-name="Group 3489" transform="translate(-41 -788)">
+    <rect id="Rectangle_854" data-name="Rectangle 854" width="45" height="45" rx="9" transform="translate(41 788)" fill="#fff"/>
+    <g id="Group_3487" data-name="Group 3487" transform="translate(3 -2)">
+      <g id="Mask_Group_8" data-name="Mask Group 8" transform="translate(-3411 -563)" clip-path="url(#clip-path)">
+        <g id="home_1_" data-name="home (1)" transform="translate(3455.313 1351.783)">
+          <path id="Path_3419" data-name="Path 3419" d="M0,0H31.646V34.454H0Z" fill="none"/>
+          <path id="Path_3420" data-name="Path 3420" d="M12.293,26.627V19.191h5.274v7.436a1.415,1.415,0,0,0,1.319,1.487h3.956a1.415,1.415,0,0,0,1.319-1.487V16.216H26.4a.754.754,0,0,0,.435-1.294L15.814,3.724a1.219,1.219,0,0,0-1.767,0L3.023,14.923a.757.757,0,0,0,.435,1.294H5.7v10.41a1.415,1.415,0,0,0,1.319,1.487h3.956A1.415,1.415,0,0,0,12.293,26.627Z" transform="translate(0.893 1.066)" fill="#00386c"/>
+        </g>
+      </g>
+      <text id="Home" transform="translate(61 831)" fill="#00386c" font-size="10" font-family="Verdana" letter-spacing="-0.019em"><tspan x="-14" y="0">Home</tspan></text>
+    </g>
+  </g>
+</svg>

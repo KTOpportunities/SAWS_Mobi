@@ -1,0 +1,73 @@
+<ion-menu contentId="main-content" type="overlay">
+  <ion-content>
+    <div class="navbar-logo-left">
+      <div
+        data-animation="over-left"
+        data-collapse="all"
+        data-duration="400"
+        data-easing="ease"
+        data-easing2="ease"
+        data-doc-height="1"
+        role="banner"
+        class="navbar-logo-left-container shadow-three w-nav"
+      >
+        <div class="container">
+          <div class="navbar-wrapper">
+            <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+              <div class="top-nav-div">
+                <div class="div-block-12">
+                  <img
+                    src="../assets/Profile.jpg"
+                    loading="lazy"
+                    sizes="100vw"
+                    srcset="
+                      ../assets/Profile.jpg  500w,
+                      ../assets/Profile.jpg  800w,
+                      ../assets/Profile.jpg 1080w,
+                      ../assets/Profile.jpg 1600w,
+                      ../assets/Profile.jpg 2000w,
+                      ../assets/Profile.jpg 2600w,
+                      ../assets/Profile.jpg 3200w,
+                      ../assets/Profile.jpg 3973w
+                    "
+                    alt=""
+                    class="image-3"
+                  />
+                </div>
+              </div>
+              <ul role="list" class="nav-menu-two w-list-unstyled">
+                <li class="list-item">
+                  <a href="#" class="nav-link">Home</a>
+                </li>
+                <li>
+                  <div
+                    data-hover="false"
+                    data-delay="0"
+                    class="nav-dropdown w-dropdown"
+                  >
+                    <div class="nav-dropdown-toggle w-dropdown-toggle">
+                      <div
+                        class="nav-dropdown-icon w-icon-dropdown-toggle"
+                      ></div>
+                      <div>About Us</div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">Support</a>
+                </li>
+              </ul>
+              <div class="bottom-nav-div">
+                <h1 class="heading-4">Logout</h1>
+              </div>
+            </nav>
+            <div class="menu-button w-nav-button">
+              <div class="icon w-icon-nav-menu"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="main-content"></ion-router-outlet>
