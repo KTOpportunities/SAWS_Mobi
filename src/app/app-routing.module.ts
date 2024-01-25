@@ -31,7 +31,11 @@ const routes: Routes = [
   {
     path: 'reset-password',
     loadChildren: () => import('./auth/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },  {
+    path: 'forecast',
+    loadChildren: () => import('./forecast/forecast.module').then( m => m.ForecastPageModule)
   },
+
 ];
 
 @NgModule({

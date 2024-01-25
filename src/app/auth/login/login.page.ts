@@ -64,10 +64,9 @@ export class LoginPage implements OnInit, OnDestroy {
         .subscribe(
           (response) => {
             console.log('RESPONSE:', response);
-            if (response.Status === 'Success') {
-              debugger;
-              this.showSuccessAlert();
-            }
+
+            this.showSuccessAlert();
+
             this.router.navigate(['/folder/inbox']);
           },
           (error) => {

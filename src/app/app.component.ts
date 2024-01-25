@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -17,5 +18,8 @@ export class AppComponent {
     { title: 'FLIGHT BRIEFING', url: '/folder/spam', icon: 'warning' },
   ];
   public LOGOUT = ['LOGOUT'];
-  constructor() {}
+  constructor(private router: Router,) {}
+  logout(){
+    this.router.navigate(['/login']);
+  }
 }

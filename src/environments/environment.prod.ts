@@ -2,6 +2,6 @@ export const environment = {
   // production: false,
   // serverAPI: 'https://localhost:44379/api/',
 
-  production: false,
+  production: true,
   serverAPI: 'http://qa.j-cred.co.za/aviationappapi/api/',
 };
