@@ -1,4 +1,7 @@
 <section class="list-page">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
   <div class="div-block-2">
     <img
       src="../../assets/Path-3452.svg"
@@ -8,7 +11,7 @@
       class="image"
     />
   </div>
-  <div class="list-div">
+  <div class="list-div" *ngIf="isLoggedIn==true">
     <h1 class="heading-6">Forecast</h1>
     <div class="w-layout-grid grid-list">
       <a
@@ -16,49 +19,131 @@
         href="#"
         class="link-block-3 w-inline-block"
       >
-        <h1 class="heading-5">Colour Coded TAF</h1>
+        <h1 class="heading-5">SIGMET/AIRMET</h1>
       </a>
       <a
         id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
         href="#"
         class="link-block-3 w-inline-block"
       >
-        <h1 class="heading-5">Colour Coded Sigmet / Airmet</h1>
+        <h1 class="heading-5">TAFS</h1>
       </a>
       <a
         id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
         href="#"
         class="link-block-3 w-inline-block"
       >
-        <h1 class="heading-5">Colour Coded Warnings</h1>
+        <h1 class="heading-5">Recent TAFSs</h1>
+      </a>
+      <a
+        id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">Advisories</h1>
+      </a>
+      <a
+        id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">Warnings</h1>
+      </a>
+      <a
+        id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">Colour coded: SIGMET/AIRMET, TAF, Warnings</h1>
+      </a>
+      <a
+        id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">Take-off data</h1>
+      </a>
+      <a
+        id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">TAF: Accuracy, Recent</h1>
       </a>
       <a
         id="w-node-_4593e247-69cf-e91a-51a8-11e4baf505a6-56144603"
         href="#"
         class="link-block-3 w-inline-block"
       >
-        <h1 class="heading-5">Sigmet / Airmet</h1>
+        <h1 class="heading-5">Trend Forecast</h1>
       </a>
       <a
         id="w-node-_078229fb-9429-4eeb-6bec-db0fea6b9f76-56144603"
         href="#"
         class="link-block-3 w-inline-block"
       >
-        <h1 class="heading-5">Take - Off Data</h1>
+        <h1 class="heading-5">WAF Harmonized GRID Products</h1>
       </a>
       <a
         id="w-node-_8ccd7981-b08e-6ab6-00af-cf117e7ebbb5-56144603"
         href="#"
         class="link-block-3 w-inline-block"
       >
-        <h1 class="heading-5">TAF</h1>
+        <h1 class="heading-5">SIGWX Charts (Landscape)</h1>
       </a>
       <a
         id="w-node-_399ad39a-5fc5-c0fe-16e0-32b15b7f12a8-56144603"
         href="#"
         class="link-block-3 w-inline-block"
       >
-        <h1 class="heading-5">TAF accuracy</h1>
+        <h1 class="heading-5">POT Graph</h1>
+      </a>
+      <a
+        id="w-node-_399ad39a-5fc5-c0fe-16e0-32b15b7f12a8-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">Rapid Thunderstorm Development Graph</h1>
+      </a>
+    </div>
+  </div>
+  <div class="list-div" *ngIf="isLoggedIn==false">
+    <h1 class="heading-6">Forecast</h1>
+    <div class="w-layout-grid grid-list">
+      <a
+        id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">SIGMET/AIRMET</h1>
+      </a>
+      <a
+        id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">TAFS</h1>
+      </a>
+      <a
+        id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">Recent TAFSs</h1>
+      </a>
+      <a
+        id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">Advisories</h1>
+      </a>
+      <a
+        id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">Warnings</h1>
       </a>
     </div>
   </div>

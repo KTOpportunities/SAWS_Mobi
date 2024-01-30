@@ -4,11 +4,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login', // Redirect to the login page
+    redirectTo: 'landing-page', // Redirect to the login page
     pathMatch: 'full',
   },
   {
     path: 'folder/:id',
+    loadChildren: () =>
+      import('./folder/folder.module').then((m) => m.FolderPageModule),
+  },
+  {
+    path: 'folder',
     loadChildren: () =>
       import('./folder/folder.module').then((m) => m.FolderPageModule),
   },
@@ -26,14 +31,56 @@ const routes: Routes = [
   },
   {
     path: 'forgot-password',
-    loadChildren: () => import('./auth/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+    loadChildren: () =>
+      import('./auth/forgot-password/forgot-password.module').then(
+        (m) => m.ForgotPasswordPageModule
+      ),
   },
   {
     path: 'reset-password',
-    loadChildren: () => import('./auth/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
-  },  {
+    loadChildren: () =>
+      import('./auth/reset-password/reset-password.module').then(
+        (m) => m.ResetPasswordPageModule
+      ),
+  },
+  {
     path: 'forecast',
-    loadChildren: () => import('./forecast/forecast.module').then( m => m.ForecastPageModule)
+    loadChildren: () =>
+      import('./forecast/forecast.module').then((m) => m.ForecastPageModule),
+  },
+  {
+    path: 'landing-page',
+    loadChildren: () =>
+      import('./landing-page/landing-page.module').then(
+        (m) => m.LandingPagePageModule
+      ),
+  },  {
+    path: 'aviation-home',
+    loadChildren: () => import('./aviation-home/aviation-home.module').then( m => m.AviationHomePageModule)
+  },
+  {
+    path: 'color-coded',
+    loadChildren: () => import('./color-coded/color-coded.module').then( m => m.ColorCodedPageModule)
+  },
+  {
+    path: 'aviation-code',
+    loadChildren: () => import('./aviation-code/aviation-code.module').then( m => m.AviationCodePageModule)
+  },
+  {
+    path: 'contact-us',
+    loadChildren: () => import('./contact-us/contact-us.module').then( m => m.ContactUsPageModule)
+  },
+  {
+    path: 'news',
+    loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
+  },
+  {
+    path: 'subscription-package',
+    loadChildren: () => import('./subscription-package/subscription-package.module').then( m => m.SubscriptionPackagePageModule)
+  },
+  {
+    path: 'provide-feedback',
+    loadChildren: () => import('./provide-feedback/provide-feedback.module').then( m => m.ProvideFeedbackPageModule)
   },
 
 ];

@@ -22,4 +22,13 @@ export class AuthService {
       httpOptions
     );
   }
+  private isLoggedIn = false;
+
+  getIsLoggedIn(): boolean {
+    return this.isLoggedIn;
+  }
+
+  setLoggedInStatus(status: boolean): void {
+    this.isLoggedIn = status;
+  }
 }

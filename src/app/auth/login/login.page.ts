@@ -16,6 +16,7 @@ export class LoginPage implements OnInit, OnDestroy {
   private mobileQuery: MediaQueryList;
   isMobile: boolean;
   notLogged = false;
+  isLogged = false;
   username: string | null = null;
   password: string | null = null;
   userData: any = null;
@@ -52,7 +53,14 @@ export class LoginPage implements OnInit, OnDestroy {
     // Check if the current route is the login page
     return this.router.url === '/login';
   }
-
+  home() {
+    // Check if the current route is the login page
+    this.router.navigate(['/landing-page']);
+  }
+  // onSubmit() {
+  //   this.authAPI.setLoggedInStatus(true);
+  //   this.router.navigate(['/landing-page']);
+  // }
   onSubmit() {
     if (this.loginForm.valid) {
       // Set loading to true to show loading indicator
@@ -67,7 +75,7 @@ export class LoginPage implements OnInit, OnDestroy {
 
             this.showSuccessAlert();
 
-            this.router.navigate(['/folder/inbox']);
+            this.router.navigate(['/landing-page']);
           },
           (error) => {
             // Handle login error
@@ -93,11 +101,11 @@ export class LoginPage implements OnInit, OnDestroy {
     });
   }
 
-  showUnsuccessfulAlert() {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error!',
-      text: 'Something went wrong. Please try again.',
-    });
-  }
+  // showUnsuccessfulAlert() {
+  //   Swal.fire({
+  //     icon: 'error',
+  //     title: 'Error!',
+  //     text: 'Something went wrong. Please try again.',
+  //   });
+  // }
 }
