@@ -36,15 +36,6 @@ export class ForgotPasswordPage implements OnInit {
   scrollContent(): void {
     this.content.nativeElement.scrollIntoView();
   }
-  constructor(
-    private formBuilder: FormBuilder,
-    private api: APIService,
-    private router: Router
-  ) {
-    this.userForm = this.formBuilder.group({
-      Email: ['', [Validators.required, this.emailValidator]],
-    });
-  }
   emailValidator(control: any) {
     if (control.value) {
       const matches = control.value.match(
@@ -55,17 +46,25 @@ export class ForgotPasswordPage implements OnInit {
       return null;
     }
   }
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: APIService,
+    private router: Router
+  ) {
+    this.userForm = this.formBuilder.group({
+      Email: ['', [Validators.required, this.emailValidator]],
+    });
+  }
+
   onSubmit() {
     this.submitted = true;
 
-    debugger;
     var body = {
       Email: this.userForm.controls['Email'].value,
     };
-    debugger;
+
     console.log('BODY:', body);
     if (this.userForm.invalid) {
-      debugger;
       return;
     } else {
       this.api.RequestPasswordReset(body).subscribe((data: any) => {

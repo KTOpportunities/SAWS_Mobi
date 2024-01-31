@@ -16,29 +16,16 @@
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="top-nav-div">
               <div class="div-block-12">
-                <img
-                  src="../assets/Profile.jpg"
-                  loading="lazy"
-                  sizes="100vw"
-                  srcset="
-                    ../assets/Profile-p-500.jpg   500w,
-                    ../assets/Profile-p-800.jpg   800w,
-                    ../assets/Profile-p-1080.jpg 1080w,
-                    ../assets/Profile-p-1600.jpg 1600w,
-                    ../assets/Profile-p-2000.jpg 2000w,
-                    ../assets/Profile-p-2600.jpg 2600w,
-                    ../assets/Profile-p-3200.jpg 3200w,
-                    ../assets/Profile.jpg        3973w
-                  "
-                  alt=""
-                  class="image-3"
-                />
+                <img src="" class="image-3" />
               </div>
             </div>
 
             <ul role="list" class="nav-menu-two w-list-unstyled">
-              <li class="list-item">
-                <a href="#" class="nav-link">Home</a>
+              <li class="list-item" *ngIf="isLoggedIn">
+                <a [routerLink]="['/landing-page']" class="nav-link">Home</a>
+              </li>
+              <li class="list-item" *ngIf="!isLoggedIn">
+                <a [routerLink]="['/landing-page']" class="nav-link">Home</a>
               </li>
               <li class="list-item2">
                 <div class="w-form">
@@ -61,7 +48,9 @@
                       <option value="Aviation Code">Aviation Code</option>
                       <option value="Contact Us">Contact Us</option>
                       <option value="Related Links">Related Links</option>
-                      <option value="News">News</option>
+                      <option value="News" *ngIf="isLoggedIn == true">
+                        News
+                      </option>
                       <option value="Provide Feedback">Provide Feedback</option>
                       <option value="Subscription Packages">
                         Subscription Packages
