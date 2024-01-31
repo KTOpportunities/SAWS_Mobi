@@ -72,10 +72,15 @@ export class LoginPage implements OnInit, OnDestroy {
         .subscribe(
           (response) => {
             console.log('RESPONSE:', response);
+            console.log('RESPONSE Role:', response.rolesList);
 
-            this.showSuccessAlert();
-
-            this.router.navigate(['/landing-page']);
+            ('rolesList Subscriber');
+            if (response.rolesList == 'Subscriber') {
+              this.authAPI.setLoggedInStatus(true);
+              this.router.navigate(['/landing-page']);
+            } else {
+              this.errorMessage = 'You are not a Subscriber';
+            }
           },
           (error) => {
             // Handle login error
@@ -93,19 +98,4 @@ export class LoginPage implements OnInit, OnDestroy {
         });
     }
   }
-  showSuccessAlert() {
-    Swal.fire({
-      icon: 'success',
-      title: 'Success!',
-      text: 'You added new user successfully.',
-    });
-  }
-
-  // showUnsuccessfulAlert() {
-  //   Swal.fire({
-  //     icon: 'error',
-  //     title: 'Error!',
-  //     text: 'Something went wrong. Please try again.',
-  //   });
-  // }
 }

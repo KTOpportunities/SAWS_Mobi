@@ -1485,8 +1485,14 @@
 }
 
 @media screen and (max-width: 479px) {
+  .left-aligned-menu-button {
+    float: left;
+    margin-left: 80%;
+    color: #fff;
+    width: 80%;
+  }
   .image {
-    margin-top: 99px;
+    margin-top: 51px;
     padding-top: 0;
   }
 
@@ -1512,7 +1518,7 @@
   }
 
   .bottomdiv {
-    margin-top: 0;
+    margin-top: 163px;
     margin-bottom: 0;
   }
 

@@ -1,6 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../app/services/auth.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -28,7 +30,11 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
   isLogged: boolean = false;
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private sanitizer: DomSanitizer
+  ) {}
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }
@@ -47,7 +53,8 @@ export class AppComponent {
         this.router.navigate(['/contact-us']);
         break;
       case 'Related Links':
-        this.router.navigate(['/login']);
+        window.location.href = 'http://aviation.weathersa.co.za/#links';
+
         break;
       case 'News':
         this.router.navigate(['/news']);
@@ -59,15 +66,14 @@ export class AppComponent {
         this.router.navigate(['/subscription-package']);
         break;
       case 'Terms and Conditions':
-        this.router.navigate(['/login']);
+        window.location.href =
+          'http://aviation.weathersa.co.za/#termsAndConditions';
         break;
       case 'POPIA':
-        this.router.navigate(['/login']);
+        window.location.href = 'http://www.weathersa.co.za/home/popia';
         break;
-      // Add more cases for other options
 
       default:
-        // Do nothing or handle default case
         break;
     }
   }

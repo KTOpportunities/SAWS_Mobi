@@ -1895,14 +1895,20 @@
 }
 
 @media screen and (max-width: 479px) {
+  .left-aligned-menu-button {
+    float: left;
+    margin-left: 80%;
+    color: #fff;
+    width: 80%;
+  }
   .image {
-    margin-top: 13px;
+    margin-top: 51px;
     padding-top: 0;
     height: auto;
   }
 
   .div-block-2 {
-    margin-top: -110px;
+    margin-top: -173px;
   }
 
   .div-block-3 {
@@ -2269,9 +2275,18 @@
   #w-node-_98a40e1d-dd8c-3085-b8fc-2c6e0851cc2f-847dc521 {
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
+  .contact {
+    margin-bottom: 20px;
+    overflow-y: auto;
+  }
   .image {
-    margin-top: 62px;
+    margin-top: 51px;
     padding-top: 0;
     height: 100%;
+  }
+  .bottomdiv {
+    position: fixed;
+    top: 644px;
+    left: 0;
   }
 }

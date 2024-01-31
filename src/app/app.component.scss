@@ -842,13 +842,18 @@ ion-menu-button {
 .menu-button {
   padding: 10px;
 }
-
+.sideBar {
+  color: #fff;
+  margin-left: 147px;
+}
 .icon {
   color: #fff;
   font-size: 50px;
   line-height: 30px;
 }
-
+.list {
+  align-items: flex-start;
+}
 .list-item {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -1293,7 +1298,7 @@ ion-menu-button {
 
   .bottom-nav-div {
     height: 21vh;
-    margin-top: 52px;
+    margin-top: 272px;
   }
 
   .div-block-12 {
@@ -1328,6 +1333,7 @@ ion-menu-button {
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
 }
+
 .w-layout-grid {
   grid-row-gap: 16px;
   grid-column-gap: 16px;
@@ -2502,7 +2508,19 @@ ion-menu-button {
 }
 
 @media screen and (max-width: 479px) {
+  .list-item {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: -132px;
+  }
+  .bottom-nav-div {
+    height: 21vh;
+    margin-top: 244px;
+  }
   #w-node-af071feb-0e36-aeae-49b6-c57e5055a218-847dc521 {
     grid-area: span 1 / span 1 / span 1 / span 1;
+  }
+  .nav-menu-two.w-list-unstyled {
+    text-align: left !important;
   }
 }

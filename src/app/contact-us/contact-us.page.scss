@@ -1178,6 +1178,9 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  margin-bottom: -900px;
+  overflow-y: auto;
+  height: 80%;
 }
 
 .div-block-27 {
@@ -1567,6 +1570,7 @@
 
   .contact {
     margin-bottom: 20px;
+    margin-top: -249px;
   }
 
   .news,
@@ -1895,8 +1899,29 @@
 }
 
 @media screen and (max-width: 479px) {
+  .feedback-div {
+    box-sizing: border-box;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .heading-12 {
+    font-size: 16px;
+    line-height: 31px;
+    margin-bottom: 2px;
+    color: #000;
+  }
+  .columns-2 {
+    flex-direction: column;
+    margin-top: 133px;
+  }
+  .left-aligned-menu-button {
+    float: left;
+    margin-left: 80%;
+    color: #fff;
+    width: 80%;
+  }
   .image {
-    margin-top: 13px;
+    margin-top: 51px;
     padding-top: 0;
     height: auto;
   }
@@ -1923,8 +1948,9 @@
   }
 
   .bottomdiv {
-    margin-top: 10px;
+    margin-top: 168%;
     margin-bottom: 0;
+    position: fixed;
   }
 
   .div-block-5 {
@@ -2268,10 +2294,5 @@
   }
   #w-node-_98a40e1d-dd8c-3085-b8fc-2c6e0851cc2f-847dc521 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-  }
-  .image {
-    margin-top: 62px;
-    padding-top: 0;
-    height: 100%;
   }
 }

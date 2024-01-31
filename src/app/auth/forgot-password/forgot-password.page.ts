@@ -11,6 +11,7 @@ import {
   Validators,
   AbstractControl,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { APIService } from 'src/app/services/apis.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -35,7 +36,11 @@ export class ForgotPasswordPage implements OnInit {
   scrollContent(): void {
     this.content.nativeElement.scrollIntoView();
   }
-  constructor(private formBuilder: FormBuilder, private api: APIService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: APIService,
+    private router: Router
+  ) {
     this.userForm = this.formBuilder.group({
       Email: ['', [Validators.required, this.emailValidator]],
     });
@@ -67,10 +72,8 @@ export class ForgotPasswordPage implements OnInit {
         debugger;
         console.log('SAVED:', data);
 
-        debugger;
-        this.showSuccessAlert();
+        this.router.navigate(['forgot-password']);
         this.statusMessage = true;
-        
       });
     }
   }

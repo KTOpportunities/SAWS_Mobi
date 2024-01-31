@@ -1053,6 +1053,9 @@
   .bottomdiv {
     margin-top: 73px;
   }
+  .left-aligned-menu-button {
+    float: left;
+  }
 
   .div-block-5 {
     margin-top: -53px;
@@ -1182,5 +1185,11 @@
 @media screen and (max-width: 479px) {
   #w-node-af071feb-0e36-aeae-49b6-c57e5055a218-847dc521 {
     grid-area: span 1 / span 1 / span 1 / span 1;
+  }
+  .left-aligned-menu-button {
+    float: left;
+    margin-left: 80%;
+    color: #fff;
+    width: 80%;
   }
 }

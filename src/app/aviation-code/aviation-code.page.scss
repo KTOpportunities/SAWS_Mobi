@@ -1435,6 +1435,7 @@
     height: auto;
     margin-top: 0;
     padding-top: 0;
+    margin-top: 78px;
   }
 
   .div-block-2 {
@@ -1900,7 +1901,12 @@
     padding-top: 0;
     height: auto;
   }
-
+  .left-aligned-menu-button {
+    float: left;
+    margin-left: 80%;
+    color: #fff;
+    width: 80%;
+  }
   .div-block-2 {
     margin-top: -110px;
   }
@@ -1923,7 +1929,7 @@
   }
 
   .bottomdiv {
-    margin-top: 10px;
+    margin-top: 163px;
     margin-bottom: 0;
   }
 
@@ -1967,18 +1973,6 @@
 
   .prev {
     width: auto;
-  }
-
-  .forgot-password {
-    border-color: #8f2d1b;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .forgot-password-field {
-    width: 79vw;
   }
 
   .grid-4 {
@@ -2267,7 +2261,7 @@
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
   .image {
-    margin-top: 111px;
+    margin-top: 78px;
     padding-top: 0;
     height: auto;
   }
