@@ -1,5 +1,5 @@
 <div *ngIf="loading" class="loading-indicator">Loading...</div>
-<section class="section" *ngIf="currentStep === 1">
+<!-- <section class="section" *ngIf="currentStep === 1">
   <div class="div-block-2">
     <img
       src="/assets/Path-3452.svg"
@@ -111,12 +111,7 @@
             data-wait="Please wait..."
             class="continueb w-button"
           />
-          <!-- <input
-          type="submit"
-          value="Continue&gt;&gt;"
-          data-wait="Please wait..."
-          class="continueb w-button"
-        /> -->
+         
         </div>
         <div style="color: green" *ngIf="statusMessage">
           <div>Thank you! You have sussessfully registered!</div>
@@ -230,4 +225,134 @@
       <h4 class="footertext">Step 2 of 2</h4>
     </div>
   </div>
-</section>
+</section> -->
+<ion-content>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <section class="section" *ngIf="currentStep === 1">
+    <div class="div-block-2">
+      <img
+        src="../../../assets/Path-3452.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+    </div>
+    <div class="div-block">
+      <img
+        src="../../../assets/Mask-Group-33x.png"
+        loading="lazy"
+        width="212"
+        alt=""
+        class="mobile-images"
+      />
+    </div>
+    <div class="login-for">
+      <h2 class="login">Register</h2>
+      <h5 class="createlinktext">Required fields are marked with an (*)</h5>
+      <div class="w-form w-form2">
+        <form
+          id="email-form"
+          name="email-form"
+          data-name="Email Form"
+          method="get"
+          data-wf-page-id="659546cee040424c6fb9ee30"
+          data-wf-element-id="a22b6f92-06b8-59c2-8d8f-87fd0ef75429"
+        >
+          <div class="w-layout-grid grid-2">
+            <div
+              id="w-node-b12f6374-1320-16d1-1054-374cc200f0b3-6fb9ee30"
+              class="div-block-31"
+            >
+              <label for="name-2" class="registerlabel">Full Name (*)</label
+              ><input
+                class="registerfield w-input"
+                maxlength="256"
+                name="name-2"
+                data-name="Name 2"
+                placeholder="Type your full name"
+                type="text"
+                id="name-2"
+                required=""
+                formControlName="Fullname"
+              />
+            </div>
+            <div id="w-node-_1162ffd6-f7de-04e5-2c9d-77b81f0dc4da-6fb9ee30">
+              <label for="name-2" class="registerlabel">Email Address (*)</label
+              ><input
+                class="registerfield w-input"
+                maxlength="256"
+                name="name-2"
+                data-name="Name 2"
+                placeholder="Type your email address"
+                type="email"
+                id="name-2"
+                required=""
+                formControlName="Email"
+              />
+            </div>
+            <div id="w-node-ccdda937-ce5c-ac70-b522-fdf10dd22378-6fb9ee30">
+              <label for="name-2" class="registerlabel">Password (*)</label
+              ><input
+                class="registerfield w-input"
+                maxlength="256"
+                name="name-2"
+                data-name="Name 2"
+                placeholder="Type your password"
+                type="text"
+                id="name-2"
+                required=""
+                formControlName="Password"
+              />
+            </div>
+            <div id="w-node-_3131fc65-a7a7-d863-b1d4-1a1adb54aca2-6fb9ee30">
+              <label for="name-2" class="registerlabel"
+                >Confirm Passwords (*)</label
+              ><input
+                class="registerfield w-input"
+                maxlength="256"
+                name="name-2"
+                data-name="Name 2"
+                placeholder="Re-type your password"
+                type="text"
+                id="name-2"
+                required=""
+                formControlName="ConfirmPassword"
+              />
+              <div *ngIf="confirmPasswordHasError()" class="error-message">
+                Passwords do not match
+              </div>
+            </div>
+          </div>
+          <div class="div-block-6">
+            <input
+              type="submit"
+              data-wait="Please wait..."
+              class="continueb w-button"
+              value="Subscribe"
+            />
+          </div>
+        </form>
+        <div class="w-form-done" style="color: green" *ngIf="statusMessage">
+          <div>Thank you! Your submission has been received!</div>
+        </div>
+        <!-- <div class="w-form-fail" style="color: green" *ngIf="statusMessage">
+        <div>Oops! Something went wrong while submitting the form.</div>
+      </div> -->
+      </div>
+      <a href="" class="link-block w-inline-block">
+        <h5 class="createlinktext">
+          Already have an account? <a href="/login">Login</a>
+        </h5>
+      </a>
+    </div>
+    <div class="bottomdiv2">
+      <img
+        src="/assets/Path-3447.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+    </div></section
+></ion-content>

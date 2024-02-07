@@ -79,6 +79,7 @@ export class LoginPage implements OnInit, OnDestroy {
               this.authAPI.setLoggedInStatus(true);
               this.router.navigate(['/landing-page']);
               sessionStorage.setItem('userData', JSON.stringify(response));
+              this.userData = response;
             } else {
               this.errorMessage = 'You are not a Subscriber';
             }

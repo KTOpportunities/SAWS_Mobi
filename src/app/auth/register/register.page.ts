@@ -26,7 +26,7 @@ export class RegisterPage implements OnInit {
   errorMessage: string | null = null;
   successMessage: string | null = null;
   loading = false;
-  statusMessage=false;
+  statusMessage = false;
   @HostListener('window:resize', ['$event'])
   onResize(event: any): void {
     // Adjust your layout here based on the window size
@@ -81,8 +81,7 @@ export class RegisterPage implements OnInit {
         if (data.Status === 'Success') {
           debugger;
           this.showSuccessAlert();
-          this.statusMessage=true;
-         
+          this.statusMessage = true;
         }
       });
     }
@@ -118,5 +117,30 @@ export class RegisterPage implements OnInit {
   submitForm() {
     this.showSuccessAlert();
     console.log('Form submitted!');
+  }
+  passwordMatchValidator(
+    control: AbstractControl
+  ): { [key: string]: boolean } | null {
+    const password = control.get('Password');
+    const confirmPassword = control.get('ConfirmPassword');
+
+    if (
+      password &&
+      confirmPassword &&
+      password.value !== confirmPassword.value
+    ) {
+      return { passwordMismatch: true };
+    }
+
+    return null;
+  }
+  confirmPasswordHasError() {
+    const confirmPasswordControl = this.userForm.get('ConfirmPassword');
+    return (
+      confirmPasswordControl &&
+      confirmPasswordControl.errors &&
+      confirmPasswordControl.errors['passwordMismatch'] &&
+      confirmPasswordControl.dirty
+    );
   }
 }

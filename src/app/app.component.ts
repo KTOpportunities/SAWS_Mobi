@@ -2,6 +2,10 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../app/services/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +13,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-
-
+  userDetails: any;
   logout() {
     this.authService.setLoggedInStatus(false);
     this.router.navigate(['/login']);
@@ -27,43 +30,37 @@ export class AppComponent {
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }
-
-  onDropdownChange(event: any) {
-    const selectedValue = event.target.value;
-
-    switch (selectedValue) {
-      case 'About us':
-        this.router.navigate(['/login']);
-        break;
-      case 'Aviation Code':
-        this.router.navigate(['/aviation-code']);
-        break;
-      case 'Contact Us':
-        this.router.navigate(['/contact-us']);
-        break;
-      case 'Related Links':
-        window.location.href = 'http://aviation.weathersa.co.za/#links';
-
-        break;
-      case 'News':
-        this.router.navigate(['/news']);
-        break;
-      case 'Provide Feedback':
-        this.router.navigate(['/provide-feedback']);
-        break;
-      case 'Subscription Packages':
-        this.router.navigate(['/subscription-package']);
-        break;
-      case 'Terms and Conditions':
-        window.location.href =
-          'http://aviation.weathersa.co.za/#termsAndConditions';
-        break;
-      case 'POPIA':
-        window.location.href = 'http://www.weathersa.co.za/home/popia';
-        break;
-
-      default:
-        break;
+  ngOnInit() {
+    const userDetailsString = sessionStorage.getItem('userData');
+    if (userDetailsString) {
+      this.userDetails = JSON.parse(userDetailsString);
+      console.log('USER DETAILS:', this.userDetails);
+      console.log('USER DETAILS:', this.userDetails.aspUserName);
     }
+  }
+  aviationcode() {
+    this.router.navigate(['/aviation-code']);
+  }
+  contactUs() {
+    this.router.navigate(['/contact-us']);
+  }
+  relatedLink() {
+    window.location.href = 'http://aviation.weathersa.co.za/#links';
+  }
+  news() {
+    this.router.navigate(['/news']);
+  }
+  provideFeedback() {
+    this.router.navigate(['/provide-feedback']);
+  }
+  subscriptionPackage() {
+    this.router.navigate(['/subscription-package']);
+  }
+  termsAndCondition() {
+    window.location.href =
+      'http://aviation.weathersa.co.za/#termsAndConditions';
+  }
+  POPIA() {
+    window.location.href = 'http://www.weathersa.co.za/home/popia';
   }
 }

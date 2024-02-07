@@ -5,9 +5,8 @@ const config: CapacitorConfig = {
   appName: 'SAWSMOBILE',
   webDir: 'www',
   server: {
-    androidScheme: 'https'
-  }
-
+    androidScheme: 'http',
+  },
 };
 
 export default config;

@@ -23,6 +23,7 @@ export class AuthService {
     );
   }
   private isLoggedIn = false;
+  
 
   getIsLoggedIn(): boolean {
     return this.isLoggedIn;
