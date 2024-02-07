@@ -111,7 +111,6 @@
             data-wait="Please wait..."
             class="continueb w-button"
           />
-         
         </div>
         <div style="color: green" *ngIf="statusMessage">
           <div>Thank you! You have sussessfully registered!</div>
@@ -250,8 +249,10 @@
     <div class="login-for">
       <h2 class="login">Register</h2>
       <h5 class="createlinktext">Required fields are marked with an (*)</h5>
-      <div class="w-form w-form2">
+      <div class="w-form" #content>
         <form
+          [formGroup]="userForm"
+          (ngSubmit)="onSubmit()"
           id="email-form"
           name="email-form"
           data-name="Email Form"
@@ -260,32 +261,43 @@
           data-wf-element-id="a22b6f92-06b8-59c2-8d8f-87fd0ef75429"
         >
           <div class="w-layout-grid grid-2">
-            <div
-              id="w-node-b12f6374-1320-16d1-1054-374cc200f0b3-6fb9ee30"
-              class="div-block-31"
-            >
+            <div id="w-node-b12f6374-1320-16d1-1054-374cc200f0b3-6fb9ee30">
               <label for="name-2" class="registerlabel">Full Name (*)</label
               ><input
+                type="text"
                 class="registerfield w-input"
                 maxlength="256"
                 name="name-2"
                 data-name="Name 2"
                 placeholder="Type your full name"
-                type="text"
                 id="name-2"
                 required=""
                 formControlName="Fullname"
               />
             </div>
+            <div id="w-node-b12f6374-1320-16d1-1054-374cc200f0b3-6fb9ee30">
+              <label for="name-2" class="registerlabel">Username (*)</label
+              ><input
+                type="text"
+                class="registerfield w-input"
+                maxlength="256"
+                name="name-2"
+                data-name="Name 2"
+                placeholder="Type your Username"
+                id="name-2"
+                required=""
+                formControlName="Username"
+              />
+            </div>
             <div id="w-node-_1162ffd6-f7de-04e5-2c9d-77b81f0dc4da-6fb9ee30">
               <label for="name-2" class="registerlabel">Email Address (*)</label
               ><input
+                type="email"
                 class="registerfield w-input"
                 maxlength="256"
                 name="name-2"
                 data-name="Name 2"
                 placeholder="Type your email address"
-                type="email"
                 id="name-2"
                 required=""
                 formControlName="Email"
@@ -294,12 +306,12 @@
             <div id="w-node-ccdda937-ce5c-ac70-b522-fdf10dd22378-6fb9ee30">
               <label for="name-2" class="registerlabel">Password (*)</label
               ><input
+                type="password"
                 class="registerfield w-input"
                 maxlength="256"
                 name="name-2"
                 data-name="Name 2"
                 placeholder="Type your password"
-                type="text"
                 id="name-2"
                 required=""
                 formControlName="Password"
@@ -309,36 +321,29 @@
               <label for="name-2" class="registerlabel"
                 >Confirm Passwords (*)</label
               ><input
+                type="password"
                 class="registerfield w-input"
                 maxlength="256"
                 name="name-2"
                 data-name="Name 2"
                 placeholder="Re-type your password"
-                type="text"
                 id="name-2"
                 required=""
-                formControlName="ConfirmPassword"
               />
-              <div *ngIf="confirmPasswordHasError()" class="error-message">
-                Passwords do not match
-              </div>
             </div>
           </div>
           <div class="div-block-6">
             <input
               type="submit"
+              value="Subscribe"
               data-wait="Please wait..."
               class="continueb w-button"
-              value="Subscribe"
             />
           </div>
+          <div style="color: green" *ngIf="statusMessage">
+            <div>Thank you! You have sussessfully registered!</div>
+          </div>
         </form>
-        <div class="w-form-done" style="color: green" *ngIf="statusMessage">
-          <div>Thank you! Your submission has been received!</div>
-        </div>
-        <!-- <div class="w-form-fail" style="color: green" *ngIf="statusMessage">
-        <div>Oops! Something went wrong while submitting the form.</div>
-      </div> -->
       </div>
       <a href="" class="link-block w-inline-block">
         <h5 class="createlinktext">

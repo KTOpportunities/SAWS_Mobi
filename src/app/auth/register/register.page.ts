@@ -11,6 +11,7 @@ import {
   Validators,
   AbstractControl,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { APIService } from 'src/app/services/apis.service';
 import Swal from 'sweetalert2';
 
@@ -37,7 +38,11 @@ export class RegisterPage implements OnInit {
   scrollContent(): void {
     this.content.nativeElement.scrollIntoView();
   }
-  constructor(private formBuilder: FormBuilder, private api: APIService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: APIService,
+    private router: Router
+  ) {
     this.userForm = this.formBuilder.group({
       Fullname: ['', Validators.required],
       Username: ['', Validators.required],
@@ -80,7 +85,8 @@ export class RegisterPage implements OnInit {
         // this.nextStep();
         if (data.Status === 'Success') {
           debugger;
-          this.showSuccessAlert();
+
+          this.router.navigate(['register']);
           this.statusMessage = true;
         }
       });

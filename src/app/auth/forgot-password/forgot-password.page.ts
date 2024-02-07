@@ -99,9 +99,8 @@ export class ForgotPasswordPage implements OnInit {
           debugger;
           console.log('SAVED:', data);
 
-          this.router.navigate(['forgot-password']);
+          this.router.navigate([this.router.url]);
           this.statusMessage = true;
-          this.showSuccessAlert();
         },
         (error) => {
           console.error('Error:', error);
@@ -112,7 +111,7 @@ export class ForgotPasswordPage implements OnInit {
             error.error.response === 'Invalid email'
           ) {
             debugger;
-            this.router.navigate(['forgot-password']);
+            this.router.navigate(['/forgot-password']);
             // Handle the case when the email doesn't exist
             this.errorMgs = 'The provided email does not exist.';
           } else {

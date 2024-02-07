@@ -1861,12 +1861,12 @@
   }
 
   .list-page {
-    margin-top: -114px;
     position: static;
     top: 0%;
     bottom: 0%;
     left: 0%;
     right: 0%;
+    margin-top: 16px !important;
   }
 
   .colour-coded-tafs-page {
@@ -2442,13 +2442,20 @@
   .bottomdivlogin {
     margin-top: 152px;
   }
-  .bottomdiv2 {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-top: 20px;
+
+  .alllinks {
+    color: #00386c;
+    font-size: 20px;
+    font-weight: 1000; /* Adjust the value for desired thickness */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
-  .div-block-5 {
-    margin-top: -72px;
+  .field-label,
+  .field-label-2 {
+    margin-bottom: 15px; /* Adjust the value as needed */
+  }
+
+  .text-field {
+    margin-bottom: 15px; /* Adjust the value as needed */
   }
 
   .mobile-images {
@@ -2483,6 +2490,21 @@
   .continueb {
     width: 75vw;
   }
+  // .div-block-2 {
+  //   position: fixed;
+  // }
+
+  // .bottomdiv2 {
+  //   margin-top: 2px;
+  //   position: sticky;
+  // }
+  // .bottomdiv {
+  //   position: sticky;
+  //   //   bottom: 0;
+  //   //   width: 100%;
+  //   //   background-color: #fff; /* Add background color if needed */
+  //   z-index: 999; /* Ensure it's above other content */
+  // }
 
   .grid-3 {
     flex-direction: row;
@@ -2748,6 +2770,7 @@
   .contact {
     padding-left: 0;
     padding-right: 0;
+    margin-top: 91px;
   }
 
   .heading-14,
