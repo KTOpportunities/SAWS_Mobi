@@ -291,7 +291,7 @@
 //   justify-self: end;
 // }
 .bottomdivlogin {
-  margin-top: 135px;
+  margin-top: 210px;
 }
 .div-block-5 {
   justify-content: center;
@@ -301,4 +301,8 @@
 }
 .linkspace {
   margin-left: 4px;
+}
+#mainsection{
+  overflow-y: clip !important;
+  overscroll-behavior-y: none !important;
 }
