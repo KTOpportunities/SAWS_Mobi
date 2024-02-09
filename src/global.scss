@@ -63,6 +63,19 @@
   color: blue;
   font-size: x-large;
 }
+#feedback-heading{
+  position: relative;
+  top: 20px;
+}
+#email-form1{
+  position: relative;
+  top: 48px;
+}
+#field4{
+  position: relative;
+  bottom: 45px;
+  left: 5px;
+}
 .left-aligned-menu-button {
   float: left;
   margin-left: 80%;
@@ -77,6 +90,10 @@
   margin-bottom: 5px;
   padding-left: 20px;
   display: block;
+}
+#submitbutton{
+  width: 40%;
+  margin-left: 43% !important;
 }
 
 .w-checkbox:before {
@@ -219,6 +236,8 @@
   font-family: Open Sans, sans-serif;
   font-size: 12px;
   font-weight: 600;
+  position: relative;
+  top: 3px;
 }
 
 .div-block-4 {
@@ -239,6 +258,7 @@
 .forgotpassword {
   font-size: 12px;
   text-decoration: underline;
+  margin-right: 0px;
 }
 
 .createlinktext {
@@ -281,7 +301,9 @@
   padding: 10px 40px;
   box-shadow: 0 2px 5px 6px rgba(0, 0, 0, 0.2);
 }
-
+#mainsection{
+  margin-top: 10px;
+}
 .footerdiv {
   justify-content: center;
   align-items: center;
@@ -420,6 +442,8 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  position: relative;
+    top: 5px;
 }
 
 .forgot-password {
@@ -544,6 +568,9 @@
   align-items: center;
   padding: 20px;
   display: flex;
+}
+#name{
+  margin-left: 4px;
 }
 
 .navbar-logo-left-container {
@@ -2040,6 +2067,8 @@
     margin-right: 16px;
     padding-left: 40px;
     padding-right: 20px;
+    position: relative;
+    top: 20px;
   }
 
   .registerlabel {
@@ -2455,7 +2484,7 @@
   }
 
   .text-field {
-    margin-bottom: 15px; /* Adjust the value as needed */
+    margin-bottom: 7px; /* Adjust the value as needed */
   }
 
   .mobile-images {
@@ -2949,6 +2978,7 @@
 #w-node-_5a2d7d19-0969-1d91-ec5c-ff2a96283cf6-b367414f {
   grid-area: span 1 / span 1 / span 1 / span 1;
   justify-self: end;
+  padding-right: 6px;
 }
 
 #w-node-b12f6374-1320-16d1-1054-374cc200f0b3-6fb9ee30,
