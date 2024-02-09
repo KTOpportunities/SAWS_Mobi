@@ -106,15 +106,27 @@
     </div>
   </div>
 </section> -->
-<ion-content id="mainsection">
+<ion-content>
   <div *ngIf="loading" class="loading-indicator">Loading...</div>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <section class="section"id="mainsection">
+  <section class="section">
     <div class="div-block-2">
-      <img src="/assets/Path-3452.svg" loading="lazy" width="1216" alt="" class="image" />
+      <img
+        src="/assets/Path-3452.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
     </div>
     <div class="div-block">
-      <img src="/assets/Mask-Group-33x.png" loading="lazy" width="212" alt="" class="mobile-images" />
+      <img
+        src="/assets/Mask-Group-33x.png"
+        loading="lazy"
+        width="212"
+        alt=""
+        class="mobile-images"
+      />
     </div>
     <div class="login-for">
       <div class="w-form">
@@ -141,18 +153,44 @@
             required=""
             formControlName="username"
           />
+          <div
+            *ngIf="loginForm.get('username')?.invalid && loginForm.get('username') && submitted==true"
+            class="error-message"
+          >
+            Username is required.
+          </div>
           <label for="field" class="field-label-2">Password</label>
-          <input
-            class="text-field w-input"
-            maxlength="256"
-            name="field"
-            data-name=""
-            placeholder="Type your Password"
-            type="password"
-            id="field"
-            required=""
-            formControlName="password"
-          />
+          <div class="password-container">
+            <input
+              class="text-field w-input"
+              maxlength="256"
+              name="field"
+              data-name=""
+              placeholder="Type your Password"
+              type="{{ showPassword ? 'text' : 'password' }}"
+              id="field"
+              required=""
+              formControlName="password"
+            />
+            <span class="toggle-password">
+              <i
+                class="fas"
+                [class.fa-eye]="showPassword"
+                [class.fa-eye-slash]="!showPassword"
+                (click)="togglePasswordVisibility()"
+              ></i>
+            </span>
+            <div
+              *ngIf="loginForm.get('password')?.invalid && loginForm.get('password') && submitted==true"
+              class="error-message"
+            >
+              Password is required.
+            </div>
+            <div *ngIf="errorMessage" class="error-message">
+              {{ errorMessage }}
+            </div>
+          </div>
+
           <div class="w-layout-grid grid">
             <div id="w-node-_6e6af7e3-63da-7985-a081-2b45a0e94176-b367414f">
               <label class="w-checkbox checkbox-field">
@@ -163,11 +201,18 @@
                   data-name="Checkbox"
                   class="w-checkbox-input"
                 />
-                <span class="checkbox-label w-form-label" for="checkbox">Remember Me</span>
+                <span class="checkbox-label w-form-label" for="checkbox"
+                  >Remember Me</span
+                >
               </label>
             </div>
-            <div id="w-node-_5a2d7d19-0969-1d91-ec5c-ff2a96283cf6-b367414f" class="div-block-4">
-              <a href="/forgot-password" class="forgotpassword">Forgot Password</a>
+            <div
+              id="w-node-_5a2d7d19-0969-1d91-ec5c-ff2a96283cf6-b367414f"
+              class="div-block-4"
+            >
+              <a href="/forgot-password" class="forgotpassword"
+                >Forgot Password</a
+              >
             </div>
           </div>
           <input
@@ -179,15 +224,29 @@
         </form>
       </div>
       <a href="register-page.html" class="link-block-2 w-inline-block">
-        <h5 class="createlinktext">Need an account? <a href="/register" class="linkspace">Create account</a></h5>
+        <h5 class="createlinktext">
+          Need an account?
+          <a href="/register" class="linkspace">Create account</a>
+        </h5>
       </a>
     </div>
     <div class="bottomdivlogin">
-      <img src="/assets/Path-3447.svg" loading="lazy" width="1216" alt="" class="image" />
+      <img
+        src="/assets/Path-3447.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
       <div class="div-block-5" (click)="home()">
-        <a class="w-inline-block"><img src="/assets/Group-3489.svg" loading="lazy" alt="" /></a>
+        <a class="w-inline-block"
+          ><img src="/assets/Group-3489.svg" loading="lazy" alt=""
+        /></a>
       </div>
     </div>
   </section>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
 </ion-content>
-

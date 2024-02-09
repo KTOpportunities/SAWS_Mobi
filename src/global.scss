@@ -151,6 +151,7 @@
   bottom: 0%;
   left: 0%;
   right: 0%;
+  margin-top: 27px;
 }
 
 .image {
@@ -1293,7 +1294,13 @@
   grid-template-rows: auto auto;
   padding: 10px;
 }
-
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+.linkspace {
+  margin-left: 5px;
+}
 .grid-13 {
   grid-template-columns: 1fr;
 }
@@ -1811,7 +1818,7 @@
 
   .login-for {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
   }
 
   .subscribe,

@@ -116,7 +116,7 @@ export class ForgotPasswordPage implements OnInit {
             this.errorMgs = 'The provided email does not exist.';
           } else {
             // Handle other types of errors
-            this.showUnsuccessfulAlert();
+           
           }
           this.loading = false;
         }
@@ -124,21 +124,6 @@ export class ForgotPasswordPage implements OnInit {
     }
   }
 
-  showSuccessAlert() {
-    Swal.fire({
-      icon: 'success',
-      title: 'Success!',
-      text: 'You added new user successfully.',
-    });
-  }
-
-  showUnsuccessfulAlert() {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error!',
-      text: 'Something went wrong. Please try again.',
-    });
-  }
   onReset() {
     this.submitted = false;
     this.userForm.reset();
@@ -146,7 +131,7 @@ export class ForgotPasswordPage implements OnInit {
   ngOnInit() {}
 
   submitForm() {
-    this.showSuccessAlert();
+ 
     console.log('Form submitted!');
   }
 }

@@ -4,6 +4,7 @@ import {
   HostListener,
   ViewChild,
   ElementRef,
+  Renderer2,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -13,7 +14,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { APIService } from 'src/app/services/apis.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -21,6 +21,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  @ViewChild('userFormRef') userFormRef!: ElementRef;
+  showPassword: boolean = false;
   currentStep: number = 1;
   userForm: FormGroup;
   submitted = false;
@@ -38,20 +40,45 @@ export class RegisterPage implements OnInit {
   scrollContent(): void {
     this.content.nativeElement.scrollIntoView();
   }
+  scrollToForm() {
+    if (this.userFormRef) {
+      this.userFormRef.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }
+
   constructor(
     private formBuilder: FormBuilder,
     private api: APIService,
-    private router: Router
+    private router: Router,
+    private renderer: Renderer2
   ) {
     this.userForm = this.formBuilder.group({
       Fullname: ['', Validators.required],
       Username: ['', Validators.required],
       Email: ['', [Validators.required, this.emailValidator]],
-
-      Password: ['', [Validators.required]],
-      UserRole: ['Subscriber', [Validators.required]],
+      Password: ['', [Validators.required, this.passwordValidator]],
+      ConfirmPassword: ['', Validators.required],
+      UserRole: ['Subscriber', Validators.required],
     });
   }
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword; // Toggle the visibility
+
+    const passwordField = document.getElementById(
+      'Password'
+    ) as HTMLInputElement;
+    const confirmPasswordField = document.getElementById(
+      'ConfirmPassword'
+    ) as HTMLInputElement;
+
+    // Toggle the type of both password fields based on the showPassword flag
+    passwordField.type = this.showPassword ? 'text' : 'password';
+    confirmPasswordField.type = this.showPassword ? 'text' : 'password';
+  }
+
   emailValidator(control: any) {
     if (control.value) {
       const matches = control.value.match(
@@ -62,10 +89,35 @@ export class RegisterPage implements OnInit {
       return null;
     }
   }
+  passwordValidator(
+    control: AbstractControl
+  ): { [key: string]: boolean } | null {
+    const value: string = control.value;
+    const hasCapitalLetter = /[A-Z]/.test(value);
+    const hasSmallLetter = /[a-z]/.test(value);
+    const hasNumber = /\d/.test(value);
+    const isValidLength = value.length >= 8;
+
+    if (!hasCapitalLetter || !hasSmallLetter || !hasNumber || !isValidLength) {
+      return { invalidPassword: true };
+    }
+
+    return null;
+  }
+
   onSubmit() {
     this.submitted = true;
+    this.userForm.markAllAsTouched();
+    this.scrollToForm();
 
-    debugger;
+    const password = this.userForm.controls['Password'].value;
+    const confirmPassword = this.userForm.controls['ConfirmPassword'].value;
+
+    if (password !== confirmPassword) {
+      this.errorMessage = 'Password and confirm password do not match.';
+      return;
+    }
+
     var body = {
       Fullname: this.userForm.controls['Fullname'].value,
       Username: this.userForm.controls['Username'].value,
@@ -73,40 +125,23 @@ export class RegisterPage implements OnInit {
       Password: this.userForm.controls['Password'].value,
       UserRole: this.userForm.controls['UserRole'].value,
     };
-    debugger;
+
     console.log('BODY:', body);
     if (this.userForm.invalid) {
-      debugger;
       return;
     } else {
       this.api.createNewUser(body).subscribe((data: any) => {
-        debugger;
         console.log('SAVED:', data);
         // this.nextStep();
         if (data.Status === 'Success') {
-          debugger;
-
           this.router.navigate(['register']);
           this.statusMessage = true;
+          this.onReset();
         }
       });
     }
   }
-  showSuccessAlert() {
-    Swal.fire({
-      icon: 'success',
-      title: 'Success!',
-      text: 'You added new user successfully.',
-    });
-  }
 
-  showUnsuccessfulAlert() {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error!',
-      text: 'Something went wrong. Please try again.',
-    });
-  }
   onReset() {
     this.submitted = false;
     this.userForm.reset();
@@ -121,32 +156,6 @@ export class RegisterPage implements OnInit {
   }
 
   submitForm() {
-    this.showSuccessAlert();
     console.log('Form submitted!');
-  }
-  passwordMatchValidator(
-    control: AbstractControl
-  ): { [key: string]: boolean } | null {
-    const password = control.get('Password');
-    const confirmPassword = control.get('ConfirmPassword');
-
-    if (
-      password &&
-      confirmPassword &&
-      password.value !== confirmPassword.value
-    ) {
-      return { passwordMismatch: true };
-    }
-
-    return null;
-  }
-  confirmPasswordHasError() {
-    const confirmPasswordControl = this.userForm.get('ConfirmPassword');
-    return (
-      confirmPasswordControl &&
-      confirmPasswordControl.errors &&
-      confirmPasswordControl.errors['passwordMismatch'] &&
-      confirmPasswordControl.dirty
-    );
   }
 }

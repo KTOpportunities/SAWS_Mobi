@@ -291,7 +291,8 @@
 //   justify-self: end;
 // }
 .bottomdivlogin {
-  margin-top: 210px;
+  position: fixed;
+  margin-top: 180%;
 }
 .div-block-5 {
   justify-content: center;
@@ -302,7 +303,14 @@
 .linkspace {
   margin-left: 4px;
 }
-#mainsection{
-  overflow-y: clip !important;
-  overscroll-behavior-y: none !important;
+// #mainsection{
+//   overflow-y: clip !important;
+//   overscroll-behavior-y: none !important;
+// }
+.fas {
+  position: absolute;
+  right: 37px;
+  margin-top: 18px;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
