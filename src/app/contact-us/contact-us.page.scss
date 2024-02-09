@@ -1,6 +1,51 @@
-
 .div-block-28 {
   padding-left: 10px;
   padding-right: 10px;
   margin-top: -111px;
+  overflow-y: scroll;
+}
+.bottomdiv2 {
+  position: fixed;
+  margin-top: 182%;
+}
+.contact-us {
+  margin-top: 14px;
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
+ion-content {
+  position: relative;
+}
+
+.contact-us {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 50px;
+  overflow-y: auto;
+  width: 100%;
+}
+.contact-us .div-block-2 {
+  position: fixed;
+}
+.contact {
+  margin-top: 202px;
+}
+.round-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  margin-top: -128px;
+  margin-left: -204px;
+  margin-bottom: 90px;
+}
+
+.mobile-images {
+  width: 100%;
+  height: 77%;
 }

@@ -1,0 +1,29 @@
+.div-block-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-image,
+.left-aligned-menu-button {
+  width: 50%; /* Each image takes 50% of the container */
+}
+.round-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  margin-top: -128px;
+  margin-left: -204px;
+  margin-bottom: 90px;
+}
+
+.mobile-images {
+  width: 100%;
+  height: 77%;
+}
+.bottomdiv {
+  position: fixed;
+  margin-top: 180%;
+}

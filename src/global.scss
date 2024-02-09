@@ -63,15 +63,15 @@
   color: blue;
   font-size: x-large;
 }
-#feedback-heading{
+#feedback-heading {
   position: relative;
   top: 20px;
 }
-#email-form1{
+#email-form1 {
   position: relative;
   top: 48px;
 }
-#field4{
+#field4 {
   position: relative;
   bottom: 45px;
   left: 5px;
@@ -91,7 +91,7 @@
   padding-left: 20px;
   display: block;
 }
-#submitbutton{
+#submitbutton {
   width: 40%;
   margin-left: 43% !important;
 }
@@ -302,7 +302,7 @@
   padding: 10px 40px;
   box-shadow: 0 2px 5px 6px rgba(0, 0, 0, 0.2);
 }
-#mainsection{
+#mainsection {
   margin-top: 10px;
 }
 .footerdiv {
@@ -444,7 +444,7 @@
   align-items: center;
   display: flex;
   position: relative;
-    top: 5px;
+  top: 5px;
 }
 
 .forgot-password {
@@ -570,7 +570,7 @@
   padding: 20px;
   display: flex;
 }
-#name{
+#name {
   margin-left: 4px;
 }
 
@@ -1805,6 +1805,16 @@
 
   .image-2 {
     margin-top: 29px;
+  }
+  .round-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    margin-top: -128px;
+    margin-left: -204px;
+    margin-bottom: 90px;
   }
 
   .submit-button {
