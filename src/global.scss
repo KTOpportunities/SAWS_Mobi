@@ -610,8 +610,12 @@
 .nav-menu-wrapper {
   height: auto;
   background-color: #fff;
-  background-image: linear-gradient(#00386c 87%, #002b52 67%, white 90%) !important;
-  
+  background-image: linear-gradient(
+    #00386c 87%,
+    #002b52 67%,
+    white 90%
+  ) !important;
+
   // background-image: linear-gradient(#00386c, #002b52 67%, #000);
   margin-top: 0;
   margin-bottom: 0;
@@ -913,7 +917,6 @@
   max-height: 460px; /* Set maximum height */
   -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
 }
-
 
 .heading-5 {
   color: #002f5a;
@@ -2378,7 +2381,7 @@
   }
 
   .news {
-    margin-top: -117px;
+    margin-top: 16px;
   }
 
   .sub-heading {
@@ -2858,7 +2861,7 @@
   }
 
   .news {
-    margin-top: -87px;
+    margin-top: 16px;
   }
 
   .sub-heading {
@@ -2868,7 +2871,10 @@
   .feedback {
     margin-top: 16px;
   }
-
+  .bottomdiv {
+    position: fixed;
+    margin-top: 182%;
+  }
   .field-label-3,
   .field-label-4 {
     font-size: 12px;
