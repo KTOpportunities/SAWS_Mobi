@@ -63,15 +63,15 @@
   color: blue;
   font-size: x-large;
 }
-#feedback-heading{
+#feedback-heading {
   position: relative;
   top: 20px;
 }
-#email-form1{
+#email-form1 {
   position: relative;
   top: 48px;
 }
-#field4{
+#field4 {
   position: relative;
   bottom: 45px;
   left: 5px;
@@ -91,7 +91,7 @@
   padding-left: 20px;
   display: block;
 }
-#submitbutton{
+#submitbutton {
   width: 40%;
   margin-left: 43% !important;
 }
@@ -151,6 +151,7 @@
   bottom: 0%;
   left: 0%;
   right: 0%;
+  margin-top: 27px;
 }
 
 .image {
@@ -301,7 +302,7 @@
   padding: 10px 40px;
   box-shadow: 0 2px 5px 6px rgba(0, 0, 0, 0.2);
 }
-#mainsection{
+#mainsection {
   margin-top: 10px;
 }
 .footerdiv {
@@ -443,7 +444,7 @@
   align-items: center;
   display: flex;
   position: relative;
-    top: 5px;
+  top: 5px;
 }
 
 .forgot-password {
@@ -569,7 +570,7 @@
   padding: 20px;
   display: flex;
 }
-#name{
+#name {
   margin-left: 4px;
 }
 
@@ -609,8 +610,12 @@
 .nav-menu-wrapper {
   height: auto;
   background-color: #fff;
-  background-image: linear-gradient(#00386c 87%, #002b52 67%, white 90%) !important;
-  
+  background-image: linear-gradient(
+    #00386c 87%,
+    #002b52 67%,
+    white 90%
+  ) !important;
+
   // background-image: linear-gradient(#00386c, #002b52 67%, #000);
   margin-top: 0;
   margin-bottom: 0;
@@ -912,7 +917,6 @@
   max-height: 460px; /* Set maximum height */
   -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
 }
-
 
 .heading-5 {
   color: #002f5a;
@@ -1312,7 +1316,13 @@
   grid-template-rows: auto auto;
   padding: 10px;
 }
-
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+.linkspace {
+  margin-left: 5px;
+}
 .grid-13 {
   grid-template-columns: 1fr;
 }
@@ -1818,6 +1828,16 @@
   .image-2 {
     margin-top: 29px;
   }
+  .round-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    margin-top: -128px;
+    margin-left: -204px;
+    margin-bottom: 90px;
+  }
 
   .submit-button {
     width: 30vw;
@@ -1830,7 +1850,7 @@
 
   .login-for {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
   }
 
   .subscribe,
@@ -2361,7 +2381,7 @@
   }
 
   .news {
-    margin-top: -117px;
+    margin-top: 16px;
   }
 
   .sub-heading {
@@ -2841,7 +2861,7 @@
   }
 
   .news {
-    margin-top: -87px;
+    margin-top: 16px;
   }
 
   .sub-heading {
@@ -2851,7 +2871,10 @@
   .feedback {
     margin-top: 16px;
   }
-
+  .bottomdiv {
+    position: fixed;
+    margin-top: 182%;
+  }
   .field-label-3,
   .field-label-4 {
     font-size: 12px;

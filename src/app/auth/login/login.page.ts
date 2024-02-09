@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -17,10 +17,11 @@ export class LoginPage implements OnInit, OnDestroy {
   isMobile: boolean;
   notLogged = false;
   isLogged = false;
+  submitted = false;
   username: string | null = null;
   password: string | null = null;
   userData: any = null;
-
+  showPassword: boolean = false;
   errorMessage: string | null = null;
   successMessage: string | null = null;
   loading = false;
@@ -33,7 +34,8 @@ export class LoginPage implements OnInit, OnDestroy {
     private mediaMatcher: MediaMatcher,
     private authAPI: AuthService,
     private fb: FormBuilder,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private renderer: Renderer2
   ) {
     this.mobileQuery = this.mediaMatcher.matchMedia('(max-width: 600px)');
     this.mobileQueryListener = () => (this.isMobile = this.mobileQuery.matches);
@@ -45,6 +47,11 @@ export class LoginPage implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
+  }
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword; // Toggle the visibility
+    const passwordField = document.getElementById('field') as HTMLInputElement;
+    passwordField.type = this.showPassword ? 'text' : 'password';
   }
 
   private mobileQueryListener: () => void;
@@ -62,6 +69,7 @@ export class LoginPage implements OnInit, OnDestroy {
   //   this.router.navigate(['/landing-page']);
   // }
   onSubmit() {
+    this.submitted = true;
     if (this.loginForm.valid) {
       // Set loading to true to show loading indicator
       this.loading = true;
@@ -71,10 +79,7 @@ export class LoginPage implements OnInit, OnDestroy {
         .login(this.loginForm.value)
         .subscribe(
           (response) => {
-            console.log('RESPONSE:', response);
-            console.log('RESPONSE Role:', response.rolesList);
-
-            ('rolesList Subscriber');
+            
             if (response.rolesList == 'Subscriber') {
               this.authAPI.setLoggedInStatus(true);
               this.router.navigate(['/landing-page']);
@@ -85,10 +90,17 @@ export class LoginPage implements OnInit, OnDestroy {
             }
           },
           (error) => {
-            // Handle login error
-
+          
+            console.log(error);
+            console.log('ERROR MESSAGE:', error.error.Message);
+            if (
+              error.error.Message == 'Please check your password and username'
+            ) {
+              this.errorMessage = 'Invalid username or password';
+              this.router.navigate(['login']);
+            }
             this.notLogged = true;
-            this.errorMessage = 'Invalid username or password';
+
             this.loading = false;
           }
         )
