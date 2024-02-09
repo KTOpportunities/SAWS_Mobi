@@ -10,15 +10,13 @@
         class="image"
       />
     </div>
-    <div class="list-div" *ngIf="isLoggedIn==true">
-      <h1 class="heading-6">Forecast</h1>
+    <div class=""style="overflow-y: auto;max-height: 460px; -ms-overflow-style:none;
+    "
+     [ngClass]="{'applied-styles': !isLoggedIn}" *ngIf="isLoggedIn==true">
+      <h1 class="heading-6" [ngStyle]="{'text-align': isLoggedIn ? 'center' : 'left'}">Forecast</h1>
       <div class="w-layout-grid grid-list">
-        <a
-          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
-          href="#"
-          class="link-block-3 w-inline-block"
-        >
-          <h1 class="heading-5">Color coded SIGMENT/AAAAIRMET,TAF,Warning</h1>
+        <a id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603" href="#" class="link-block-3 w-inline-block">
+          <h1 class="heading-5" >Color coded SIGMENT/AAAAIRMET,TAF,Warning</h1>
         </a>
         <a
           id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
@@ -71,7 +69,10 @@
         </a>
       </div>
     </div>
-    <div class="list-div" *ngIf="isLoggedIn==false">
+
+
+    <div class="list-div" 
+    *ngIf="isLoggedIn==false" >
       <h1 class="heading-6">Forecast</h1>
       <div class="w-layout-grid grid-list">
         <a
