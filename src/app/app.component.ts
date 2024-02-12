@@ -63,4 +63,13 @@ export class AppComponent {
   POPIA() {
     window.location.href = 'http://www.weathersa.co.za/home/popia';
   }
+
+  isLoginPage(): boolean {
+    const currentRoute = this.router.url;
+    return (
+      currentRoute.includes('/login') ||
+      currentRoute.includes('/register') ||
+      currentRoute.includes('/forgot-password')
+    );
+  }
 }
