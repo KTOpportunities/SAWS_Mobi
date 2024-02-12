@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -79,18 +79,18 @@ export class LoginPage implements OnInit, OnDestroy {
         .login(this.loginForm.value)
         .subscribe(
           (response) => {
-            
             if (response.rolesList == 'Subscriber') {
               this.authAPI.setLoggedInStatus(true);
-              this.router.navigate(['/landing-page']);
-              sessionStorage.setItem('userData', JSON.stringify(response));
               this.userData = response;
+              this.authAPI.setUserData(this.userData);
+              console.log('TEST::', this.userData);
+              this.router.navigate(['/landing-page']);
+              // sessionStorage.setItem('userData', JSON.stringify(response));
             } else {
               this.errorMessage = 'You are not a Subscriber';
             }
           },
           (error) => {
-          
             console.log(error);
             console.log('ERROR MESSAGE:', error.error.Message);
             if (
