@@ -12,7 +12,7 @@
     </div> -->
     <div
       class=""
-      style="overflow-y: auto; max-height: 460px; -ms-overflow-style: none"
+      
       [ngClass]="{'applied-styles': !isLoggedIn}"
       *ngIf="isLoggedIn==true"
     >
@@ -22,7 +22,8 @@
       >
         Forecast
       </h1>
-      <div class="w-layout-grid grid-list">
+      <div class="w-layout-grid grid-list"
+      style="overflow-y: auto; max-height: 460px; -ms-overflow-style: none">
         <a
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
@@ -157,7 +158,7 @@
         </a>
       </div>
     </div>
-    <div class="bottomdiv">
+    <div class="bottomdiv" style=" margin-top: 156%;">
       <img
         src="../../assets/Path-3447.svg"
         loading="lazy"
