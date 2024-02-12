@@ -16,10 +16,42 @@
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="top-nav-div">
               <div class="div-block-12" *ngIf="!isLoggedIn">
-                <div class="image-3"></div>
+                <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                  <div class="top-nav-div">
+                    <div class="div-block-12">
+                      <img
+                        src="../../assets/Mask-Group-33x.png"
+                        loading="lazy"
+                        alt=""
+                        class="image-3"
+                      />
+                    </div>
+                    <div class="image-3name"></div>
+                  </div>
+                  <!-- <div class="image-3">
+                  <div class="round-images">
+                    <img
+                      src="../../assets/Mask-Group-33x.png"
+                      width="212"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </div>-->
+                  <!-- </div>  -->
+                </nav>
               </div>
-              <div class="div-block-12" *ngIf="isLoggedIn">
-                <div class="image-3">
+              <div class="div-block-12" *ngIf="isLoggedIn && userDetails">
+                <div class="top-nav-div">
+                  <div class="div-block-12">
+                    <img
+                      src="../../assets/Mask-Group-33x.png"
+                      loading="lazy"
+                      alt=""
+                      class="image-3"
+                    />
+                  </div>
+                </div>
+                <div class="image-3name">
                   {{ userDetails?.aspUserName }}
                 </div>
               </div>
@@ -53,59 +85,75 @@
                 </button>
 
                 <mat-menu #menu="matMenu">
-                  <button
-                    mat-menu-item
-                    value="Aviation Code"
-                    (click)="aviationcode()"
+                  <ion-menu-toggle
+                    ><button
+                      mat-menu-item
+                      value="Aviation Code"
+                      (click)="aviationcode()"
+                    >
+                      Aviation Code
+                    </button></ion-menu-toggle
                   >
-                    Aviation Code
-                  </button>
-                  <button
-                    mat-menu-item
-                    value="Contact Us"
-                    (click)="contactUs()"
+                  <ion-menu-toggle
+                    ><button
+                      mat-menu-item
+                      value="Contact Us"
+                      (click)="contactUs()"
+                    >
+                      Contact Us
+                    </button></ion-menu-toggle
                   >
-                    Contact Us
-                  </button>
-                  <button
-                    mat-menu-item
-                    value="Related Links"
-                    (click)="relatedLink()"
+                  <ion-menu-toggle
+                    ><button
+                      mat-menu-item
+                      value="Related Links"
+                      (click)="relatedLink()"
+                    >
+                      Related Links
+                    </button></ion-menu-toggle
                   >
-                    Related Links
-                  </button>
-                  <button
-                    mat-menu-item
-                    value="News"
-                    *ngIf="isLoggedIn"
-                    (click)="news()"
+                  <ion-menu-toggle
+                    ><button
+                      mat-menu-item
+                      value="News"
+                      *ngIf="isLoggedIn"
+                      (click)="news()"
+                    >
+                      News
+                    </button></ion-menu-toggle
                   >
-                    News
-                  </button>
-                  <button
-                    mat-menu-item
-                    value="Provide Feedback"
-                    (click)="provideFeedback()"
+                  <ion-menu-toggle
+                    ><button
+                      mat-menu-item
+                      value="Provide Feedback"
+                      (click)="provideFeedback()"
+                    >
+                      Provide Feedback
+                    </button></ion-menu-toggle
                   >
-                    Provide Feedback
-                  </button>
-                  <button
-                    mat-menu-item
-                    value="Subscription Packages"
-                    (click)="subscriptionPackage()"
+                  <ion-menu-toggle
+                    ><button
+                      mat-menu-item
+                      value="Subscription Packages"
+                      (click)="subscriptionPackage()"
+                    >
+                      Subscription Packages
+                    </button></ion-menu-toggle
                   >
-                    Subscription Packages
-                  </button>
-                  <button
-                    mat-menu-item
-                    value="Terms and Conditions"
-                    (click)="termsAndCondition()"
+                  <ion-menu-toggle
+                    ><button
+                      mat-menu-item
+                      value="Terms and Conditions"
+                      (click)="termsAndCondition()"
+                    >
+                      Terms and Conditions
+                    </button></ion-menu-toggle
                   >
-                    Terms and Conditions
-                  </button>
-                  <button mat-menu-item value="POPIA" (click)="POPIA()">
-                    POPIA
-                  </button>
+                  <ion-menu-toggle>
+                    <button mat-menu-item value="POPIA" (click)="POPIA()">
+                      POPIA
+                    </button></ion-menu-toggle
+                  >
                 </mat-menu>
               </mat-list-item>
 
@@ -118,27 +166,39 @@
               </ion-menu-toggle>
             </mat-list>
 
-            <div class="bottom-nav-div" (click)="logout()" *ngIf="isLoggedIn">
-              <img
-                src="../assets/Icon open-account-logout.png"
-                loading="lazy"
-                width="1216"
-                alt=""
-                class="logout"
-              />
-              <h1 class="heading-4">Logout</h1>
-            </div>
+            <ion-menu-toggle
+              ><div
+                class="bottom-nav-div"
+                (click)="logout()"
+                *ngIf="isLoggedIn"
+              >
+                <img
+                  src="../assets/Icon open-account-logout.png"
+                  loading="lazy"
+                  width="1216"
+                  alt=""
+                  class="logout"
+                />
+                <h1 class="heading-4">Logout</h1>
+              </div></ion-menu-toggle
+            >
 
-            <div class="bottom-nav-div" (click)="login()" *ngIf="!isLoggedIn">
-              <img
-                src="../assets/Icon open-account-login.png"
-                loading="lazy"
-                width="1216"
-                alt=""
-                class="logout"
-              />
-              <h1 class="heading-4">Login</h1>
-            </div>
+            <ion-menu-toggle
+              ><div
+                class="bottom-nav-div"
+                (click)="login()"
+                *ngIf="!isLoggedIn"
+              >
+                <img
+                  src="../assets/Icon open-account-login.png"
+                  loading="lazy"
+                  width="1216"
+                  alt=""
+                  class="logout"
+                />
+                <h1 class="heading-4">Login</h1>
+              </div></ion-menu-toggle
+            >
           </nav>
         </div>
       </div>
@@ -149,7 +209,10 @@
 <ion-router-outlet id="main-content">
   <div class="top-content">
     <div class="menu-button-container" *ngIf="!isLoginPage()">
-      <ion-menu-button class="left-aligned-menu-button"></ion-menu-button>
+      <ion-menu-button
+        class="left-aligned-menu-button"
+        (click)="fetchUserData()"
+      ></ion-menu-button>
     </div>
     <div class="div-block-2">
       <img

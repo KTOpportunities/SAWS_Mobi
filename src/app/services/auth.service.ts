@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
+  private userData: any;
   constructor(private http: HttpClient) {}
 
   login(form: any) {
@@ -23,7 +24,6 @@ export class AuthService {
     );
   }
   private isLoggedIn = false;
-  
 
   getIsLoggedIn(): boolean {
     return this.isLoggedIn;
@@ -31,5 +31,14 @@ export class AuthService {
 
   setLoggedInStatus(status: boolean): void {
     this.isLoggedIn = status;
+  }
+  setUserData(userData: any) {
+ 
+    this.userData = userData;
+    console.log('TEST::', this.userData);
+  }
+
+  getUserData() {
+    return this.userData;
   }
 }
