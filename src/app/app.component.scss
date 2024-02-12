@@ -344,7 +344,7 @@ ion-menu-button {
 }
 
 .mobile-images {
-  margin-top: -58px;
+  margin-top: -1px;
 }
 
 .login {
@@ -920,7 +920,7 @@ ion-menu-button {
   }
 
   .mobile-images {
-    margin-top: 29px;
+    margin-top: -1px;
   }
 
   .login-for {
@@ -1012,12 +1012,8 @@ ion-menu-button {
     display: block;
   }
 
-  .bottomdiv {
-    margin-top: 118px;
-  }
-
   .mobile-images {
-    margin-top: -24px;
+    margin-top: -1px;
   }
 
   .login-for {
@@ -1191,10 +1187,6 @@ ion-menu-button {
 
   .submit-button {
     width: 75vw;
-  }
-
-  .bottomdiv {
-    margin-top: 134px;
   }
 
   .div-block-5 {
@@ -1524,7 +1516,7 @@ ion-menu-button {
 }
 
 .mobile-images {
-  margin-top: -58px;
+  margin-top: -1px;
 }
 
 .login {
@@ -2108,7 +2100,7 @@ ion-menu-button {
   }
 
   .mobile-images {
-    margin-top: 29px;
+    margin-top: -1px;
   }
 
   .login-for {
@@ -2200,12 +2192,8 @@ ion-menu-button {
     display: block;
   }
 
-  .bottomdiv {
-    margin-top: 118px;
-  }
-
   .mobile-images {
-    margin-top: -24px;
+    margin-top: -1px;
   }
 
   .login-for {
@@ -2349,6 +2337,38 @@ ion-menu-button {
 }
 
 @media screen and (max-width: 479px) {
+  .div-block-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .left-image,
+  .left-aligned-menu-button {
+    width: 50%; /* Each image takes 50% of the container */
+    color: #fff;
+    margin-left: 243px;
+    margin-top: -74px;
+  }
+  .round-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    margin-top: -122px;
+    margin-left: -204px;
+    margin-bottom: 90px;
+  }
+  .menu-button-container {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+  }
+  .mobile-images {
+    width: 100%;
+    height: 77%;
+  }
   .image {
     margin-top: 13px;
     padding-top: 0;
@@ -2499,7 +2519,12 @@ ion-menu-button {
 #w-node-_267a765f-9f55-3727-2c78-7fd64266dd6d-847dc521 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
-
+.top-content {
+  position: fixed;
+  top: 97px;
+  left: 0;
+  z-index: 999; /* Adjust z-index value as needed to ensure it displays on top */
+}
 // @media screen and (max-width: 479px) {
 //   .list {
 //     list-style-type: none;
