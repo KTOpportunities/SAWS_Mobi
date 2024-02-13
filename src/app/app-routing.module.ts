@@ -82,6 +82,14 @@ const routes: Routes = [
     path: 'provide-feedback',
     loadChildren: () => import('./provide-feedback/provide-feedback.module').then( m => m.ProvideFeedbackPageModule)
   },
+  {
+    path: 'international',
+    loadChildren: () => import('./international/international.module').then( m => m.InternationalPageModule)
+  },
+  {
+    path: 'flight-briefing',
+    loadChildren: () => import('./flight-briefing/flight-briefing.module').then( m => m.FlightBriefingPageModule)
+  },
 
 ];
 

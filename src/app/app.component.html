@@ -19,12 +19,14 @@
                 <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
                   <div class="top-nav-div">
                     <div class="div-block-12">
-                      <img
-                        src="../../assets/Mask-Group-33x.png"
-                        loading="lazy"
-                        alt=""
-                        class="image-3"
-                      />
+                      <div class="image-3">
+                        <img
+                          src="../../assets/Mask-Group-33x.png"
+                          loading="lazy"
+                          alt=""
+                          class="img"
+                        />
+                      </div>
                     </div>
                     <div class="image-3name"></div>
                   </div>
@@ -41,19 +43,33 @@
                 </nav>
               </div>
               <div class="div-block-12" *ngIf="isLoggedIn && userDetails">
-                <div class="top-nav-div">
-                  <div class="div-block-12">
+                <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                  <div class="top-nav-div">
+                    <div class="div-block-12">
+                      <div class="image-3">
+                        <img
+                          src="../../assets/Mask-Group-33x.png"
+                          loading="lazy"
+                          alt=""
+                          class="img"
+                        />
+                      </div>
+                    </div>
+                    <div class="image-3name">
+                      {{ userDetails?.aspUserName }}
+                    </div>
+                  </div>
+                  <!-- <div class="image-3">
+                  <div class="round-images">
                     <img
                       src="../../assets/Mask-Group-33x.png"
-                      loading="lazy"
+                      width="212"
                       alt=""
-                      class="image-3"
+                      loading="lazy"
                     />
-                  </div>
-                </div>
-                <div class="image-3name">
-                  {{ userDetails?.aspUserName }}
-                </div>
+                  </div>-->
+                  <!-- </div>  -->
+                </nav>
               </div>
             </div>
             <mat-list

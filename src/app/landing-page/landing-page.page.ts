@@ -13,7 +13,16 @@ export class LandingPagePage implements OnInit {
   forecastPage() {
     this.router.navigate(['/forecast']);
   }
-
+  InternationalPage() {
+    this.router.navigate(['/international']);
+  }
+  FlightBriefing() {
+    if (this.isLoggedIn) {
+      this.router.navigate(['/flight-briefing']);
+    } else {
+      this.router.navigate(['/auth/login']);
+    }
+  }
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }

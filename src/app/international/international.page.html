@@ -1,0 +1,92 @@
+<ion-content
+  ><section class="list-page">
+    <!-- <div class="div-block-2">
+      <ion-menu-button class="left-aligned-menu-button"></ion-menu-button>
+      <img
+        src="../../assets/Path-3452.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+    </div> -->
+    <div
+      class=""
+      [ngClass]="{'applied-styles': !isLoggedIn}"
+      *ngIf="isLoggedIn==true"
+    >
+      <h1
+        class="heading-6"
+        [ngStyle]="{'text-align': isLoggedIn ? 'center' : 'left'}"
+      >
+        International
+      </h1>
+      <div
+        class="w-layout-grid grid-list"
+        style="overflow-y: auto; max-height: 460px; -ms-overflow-style: none"
+      >
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">GPM</h1>
+        </a>
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Humidity</h1>
+        </a>
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">SIGWX Charts</h1>
+        </a>
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Wind:Grid</h1>
+        </a>
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Wind:Maximum</h1>
+        </a>
+      </div>
+    </div>
+
+    <div class="list-div" *ngIf="isLoggedIn==false">
+      <h1 class="heading-6">International</h1>
+      <div class="w-layout-grid grid-list">
+        <a
+          id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Graphics SIGMENT/AIRMET</h1>
+        </a>
+      </div>
+    </div>
+    <div class="bottomdiv" style="margin-top: 156%">
+      <img
+        src="../../assets/Path-3447.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+      <div class="footerdiv">
+        <a (click)="forecastPage()" class="w-inline-block"
+          ><img src="../../assets/Group-3489.svg" loading="lazy" alt=""
+        /></a>
+      </div>
+    </div></section
+></ion-content>
