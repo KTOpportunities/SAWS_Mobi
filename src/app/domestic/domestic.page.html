@@ -1,0 +1,107 @@
+<ion-content
+  ><section class="list-page">
+    <div
+      class=""
+      
+      [ngClass]="{'applied-styles': !isLoggedIn}"
+      *ngIf="isLoggedIn==true"
+    >
+      <h1
+        class="heading-6"
+        [ngStyle]="{'text-align': isLoggedIn ? 'center' : 'left'}"
+      >
+      Domestic
+      </h1>
+      <div class="w-layout-grid grid-list"
+      style="overflow-y: auto; max-height: 460px; -ms-overflow-style: none">
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Flight Document</h1>
+        </a>
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Hourly Charts</h1>
+        </a>
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">ICAO Locations</h1>
+        </a>
+        <a
+          id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">METAR Maps</h1>
+        </a>
+        <a
+          id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">QNH CHart</h1>
+        </a>
+        <a
+          id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">SIGWX Charts</h1>
+        </a>
+        <a
+          id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Take-off Data</h1>
+        </a>
+        <a
+          id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Warnings</h1>
+        </a>
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Winds Charts</h1>
+        </a>
+       
+       
+      
+      </div>
+    </div>
+
+    <div class="list-div" *ngIf="isLoggedIn==false">
+    
+    </div>
+
+    <div class="bottomdiv" style=" margin-top: 156%;">
+      <img
+        src="../../assets/Path-3447.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+      <div class="footerdiv">
+        <a (click)="domesticPage()" class="w-inline-block"
+          ><img src="../../assets/Group-3489.svg" loading="lazy" alt=""
+        /></a>
+      </div>
+    </div>
+    
+    </section
+>
+</ion-content>

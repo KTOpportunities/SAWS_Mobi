@@ -82,6 +82,18 @@ const routes: Routes = [
     path: 'provide-feedback',
     loadChildren: () => import('./provide-feedback/provide-feedback.module').then( m => m.ProvideFeedbackPageModule)
   },
+  {
+    path: 'observation',
+    loadChildren: () => import('./observation/observation.module').then( m => m.ObservationPageModule)
+  },
+  {
+    path: 'domestic',
+    loadChildren: () => import('./domestic/domestic.module').then( m => m.DomesticPageModule)
+  },
+  {
+    path: 'aero-sport',
+    loadChildren: () => import('./aero-sport/aero-sport.module').then( m => m.AeroSportPageModule)
+  },
 
 ];
 

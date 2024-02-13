@@ -1,0 +1,136 @@
+<ion-content
+  ><section class="list-page">
+    <!-- Login required services: -->
+    <div
+      class=""
+      
+      [ngClass]="{'applied-styles': !isLoggedIn}"
+      *ngIf="isLoggedIn==true"
+    >
+      <h1
+        class="heading-6"
+        [ngStyle]="{'text-align': isLoggedIn ? 'center' : 'left'}"
+      >
+      Observation
+      </h1>
+      <div class="w-layout-grid grid-list"
+      style="overflow-y: auto; max-height: 460px; -ms-overflow-style: none">
+
+      <a
+      id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+      href="#"
+      class="link-block-3 w-inline-block"
+    >
+      <h1 class="heading-5">METAR</h1>
+    </a>
+
+    <a
+    id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+    href="#"
+    class="link-block-3 w-inline-block"
+  >
+    <h1 class="heading-5">Webcams</h1>
+  </a>
+
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">METAR: Color Coded </h1>
+        </a>
+
+        <a
+        id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+        href="#"
+        class="link-block-3 w-inline-block"
+      >
+        <h1 class="heading-5">METAR: Recent </h1>
+      </a>
+      <a
+      id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+      href="#"
+      class="link-block-3 w-inline-block"
+    >
+      <h1 class="heading-5">METAR: History</h1>
+    </a>
+    
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">SPECI</h1>
+        </a>
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">METAR/TAF : Recent</h1>
+        </a>
+        <a
+          id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Radar</h1>
+        </a>
+        <a
+          id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Satellite
+
+          </h1>
+        </a>
+        <a
+          id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Access to real-time AWS</h1>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- Non login required service -->
+
+    <div class="list-div" *ngIf="isLoggedIn==false">
+      <h1 class="heading-6">Observation</h1>
+      <div class="w-layout-grid grid-list">
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">METAR</h1>
+        </a>
+        <a
+          id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Webcams</h1>
+        </a>
+       
+     
+      </div>
+    </div>
+    <div class="bottomdiv" style=" margin-top: 156%;">
+      <img
+        src="../../assets/Path-3447.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+      <div class="footerdiv">
+        <a  class="w-inline-block"
+          ><img src="../../assets/Group-3489.svg" loading="lazy" alt=""
+        /></a>
+      </div>
+    </div></section
+></ion-content>
