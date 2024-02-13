@@ -26,4 +26,15 @@ export class LandingPagePage implements OnInit {
       this.router.navigate(['/auth/login']);
     }
   }
+
+  aerosportPage() {
+    this.router.navigate(['/aero-sport']);
+  }
+
+  domesticPage() {
+    this.router.navigate(['/domestic']);
+  }
+  observPage() {
+    this.router.navigate(['/observation']);
+  }
 }

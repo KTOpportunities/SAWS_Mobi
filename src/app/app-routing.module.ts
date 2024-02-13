@@ -54,7 +54,8 @@ const routes: Routes = [
       import('./landing-page/landing-page.module').then(
         (m) => m.LandingPagePageModule
       ),
-  },  {
+  },
+  {
     path: 'aviation-home',
     loadChildren: () => import('./aviation-home/aviation-home.module').then( m => m.AviationHomePageModule)
   },
@@ -89,6 +90,18 @@ const routes: Routes = [
   {
     path: 'flight-briefing',
     loadChildren: () => import('./flight-briefing/flight-briefing.module').then( m => m.FlightBriefingPageModule)
+  },
+    {
+    path: 'observation',
+    loadChildren: () => import('./observation/observation.module').then( m => m.ObservationPageModule)
+  },
+  {
+    path: 'domestic',
+    loadChildren: () => import('./domestic/domestic.module').then( m => m.DomesticPageModule)
+  },
+  {
+    path: 'aero-sport',
+    loadChildren: () => import('./aero-sport/aero-sport.module').then( m => m.AeroSportPageModule)
   },
 
 ];
