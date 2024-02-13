@@ -31,11 +31,21 @@ export class LandingPagePage implements OnInit {
   //   this.router.navigate(['/login']);
   // }
   aerosportPage() {
+   if (this.authService.getIsLoggedIn()){
     this.router.navigate(['/aero-sport']);
+   }
+   else {
+    this.router.navigate(['/login']);
+  }
   }
 
   domesticPage() {
-    this.router.navigate(['/domestic']);
+    if (this.authService.getIsLoggedIn()) {
+       this.router.navigate(['/domestic']);
+    }else {
+      this.router.navigate(['/login']);
+    }
+    
   }
   observPage() {
     this.router.navigate(['/observation']);
