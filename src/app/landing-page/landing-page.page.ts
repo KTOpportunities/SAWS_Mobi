@@ -20,13 +20,16 @@ export class LandingPagePage implements OnInit {
     this.router.navigate(['/international']);
   }
   FlightBriefing() {
-    if (this.isLoggedIn) {
+    if (this.authService.getIsLoggedIn()) {
       this.router.navigate(['/flight-briefing']);
     } else {
-      this.router.navigate(['/auth/login']);
+      this.router.navigate(['/login']);
     }
   }
-
+  // if (!this.authService.getIsLoggedIn()) {
+  //   // If not logged in, navigate to the login page
+  //   this.router.navigate(['/login']);
+  // }
   aerosportPage() {
     this.router.navigate(['/aero-sport']);
   }
