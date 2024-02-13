@@ -10,6 +10,9 @@ export class LandingPagePage implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {}
+  get isLoggedIn(): boolean {
+    return this.authService.getIsLoggedIn();
+  }
   forecastPage() {
     this.router.navigate(['/forecast']);
   }
@@ -22,8 +25,5 @@ export class LandingPagePage implements OnInit {
     } else {
       this.router.navigate(['/auth/login']);
     }
-  }
-  get isLoggedIn(): boolean {
-    return this.authService.getIsLoggedIn();
   }
 }
