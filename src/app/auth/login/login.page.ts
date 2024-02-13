@@ -95,6 +95,7 @@ export class LoginPage implements OnInit, OnDestroy {
             console.log('ERROR MESSAGE:', error.error.Message);
             if (
               error.error.Message == 'Please check your password and username'
+              
             ) {
               this.errorMessage = 'Invalid username or password';
               this.router.navigate(['login']);

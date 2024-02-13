@@ -9,8 +9,8 @@
 }
 .toggle-passwordS {
   position: absolute;
-  right: 57px;
-  margin-top: 36px;
+  right: 46px;
+  margin-top: 23px;
   transform: translateY(-50%);
   cursor: pointer;
 }
@@ -26,3 +26,11 @@
 .login-for {
   margin-top: -15px;
 }
+.ion-padding {
+  height: 50%;
+  overflow-y: hidden;
+}
+// .form-container {
+//   max-height: 300px; /* Adjust height as needed */
+//   overflow-y: auto; /* Enable vertical scrolling */
+// }
