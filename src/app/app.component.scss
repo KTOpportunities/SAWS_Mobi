@@ -2068,6 +2068,7 @@ ion-menu-button {
   font-weight: bold;
   font-size: 20px;
   margin-top: 11px;
+  margin-left: 1px
 }
 
 @media screen and (max-width: 991px) {
@@ -2500,8 +2501,9 @@ ion-menu-button {
   }
 
   .bottom-nav-div {
-    height: 21vh;
-    margin-top: 52px;
+    height: 171px;
+    margin-top: 30px;
+    padding-top: 53px;
   }
 
   .div-block-12 {
