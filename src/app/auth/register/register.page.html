@@ -321,14 +321,7 @@
             </div>
             <div id="w-node-ccdda937-ce5c-ac70-b522-fdf10dd22378-6fb9ee30">
               <label for="name-2" class="registerlabel">Password (*)</label>
-              <span class="toggle-password"
-                ><i
-                  class="fas"
-                  [class.fa-eye]="showPassword"
-                  [class.fa-eye-slash]="!showPassword"
-                  (click)="togglePasswordVisibility()"
-                ></i
-              ></span>
+
               <input
                 type="password"
                 class="registerfield w-input"
@@ -340,7 +333,14 @@
                 required=""
                 formControlName="Password"
               />
-
+              <span class="toggle-password"
+                ><i
+                  class="fas"
+                  [class.fa-eye]="showPassword"
+                  [class.fa-eye-slash]="!showPassword"
+                  (click)="togglePasswordVisibility()"
+                ></i
+              ></span>
               <!-- Update the error messages for password validation -->
               <div
                 *ngIf="userForm.get('Password')?.errors?.['invalidPassword'] && (userForm.get('Password')?.touched || submitted)"
@@ -370,14 +370,7 @@
               <label for="name-2" class="registerlabel"
                 >Confirm Passwords (*)</label
               >
-              <span class="toggle-password"
-                ><i
-                  class="fas"
-                  [class.fa-eye]="showPassword"
-                  [class.fa-eye-slash]="!showPassword"
-                  (click)="togglePasswordVisibility()"
-                ></i
-              ></span>
+
               <input
                 type="password"
                 class="registerfield w-input"
@@ -389,12 +382,14 @@
                 required=""
                 formControlName="ConfirmPassword"
               />
-              <!-- <div
-                *ngIf="userForm.get('ConfirmPassword')?.value !== userForm.get('Password')?.value && (userForm.get('ConfirmPassword')?.touched || submitted)"
-                class="error-message"
-              >
-                Password and confirm password do not match.
-              </div> -->
+              <span class="toggle-password"
+                ><i
+                  class="fas"
+                  [class.fa-eye]="showPassword"
+                  [class.fa-eye-slash]="!showPassword"
+                  (click)="togglePasswordVisibility()"
+                ></i
+              ></span>
               <div *ngIf="errorMessage" class="error-message">
                 {{ errorMessage }}
               </div>

@@ -1,18 +1,24 @@
 /* Example */
-
-.toggle-password {
-  position: absolute;
-  right: 57px;
-  margin-top: 36px;
-  transform: translateY(-50%);
-  cursor: pointer;
+.w-layout-grid {
+  max-height: 260px;
+  overflow-y: auto;
 }
-.toggle-passwordS {
-  position: absolute;
-  right: 46px;
-  margin-top: 23px;
-  transform: translateY(-50%);
+// .toggle-password {
+//   position: relative;
+//   right: -284px;
+//   top: -22% !important;
+//   transform: translateY(-50%);
+//   cursor: pointer;
+// }
+.registerfield {
+  width: 78vw;
+}
+.fas {
+  position: relative;
+  right: -253px;
+  transform: translateY(-183%);
   cursor: pointer;
+  z-index: 2;
 }
 
 .bottomdiv2 {
@@ -24,7 +30,7 @@
 }
 
 .login-for {
-  margin-top: -15px;
+  margin-top: -18px;
 }
 .ion-padding {
   height: 50%;
@@ -34,3 +40,9 @@
 //   max-height: 300px; /* Adjust height as needed */
 //   overflow-y: auto; /* Enable vertical scrolling */
 // }
+.login-for {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 11px;
+}

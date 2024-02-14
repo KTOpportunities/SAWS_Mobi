@@ -1151,9 +1151,9 @@ ion-menu-button {
     margin-top: 10px;
   }
 
-  .bottom-nav-div {
-    margin-top: 21px;
-  }
+  // .bottom-nav-div {
+  //   margin-top: 21px;
+  // }
 }
 
 @media screen and (max-width: 479px) {
@@ -1282,10 +1282,10 @@ ion-menu-button {
     padding-bottom: 10px;
   }
 
-  .bottom-nav-div {
-    height: 21vh;
-    margin-top: 212px;
-  }
+  // .bottom-nav-div {
+  //   height: 21vh;
+  //   margin-top: 212px;
+  // }
 
   .div-block-12 {
     padding-top: 75px;
@@ -2032,13 +2032,13 @@ ion-menu-button {
 }
 
 .bottom-nav-div {
-  height: 24vh;
+  // height: 24vh;
   background-image: url("../assets/Path-3456.svg");
   background-position: 50%;
   background-size: cover;
   justify-content: center;
   align-items: center;
-  margin-top: 95px;
+  // margin-top: 95px;
   display: flex;
   position: -webkit-sticky;
   position: sticky;
@@ -2060,7 +2060,8 @@ ion-menu-button {
   object-fit: 70%;
 }
 .img {
-  margin-top: 7px;
+  margin-top: 13px;
+  max-width: 94%;
 }
 .heading-4 {
   color: #002e58;
@@ -2068,7 +2069,7 @@ ion-menu-button {
   font-weight: bold;
   font-size: 20px;
   margin-top: 11px;
-  margin-left: 1px
+  margin-left: 1px;
 }
 
 @media screen and (max-width: 991px) {
@@ -2338,9 +2339,9 @@ ion-menu-button {
     margin-top: 10px;
   }
 
-  .bottom-nav-div {
-    margin-top: 21px;
-  }
+  // .bottom-nav-div {
+  //   margin-top: 21px;
+  // }
 }
 
 @media screen and (max-width: 479px) {
@@ -2500,11 +2501,11 @@ ion-menu-button {
     padding-bottom: 10px;
   }
 
-  .bottom-nav-div {
-    height: 171px;
-    margin-top: 30px;
-    padding-top: 53px;
-  }
+  // .bottom-nav-div {
+  //   height: 171px;
+  //   margin-top: 30px;
+  //   padding-top: 53px;
+  // }
 
   .div-block-12 {
     padding-top: 75px;
