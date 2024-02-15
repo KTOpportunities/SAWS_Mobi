@@ -329,18 +329,19 @@
                 name="Password"
                 data-name="Name 2"
                 placeholder="Type your password"
+                type="{{ showPassword ? 'text' : 'password' }}"
                 id="Password"
                 required=""
                 formControlName="Password"
               />
-              <span class="toggle-password"
-                ><i
+              <span class="toggle-password">
+                <i
                   class="fas"
                   [class.fa-eye]="showPassword"
                   [class.fa-eye-slash]="!showPassword"
                   (click)="togglePasswordVisibility()"
-                ></i
-              ></span>
+                ></i>
+              </span>
               <!-- Update the error messages for password validation -->
               <div
                 *ngIf="userForm.get('Password')?.errors?.['invalidPassword'] && (userForm.get('Password')?.touched || submitted)"
@@ -382,14 +383,14 @@
                 required=""
                 formControlName="ConfirmPassword"
               />
-              <span class="toggle-password"
-                ><i
+              <span class="toggle-password">
+                <i
                   class="fas"
                   [class.fa-eye]="showPassword"
                   [class.fa-eye-slash]="!showPassword"
                   (click)="togglePasswordVisibility()"
-                ></i
-              ></span>
+                ></i>
+              </span>
               <div *ngIf="errorMessage" class="error-message">
                 {{ errorMessage }}
               </div>
