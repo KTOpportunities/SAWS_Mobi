@@ -14,13 +14,20 @@
   width: 78vw;
 }
 .fas {
-  position: relative;
+  position: absolute;
   right: -253px;
   transform: translateY(-183%);
   cursor: pointer;
   z-index: 2;
+  padding-bottom: -20px;
 }
-
+// .fas {
+//   position: absolute;
+//   right: 37px;
+//   margin-top: 18px;
+//   transform: translateY(-50%);
+//   cursor: pointer;
+// }
 .bottomdiv2 {
   position: fixed;
   margin-top: 150%;
