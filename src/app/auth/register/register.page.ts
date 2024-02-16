@@ -14,6 +14,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { APIService } from 'src/app/services/apis.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -27,6 +28,7 @@ export class RegisterPage implements OnInit {
   userForm: FormGroup;
   submitted = false;
   errorMessage: string | null = null;
+  errorMessageExist: string | null = null;
   successMessage: string | null = null;
   loading = false;
   statusMessage = false;
@@ -53,15 +55,23 @@ export class RegisterPage implements OnInit {
     private formBuilder: FormBuilder,
     private api: APIService,
     private router: Router,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private alertController: AlertController
   ) {
     this.userForm = this.formBuilder.group({
       Fullname: ['', Validators.required],
-      Username: ['', Validators.required],
+      Username: [''],
       Email: ['', [Validators.required, this.emailValidator]],
       Password: ['', [Validators.required, this.passwordValidator]],
       ConfirmPassword: ['', Validators.required],
       UserRole: ['Subscriber', Validators.required],
+    });
+
+    this.userForm.get('Password')?.valueChanges.subscribe(() => {
+      this.clearPasswordError();
+    });
+    this.userForm.get('ConfirmPassword')?.valueChanges.subscribe(() => {
+      this.clearPasswordError();
     });
   }
   togglePasswordVisibility(): void {
@@ -78,7 +88,24 @@ export class RegisterPage implements OnInit {
     passwordField.type = this.showPassword ? 'text' : 'password';
     confirmPasswordField.type = this.showPassword ? 'text' : 'password';
   }
+  async presentPopup() {
+    const alert = await this.alertController.create({
+      message: 'User Already Exists.',
+      buttons: ['OK'],
+    });
 
+    await alert.present();
+  }
+  async Successfully() {
+    const alert = await this.alertController.create({
+      header: 'Success',
+
+      message: 'Successfully Registered.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
   emailValidator(control: any) {
     if (control.value) {
       const matches = control.value.match(
@@ -106,45 +133,68 @@ export class RegisterPage implements OnInit {
   }
 
   onSubmit() {
+    this.loading = true; // Set loading to true when form is submitted
     this.submitted = true;
     this.userForm.markAllAsTouched();
     this.scrollToForm();
 
-    const password = this.userForm.controls['Password'].value;
-    const confirmPassword = this.userForm.controls['ConfirmPassword'].value;
+    const password = this.userForm.get('Password')?.value;
+    const confirmPassword = this.userForm.get('ConfirmPassword')?.value;
 
     if (password !== confirmPassword) {
       this.errorMessage = 'Password and confirm password do not match.';
+      this.loading = false; // Set loading to false when validation fails
       return;
     }
 
-    var body = {
-      Fullname: this.userForm.controls['Fullname'].value,
-      Username: this.userForm.controls['Username'].value,
-      Email: this.userForm.controls['Email'].value,
-      Password: this.userForm.controls['Password'].value,
-      UserRole: this.userForm.controls['UserRole'].value,
+    const body = {
+      Fullname: this.userForm.get('Fullname')?.value,
+      Username: this.userForm.get('Email')?.value,
+      Email: this.userForm.get('Email')?.value,
+      Password: this.userForm.get('Password')?.value,
+      UserRole: this.userForm.get('UserRole')?.value,
     };
 
-    console.log('BODY:', body);
     if (this.userForm.invalid) {
+      this.loading = false; // Set loading to false when form is invalid
       return;
     } else {
-      this.api.createNewUser(body).subscribe((data: any) => {
-        console.log('SAVED:', data);
-        // this.nextStep();
-        if (data.Status === 'Success') {
-          this.router.navigate(['register']);
-          this.statusMessage = true;
-          this.onReset();
+      this.api.createNewUser(body).subscribe(
+        (data: any) => {
+          console.log('SAVED:', data);
+          if (data.Status === 'Success') {
+            this.router.navigate(['register']);
+            this.statusMessage = true;
+            this.errorMessage = null;
+            this.Successfully();
+            this.onReset();
+          }
+          this.loading = false; // Set loading to false when API call is successful
+        },
+        (error: any) => {
+          console.log(error);
+          console.log('ERROR MESSAGE:', error.error.Message);
+          if (error.error.Message === 'User Exists') {
+            this.presentPopup();
+            this.errorMessageExist = 'User Alredy  Exists';
+            this.router.navigate(['register']);
+          }
+          this.loading = false; // Set loading to false when API call fails
         }
-      });
+      );
     }
   }
+
 
   onReset() {
     this.submitted = false;
     this.userForm.reset();
+    this.statusMessage = false;
+  }
+  clearPasswordError() {
+    if (this.errorMessage === 'Password and confirm password do not match.') {
+      this.errorMessage = null;
+    }
   }
   ngOnInit() {}
   nextStep() {

@@ -13,21 +13,21 @@
 .registerfield {
   width: 78vw;
 }
-.fas {
-  position: absolute;
-  right: -253px;
-  transform: translateY(-183%);
-  cursor: pointer;
-  z-index: 2;
-  padding-bottom: -20px;
-}
 // .fas {
 //   position: absolute;
-//   right: 37px;
-//   margin-top: 18px;
-//   transform: translateY(-50%);
+//   right: -253px;
+//   transform: translateY(-183%);
 //   cursor: pointer;
+//   z-index: 2;
+//   padding-bottom: -20px;
 // }
+.fas {
+  position: absolute;
+  right: 14px;
+  margin-top: 3px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 .bottomdiv2 {
   position: fixed;
   margin-top: 150%;
@@ -52,4 +52,32 @@
   margin-right: 20px;
   padding-left: 20px;
   padding-right: 11px;
+}
+.input-container {
+  position: relative;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  padding-right: 40px; /* Adjust the value based on the icon size */
+}
+
+.input-with-icon .toggle-password {
+  position: absolute;
+  right: 10px; /* Adjust the value based on the desired icon position */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.alert-wrapper ion-alert .alert-message ion-icon {
+  font-size: 36px; /* Adjust the font size of the icon */
+  color: #4caf50; /* Change the color of the icon to green */
+  margin-right: 10px; /* Add some margin to the right of the icon */
+}
+.my-custom-class .alert-header {
+  background-color: #007bff; /* Change to your desired header background color */
+  color: #ffffff; /* Change to your desired header text color */
 }
