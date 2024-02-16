@@ -133,7 +133,7 @@ export class RegisterPage implements OnInit {
   }
 
   onSubmit() {
-    this.loading = true; // Set loading to true when form is submitted
+    this.loading = true;
     this.submitted = true;
     this.userForm.markAllAsTouched();
     this.scrollToForm();
@@ -156,7 +156,7 @@ export class RegisterPage implements OnInit {
     };
 
     if (this.userForm.invalid) {
-      this.loading = false; // Set loading to false when form is invalid
+      this.loading = false; // Set loading to false when validation fails
       return;
     } else {
       this.api.createNewUser(body).subscribe(
@@ -166,10 +166,10 @@ export class RegisterPage implements OnInit {
             this.router.navigate(['register']);
             this.statusMessage = true;
             this.errorMessage = null;
+            this.loading = false; // Set loading to false when validation fails
             this.Successfully();
             this.onReset();
           }
-          this.loading = false; // Set loading to false when API call is successful
         },
         (error: any) => {
           console.log(error);
@@ -184,7 +184,6 @@ export class RegisterPage implements OnInit {
       );
     }
   }
-
 
   onReset() {
     this.submitted = false;
