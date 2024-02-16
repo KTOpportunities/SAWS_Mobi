@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-subscription-package',
@@ -14,11 +15,17 @@ export class SubscriptionPackagePage implements OnInit {
     'premiumSubscription': false,
     'regulatedSubscription': false
   };
-  constructor(private router:Router) { }
+  constructor(private router:Router,private authService: AuthService,) { }
 
   ngOnInit() {
   }
-
+  provideFeedback() {
+    if (this.authService.getIsLoggedIn()) {
+      this.router.navigate(['/provide-feedback']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
   displayIcon(): boolean {
     return this.isSubscriber; // Return true if the user is a subscriber, false otherwise
   }
