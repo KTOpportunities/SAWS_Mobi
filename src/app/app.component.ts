@@ -14,6 +14,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 })
 export class AppComponent {
   userDetails: any;
+  isSubscribed: boolean = false;
   logout() {
     this.authService.setLoggedInStatus(false);
     this.router.navigate(['/login']);
@@ -74,4 +75,11 @@ export class AppComponent {
       currentRoute.includes('/forgot-password')
     );
   }
+
+ 
+  displayIcon(): boolean {
+    const currentRoute = this.router.url;
+    return currentRoute.includes('/subscription-package');
+  }
+  
 }

@@ -250,6 +250,16 @@
         />
       </div>
     </div>
+
+    <!-- <div class="bottomdiv" >
+      <img src="/src/assets/Path-3447.svg" loading="lazy" width="1216" alt="" class="image">
+      <div class="footerdiv" *ngIf="displayIcon()">
+        <a href="landing-page.html" class="link-block-5 w-inline-block">
+          <img src="../../assets/Group-4522.svg" loading="lazy" width="35" alt="">
+          <h6 class="heading-10-copy">Back</h6>
+        </a>
+      </div>
+    </div> -->
   </div>
   <div class="bottomdiv">
     <img
@@ -259,6 +269,20 @@
       alt=""
       class="image"
     />
-    <div class="footerdiv"></div>
+   
+    <div class="footerdiv">
+      <a href="landing-page.html" *ngIf="displayIcon()"
+      class="link-block-5 w-inline-block"><img src="../../assets/Group-4522.svg" loading="lazy" width="35" alt="">
+        <h6 class="heading-10-copy" 
+        style=" color: #fff;
+        margin-top: 10px;
+        margin-bottom: 0;
+        font-family: Montserrat, sans-serif;
+        text-decoration: none;font-size: 16px;
+        margin-top: 4px;"
+        >Back</h6>
+      </a>
+    </div>
+
   </div>
 </ion-router-outlet>

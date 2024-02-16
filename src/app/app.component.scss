@@ -1318,6 +1318,19 @@ ion-menu-button {
   #w-node-af071feb-0e36-aeae-49b6-c57e5055a218-847dc521 {
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
+  .link-block-5 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    display: flex;
+  
+  }
+
+  .w-inline-block {
+    max-width: 100%;
+    display: inline-block;
+  }
 }
 
 .w-layout-grid {
