@@ -12,6 +12,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { APIService } from 'src/app/services/apis.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -50,39 +51,24 @@ export class ForgotPasswordPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private api: APIService,
-    private router: Router
+    private router: Router,
+    private alertController: AlertController
   ) {
     this.userForm = this.formBuilder.group({
       Email: ['', [Validators.required, this.emailValidator]],
     });
   }
 
-  // onSubmit() {
-  //   this.submitted = true;
+  async Successfully() {
+    const alert = await this.alertController.create({
+      header: 'Success',
 
-  //   var body = {
-  //     Email: this.userForm.controls['Email'].value,
-  //   };
+      message: 'Thank you! Your submission has been received!',
+      buttons: ['OK'],
+    });
 
-  //   console.log('BODY:', body);
-  //   if (this.userForm.invalid) {
-  //     return;
-  //   } else {
-  //     this.api.RequestPasswordReset(body).subscribe((data: any) => {
-  //       debugger;
-  //       if (data.response == 'Invalid Email') {
-  //         this.errorMessage = true;
-  //       } else {
-  //         debugger;
-  //         console.log('SAVED:', data);
-
-  //         this.router.navigate(['forgot-password']);
-  //         this.statusMessage = true;
-  //       }
-  //     });
-  //   }
-  // }
-
+    await alert.present();
+  }
   onSubmit() {
     this.submitted = true;
 
@@ -100,6 +86,7 @@ export class ForgotPasswordPage implements OnInit {
           console.log('SAVED:', data);
 
           this.router.navigate([this.router.url]);
+          this.Successfully();
           this.statusMessage = true;
         },
         (error) => {

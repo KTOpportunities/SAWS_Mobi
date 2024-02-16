@@ -87,7 +87,8 @@ export class LoginPage implements OnInit, OnDestroy {
               this.router.navigate(['/landing-page']);
               // sessionStorage.setItem('userData', JSON.stringify(response));
             } else {
-              this.errorMessage = 'You are not a Subscriber';
+              this.errorMessage = 'Only subscribers can login';
+              this.router.navigate(['login']);
             }
           },
           (error) => {
@@ -95,7 +96,6 @@ export class LoginPage implements OnInit, OnDestroy {
             console.log('ERROR MESSAGE:', error.error.Message);
             if (
               error.error.Message == 'Please check your password and username'
-              
             ) {
               this.errorMessage = 'Invalid username or password';
               this.router.navigate(['login']);
