@@ -571,9 +571,9 @@
   padding: 20px;
   display: flex;
 }
-#name {
-  margin-left: 4px;
-}
+// #name {
+//   margin-left: 4px;
+// }
 
 .navbar-logo-left-container {
   z-index: 5;
@@ -895,12 +895,13 @@
 }
 
 .link-block-3 {
-  width: 90vw;
+  width: 92vw;
   background-color: rgba(0, 44, 86, 0.18);
   border-radius: 14px;
   padding-left: 10px;
   padding-right: 10px;
   text-decoration: none;
+  margin-left: 2px;
 }
 /* Assuming this is your global CSS file or component's style */
 ::-webkit-scrollbar {
@@ -2175,7 +2176,7 @@
   }
 
   .grid-4 {
-    margin-top: 40px;
+    margin-top: 80px;
   }
 
   .navbar-logo-left-container {
@@ -2561,7 +2562,7 @@
   .continueb {
     width: 75vw;
   }
-  
+
   // .div-block-2 {
   //   position: fixed;
   // }
@@ -2659,12 +2660,8 @@
     padding-top: 75px;
   }
 
-  .image-3 {
-    width: 90px;
-    height: 90px;
-    // border: 3px solid #002e58;
-    border-radius: 50px;
-    margin-left: 104px;
+  .image-3name {
+    margin-left: 90px;
 
     letter-spacing: 0.25px;
 
@@ -2676,7 +2673,7 @@
 
     width: 90%;
 
-    color: #00386c;
+    color: #eef2f6;
   }
 
   .list-page {

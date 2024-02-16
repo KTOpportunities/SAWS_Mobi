@@ -14,6 +14,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 })
 export class AppComponent {
   userDetails: any;
+  isSubscribed: boolean = false;
   logout() {
     this.authService.setLoggedInStatus(false);
     this.router.navigate(['/login']);
@@ -25,18 +26,20 @@ export class AppComponent {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private activatedRoute: ActivatedRoute,
+    private authAPI: AuthService
   ) {}
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }
+
   ngOnInit() {
-    const userDetailsString = sessionStorage.getItem('userData');
-    if (userDetailsString) {
-      this.userDetails = JSON.parse(userDetailsString);
-      console.log('USER DETAILS:', this.userDetails);
-      console.log('USER DETAILS:', this.userDetails.aspUserName);
-    }
+    this.fetchUserData();
+  }
+
+  fetchUserData() {
+    this.userDetails = this.authService.getUserData();
   }
   aviationcode() {
     this.router.navigate(['/aviation-code']);
@@ -72,4 +75,11 @@ export class AppComponent {
       currentRoute.includes('/forgot-password')
     );
   }
+
+ 
+  displayIcon(): boolean {
+    const currentRoute = this.router.url;
+    return currentRoute.includes('/subscription-package');
+  }
+  
 }
