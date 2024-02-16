@@ -261,7 +261,7 @@
       </div>
     </div> -->
   </div>
-  <div class="bottomdiv">
+  <div class="bottomdiv" *ngIf="!displayIcon()" >
     <img
       src="../../assets/Path-3447.svg"
       loading="lazy"
@@ -270,18 +270,8 @@
       class="image"
     />
    
-    <div class="footerdiv">
-      <a href="landing-page.html" *ngIf="displayIcon()"
-      class="link-block-5 w-inline-block"><img src="../../assets/Group-4522.svg" loading="lazy" width="35" alt="">
-        <h6 class="heading-10-copy" 
-        style=" color: #fff;
-        margin-top: 10px;
-        margin-bottom: 0;
-        font-family: Montserrat, sans-serif;
-        text-decoration: none;font-size: 16px;
-        margin-top: 4px;"
-        >Back</h6>
-      </a>
+    <div class="footerdiv" >
+     
     </div>
 
   </div>
