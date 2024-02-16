@@ -38,4 +38,7 @@ export class SubscriptionPackagePage implements OnInit {
   forecastPage() {
     this.router.navigate(['/landing-page']);
   }
+  annuallysubscription(){
+    this.router.navigate(['/annually']);
+  }
 }
