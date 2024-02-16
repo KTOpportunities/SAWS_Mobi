@@ -7,11 +7,7 @@ const routes: Routes = [
   {
     path: '',
     component: SubscriptionPackagePage
-  },  {
-    path: 'annually',
-    loadChildren: () => import('./annually/annually.module').then( m => m.AnnuallyPageModule)
   }
-
 ];
 
 @NgModule({
