@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subscription-package',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubscriptionPackagePage implements OnInit {
   isSubscriber: boolean = true;
-  dropdownVisible1: boolean = false; // Variable to control main dropdown visibility
-  dropdownVisible2: boolean = false; // Variable to control dropdown visibility for the first dropdown
-  dropdownVisible3: boolean = false; // Variable to control dropdown visibility for the second dropdown
- 
-  constructor() { }
+  dropdownVisible: {[key: string]: boolean} = {
+    'paymentType': false,
+    'freeSubscription': false,
+    'premiumSubscription': false,
+    'regulatedSubscription': false
+  };
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
@@ -21,25 +24,24 @@ export class SubscriptionPackagePage implements OnInit {
   }
   
 
-  toggleDropdown(dropdownId: string): void {
-    if (dropdownId === 'dropdownVisible1') {
-      // Toggle visibility for the first dropdown
-      this.dropdownVisible1 = !this.dropdownVisible1;
-      // Close other dropdowns if they are open
-      this.dropdownVisible2 = false;
-      this.dropdownVisible3 = false;
-    } else if (dropdownId === 'dropdownVisible2') {
-      // Toggle visibility for the second dropdown
-      this.dropdownVisible2 = !this.dropdownVisible2;
-      // Close other dropdowns if they are open
-      this.dropdownVisible1 = false;
-      this.dropdownVisible3 = false;
-    } else if (dropdownId === 'dropdownVisible3') {
-      // Toggle visibility for the third dropdown
-      this.dropdownVisible3 = !this.dropdownVisible3;
-      // Close other dropdowns if they are open
-      this.dropdownVisible1 = false;
-      this.dropdownVisible2 = false;
+  toggleDropdown(dropdownName: string) {
+    // Close all dropdowns
+    for (let key in this.dropdownVisible) {
+      if (key !== dropdownName) {
+        this.dropdownVisible[key] = false;
+      }
     }
+
+    // Toggle the specified dropdown
+    this.dropdownVisible[dropdownName] = !this.dropdownVisible[dropdownName];
+  }
+  forecastPage() {
+    this.router.navigate(['/landing-page']);
+  }
+  forecastPage2() {
+    this.router.navigate(['/alnding-page'])
+  }
+  annualypage() {
+    this.router.navigate(['/subscription-package/annually'])
   }
 }

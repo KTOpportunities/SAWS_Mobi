@@ -81,5 +81,10 @@ export class AppComponent {
     const currentRoute = this.router.url;
     return currentRoute.includes('/subscription-package');
   }
+  // BacktoLadingpage(){
+  //   debugger;
+  //   this.router.navigate(['/landing-page']);
+    
+  // }
   
 }

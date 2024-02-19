@@ -1,4 +1,4 @@
-<div *ngIf="loading" class="loading-indicator">Loading...</div>
+
 <!-- <section class="section" *ngIf="currentStep === 1">
   <div class="div-block-2">
     <img
@@ -226,6 +226,7 @@
   </div>
 </section> -->
 <ion-content>
+  <div *ngIf="loading" class="loading-indicator">Loading...</div>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <section class="section" *ngIf="currentStep === 1">
     <div class="div-block">
@@ -273,7 +274,7 @@
                 Full Name is required.
               </div>
             </div>
-            <div id="w-node-b12f6374-1320-16d1-1054-374cc200f0b3-6fb9ee30">
+            <!-- <div id="w-node-b12f6374-1320-16d1-1054-374cc200f0b3-6fb9ee30">
               <label for="name-2" class="registerlabel">Username (*)</label
               ><input
                 type="text"
@@ -292,7 +293,7 @@
               >
                 Username is required.
               </div>
-            </div>
+            </div> -->
             <div id="w-node-_1162ffd6-f7de-04e5-2c9d-77b81f0dc4da-6fb9ee30">
               <label for="name-2" class="registerlabel">Email Address (*)</label
               ><input
@@ -318,30 +319,34 @@
               >
                 Invalid email address format.
               </div>
+              <!-- <div *ngIf="errorMessageExist" class="error-message">
+                {{ errorMessageExist }}
+              </div> -->
             </div>
             <div id="w-node-ccdda937-ce5c-ac70-b522-fdf10dd22378-6fb9ee30">
               <label for="name-2" class="registerlabel">Password (*)</label>
-
-              <input
-                type="password"
-                class="registerfield w-input"
-                maxlength="256"
-                name="Password"
-                data-name="Name 2"
-                placeholder="Type your password"
-                type="{{ showPassword ? 'text' : 'password' }}"
-                id="Password"
-                required=""
-                formControlName="Password"
-              />
-              <span class="toggle-password">
-                <i
-                  class="fas"
-                  [class.fa-eye]="showPassword"
-                  [class.fa-eye-slash]="!showPassword"
-                  (click)="togglePasswordVisibility()"
-                ></i>
-              </span>
+              <div class="input-with-icon">
+                <input
+                  type="password"
+                  class="registerfield w-input"
+                  maxlength="256"
+                  name="Password"
+                  data-name="Name 2"
+                  placeholder="Type your password"
+                  type="{{ showPassword ? 'text' : 'password' }}"
+                  id="Password"
+                  required=""
+                  formControlName="Password"
+                />
+                <span class="toggle-password">
+                  <i
+                    class="fas"
+                    [class.fa-eye]="showPassword"
+                    [class.fa-eye-slash]="!showPassword"
+                    (click)="togglePasswordVisibility()"
+                  ></i
+                ></span>
+              </div>
               <!-- Update the error messages for password validation -->
               <div
                 *ngIf="userForm.get('Password')?.errors?.['invalidPassword'] && (userForm.get('Password')?.touched || submitted)"
@@ -371,26 +376,27 @@
               <label for="name-2" class="registerlabel"
                 >Confirm Passwords (*)</label
               >
-
-              <input
-                type="password"
-                class="registerfield w-input"
-                maxlength="256"
-                name="ConfirmPassword"
-                data-name="Name 2"
-                placeholder="Re-type your password"
-                id="ConfirmPassword"
-                required=""
-                formControlName="ConfirmPassword"
-              />
-              <span class="toggle-password">
-                <i
-                  class="fas"
-                  [class.fa-eye]="showPassword"
-                  [class.fa-eye-slash]="!showPassword"
-                  (click)="togglePasswordVisibility()"
-                ></i>
-              </span>
+              <div class="input-with-icon">
+                <input
+                  type="password"
+                  class="registerfield w-input"
+                  maxlength="256"
+                  name="ConfirmPassword"
+                  data-name="Name 2"
+                  placeholder="Re-type your password"
+                  id="ConfirmPassword"
+                  required=""
+                  formControlName="ConfirmPassword"
+                />
+                <span class="toggle-password">
+                  <i
+                    class="fas"
+                    [class.fa-eye]="showPassword"
+                    [class.fa-eye-slash]="!showPassword"
+                    (click)="togglePasswordVisibility()"
+                  ></i>
+                </span>
+              </div>
               <div *ngIf="errorMessage" class="error-message">
                 {{ errorMessage }}
               </div>
@@ -410,9 +416,9 @@
               class="continueb w-button"
             />
           </div>
-          <div style="color: green" *ngIf="statusMessage">
+          <!-- <div style="color: green" *ngIf="statusMessage">
             <div>Thank you! You have sussessfully registered!</div>
-          </div>
+          </div> -->
         </form>
       </div>
       <a href="" class="link-block w-inline-block">
