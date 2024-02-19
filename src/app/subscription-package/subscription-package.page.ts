@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,5 +37,11 @@ export class SubscriptionPackagePage implements OnInit {
   }
   forecastPage() {
     this.router.navigate(['/landing-page']);
+  }
+  forecastPage2() {
+    this.router.navigate(['/alnding-page'])
+  }
+  annualypage() {
+    this.router.navigate(['/subscription-package/annually'])
   }
 }
