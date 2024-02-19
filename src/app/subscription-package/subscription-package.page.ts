@@ -19,12 +19,13 @@ export class SubscriptionPackagePage implements OnInit {
 
   ngOnInit() {
   }
+    get isLoggedIn(): boolean {
+    return this.authService.getIsLoggedIn();
+  }
   provideFeedback() {
-    if (this.authService.getIsLoggedIn()) {
-      this.router.navigate(['/provide-feedback']);
-    } else {
+   
       this.router.navigate(['/login']);
-    }
+    
   }
   displayIcon(): boolean {
     return this.isSubscriber; // Return true if the user is a subscriber, false otherwise

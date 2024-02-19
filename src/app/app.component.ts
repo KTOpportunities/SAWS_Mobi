@@ -60,6 +60,7 @@ export class AppComponent {
       this.router.navigate(['/login']);
     }
   }
+  
   subscriptionPackage() {
     this.router.navigate(['/subscription-package']);
   }
