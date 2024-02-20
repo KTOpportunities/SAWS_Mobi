@@ -103,6 +103,10 @@ const routes: Routes = [
     path: 'aero-sport',
     loadChildren: () => import('./aero-sport/aero-sport.module').then( m => m.AeroSportPageModule)
   },
+  {
+    path: 'message-list',
+    loadChildren: () => import('../app/provide-feedback/message-list/message-list.module').then( m => m.MessageListPageModule)
+  },
 
 ];
 

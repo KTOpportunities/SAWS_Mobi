@@ -53,8 +53,8 @@ export class AppComponent {
   news() {
     this.router.navigate(['/news']);
   }
-  provideFeedback() {
-    this.router.navigate(['/provide-feedback']);
+  messagelist() {
+    this.router.navigate(['/message-list']);
   }
   subscriptionPackage() {
     this.router.navigate(['/subscription-package']);
