@@ -10,7 +10,11 @@ const routes: Routes = [
   },  {
     path: 'annually',
     loadChildren: () => import('./annually/annually.module').then( m => m.AnnuallyPageModule)
-  }
+  },
+
+ 
+
+  
 
 ];
 

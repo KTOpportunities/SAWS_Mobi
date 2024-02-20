@@ -17,15 +17,13 @@ export class AnnuallyPage implements OnInit {
     'premiumSubscription': false,
     'regulatedSubscription': false
   };
-  constructor(private router:Router) { }
 
+  constructor( private router: Router ) { }
   ngOnInit() {
   }
   displayIcon(): boolean {
     return this.isSubscriber; // Return true if the user is a subscriber, false otherwise
   }
-  
-
   toggleDropdown(dropdownName: string) {
     // Close all dropdowns
     for (let key in this.dropdownVisible) {
@@ -37,7 +35,6 @@ export class AnnuallyPage implements OnInit {
     // Toggle the specified dropdown
     this.dropdownVisible[dropdownName] = !this.dropdownVisible[dropdownName];
   }
-
   selectService(service: string) {
     if (!this.selectedServices.includes(service)) {
       this.selectedServices.push(service);
@@ -53,5 +50,6 @@ export class AnnuallyPage implements OnInit {
   forecastPage() {
     this.router.navigate(['/landing-page']);
   }
+
 
 }

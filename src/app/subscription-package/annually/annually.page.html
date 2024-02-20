@@ -1,0 +1,298 @@
+<ion-content [fullscreen]="true">
+  <section
+    class="subscription-p"
+    style="overflow-y: auto; height: 63%; position: relative; top: 34px"
+  >
+    <div class="div-block-2">
+      <img
+        src="images/Path-3452.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+    </div>
+    <div class="div-block-2">
+      <h1 class="heading-6">Annually Subscription Package</h1>
+      <div class="w-layout-grid subscription-p-main-div">
+        <div
+          id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e2297290-ce3d400c"
+          class="div-block-15"
+        >
+          <div class="div-block-14"></div>
+        </div>
+        <div>
+          <h4 class="field-label">Payment Type</h4>
+          <div
+            id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e2297295-ce3d400c"
+            class="div-block-52"
+          >
+            <a href="#" class="button-4 w-button">Monthly</a>
+            <a href="#" class="button-4 w-button">Annually</a>
+          </div>
+        </div>
+      </div>
+      <div class="div-block-15">
+        <div class="div-block-60">
+          <div class="w-layout-grid grid-34">
+            <div
+              id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229731b-ce3d400c"
+              class="div-block-54"
+            >
+              <div class="w-layout-grid grid-33">
+                <div
+                  id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229731d-ce3d400c"
+                  class="div-block-53"
+                >
+                  <h1 class="heading-47">Free Subscription</h1>
+                </div>
+                <div
+                  id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e2297320-ce3d400c"
+                  class="div-block-57"
+                >
+                  <h1 class="heading-21-copy">R0.00</h1>
+                  <div class="div-block-62">
+                    <h4 class="field-label">Available Services</h4>
+                    <div data-hover="false" data-delay="0" class="w-dropdown">
+                      <div
+                        class="sub-dropd w-dropdown-toggle"
+                        (click)="toggleDropdown('freeSubscription')"
+                      >
+                        <div class="w-icon-dropdown-toggle"></div>
+                        <div>{{ selectedService || 'Select Services' }}</div>
+                      </div>
+                      <nav
+                        class="dropdown-list-6 w-dropdown-list"
+                        [class.show-dropdown]="dropdownVisible['freeSubscription']"
+                      >
+                        <a
+                          class="dropdown-link-4 w-dropdown-link"
+                          (click)="selectService('International')"
+                          >International</a
+                        >
+                        <a
+                          class="dropdown-link-6 w-dropdown-link"
+                          (click)="selectService('Forecast')"
+                          >Forecast</a
+                        >
+                        <a
+                          class="dropdown-link-6 w-dropdown-link"
+                          (click)="selectService('Other')"
+                          >Other</a
+                        >
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="html-embed-11 w-embed">
+                    <ul>
+                      <li *ngFor="let service of selectedServices">
+                        {{ service }}
+                      </li>
+                      <!-- <li>Sigwx Charts</li> -->
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e2297339-ce3d400c"
+                  class="div-block-56"
+                >
+                  <div
+                    id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229733a-ce3d400c"
+                    class="div-block-55"
+                  ></div>
+                  <a href="#" class="button-2-copy w-button">Subscribe Now</a>
+                </div>
+              </div>
+            </div>
+            <div
+              id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229731b-ce3d400c"
+              class="div-block-54"
+            >
+              <div class="w-layout-grid grid-33">
+                <div
+                  id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229731d-ce3d400c"
+                  class="div-block-53"
+                >
+                  <h1 class="heading-47">Premium</h1>
+                </div>
+                <div
+                  id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e2297320-ce3d400c"
+                  class="div-block-57"
+                >
+                  <h1 class="heading-21-copy">R180.00</h1>
+                  <div class="div-block-62">
+                    <h4 class="field-label">Available Services</h4>
+                    <div data-hover="false" data-delay="0" class="w-dropdown">
+                      <div
+                        class="sub-dropd w-dropdown-toggle"
+                        (click)="toggleDropdown('premiumSubscription')"
+                      >
+                        <div class="w-icon-dropdown-toggle"></div>
+                        <div>{{ selectedService || 'Select Services' }}</div>
+                      </div>
+                      <nav
+                        class="dropdown-list-6 w-dropdown-list"
+                        [class.show-dropdown]="dropdownVisible['premiumSubscription']"
+                      >
+                        <a
+                          class="dropdown-link-4 w-dropdown-link"
+                          (click)="selectService('International')"
+                          >International</a
+                        >
+                        <a
+                          class="dropdown-link-5 w-dropdown-link"
+                          (click)="selectService('Domestic')"
+                          >Domestic</a
+                        >
+                        <a
+                          class="dropdown-link-6 w-dropdown-link"
+                          (click)="selectService('flightBrief')"
+                          >Flight Briefing</a
+                        >
+                        <a
+                          class="dropdown-link-6 w-dropdown-link"
+                          (click)="selectService('Observation')"
+                          >Observation</a
+                        >
+                        <a
+                          class="dropdown-link-6 w-dropdown-link"
+                          (click)="selectService('Forecast')"
+                          >Forecast</a
+                        >
+                        <a class="dropdown-link-6 w-dropdown-link">Other</a>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="html-embed-11 w-embed">
+                    <ul>
+                      <li *ngFor="let service of selectedServices">
+                        {{ service }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e2297339-ce3d400c"
+                  class="div-block-56"
+                >
+                  <div
+                    id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229733a-ce3d400c"
+                    class="div-block-55"
+                  ></div>
+                  <a href="#" class="button-2-copy w-button">Subscribe Now</a>
+                </div>
+              </div>
+            </div>
+            <div
+              id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229733d-ce3d400c"
+              class="div-block-54"
+            >
+              <div class="w-layout-grid grid-33">
+                <div
+                  id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229733f-ce3d400c"
+                  class="div-block-53"
+                >
+                  <h1 class="heading-47">Regulated</h1>
+                </div>
+                <div
+                  id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e2297342-ce3d400c"
+                  class="div-block-57"
+                >
+                  <h1 class="heading-21-copy">R380.00</h1>
+                  <div class="div-block-62">
+                    <h4 class="field-label">Available Services</h4>
+                    <div data-hover="false" data-delay="0" class="w-dropdown">
+                      <div
+                        class="sub-dropd w-dropdown-toggle"
+                        (click)="toggleDropdown('regulatedSubscription')"
+                      >
+                        <div class="w-icon-dropdown-toggle"></div>
+                        <div>{{ selectedService || 'Select Services' }}</div>
+                      </div>
+                      <nav
+                        class="dropdown-list-6 w-dropdown-list"
+                        [class.show-dropdown]="dropdownVisible['regulatedSubscription']"
+                      >
+                        <a
+                          class="dropdown-link-4 w-dropdown-link"
+                          (click)="selectService('International')"
+                          >International</a
+                        >
+                        <a
+                          class="dropdown-link-5 w-dropdown-link"
+                          (click)="selectService('Domestic')"
+                          >Domestic</a
+                        >
+                        <a
+                          class="dropdown-link-6 w-dropdown-link"
+                          (click)="selectService('flightBrief')"
+                          >Flight Briefing</a
+                        >
+                        <a
+                          class="dropdown-link-6 w-dropdown-link"
+                          (click)="selectService('Observation')"
+                          >Observation</a
+                        >
+                        <a
+                          class="dropdown-link-6 w-dropdown-link"
+                          (click)="selectService('Forecast')"
+                          >Forecast</a
+                        >
+                        <a class="dropdown-link-6 w-dropdown-link">Other</a>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="html-embed-11 w-embed">
+                    <ul>
+                      <li *ngFor="let service of selectedServices">
+                        {{ service }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229735b-ce3d400c"
+                  class="div-block-56"
+                >
+                  <div
+                    id="w-node-cd3e9c90-8e08-db1f-b9df-21d1e229735c-ce3d400c"
+                    class="div-block-55"
+                  ></div>
+                  <a href="#" class="button-2-copy w-button">Subscribe Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottomdiv">
+      <img
+        src="../../assets/Path-3447.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+      <div class="footerdiv">
+        <a (click)="forecastPage()" class="link-block-5 w-inline-block"
+          ><img src="../../assets/Group-4522.svg" loading="lazy" alt="" />
+          <h6
+            class="heading-10-copy"
+            style="
+              color: #fff;
+              margin-top: 10px;
+              margin-bottom: 0;
+              font-family: Montserrat, sans-serif;
+              text-decoration: none;
+              font-size: 16px;
+              margin-top: 4px;
+            "
+          >
+            Back
+          </h6></a
+        >
+      </div>
+    </div>
+  </section>
+</ion-content>
