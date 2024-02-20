@@ -102,7 +102,11 @@ const routes: Routes = [
   {
     path: 'aero-sport',
     loadChildren: () => import('./aero-sport/aero-sport.module').then( m => m.AeroSportPageModule)
+  },  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
   },
+
 
 ];
 
