@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ProvideFeedbackPage
+  },  {
+    path: 'message-list',
+    loadChildren: () => import('./message-list/message-list.module').then( m => m.MessageListPageModule)
   }
+
 ];
 
 @NgModule({
