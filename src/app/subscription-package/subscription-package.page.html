@@ -1,8 +1,8 @@
-<section class="subscription-p" style="overflow-y: auto;
+<!-- <section class="subscription-p" style="overflow-y: auto;
 height: 63%;
 position: relative;
 top: 34px;" >
-  <!-- <div class="div-block-2"><img src="images/Path-3452.svg" loading="lazy" width="1216" alt="" class="image"></div> -->
+
   <div class="main-div-sub">
     <h1 class="heading-6">Subscription</h1>
     <div class="w-layout-grid subscription-p-main-div">
@@ -184,4 +184,84 @@ top: 34px;" >
 
 </section>
 
+ -->
+
+ <section class="subscription-p" style="overflow-y: auto; height: 63%; position: relative; top: 34px;">
+  <div class="main-div-sub">
+    <h1 class="heading-6">Subscription</h1>
+    <div class="w-layout-grid subscription-p-main-div">
+      <div id="w-node-_46fea626-331a-31b2-3d93-495b4bd70088-871273fb" class="div-block-15">
+        <div class="div-block-14"></div>
+      </div>
+      <div>
+        <h4 class="field-label">Payment Type</h4>
+        <div id="w-node-d5113b85-dffb-5330-a3a9-3c1251f6e32c-871273fb" class="div-block-52">
+          <a href="#" class="button-4 w-button">Monthly</a>
+          <div (click)="annualypage()" class="button-4 w-button">Annually</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regulated Subscription -->
+    <div class="div-block-15">
+      <div class="div-block-60">
+        <div class="w-layout-grid grid-34">
+          <div class="div-block-54">
+            <div class="w-layout-grid grid-33">
+              <div class="div-block-53">
+                <h1 class="heading-47">Regulated</h1>
+              </div>
+              <div class="div-block-57">
+                <h1 class="heading-21-copy">R380.00</h1>
+                <div class="div-block-62">
+                  <h4 class="field-label">Available Services</h4>
+                  <div class="w-dropdown">
+                    <div class="sub-dropd w-dropdown-toggle" (click)="toggleDropdown('regulatedSubscription')">
+                      <div class="w-icon-dropdown-toggle"></div>
+                      <div>Select Services</div>
+                    </div>
+                    <nav class="dropdown-list-6 w-dropdown-list" [class.show-dropdown]="dropdownVisible['regulatedSubscription']">
+                      <a href="#" class="dropdown-link-4 w-dropdown-link">International</a>
+                      <a href="#" class="dropdown-link-5 w-dropdown-link">Domestic</a>
+                      <a href="#" class="dropdown-link-6 w-dropdown-link">Flight Briefing</a>
+                      <a href="#" class="dropdown-link-6 w-dropdown-link">Observation</a>
+                      <a href="#" class="dropdown-link-6 w-dropdown-link">Forecast</a>
+                      <a href="#" class="dropdown-link-6 w-dropdown-link">Other</a>
+                    </nav>
+                  </div>
+                </div>
+                <div class="html-embed-11 w-embed">
+                  <ul>
+                    <li>Grid winds</li>
+                    <li>Maximum Winds</li>
+                    <li>Sigwx Charts</li>
+                    <li>World Map </li>
+                    <li>GPM</li>
+                    <li>Humidity</li>
+                    <li>Graphical SIGMET/AIRMET</li>
+                    <li>Image Browser</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="div-block-56">
+                <div class="div-block-55"></div>
+                <a href="#" class="button-2-copy w-button">Subscribe Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bottomdiv">
+    <img src="../../assets/Path-3447.svg" loading="lazy" width="1216" alt="" class="image"/>
+    <div class="footerdiv">
+      <a (click)="forecastPage()" class="link-block-5 w-inline-block">
+        <img src="../../assets/Group-4522.svg" loading="lazy" alt=""/>
+        <h6 class="heading-10-copy" style="color: #fff; margin-top: 10px; margin-bottom: 0; font-family: Montserrat, sans-serif; text-decoration: none; font-size: 16px; margin-top: 4px;">Back</h6>
+      </a>
+    </div>
+  </div>
+</section>
 

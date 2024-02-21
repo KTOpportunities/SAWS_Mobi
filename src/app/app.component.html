@@ -121,6 +121,7 @@
                   <ion-menu-toggle
                     ><button
                       mat-menu-item
+                      *ngIf="isLoggedIn"
                       value="messagelist"
                       (click)="messagelist()"
                     >
