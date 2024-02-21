@@ -106,7 +106,11 @@ const routes: Routes = [
   {
     path: 'message-list',
     loadChildren: () => import('../app/provide-feedback/message-list/message-list.module').then( m => m.MessageListPageModule)
+  },  {
+    path: 'home',
+    loadChildren: () => import('./Pages/home/home.module').then( m => m.HomePageModule)
   },
+
 
 ];
 

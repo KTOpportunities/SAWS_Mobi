@@ -14,6 +14,8 @@ export class SubscriptionPackagePage implements OnInit {
     'premiumSubscription': false,
     'regulatedSubscription': false
   };
+  // Added variable to keep track of selected payment type
+  selectedPaymentType: string = ''; 
   constructor(private router:Router) { }
 
   ngOnInit() {
@@ -35,13 +37,22 @@ export class SubscriptionPackagePage implements OnInit {
     // Toggle the specified dropdown
     this.dropdownVisible[dropdownName] = !this.dropdownVisible[dropdownName];
   }
+
+
+  
   forecastPage() {
     this.router.navigate(['/landing-page']);
   }
   forecastPage2() {
     this.router.navigate(['/alnding-page'])
   }
+
   annualypage() {
-    this.router.navigate(['/subscription-package/annually'])
+    this.selectedPaymentType = 'annually'; // Update selected payment type
+    this.router.navigate(['/subscription-package/payment-type'])
+  }
+  monthlypage() {
+    this.selectedPaymentType = 'monthly'; // Update selected payment type
+    this.router.navigate(['/subscription-package/payment-type']);
   }
 }
