@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52.025" height="48.611" viewBox="0 0 52.025 48.611">
+  <g id="Group_5146" data-name="Group 5146" transform="translate(-732 -362.389)">
+    <path id="Icon_simple-hipchat" data-name="Icon simple-hipchat" d="M8.664,40.353A21.2,21.2,0,0,1,0,23.621C0,11.232,11.647,1.18,26.006,1.18s26.019,10.052,26.019,22.44S40.383,46.069,26.017,46.069a29.831,29.831,0,0,1-5.471-.494l-.568-.1A27.074,27.074,0,0,1,6.347,49.791a1.4,1.4,0,0,1-1.2-2.393C6.555,45.675,9.02,40.624,8.664,40.353Z" transform="translate(732 361.208)" fill="#8295c2"/>
+    <circle id="Ellipse_212" data-name="Ellipse 212" cx="3.5" cy="3.5" r="3.5" transform="translate(743 383)" fill="#fff"/>
+    <circle id="Ellipse_213" data-name="Ellipse 213" cx="3.5" cy="3.5" r="3.5" transform="translate(754 383)" fill="#fff"/>
+    <circle id="Ellipse_214" data-name="Ellipse 214" cx="3.5" cy="3.5" r="3.5" transform="translate(767 383)" fill="#fff"/>
+  </g>
+</svg>
