@@ -45,7 +45,8 @@ body {
 }
 .bottomdiv {
   position: fixed;
-  margin-top: 166%;
+
+  margin-top: 7%;
 }
 .heading-6 {
   margin-left: 20px;
@@ -4699,7 +4700,11 @@ th {
     margin-top: 0;
     margin-bottom: 0;
   }
+  .bottomdiv {
+    position: fixed;
 
+    margin-top: 7%;
+  }
   .button {
     margin-left: 5px;
     margin-right: 5px;
@@ -7033,4 +7038,42 @@ textarea.w-select {
 }
 .wf-layout-layout {
   display: grid;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr; /* First column takes up more space */
+  grid-gap: 10px; /* Gap between grid items */
+}
+
+.grid-item {
+  padding: 20px;
+}
+
+.grid-item:first-child {
+  border: 1px solid #ccc; /* Add border to the first column only */
+}
+.grid-item:nth-child(2) {
+  margin-top: -10px; /* Adjust the margin to push the second column to the right */
+}
+
+.time-right {
+  position: absolute; /* Position the time to the top right */
+  top: 0;
+  right: 0;
+  color: #aaa;
+}
+
+.name-overlay {
+  font-weight: bold;
+  font-size: 15px;
+  // position: absolute; /* Position the name to the top left */
+  // top: 0;
+  // left: 0;
+  // background-color: rgba(
+  //   255,
+  //   255,
+  //   255,
+  //   0.8
+  // ); /* Semi-transparent background for readability */
+  // padding: 5px;
 }

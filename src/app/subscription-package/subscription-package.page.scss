@@ -6276,10 +6276,10 @@ th {
     display: block;
   }
 
-  .bottomdiv {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+  // .bottomdiv {
+  //   margin-top: 0;
+  //   margin-bottom: 0;
+  // }
 
   .mobile-images {
     margin-top: -24px;
@@ -6836,12 +6836,15 @@ th {
   }
 
   .bottomdiv {
-    margin-top: 531px;
-    margin-bottom: 0;
+    position: fixed;
+    margin-top: 140%;
   }
-
+  .bottomdivMessage {
+    position: fixed;
+    margin-top: 156%;
+  }
   .div-block-5 {
-    margin-top: -53px;
+    margin-top: -69px;
   }
 
   .mobile-images {
@@ -7076,6 +7079,7 @@ th {
     align-items: center;
     text-decoration: none;
     display: flex;
+    margin-top: 11px;
   }
 
   .heading-10 {

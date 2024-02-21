@@ -18,6 +18,7 @@ export class AppComponent {
   logout() {
     this.authService.setLoggedInStatus(false);
     this.router.navigate(['/login']);
+    window.location.reload();
   }
   login() {
     this.router.navigate(['/login']);
@@ -54,15 +55,23 @@ export class AppComponent {
     this.router.navigate(['/news']);
   }
   messagelist() {
-    this.router.navigate(['/message-list']);}
+    if (this.authService.getIsLoggedIn()) {
+      this.router.navigate(['/message-list']);
+    } else {
+      // Store the intended URL before redirecting to login
+      this.authService.setRedirectUrl('/message-list');
+      this.router.navigate(['/login']);
+    }
+  }
   provideFeedback() {
     if (this.authService.getIsLoggedIn()) {
       this.router.navigate(['/provide-feedback']);
     } else {
+      this.authService.setRedirectUrl('/provide-feedback');
       this.router.navigate(['/login']);
     }
   }
-  
+
   subscriptionPackage() {
     this.router.navigate(['/subscription-package']);
   }
