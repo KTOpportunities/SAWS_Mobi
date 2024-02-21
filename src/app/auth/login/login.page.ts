@@ -84,8 +84,14 @@ export class LoginPage implements OnInit, OnDestroy {
               this.userData = response;
               this.authAPI.setUserData(this.userData);
               console.log('TEST::', this.userData);
-              this.router.navigate(['/landing-page']);
-              // sessionStorage.setItem('userData', JSON.stringify(response));
+              const redirectUrl = this.authAPI.getRedirectUrl();
+          if (redirectUrl) {
+            // If yes, navigate them to that URL
+            this.router.navigateByUrl(redirectUrl);
+          } else {
+            // If not, navigate them to the landing page
+            this.router.navigate(['/landing-page']);
+          }
             } else {
               this.errorMessage = 'Only subscribers can login';
               this.router.navigate(['login']);

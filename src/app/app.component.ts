@@ -54,8 +54,15 @@ export class AppComponent {
     this.router.navigate(['/news']);
   }
   messagelist() {
-    this.router.navigate(['/message-list']);
+    this.router.navigate(['/message-list']);}
+  provideFeedback() {
+    if (this.authService.getIsLoggedIn()) {
+      this.router.navigate(['/provide-feedback']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
+  
   subscriptionPackage() {
     this.router.navigate(['/subscription-package']);
   }
@@ -76,7 +83,6 @@ export class AppComponent {
     );
   }
 
- 
   displayIcon(): boolean {
     const currentRoute = this.router.url;
     return currentRoute.includes('/subscription-package');
@@ -84,7 +90,6 @@ export class AppComponent {
   // BacktoLadingpage(){
   //   debugger;
   //   this.router.navigate(['/landing-page']);
-    
+
   // }
-  
 }

@@ -7,6 +7,8 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
   private userData: any;
+  private redirectUrl: string | null = null;
+
   constructor(private http: HttpClient) {}
 
   login(form: any) {
@@ -33,12 +35,18 @@ export class AuthService {
     this.isLoggedIn = status;
   }
   setUserData(userData: any) {
- 
     this.userData = userData;
     console.log('TEST::', this.userData);
   }
 
   getUserData() {
     return this.userData;
+  }
+  setRedirectUrl(url: string) {
+    this.redirectUrl = url;
+  }
+
+  getRedirectUrl() {
+    return this.redirectUrl;
   }
 }
