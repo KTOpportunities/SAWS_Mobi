@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-message-list',
@@ -8,23 +8,28 @@ import { Router } from '@angular/router';
   styleUrls: ['../../subscription-package/subscription-package.page.scss'],
 })
 export class MessageListPage implements OnInit {
+  isLogged: boolean = false;
 
-  constructor(
-    private router: Router,
-  ) { }
+  constructor(private router: Router, private authService: AuthService,private route: ActivatedRoute) {}
 
   ngOnInit() {
+    // Check if user is logged in
+    if (!this.authService.getIsLoggedIn()) {
+      // If not logged in, navigate to the login page
+      this.router.navigate(['/login']);
+    }
   }
-
-  providerfeedback() {    
+  get isLoggedIn(): boolean {
+    return this.authService.getIsLoggedIn();
+  }
+  providerfeedback() {
     this.router.navigate(['/provide-feedback']);
-
-  
   }
 
   home() {
-    
     this.router.navigate(['../../landing-page']);
   }
-
+  navigateToChat() {
+    this.router.navigate(['/chat']); // Navigate to the 'chat' route
+  }
 }

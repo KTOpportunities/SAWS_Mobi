@@ -1,44 +1,90 @@
-
-
 <ion-content [fullscreen]="true">
   <section class="message-list">
-    <div class="div-block-2"><img src="images/Path-3452.svg" loading="lazy" width="1216" alt="" class="image"></div>
+    <div></div>
+    <div class="div-block-2">
+      <img
+        src="images/Path-3452.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+    </div>
     <div class="message-list-div">
       <h1 class="header">Messages</h1>
-      <div class="div-block-14-copy" >
-
-        <div  (click)="providerfeedback()"  class="search-button w-button" >+ New Message</div>
+      <div class="div-block-14-copy">
+        <div (click)="providerfeedback()" class="search-button w-button">
+          + New Message
+        </div>
 
         <div>
           <h5 class="heading-9">Search Chat</h5>
-          <form action="/search" class="search w-form"><input class="search-input w-input" maxlength="256" name="query" placeholder="Search…" type="search" id="search" required=""><input type="submit"  class="search-button w-button" value="Search"></form>
+          <form action="/search" class="search w-form">
+            <input
+              class="search-input w-input"
+              maxlength="256"
+              name="query"
+              placeholder="Search…"
+              type="search"
+              id="search"
+              required=""
+            /><input
+              type="submit"
+              class="search-button w-button"
+              value="Search"
+            />
+          </form>
         </div>
       </div>
-      <div class="w-layout-grid grid-list" style="overflow-y: auto;
-      height: 63%;" >
-        <a id="w-node-f6a166eb-5940-5bb2-1901-f81674c648ee-378bdca1" href="#" class="chat-link w-inline-block">
+      <div
+        class="w-layout-grid grid-list"
+        style="overflow-y: auto; height: 63%"
+      >
+        <a
+          id="w-node-f6a166eb-5940-5bb2-1901-f81674c648ee-378bdca1"
+          (click)="navigateToChat()"
+          class="chat-link w-inline-block"
+        >
           <h1 class="heading-5">Xolani_Admin</h1>
           <h1 class="chat-date">12/02/2024</h1>
         </a>
-        <a id="w-node-_53abbd44-15dd-9a1d-b3a8-8e1d34ffa0df-378bdca1" href="#" class="chat-link w-inline-block">
+        <a
+          id="w-node-_53abbd44-15dd-9a1d-b3a8-8e1d34ffa0df-378bdca1"
+          (click)="navigateToChat()"
+          class="chat-link w-inline-block"
+        >
           <h1 class="heading-5">Lefetse_Admin</h1>
           <h1 class="chat-date">12/02/2024</h1>
         </a>
-        <a id="w-node-_98198f6a-9a73-edf2-7452-b1af8a3026fb-378bdca1" href="#" class="chat-link w-inline-block">
+        <a
+          (click)="navigateToChat()"
+          id="w-node-_98198f6a-9a73-edf2-7452-b1af8a3026fb-378bdca1"
+          class="chat-link w-inline-block"
+        >
           <h1 class="heading-5">Lucia_Admin</h1>
           <h1 class="chat-date">12/02/2024</h1>
         </a>
-        <a id="w-node-b54924f5-f6a9-0ee8-80ba-59af67abdbb7-378bdca1" href="#" class="chat-link w-inline-block">
+        <a
+          (click)="navigateToChat()"
+          id="w-node-b54924f5-f6a9-0ee8-80ba-59af67abdbb7-378bdca1"
+          href="#"
+          class="chat-link w-inline-block"
+        >
           <h1 class="heading-5">Lucia_Admin</h1>
           <h1 class="chat-date">12/02/2024</h1>
         </a>
-        <a id="w-node-_9b8ad356-a5c1-5aed-d913-c3fcf63f4d50-378bdca1" href="#" class="chat-link w-inline-block">
+        <a
+          (click)="navigateToChat()"
+          id="w-node-_9b8ad356-a5c1-5aed-d913-c3fcf63f4d50-378bdca1"
+          href="#"
+          class="chat-link w-inline-block"
+        >
           <h1 class="heading-5">Lucia_Admin</h1>
           <h1 class="chat-date">12/02/2024</h1>
         </a>
       </div>
     </div>
-    <div class="bottomdivlogin">
+    <div class="bottomdivMessage">
       <img
         src="/assets/Path-3447.svg"
         loading="lazy"
@@ -46,7 +92,7 @@
         alt=""
         class="image"
       />
-      <div class="footerdiv" (click)="home()">
+      <div class="div-block-5" (click)="home()">
         <a class="w-inline-block"
           ><img src="/assets/Group-3489.svg" loading="lazy" alt=""
         /></a>

@@ -4,8 +4,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'landing-page', // Redirect to the login page
+    redirectTo: 'landing-page',
     pathMatch: 'full',
+  },
+  {
+    path: 'landing-page',
+    loadChildren: () =>
+      import('./landing-page/landing-page.module').then(
+        (m) => m.LandingPagePageModule
+      ),
   },
   {
     path: 'folder/:id',
@@ -48,66 +55,99 @@ const routes: Routes = [
     loadChildren: () =>
       import('./forecast/forecast.module').then((m) => m.ForecastPageModule),
   },
+
   {
-    path: 'landing-page',
+    path: 'aviation-home',
     loadChildren: () =>
-      import('./landing-page/landing-page.module').then(
-        (m) => m.LandingPagePageModule
+      import('./aviation-home/aviation-home.module').then(
+        (m) => m.AviationHomePageModule
       ),
   },
   {
-    path: 'aviation-home',
-    loadChildren: () => import('./aviation-home/aviation-home.module').then( m => m.AviationHomePageModule)
-  },
-  {
     path: 'color-coded',
-    loadChildren: () => import('./color-coded/color-coded.module').then( m => m.ColorCodedPageModule)
+    loadChildren: () =>
+      import('./color-coded/color-coded.module').then(
+        (m) => m.ColorCodedPageModule
+      ),
   },
   {
     path: 'aviation-code',
-    loadChildren: () => import('./aviation-code/aviation-code.module').then( m => m.AviationCodePageModule)
+    loadChildren: () =>
+      import('./aviation-code/aviation-code.module').then(
+        (m) => m.AviationCodePageModule
+      ),
   },
   {
     path: 'contact-us',
-    loadChildren: () => import('./contact-us/contact-us.module').then( m => m.ContactUsPageModule)
+    loadChildren: () =>
+      import('./contact-us/contact-us.module').then(
+        (m) => m.ContactUsPageModule
+      ),
   },
   {
     path: 'news',
-    loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
+    loadChildren: () =>
+      import('./news/news.module').then((m) => m.NewsPageModule),
   },
   {
     path: 'subscription-package',
-    loadChildren: () => import('./subscription-package/subscription-package.module').then( m => m.SubscriptionPackagePageModule)
+    loadChildren: () =>
+      import('./subscription-package/subscription-package.module').then(
+        (m) => m.SubscriptionPackagePageModule
+      ),
   },
   {
     path: 'provide-feedback',
-    loadChildren: () => import('./provide-feedback/provide-feedback.module').then( m => m.ProvideFeedbackPageModule)
+    loadChildren: () =>
+      import('./provide-feedback/provide-feedback.module').then(
+        (m) => m.ProvideFeedbackPageModule
+      ),
   },
   {
     path: 'international',
-    loadChildren: () => import('./international/international.module').then( m => m.InternationalPageModule)
+    loadChildren: () =>
+      import('./international/international.module').then(
+        (m) => m.InternationalPageModule
+      ),
   },
   {
     path: 'flight-briefing',
-    loadChildren: () => import('./flight-briefing/flight-briefing.module').then( m => m.FlightBriefingPageModule)
+    loadChildren: () =>
+      import('./flight-briefing/flight-briefing.module').then(
+        (m) => m.FlightBriefingPageModule
+      ),
   },
-    {
+  {
     path: 'observation',
-    loadChildren: () => import('./observation/observation.module').then( m => m.ObservationPageModule)
+    loadChildren: () =>
+      import('./observation/observation.module').then(
+        (m) => m.ObservationPageModule
+      ),
   },
   {
     path: 'domestic',
-    loadChildren: () => import('./domestic/domestic.module').then( m => m.DomesticPageModule)
+    loadChildren: () =>
+      import('./domestic/domestic.module').then((m) => m.DomesticPageModule),
   },
   {
     path: 'aero-sport',
-    loadChildren: () => import('./aero-sport/aero-sport.module').then( m => m.AeroSportPageModule)
+    loadChildren: () =>
+      import('./aero-sport/aero-sport.module').then(
+        (m) => m.AeroSportPageModule
+      ),
+  },
+  {
+    path: 'chat',
+    loadChildren: () =>
+      import('./chat/chat.module').then((m) => m.ChatPageModule),
   },
   {
     path: 'message-list',
-    loadChildren: () => import('../app/provide-feedback/message-list/message-list.module').then( m => m.MessageListPageModule)
+    loadChildren: () =>
+      import('../app/provide-feedback/message-list/message-list.module').then(
+        (m) => m.MessageListPageModule
+      ),
   },
-
 ];
 
 @NgModule({

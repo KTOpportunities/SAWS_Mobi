@@ -1,5 +1,6 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-subscription-package',
@@ -14,11 +15,21 @@ export class SubscriptionPackagePage implements OnInit {
     'premiumSubscription': false,
     'regulatedSubscription': false
   };
-  constructor(private router:Router) { }
+  selectedPaymentType: string | undefined;
+  constructor(private router:Router,private authService: AuthService,) { }
 
   ngOnInit() {
+    this.selectedPaymentType = 'monthly';
   }
-
+  
+    get isLoggedIn(): boolean {
+    return this.authService.getIsLoggedIn();
+  }
+  provideFeedback() {
+   
+      this.router.navigate(['/login']);
+    
+  }
   displayIcon(): boolean {
     return this.isSubscriber; // Return true if the user is a subscriber, false otherwise
   }
@@ -35,13 +46,22 @@ export class SubscriptionPackagePage implements OnInit {
     // Toggle the specified dropdown
     this.dropdownVisible[dropdownName] = !this.dropdownVisible[dropdownName];
   }
+
+
+  
   forecastPage() {
     this.router.navigate(['/landing-page']);
   }
   forecastPage2() {
     this.router.navigate(['/alnding-page'])
   }
+
   annualypage() {
-    this.router.navigate(['/subscription-package/annually'])
+    this.selectedPaymentType = 'annually'; // Update selected payment type
+    this.router.navigate(['/subscription-package/payment-type',{ paymentType: 'annually'}]);
+  }
+  monthlypage() {
+    this.selectedPaymentType = 'monthly'; // Update selected payment type
+    this.router.navigate(['/subscription-package/payment-type']);
   }
 }
