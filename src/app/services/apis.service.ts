@@ -30,22 +30,26 @@ export class APIService {
     );
   }
 
-
   RequestPasswordReset(form: any) {
+    return this.http
+      .post<any>(
+        environment.serverAPI +
+          `Authenticate/RequestPasswordReset?email=${form.Email}`,
+        form
+      )
+      .pipe(
+        catchError((error) => {
+          console.error('API Error:', error);
+          throw error;
+        })
+      );
+  }
+
+  PostInsertNewFeedback(body: {}) {
     return this.http.post<any>(
-      environment.serverAPI + `Authenticate/RequestPasswordReset?email=${form.Email}`,
-      form
-    ).pipe(
-      catchError((error) => {
-        console.error('API Error:', error);
-        throw error;
-      })
+      environment.serverAPI + 'Feedback/PostInsertNewFeedback',
+      body
     );
   }
-  
 
-  // RequestPasswordReset(email: string) {
-  //   const url = `${environment.serverAPI}Authenticate/RequestPasswordReset?email=${email}`;
-  //   return this.http.post<any>(url, {});
-  // }
 }

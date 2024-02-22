@@ -107,6 +107,12 @@
   display: flex;
 }
 
+.div-block-2 {
+  background-image: url("../../assets/Path-3452.svg");
+  background-position: 50%;
+  background-size: cover;
+}
+
 .div-block-3 {
   border: 0.5px solid #00386c;
   border-radius: 20px;
@@ -241,6 +247,13 @@
   margin-top: 20px;
   padding: 10px 40px;
   box-shadow: 0 2px 5px 6px rgba(0, 0, 0, 0.2);
+}
+
+.footerdiv {
+  justify-content: center;
+  align-items: center;
+  margin-top: -95px;
+  display: flex;
 }
 
 .div-block-6 {
@@ -2834,6 +2847,32 @@
   font-weight: 700;
 }
 
+.div-block-450 {
+  align-items: center;
+  display: flex;
+}
+
+.text-field-4 {
+  color: #000;
+  background-color: rgba(130, 149, 194, 0.61);
+  border-radius: 15px;
+  margin-top: 7px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+}
+
+.submit-button-4 {
+  background-color: #00386c;
+  background-image: url("../../assets/Icon-material-send.svg");
+  background-position: 50%;
+  background-repeat: repeat-y;
+  background-size: auto 39px;
+  border-radius: 100px;
+  padding: 18px 12px 12px 47px;
+}
+
 @media screen and (min-width: 1280px) {
   .user-managemnt-group {
     box-shadow: none;
@@ -2903,6 +2942,13 @@
     height: auto;
     margin-top: 0;
     padding-top: 0;
+  }
+
+  .div-block-2 {
+    height: auto;
+    background-image: none;
+    background-size: auto;
+    margin-top: 0;
   }
 
   .div-block-3 {
@@ -3307,6 +3353,12 @@
 @media screen and (max-width: 767px) {
   .image {
     margin-top: 0;
+  }
+
+  .div-block-2 {
+    height: auto;
+    margin-top: 0;
+    position: static;
   }
 
   .image-2 {
@@ -3853,6 +3905,21 @@
 }
 
 @media screen and (max-width: 479px) {
+  .section {
+    padding-top: 0;
+  }
+
+  .image {
+    max-height: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .div-block-2 {
+    margin-top: 3px;
+    padding-top: 0;
+  }
+
   .div-block-3 {
     padding-left: 20px;
     padding-right: 20px;
@@ -3862,14 +3929,94 @@
     margin-bottom: 0;
     font-size: 14px;
   }
+  .bottomdiv {
+    margin-top: 151%;
+    margin-bottom: 0;
+  }
+  .scroll {
+    overflow-y: auto;
+    max-height: 405px;
+    -ms-overflow-style: none;
+  }
+  .text-field {
+    width: 80vw;
+  }
+
+  .submit-button {
+    width: 75vw;
+  }
 
   .bottomdiv {
-    margin-top: 156%;
+    margin-top: 151%;
     margin-bottom: 0;
   }
 
   .div-block-5 {
     margin-top: -53px;
+  }
+
+  .mobile-images {
+    margin-top: 0;
+  }
+
+  .login {
+    margin-bottom: 0;
+  }
+
+  .login-for {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 19px;
+    padding-right: 20px;
+  }
+
+  .footerdiv {
+    margin-top: -73px;
+    padding-top: 0;
+  }
+
+  .registerlabel {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .registerfield {
+    width: 76vw;
+  }
+
+  .continueb {
+    width: 75vw;
+  }
+
+  .grid-3 {
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+  }
+
+  .subscribe {
+    width: 79vw;
+  }
+
+  .prev {
+    width: auto;
+  }
+
+  .forgot-password {
+    border-color: #8f2d1b;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .forgot-password-field {
+    width: 79vw;
+  }
+
+  .landing-page-section {
+    margin-top: -160px;
+    padding-top: 66px;
   }
 
   .grid-4 {
@@ -4619,7 +4766,7 @@
   }
 
   .chats-section {
-    margin-top: 105px;
+    margin-top: 111px;
   }
 
   .container-2,
@@ -4671,11 +4818,7 @@
     margin-right: 10px;
     padding: 10px;
   }
-  .scroll {
-    overflow-y: auto;
-    max-height: 502px;
-    -ms-overflow-style: none;
-  }
+
   .group-hero-copy {
     flex-direction: row;
     align-items: flex-start;
@@ -4688,6 +4831,11 @@
 
   .div-block-449 {
     display: none;
+  }
+
+  .text-field-4 {
+    margin-left: 5px;
+    margin-right: 80px;
   }
 }
 
@@ -5156,7 +5304,8 @@
 #w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7ef-4350eb02,
 #w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7f0-4350eb02,
 #w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7f2-4350eb02,
-#w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7f7-4350eb02 {
+#w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7f7-4350eb02,
+#w-node-c6531463-42d4-43bf-c188-e2124ae9aed2-4350eb02 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
@@ -5189,10 +5338,7 @@
   #w-node-_2ca2f74b-8aee-afe7-9c15-ec0b84c48fb8-114c6fed {
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
-  .chats-div {
-    overflow-y: auto;
-    max-height: 80%;
-  }
+
   #w-node-b2360b30-aa39-6664-66a0-7a26e6b1f321-114c6fed {
     justify-self: center;
   }
