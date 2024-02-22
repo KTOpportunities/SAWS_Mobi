@@ -19,7 +19,9 @@ export class SubscriptionPackagePage implements OnInit {
   constructor(private router:Router,private authService: AuthService,) { }
 
   ngOnInit() {
+    this.selectedPaymentType = 'monthly';
   }
+  
     get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }
@@ -56,7 +58,7 @@ export class SubscriptionPackagePage implements OnInit {
 
   annualypage() {
     this.selectedPaymentType = 'annually'; // Update selected payment type
-    this.router.navigate(['/subscription-package/payment-type'])
+    this.router.navigate(['/subscription-package/payment-type',{ paymentType: 'annually'}]);
   }
   monthlypage() {
     this.selectedPaymentType = 'monthly'; // Update selected payment type

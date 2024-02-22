@@ -15,10 +15,10 @@
         <h4 class="field-label">Payment Type</h4>
         <div
           id="w-node-d5113b85-dffb-5330-a3a9-3c1251f6e32c-871273fb"
-          class="div-block-52"
+          class="div-block-521"
         >
-          <a href="#" class="button-4 w-button">Monthly</a>
-          <div (click)="annualypage()" class="button-4 w-button">Annually</div>
+        <div (click)="monthlypage()" class="button-4 w-button" [class.active]="selectedPaymentType === 'monthly'">Monthly</div>
+        <div (click)="annualypage()" class="button-4 w-button" style="background-color:white !important; color: #3880ff !important;" [class.active]="selectedPaymentType === 'annually'">Annually</div>
         </div>
       </div>
     </div>

@@ -2336,8 +2336,20 @@
   display: flex;
 }
 
+.div-block-521{
+  border: 1.5px solid #00386c;
+  border-radius: 10px;
+  width: 275px;
+  height: 52px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .button-4 {
-  color: #fff;
+  color: blue;
   background-color: #00386c;
   border-radius: 5px;
   margin-left: 10px;
@@ -2547,7 +2559,7 @@
 .footerdiv {
   justify-content: center;
   align-items: center;
-  margin-top: -84px;
+  margin-top: -95px;
   display: flex;
 }
 
@@ -4610,7 +4622,7 @@
 }
 
 .button-4.active {
-  background-color: red; /* Change this to the desired highlight color */
+  background-color: #00386c; /* Change this to the desired highlight color */
 }
 
 
@@ -7784,6 +7796,17 @@ html.w-mod-touch * {
   display: inline-block;
   padding: 9px 15px;
   background-color: #00386c;
+  color: white;
+  border: 0;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.w-button1 {
+  display: inline-block;
+  padding: 9px 15px;
+
   color: white;
   border: 0;
   line-height: inherit;
