@@ -58,10 +58,16 @@ export class SubscriptionPackagePage implements OnInit {
 
   annualypage() {
     this.selectedPaymentType = 'annually'; // Update selected payment type
-    this.router.navigate(['/subscription-package/payment-type',{ paymentType: 'annually'}]);
+    this.router.navigate(['/subscription-package/payment-type', { paymentType: 'annually' }]);
   }
+
+  private navigateToPaymentTypePage() {
+    // Redirect to the payment type page with the selected payment type
+    this.router.navigate(['/subscription-package/payment-type', { paymentType: this.selectedPaymentType }]);
+  }
+
   monthlypage() {
     this.selectedPaymentType = 'monthly'; // Update selected payment type
-    this.router.navigate(['/subscription-package/payment-type']);
+    this.router.navigate(['/subscription-package/payment-type', { paymentType: 'monthly' }]);
   }
 }
