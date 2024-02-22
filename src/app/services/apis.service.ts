@@ -63,4 +63,14 @@ export class APIService {
       // }
     );
   }
+  getFeedbackById(id: number) {
+    return this.http.get<any>(
+      `${environment.serverAPI}Feedback/GetFeedbackById?Id=${id}`
+    );
+  }
+  getFeedbackMessagesBySenderId(senderId: string) {
+    return this.http.get<any>(
+      `${environment.serverAPI}Feedback/GetFeedbackMessagesBySenderId?Id=${senderId}`
+    );
+  }
 }
