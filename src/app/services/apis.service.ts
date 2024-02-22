@@ -51,5 +51,16 @@ export class APIService {
       body
     );
   }
-
+  getPagedAllSubscribers(pageNumber: any, pageSize: any) {
+    return this.http.get<any>(
+      environment.serverAPI +
+        `Feedback/GetPagedAllFeedbacks?pageNumber=${pageNumber}&pageSize=${pageSize}`
+      // {
+      //   headers: new HttpHeaders().append(
+      //     'Authorization',
+      //     `Bearer ${this.token}`
+      //   ),
+      // }
+    );
+  }
 }
