@@ -7,11 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: SubscriptionPackagePage
-  },  {
-    path: 'annually',
-    loadChildren: () => import('./annually/annually.module').then( m => m.AnnuallyPageModule)
+  },
+ 
+  {
+    path: 'payment-type',
+    loadChildren: () => import('./payment-type/payment-type.module').then( m => m.PaymentTypePageModule)
   },
 
+  
  
 
   

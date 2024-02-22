@@ -2539,11 +2539,15 @@
   padding: 10px 40px;
   box-shadow: 0 2px 5px 6px rgba(0, 0, 0, 0.2);
 }
+.button-4.active {
+  background-color: #007bff;
+  color: #fff;
+}
 
 .footerdiv {
   justify-content: center;
   align-items: center;
-  margin-top: -95px;
+  margin-top: -84px;
   display: flex;
 }
 
@@ -4604,6 +4608,11 @@
   margin-right: 10px;
   font-family: Montserrat, sans-serif;
 }
+
+.button-4.active {
+  background-color: red; /* Change this to the desired highlight color */
+}
+
 
 .dropdown-list-2 {
   border-radius: 10px;
