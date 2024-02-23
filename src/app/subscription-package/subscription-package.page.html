@@ -18,7 +18,8 @@
           class="div-block-521"
         >
         <div (click)="monthlypage()" class="button-4 w-button" [class.active]="selectedPaymentType === 'monthly'">Monthly</div>
-        <div (click)="annualypage()" class="button-4 w-button" style="background-color:white !important; color: #3880ff !important;" [class.active]="selectedPaymentType === 'annually'">Annually</div>
+<div (click)="annualypage()" class="button-4 w-button" style="background-color:white !important; color: #3880ff !important;" [class.active]="selectedPaymentType === 'annually'">Annually</div>
+
         </div>
       </div>
     </div>
@@ -56,8 +57,8 @@
                       class="dropdown-list-6 w-dropdown-list"
                       [class.show-dropdown]="dropdownVisible['freeSubscription']"
                     >
-                      <a href="#" class="w-dropdown-link">International</a>
-                      <a href="#" class="w-dropdown-link">Forecast</a>
+                      <a (click)="GoToInternational()" class="w-dropdown-link">International</a>
+                      <a  (click)="GoToForecast()" class="w-dropdown-link">Forecast</a>
                       <a href="#" class="w-dropdown-link">Others</a>
                     </nav>
                   </div>
@@ -124,19 +125,19 @@
                       class="dropdown-list-6 w-dropdown-list"
                       [class.show-dropdown]="dropdownVisible['premiumSubscription']"
                     >
-                      <a href="#" class="dropdown-link-4 w-dropdown-link"
+                      <a (click)="GoToInternational()" class="dropdown-link-4 w-dropdown-link"
                         >International</a
                       >
-                      <a href="#" class="dropdown-link-5 w-dropdown-link"
+                      <a (click)="GoTODomestic()" class="dropdown-link-5 w-dropdown-link"
                         >Domestic</a
                       >
-                      <a href="#" class="dropdown-link-6 w-dropdown-link"
+                      <a (click)="GoTOFlieghtBrief()" class="dropdown-link-6 w-dropdown-link"
                         >Flight Briefing</a
                       >
-                      <a href="#" class="dropdown-link-6 w-dropdown-link"
+                      <a (click)="GoToObservation()" class="dropdown-link-6 w-dropdown-link"
                         >Observation</a
                       >
-                      <a href="#" class="dropdown-link-6 w-dropdown-link"
+                      <a (click)="GoToForecast()" class="dropdown-link-6 w-dropdown-link"
                         >Forecast</a
                       >
                       <a href="#" class="dropdown-link-6 w-dropdown-link"
@@ -192,24 +193,24 @@
                       class="dropdown-list-6 w-dropdown-list"
                       [class.show-dropdown]="dropdownVisible['regulatedSubscription']"
                     >
-                      <a href="#" class="dropdown-link-4 w-dropdown-link"
-                        >International</a
-                      >
-                      <a href="#" class="dropdown-link-5 w-dropdown-link"
-                        >Domestic</a
-                      >
-                      <a href="#" class="dropdown-link-6 w-dropdown-link"
-                        >Flight Briefing</a
-                      >
-                      <a href="#" class="dropdown-link-6 w-dropdown-link"
-                        >Observation</a
-                      >
-                      <a href="#" class="dropdown-link-6 w-dropdown-link"
-                        >Forecast</a
-                      >
-                      <a href="#" class="dropdown-link-6 w-dropdown-link"
-                        >Other</a
-                      >
+                    <a   (click)="GoToInternational()" class="dropdown-link-4 w-dropdown-link"
+                    >International</a
+                  >
+                  <a   (click)="GoTODomestic()" class="dropdown-link-5 w-dropdown-link"
+                    >Domestic</a
+                  >
+                  <a (click)="GoTOFlieghtBrief()"  class="dropdown-link-6 w-dropdown-link"
+                    >Flight Briefing</a
+                  >
+                  <a  (click)="GoToObservation()" class="dropdown-link-6 w-dropdown-link"
+                    >Observation</a
+                  >
+                  <a  (click)="GoToForecast" class="dropdown-link-6 w-dropdown-link"
+                    >Forecast</a
+                  >
+                  <a href="#" class="dropdown-link-6 w-dropdown-link"
+                    >Other</a
+                  >
                     </nav>
                   </div>
                 </div>

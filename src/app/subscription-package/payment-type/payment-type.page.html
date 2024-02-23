@@ -29,8 +29,8 @@
             class="div-block-521" 
            
           >
-            <a  (click)="GoToMonthlyPage()" class="">Monthly</a>
-            <a  class="button-4 w-button">Annually</a>
+            <a  (click)="toggleMonthlySection()" class="">Monthly</a>
+            <a  (click)="GoToAnnuallyPage()"  class="button-4 w-button">Annually</a>
           </div>
         </div>
       </div>
@@ -328,8 +328,8 @@
           class="div-block-521" 
          
         >
-          <a  class="button-4 w-button">Monthly</a>
-          <a  (click)="GoToAnnuallyPage()" class="">Annually</a>
+          <a  (click)="toggleMonthlySection()" class="button-4 w-button">Monthly</a>
+          <a  (click)="toggleAnnuallySection()" class="">Annually</a>
         </div>
       </div>
     </div>
