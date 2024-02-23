@@ -8,6 +8,8 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./subscription-package.page.scss'],
 })
 export class SubscriptionPackagePage implements OnInit {
+  showAnnuallySection: boolean = false;
+  showMonthlySection: boolean = true;
   isSubscriber: boolean = true;
   dropdownVisible: {[key: string]: boolean} = {
     'paymentType': false,
@@ -55,13 +57,48 @@ export class SubscriptionPackagePage implements OnInit {
   forecastPage2() {
     this.router.navigate(['/alnding-page'])
   }
-
-  annualypage() {
-    this.selectedPaymentType = 'annually'; // Update selected payment type
-    this.router.navigate(['/subscription-package/payment-type',{ paymentType: 'annually'}]);
-  }
   monthlypage() {
     this.selectedPaymentType = 'monthly'; // Update selected payment type
-    this.router.navigate(['/subscription-package/payment-type']);
+    this.router.navigate(['/subscription-package/payment-type', { paymentType: 'monthly' }]);
   }
-}
+  
+  annualypage() {
+    this.selectedPaymentType = ''; // Update selected payment type
+    this.router.navigate(['/subscription-package/payment-type', { paymentType: 'annually' }]);
+  }
+  
+
+  // private navigateToPaymentTypePage() {
+   
+  //   this.router.navigate(['/subscription-package/payment-type', { paymentType: this.selectedPaymentType }]);
+  // }
+
+ 
+  
+  
+  toggleMonthlySection() {
+    console.log('toggleMonthlySection() called');
+    // this.showMonthlySection = true;
+    // this.showAnnuallySection = false;
+
+  }
+
+  GoToInternational() {
+    this.router.navigate(['/international']);
+  }
+  GoToForecast() {
+    this.router.navigate(['/forecast']);
+  }
+  GoTODomestic() {
+    this.router.navigate(['/domestic']);
+  }
+  GoTOFlieghtBrief() {
+    this.router.navigate(['/flight-briefing']);
+  }
+  GoToObservation() {
+    this.router.navigate(['/observation']);
+  }
+  
+  }
+  
+

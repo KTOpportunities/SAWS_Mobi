@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { UserLoggedIn } from '../Models/User.model';
 
 @Injectable({
   providedIn: 'root',
@@ -48,5 +49,15 @@ export class AuthService {
 
   getRedirectUrl() {
     return this.redirectUrl;
+  }
+
+  saveCurrentUser(user: UserLoggedIn): string {
+    sessionStorage.setItem("CurrentUser", JSON.stringify(user));
+    // sessionStorage.setItem("token", user.token);
+    return "User Saved";
+  }
+
+  getCurrentUser() {
+    return sessionStorage.getItem("CurrentUser");
   }
 }

@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
 })
 export class PaymentTypePage implements OnInit {
  // Boolean variables to track the visibility of sections
- showAnnuallySection: boolean = false;
- showMonthlySection: boolean = true;
+ showAnnuallySection: boolean = true;
+ showMonthlySection: boolean = false;
 
  isSubscriber: boolean = true;
  selectedServices: string[] = [];
@@ -22,12 +22,58 @@ export class PaymentTypePage implements OnInit {
  };
  constructor( private router: Router ) { }
 
-
  ngOnInit() {
+  // Check the subscription status to determine if the user is a subscriber
+  this.isSubscriber = this.checkSubscriptionStatus();
+
+  // Set the initial section visibility based on the subscription status
+  if (this.isSubscriber) {
+    // If the user is a subscriber, show the monthly section by default
+    this.showMonthlySection = true;
+    this.showAnnuallySection = false;
+  } else {
+    // If the user is not a subscriber, show the annually section by default
+    this.showMonthlySection = false;
+    this.showAnnuallySection = true;
+  }
 }
+
+
+
+// Method to check the subscription status, you need to implement this based on your logic
+checkSubscriptionStatus(): boolean {
+  // Implement your logic to check if the user is a subscriber
+  // For example, you can call a method from your AuthService
+  // For demonstration, let's assume the user is a subscriber
+  return true;
+}
+
+
 displayIcon(): boolean {
   return this.isSubscriber; // Return true if the user is a subscriber, false otherwise
 }
+
+
+toggleMonthlySection() {
+  // Only toggle if the monthly section is not already active and the user is a subscriber
+  if (!this.showMonthlySection && this.isSubscriber) {
+    this.showMonthlySection = true;
+    this.showAnnuallySection = false;
+  }
+}
+
+toggleAnnuallySection() {
+  // Only toggle if the annually section is not already active and the user is a subscriber
+  if (!this.showAnnuallySection && this.isSubscriber) {
+    this.showAnnuallySection = true;
+    this.showMonthlySection = false;
+  }
+}
+
+
+
+
+
 toggleDropdown(dropdownName: string) {
   // Close all dropdowns
   for (let key in this.dropdownVisible) {
@@ -50,15 +96,14 @@ selectService(service: string) {
   this.dropdownVisible['regulatedSubscription']= false;
 }
 GoToAnnuallyPage() {
-  this.showAnnuallySection = true; // Show the annually section
-  this.showMonthlySection = false; // Hide the monthly section
-  this.router.navigate(['subscription-package/payment-type']);
+  this.router.navigate(['/subscription-package/payment-type', { paymentType: 'annually' }]);
 }
+
 GoToMonthlyPage() {
-  this.showMonthlySection = true; // Show the monthly section
-  this.showAnnuallySection = false; // Hide the annually section
-  this.router.navigate(['subscription-package/payment-type']);
+  this.router.navigate(['/subscription-package/payment-type', { paymentType: 'monthly' }]);
 }
+
+
 forecastPage() {
   this.router.navigate(['/landing-page']);
 }
