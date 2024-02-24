@@ -47,15 +47,7 @@
           class="chat-link w-inline-block"
         >
           <h1 class="heading-5">{{message.senderEmail}}</h1>
-          <h1 class="chat-date">{{message.updated_at}}</h1>
-        </a>
-        <a
-          (click)="navigateToChat()"
-          id="w-node-_98198f6a-9a73-edf2-7452-b1af8a3026fb-378bdca1"
-          class="chat-link w-inline-block"
-        >
-          <h1 class="heading-5">Lucia_Admin</h1>
-          <h1 class="chat-date">12/02/2024</h1>
+          <h1 class="chat-date">{{message.updated_at | date:'dd/MM/yyyy'}}</h1>
         </a>
       </div>
     </div>

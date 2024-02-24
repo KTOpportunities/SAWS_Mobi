@@ -2070,7 +2070,19 @@
   .image {
     margin-top: 0;
   }
-
+  .bottomdiv {
+    margin-top: 221px;
+  }
+  .bottomdivlogin {
+    position: fixed;
+    margin-top: 150%;
+  }
+  .left-aligned-menu-button {
+    width: 50%;
+    color: #fff;
+    margin-left: 243px;
+    margin-top: -74px;
+  }
   .div-block-2 {
     height: auto;
     margin-top: 0;
@@ -3265,6 +3277,13 @@
   #w-node-c547babf-737c-635b-62ed-283a9a2ce662-eca2c248,
   #w-node-_282bf718-407a-47de-bb05-370afd11ee83-eca2c248 {
     grid-area: span 1 / span 1 / span 1 / span 1;
+  }
+  .bottomdiv {
+    margin-top: 221px;
+  }
+  .bottomdivlogin {
+    position: fixed;
+    margin-top: 150%;
   }
 }
 
