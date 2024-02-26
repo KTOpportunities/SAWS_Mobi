@@ -1,0 +1,43 @@
+<div class="top-content">
+  <div class="menu-button-container" *ngIf="!isLoginPage()">
+    <ion-menu-button
+      class="left-aligned-menu-button"
+      (click)="fetchUserData()"
+    ></ion-menu-button>
+  </div>
+  <div class="div-block-2">
+    <img
+      src="../../assets/Path-3452.svg"
+      loading="lazy"
+      width="1216"
+      alt=""
+      class="image"
+    />
+  </div>
+  <div class="div-block" *ngIf="!isLoginPage()">
+    <div class="round-image">
+      <img
+        src="../../assets/Mask-Group-33x.png"
+        width="212"
+        alt=""
+        loading="lazy"
+        class="mobile-images"
+      />
+    </div>
+  </div>
+</div>
+<div class="bottomdiv" *ngIf="!displayIcon()">
+  <img
+    src="../../assets/Path-3447.svg"
+    loading="lazy"
+    width="1216"
+    alt=""
+    class="image"
+  />
+
+  <div class="footerdiv"></div>
+</div>
+<ion-router-outlet >
+ 
+</ion-router-outlet>
+

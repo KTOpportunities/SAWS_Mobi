@@ -12,9 +12,10 @@ import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,MainComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

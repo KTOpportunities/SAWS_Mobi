@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'landing-page',
+    redirectTo: 'main', // Redirect to 'main' instead of 'landing-page'
     pathMatch: 'full',
+  },
+  {
+    path: 'main',
+    component: MainComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('../app/Pages/main/main-routing.module').then((m) => m.MainRoutingModule),
+      },
+    ],
   },
   {
     path: 'landing-page',
