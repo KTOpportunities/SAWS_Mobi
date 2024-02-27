@@ -17,6 +17,7 @@ export class MessageListPage implements OnInit {
   aspUserName: any;
   aspUserEmail: any;
   aspUserID: any;
+  isresponded: any;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -41,6 +42,8 @@ export class MessageListPage implements OnInit {
     this.APIService.getFeedbackMessagesBySenderId(this.aspUserID).subscribe(
       (response) => {
         this.feedbackMessages = response;
+        this.isresponded = response.isresponded;
+
         console.log(response); // Handle the response here
       },
       (error) => {
@@ -58,7 +61,7 @@ export class MessageListPage implements OnInit {
   home() {
     this.router.navigate(['../../landing-page']);
   }
-  navigateToChat() {
-    this.router.navigate(['/chat']); // Navigate to the 'chat' route
+  navigateToChat(feedbackId: any) {
+    this.router.navigate(['/chat', { feedbackId: feedbackId }]);
   }
 }
