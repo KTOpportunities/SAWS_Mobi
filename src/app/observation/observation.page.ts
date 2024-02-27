@@ -20,4 +20,5 @@ export class ObservationPage implements OnInit {
     this.router.navigate(['/landing-page']);
   }
 
+
 }
