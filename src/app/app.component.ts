@@ -69,6 +69,7 @@ export class AppComponent {
     } else {
       this.authService.setRedirectUrl('/provide-feedback');
       this.router.navigate(['/login']);
+      
     }
   }
 

@@ -19,6 +19,7 @@ export class SubscriptionPackagePage implements OnInit {
   };
   selectedPaymentType: string | undefined;
   constructor(private router:Router,private authService: AuthService,) { }
+  
 
   ngOnInit() {
     this.selectedPaymentType = 'monthly';
