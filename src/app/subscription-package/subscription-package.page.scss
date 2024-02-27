@@ -12,7 +12,6 @@
   display: grid;
 }
 
-
 .field-label {
   color: #00386c;
   margin-top: 5px;
@@ -2337,7 +2336,7 @@
   display: flex;
 }
 
-.div-block-521{
+.div-block-521 {
   border: 1.5px solid #00386c;
   border-radius: 10px;
   width: 275px;
@@ -4626,7 +4625,6 @@
   background-color: #00386c; /* Change this to the desired highlight color */
 }
 
-
 .dropdown-list-2 {
   border-radius: 10px;
 }
@@ -6827,6 +6825,10 @@ th {
   #w-node-a3e89a9d-706c-301b-ed7f-a8d1997c22c1-a9068d94,
   #w-node-_46fea626-331a-31b2-3d93-495b4bd70088-871273fb {
     grid-area: span 1 / span 1 / span 1 / span 1;
+  }
+  .message-info {
+    display: flex;
+    flex-direction: column;
   }
 
   .image {
@@ -9477,6 +9479,14 @@ textarea.w-select {
   }
 }
 @media screen and (max-width: 479px) {
+  .response-status p {
+    display: inline; /* Ensures the <p> elements inside response-status remain inline */
+  }
+
+  .response-status {
+    display: block; /* Forces response-status to display as a block element, causing new line */
+  }
+
   .w-nav[data-collapse="tiny"] .w-nav-menu {
     display: none;
   }

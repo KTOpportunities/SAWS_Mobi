@@ -2071,7 +2071,8 @@
     margin-top: 0;
   }
   .bottomdiv {
-    // margin-top: 221px;
+    position: fixed;
+    margin-top: 177%;
   }
   .bottomdivlogin {
     position: fixed;
@@ -2107,10 +2108,10 @@
     display: block;
   }
 
-  .bottomdiv {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+  // .bottomdiv {
+  //   margin-top: 0;
+  //   margin-bottom: 0;
+  // }
 
   .mobile-images {
     margin-top: -24px;

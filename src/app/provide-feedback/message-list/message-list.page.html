@@ -42,11 +42,16 @@
       >
         <a
           *ngFor="let message of feedbackMessages"
-          id="w-node-_53abbd44-15dd-9a1d-b3a8-8e1d34ffa0df-378bdca1"
-          (click)="navigateToChat()"
+          (click)="navigateToChat(message.feebackId)"
           class="chat-link w-inline-block"
         >
-          <h1 class="heading-5">{{message.senderEmail}}</h1>
+          <h1 class="heading-5">{{message.title}}</h1>
+          <br />
+
+          <p *ngIf="message.isresponded" style="color: green">Responded</p>
+          <p *ngIf="!message.isresponded" style="color: orange">x
+            Not Responded
+          </p>
           <h1 class="chat-date">{{message.updated_at | date:'dd/MM/yyyy'}}</h1>
         </a>
       </div>
