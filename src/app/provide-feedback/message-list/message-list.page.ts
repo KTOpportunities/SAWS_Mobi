@@ -58,7 +58,7 @@ export class MessageListPage implements OnInit {
   home() {
     this.router.navigate(['../../landing-page']);
   }
-  navigateToChat() {
-    this.router.navigate(['/chat']); // Navigate to the 'chat' route
+  navigateToChat(id: string, username: string) {
+    this.router.navigate(['/chat', { Id: id, usname: username }]); // Navigate to the 'chat' route
   }
 }

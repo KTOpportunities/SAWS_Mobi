@@ -43,7 +43,7 @@
         <a
           *ngFor="let message of feedbackMessages"
           id="w-node-_53abbd44-15dd-9a1d-b3a8-8e1d34ffa0df-378bdca1"
-          (click)="navigateToChat()"
+          (click)="navigateToChat(message.feedbackId, message.fullname)"
           class="chat-link w-inline-block"
         >
           <h1 class="heading-5">{{message.senderEmail}}</h1>
