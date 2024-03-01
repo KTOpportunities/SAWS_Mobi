@@ -38,16 +38,22 @@ export class MessageListPage implements OnInit {
       this.router.navigate(['/login']);
     }
 
+    this.feedbacks();
+  }
+
+  feedbacks() {
     this.APIService.getFeedbackMessagesBySenderId(this.aspUserID).subscribe(
       (response) => {
         this.feedbackMessages = response;
-        console.log(response); // Handle the response here
+        console.log(response);
+        console.log('1'); // Handle the response here
       },
       (error) => {
         console.error('Error fetching feedback messages:', error);
       }
     );
   }
+
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }

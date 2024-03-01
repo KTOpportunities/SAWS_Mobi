@@ -91,15 +91,15 @@ export class ChatPage implements OnInit {
       responderEmail: this.userEmail,
       created_at: formValues.created_at,
       title: formValues.title,
-      isresponded: false,
+      isresponded: true,
       FeedbackMessages: [
         {
           senderId: formValues.senderId,
           senderEmail: formValues.senderEmail,
           responderId: this.userId,
           responderEmail: this.userEmail,
-          feedback: '',
-          response: formValues.responseMessage,
+          feedback: formValues.responseMessage,
+          response: '',
         },
       ],
     };

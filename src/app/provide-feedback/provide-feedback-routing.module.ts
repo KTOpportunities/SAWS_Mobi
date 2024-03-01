@@ -6,12 +6,15 @@ import { ProvideFeedbackPage } from './provide-feedback.page';
 const routes: Routes = [
   {
     path: '',
-    component: ProvideFeedbackPage
-  },  {
+    component: ProvideFeedbackPage,
+  },
+  {
     path: 'message-list',
-    loadChildren: () => import('./message-list/message-list.module').then( m => m.MessageListPageModule)
-  }
-
+    loadChildren: () =>
+      import('./message-list/message-list.module').then(
+        (m) => m.MessageListPageModule
+      ),
+  },
 ];
 
 @NgModule({
