@@ -2,10 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../app/services/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+// import { MatIconModule } from '@angular/material/icon';
+// import { MatMenuModule } from '@angular/material/menu';
+// import { MatButtonModule } from '@angular/material/button';
+// import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {register} from 'swiper/element/bundle';
+register();
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+   adverts: any[] = [];
   userDetails: any;
   isSubscribed: boolean = false;
   logout() {
