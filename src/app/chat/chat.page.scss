@@ -5355,3 +5355,10 @@
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
 }
+
+.chatRow {
+  z-index: 2000;
+  position: relative;
+  /* left: -4px; */
+  bottom: 20px;
+}

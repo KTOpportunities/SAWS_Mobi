@@ -16,6 +16,6 @@ import { ChatPage } from './chat.page';
     ChatPageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [ChatPage]
+  declarations: [ChatPage],
 })
 export class ChatPageModule {}

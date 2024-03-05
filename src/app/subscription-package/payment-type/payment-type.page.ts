@@ -85,16 +85,33 @@ toggleDropdown(dropdownName: string) {
   // Toggle the specified dropdown
   this.dropdownVisible[dropdownName] = !this.dropdownVisible[dropdownName];
 }
+
 selectService(service: string) {
-  if (!this.selectedServices.includes(service)) {
-    this.selectedServices.push(service);
+  // Navigate to the service page based on the selected service
+  switch (service) {
+    case 'International':
+      this.router.navigate(['/international']);
+      break;
+    case 'Domestic':
+      this.router.navigate(['/domestic']);
+      break;
+    case 'Flight Briefing':
+      this.router.navigate(['/flight-briefing']);
+      break;
+    case 'Observation':
+      this.router.navigate(['/observation']);
+      break;
+    case 'Forecast':
+      this.router.navigate(['/forecast']);
+      break;
+    default:
+      // Handle other services or implement additional logic as needed
+      break;
   }
-  this.selectedService = service; // Update the selected service for the dropdown toggle button
-  // Close the dropdown after selecting a service
-  this.dropdownVisible['freeSubscription'] = false;
-  this.dropdownVisible['premiumSubscription'] = false;
-  this.dropdownVisible['regulatedSubscription']= false;
 }
+
+
+
 GoToAnnuallyPage() {
   this.router.navigate(['/subscription-package/payment-type', { paymentType: 'annually' }]);
 }

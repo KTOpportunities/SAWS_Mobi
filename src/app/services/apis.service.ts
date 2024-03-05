@@ -73,4 +73,21 @@ export class APIService {
       `${environment.serverAPI}Feedback/GetFeedbackMessagesBySenderId?Id=${senderId}`
     );
   }
+  getAdvertisement() {
+    // Make HTTP request to fetch advertisement data from backend
+    return this.http.get<any>('your-backend-url/advertisement');
+  }
+  postInsertNewFeedback(body: {}) {
+    return this.http.post<any>(
+      environment.serverAPI + 'Feedback/PostInsertNewFeedback',
+      body
+      // this.httpOptions
+      // {
+      //   headers: new HttpHeaders().append(
+      //     "Authorization",
+      //     `Bearer ${this.token}`
+      //   ),
+      // }
+    );
+  }
 }

@@ -3,86 +3,117 @@
     <div class="chats-div">
       <h1 class="heading-6">Chats</h1>
       <div class="w-layout-grid grid-38">
-        <h1 class="heading">Xolani_admin</h1>
-        <div class="scroll">
-          <div *ngFor="let message of feedbackMessages">
-            <ng-container *ngIf="message.feedback">
-              <!-- Content for current user -->
-              <h4 class="heading-name">Subscribe User</h4>
+        <h1
+          id="w-node-e9bccd0a-9bf8-1d60-ceb4-e3622f16eb99-4350eb02"
+          class="heading"
+        >
+          {{username}}
+        </h1>
+        <div #scroll class="scroll" [scrollTop]="scroll.scrollHeight">
+          <ng-container *ngFor="let message of fdMessages; let i = index">
+            <div
+              *ngIf="message.response"
+              id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7dd-4350eb02"
+            >
+              <h4 class="heading-name">Admin</h4>
               <div class="w-layout-grid grid-37">
-                <div class="w-layout-grid grid-39">
-                  <div class="div-block-445">
-                    <img
-                      src="../../assets/Group-5146.svg"
-                      loading="lazy"
-                      alt=""
-                    />
-                  </div>
-                  <div class="div-block-444">
-                    <p class="paragraph-12">{{ message.feedback }}</p>
-                    <div>
-                      <h4 class="time-heading">
-                        {{ message.created_at | date:'dd/MM/yyyy'}}
-                      </h4>
+                <div id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7e1-4350eb02">
+                  <div class="w-layout-grid grid-39">
+                    <div
+                      id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7e3-4350eb02"
+                      class="div-block-445"
+                    >
+                      <img
+                        src="../../assets/Group-4959.svg"
+                        loading="lazy"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7e5-4350eb02"
+                      class="div-block-444"
+                    >
+                      <p class="paragraph-12">{{message.response}}</p>
+                      <div>
+                        <h4 class="time-heading">
+                          {{message.created_at | date : "short"}}
+                        </h4>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </ng-container>
-            <ng-container *ngIf="message.response">
-              <!-- Content for other users -->
-              <div class="adm">Me</div>
+            </div>
+            <div
+              *ngIf="message.feedback"
+              id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7eb-4350eb02"
+            >
+              <h4 class="adm">Me</h4>
               <div class="w-layout-grid grid-35">
-                <div class="div-block-448"></div>
-                <div class="w-layout-grid grid-36">
-                  <div class="div-block-446">
-                    <p class="paragraph-12">{{ message.response }}</p>
-                    <h4 class="time-heading-copy">
-                      {{ message.created_at |date:"medium"}}
-                    </h4>
-                  </div>
-                  <div class="div-block-445">
-                    <img
-                      src="../../assets/Group-4959.svg"
-                      loading="lazy"
-                      alt=""
-                    />
+                <div
+                  id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7ef-4350eb02"
+                  class="div-block-449"
+                ></div>
+                <div id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7f0-4350eb02">
+                  <div class="w-layout-grid grid-36">
+                    <div
+                      id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7f2-4350eb02"
+                      class="div-block-446"
+                    >
+                      <p class="paragraph-12">{{message.feedback}}</p>
+                      <h4 class="time-heading-copy">
+                        {{message.created_at | date : "short"}}
+                      </h4>
+                    </div>
+                    <div
+                      id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7f7-4350eb02"
+                      class="div-block-445"
+                    >
+                      <img
+                        src="../../assets/Group-5146.svg"
+                        loading="lazy"
+                        alt=""
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </ng-container>
-          </div>
-        </div>
-        <div class="w-form">
-          <form
-            [formGroup]="userForm"
-            (ngSubmit)="onSubmitFeedback()"
-            id="email-form-2"
-            name="email-form-2"
-            data-name="Email Form 2"
-            method="get"
-            data-wf-page-id="65d47b4491b7f0764350eb02"
-            data-wf-element-id="c6531463-42d4-43bf-c188-e2124ae9aed4"
-          >
-            <div class="div-block-450">
-              <input
-                class="text-field-4 w-input"
-                maxlength="256"
-                name="name"
-                data-name="Name"
-                placeholder="Say Something here......"
-                type="text"
-                id="name"
-                formControlName="message"
-              />
-              <input
-                type="submit"
-                data-wait="Please wait..."
-                class="submit-button-4 w-button"
-                value=""
-              />
             </div>
-          </form>
+          </ng-container>
+        </div>
+        <div
+          class="chatRow"
+          id="w-node-c6531463-42d4-43bf-c188-e2124ae9aed2-4350eb02"
+        >
+          <div class="w-form">
+            <form
+              id="email-form-2"
+              name="email-form-2"
+              data-name="Email Form 2"
+              [formGroup]="feedbackForm"
+              (ngSubmit)="onSubmit()"
+              data-wf-page-id="65d47b4491b7f0764350eb02"
+              data-wf-element-id="c6531463-42d4-43bf-c188-e2124ae9aed4"
+            >
+              <div class="div-block-450">
+                <input
+                  formControlName="responseMessage"
+                  class="text-field-4 w-input"
+                  maxlength="256"
+                  name="name"
+                  data-name="Name"
+                  placeholder="Say Something here......"
+                  type="text"
+                  id="name"
+                /><input
+                  type="submit"
+                  data-wait="Please wait..."
+                  class="submit-button-4 w-button"
+                  value=""
+                />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
