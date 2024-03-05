@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { LandingPagePageRoutingModule } from './landing-page-routing.module';
-
-import { LandingPagePage } from './landing-page.page';
-
+import { LandingPageRoutingModule } from './landing-page-routing.module';
+import { LandingPage } from './landing-page.page';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LandingPagePageRoutingModule
+    LandingPageRoutingModule
   ],
-  declarations: [LandingPagePage]
+  declarations: [LandingPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class LandingPagePageModule {}
+export class LandingPageModule {}

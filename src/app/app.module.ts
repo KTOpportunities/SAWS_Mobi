@@ -1,3 +1,4 @@
+// Import necessary Angular modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -8,30 +9,39 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatIcon } from '@angular/material/icon';
-import { MatMenu, MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 
+
 @NgModule({
+  // Declarations: Components, Directives, and Pipes declared in this module
   declarations: [AppComponent],
+
+  // Imports: Other modules whose exported classes are needed by component templates declared in this NgModule
   imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
     ReactiveFormsModule,
-    HttpClientModule,
-    NoopAnimationsModule,
-    MatSlideToggleModule,
-    MatIcon,
-    MatMenu,
-    MatMenuTrigger,
-    MatButtonModule,
+    HttpClientModule, 
+    NoopAnimationsModule, 
+    MatSlideToggleModule, 
+    MatIconModule,
     MatMenuModule,
+    MatButtonModule,
     MatListModule,
-    ReactiveFormsModule,
+  
+    // SwiperModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+
+ 
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy } // Ionic Route Strategy
+  ],
+
+  // Bootstrap: The main application view, called the root component, that hosts all other app views
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {} // AppModule class that acts as the root NgModule of the application

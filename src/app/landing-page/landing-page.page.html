@@ -21,7 +21,31 @@
         class="mobile-images"
       />
     </div> -->
+    
     <h1 class="alllinks">ALL LINKS</h1>
+
+
+    
+<!-- Swiper container -->
+<swiper-container *ngIf="showSwiper" [config]="swiperConfig">
+  <div class="swiper-wrapper">
+
+  </div>
+  <!-- Add swiper pagination and other controls here if needed -->
+</swiper-container>
+
+<!-- Image always displayed -->
+<div style="height: 3px;" *ngIf="advertisement" >
+  <!-- <ion-button (click)="goBack()">
+    <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+  </ion-button> -->
+  <img [src]="advertisement.imageUrl" alt="Advertisement11" width="280px" height="76">
+  <!-- <ion-button (click)="goNext()">
+    <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+  </ion-button> -->
+</div>
+
+
     <div class="w-layout-grid grid-4">
       <div
         id="w-node-af071feb-0e36-aeae-49b6-c57e5055a218-847dc521"
