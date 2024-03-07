@@ -24,7 +24,7 @@
                       class="div-block-445"
                     >
                       <img
-                        src="../../assets/Group-4959.svg"
+                        src="../../assets/Group-5146.svg"
                         loading="lazy"
                         alt=""
                       />
@@ -44,6 +44,7 @@
                 </div>
               </div>
             </div>
+
             <div
               *ngIf="message.feedback"
               id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7eb-4350eb02"
@@ -70,7 +71,7 @@
                       class="div-block-445"
                     >
                       <img
-                        src="../../assets/Group-5146.svg"
+                        src="../../assets/Group-4959.svg"
                         loading="lazy"
                         alt=""
                       />
@@ -79,9 +80,43 @@
                 </div>
               </div>
             </div>
+            <div
+              *ngIf="message.broadcast !== null"
+              id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7dd-4350eb02"
+            >
+              <h4 class="heading-name">Admin</h4>
+              <div class="w-layout-grid grid-37">
+                <div id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7e1-4350eb02">
+                  <div class="w-layout-grid grid-39">
+                    <div
+                      id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7e3-4350eb02"
+                      class="div-block-445"
+                    >
+                      <img
+                        src="../../assets/Group-5146.svg"
+                        loading="lazy"
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      id="w-node-_00f517dd-1c68-5ad5-ef28-9cb272bef7e5-4350eb02"
+                      class="div-block-444"
+                    >
+                      <p class="paragraph-12">{{message.broadcast}}</p>
+                      <div>
+                        <h4 class="time-heading">
+                          {{message.created_at | date : "short"}}
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </ng-container>
         </div>
         <div
+          *ngIf="shouldShowChatRow()"
           class="chatRow"
           id="w-node-c6531463-42d4-43bf-c188-e2124ae9aed2-4350eb02"
         >

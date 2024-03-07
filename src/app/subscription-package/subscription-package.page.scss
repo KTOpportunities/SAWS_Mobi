@@ -6802,6 +6802,25 @@ th {
 }
 
 @media screen and (max-width: 479px) {
+  .custom-input {
+    background-color: #fff; /* Adjust color as per your requirement */
+    border-radius: 8px; /* Adjust border-radius as per your requirement */
+    padding: 10px; /* Adjust padding as per your requirement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust box-shadow as per your requirement */
+    /* Add any other styling you need */
+  }
+  .message-list-div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 63vh;
+  }
+
+  .scrollable-content {
+    max-height: calc(62vh - 200px);
+    overflow-y: auto;
+  }
   #w-node-_98a40e1d-dd8c-3085-b8fc-2c6e0851cc2f-847dc521,
   #w-node-baf2c695-dc7d-239a-214f-78aae7ec4a02-5aa24fea,
   #w-node-_89e35c67-8544-644a-5d2f-ff5abcbff190-a17d1408,

@@ -36,7 +36,6 @@ export class ProvideFeedbackPage implements OnInit {
   }
 
   ngOnInit() {
-    debugger;
     var user: any = this.authService.getCurrentUser();
     console.log('userData in ProvideFeedbackPage:', this.userData);
     console.log('user:', user);
@@ -78,7 +77,7 @@ export class ProvideFeedbackPage implements OnInit {
         },
       ],
     };
-    debugger;
+
     console.log('BODY:', feedbackData);
     // Call API to send feedback data
     this.api.PostInsertNewFeedback(feedbackData).subscribe(
