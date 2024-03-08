@@ -23,34 +23,32 @@
     </div> -->
     
     <h1 class="alllinks">ALL LINKS</h1>
-
-
+    <swiper-container #swiper *ngIf="advertisements.length > 0">
+      <div class="swiper-wrapper">
+        <!-- *ngIf is used to add or remove elements from the DOM (Document Object Model)  -->
+        <a *ngIf="currentAdvertisement" [href]="currentAdvertisement.link" target="_blank">
+          <img [src]="currentAdvertisement.imageUrl" [alt]="currentAdvertisement.description" width="281px" height="76">
+        </a>
+      </div>
+    </swiper-container>
     
-<!-- Swiper container -->
-<swiper-container *ngIf="showSwiper" [config]="swiperConfig">
-  <div class="swiper-wrapper">
+    
+    
 
-  </div>
-  <!-- Add swiper pagination and other controls here if needed -->
-</swiper-container>
-
-<!-- Image always displayed -->
-<div style="height: 3px;" *ngIf="advertisement" >
-  <!-- <ion-button (click)="goBack()">
-    <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
-  </ion-button> -->
-  <img [src]="advertisement.imageUrl" alt="Advertisement11" width="280px" height="76">
-  <!-- <ion-button (click)="goNext()">
-    <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
-  </ion-button> -->
-</div>
-
+    <!-- <swiper-container #swiper *ngIf="advertisements.length > 0">
+      <div class="swiper-wrapper">
+        <a *ngFor="let advertisement of advertisements" [href]="advertisement.link" target="_blank">
+          <img *ngIf="currentAdvertisement" [src]="currentAdvertisement.imageUrl" [alt]="currentAdvertisement.description" width="281px" height="76">
+        </a>
+      </div>
+    </swiper-container> -->
+    
 
     <div class="w-layout-grid grid-4">
       <div
         id="w-node-af071feb-0e36-aeae-49b6-c57e5055a218-847dc521"
         class="landing-div-grid"
-        (click)="forecastPage()"
+       
       >
         <div class="green-div">
           <img
