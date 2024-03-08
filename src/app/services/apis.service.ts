@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { catchError } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -99,6 +99,11 @@ export class APIService {
  
   //   );
   // }
+  GetAdvertByAdvertId(id: any): Observable<any> {
+    return this.http.get<any>(`${environment.serverAPI}Advert/GetAdvertByAdvertId?Id=${id}`);
+  }
+
+  
 
   getDocAdvertFileById(id: any) {
     return this.http.get(
