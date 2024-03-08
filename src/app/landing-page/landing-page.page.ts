@@ -166,56 +166,6 @@ loadAllAdvertisements() {
   );
 }
 
-// This method fetches the details of a specific advertisement by its ID using apiService
-
-GetAdvertByAdvertId(advertId: number) {
-  this.apiService.GetAdvertByAdvertId(advertId).subscribe(
-    (response: AdvertResponse) => {
-      console.log('GetAdvertByAdvertId', response);
-      if (response && response.Value && response.Value.DetailDescription && response.Value.DetailDescription.DocAdverts.length > 0) {
-        const docAdvertId = response.Value.DetailDescription.DocAdverts[0].Id;
-        this.loadfileAdvertisement(docAdvertId);
-      } else {
-        console.error('Invalid advertisement response:', response);
-      }
-    },
-    (error: any) => {
-      console.error('Error fetching advertisement image for ID', advertId, ':', error);
-    }
-  );
-}
-
-
-
-// This method fetches the actual advertisement file
-loadfileAdvertisement(Id: any) {
-  // method of the apiService, passing the Id parameter
-  this.apiService.getDocAdvertFileById(Id).subscribe(
-    // (response This is the success callback function of the subscribe())
-    // response parameter contains the data returned by the server
-    (response) => {
-      console.log('Display Img', response);
-      // This URL represents the file content as a Blob URL, 
-      const url = window.URL.createObjectURL(response);
-      // Sanitize URL
-      // This step is crucial for preventing potential security as it marks the URL as safe  
-      const safeUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url); 
-      // Use the sanitized URL
-      const advertisement = { imageUrl: safeUrl } as Advertisement; 
-      this.advertisements.push(advertisement);
-      // Update Swiper when new advertisement is added
-      if (this.swiper) {
-        this.swiper.update(); 
-      }
-    },
-    (error: any) => {
-      console.error('Error fetching advertisement image:', error);
-    }
-  );
-}
-
-
-
 
 initializeSwiper() {
   console.log('Initializing Swiper');

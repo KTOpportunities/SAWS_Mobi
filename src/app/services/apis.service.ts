@@ -98,9 +98,9 @@ export class APIService {
  
   //   );
   // }
-  GetAdvertByAdvertId(id: any): Observable<any> {
-    return this.http.get<any>(`${environment.serverAPI}Advert/GetAdvertByAdvertId?Id=${id}`);
-  }
+  // GetAdvertByAdvertId(id: any): Observable<any> {
+  //   return this.http.get<any>(`${environment.serverAPI}Advert/GetAdvertByAdvertId?Id=${id}`);
+  // }
 
   
 
