@@ -12,7 +12,6 @@
   display: grid;
 }
 
-
 .field-label {
   color: #00386c;
   margin-top: 5px;
@@ -2337,7 +2336,7 @@
   display: flex;
 }
 
-.div-block-521{
+.div-block-521 {
   border: 1.5px solid #00386c;
   border-radius: 10px;
   width: 275px;
@@ -4626,7 +4625,6 @@
   background-color: #00386c; /* Change this to the desired highlight color */
 }
 
-
 .dropdown-list-2 {
   border-radius: 10px;
 }
@@ -6804,6 +6802,25 @@ th {
 }
 
 @media screen and (max-width: 479px) {
+  .custom-input {
+    background-color: #fff; /* Adjust color as per your requirement */
+    border-radius: 8px; /* Adjust border-radius as per your requirement */
+    padding: 10px; /* Adjust padding as per your requirement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust box-shadow as per your requirement */
+    /* Add any other styling you need */
+  }
+  .message-list-div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 63vh;
+  }
+
+  .scrollable-content {
+    max-height: calc(62vh - 200px);
+    overflow-y: auto;
+  }
   #w-node-_98a40e1d-dd8c-3085-b8fc-2c6e0851cc2f-847dc521,
   #w-node-baf2c695-dc7d-239a-214f-78aae7ec4a02-5aa24fea,
   #w-node-_89e35c67-8544-644a-5d2f-ff5abcbff190-a17d1408,
@@ -6827,6 +6844,10 @@ th {
   #w-node-a3e89a9d-706c-301b-ed7f-a8d1997c22c1-a9068d94,
   #w-node-_46fea626-331a-31b2-3d93-495b4bd70088-871273fb {
     grid-area: span 1 / span 1 / span 1 / span 1;
+  }
+  .message-info {
+    display: flex;
+    flex-direction: column;
   }
 
   .image {
@@ -9477,6 +9498,14 @@ textarea.w-select {
   }
 }
 @media screen and (max-width: 479px) {
+  .response-status p {
+    display: inline; /* Ensures the <p> elements inside response-status remain inline */
+  }
+
+  .response-status {
+    display: block; /* Forces response-status to display as a block element, causing new line */
+  }
+
   .w-nav[data-collapse="tiny"] .w-nav-menu {
     display: none;
   }

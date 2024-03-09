@@ -21,16 +21,14 @@
       class="mobile-images"
     />
   </div>
-
+  <div class="form-container"></div>
   <div class="feedback-div">
     <div class="div-block-26">
-      <h1 class="heading-12" id="feedback-heading">
-        Provide technical feedback <br />on the website
-      </h1>
+      <h1 class="heading-12" id="feedback-heading">FEEDBACK</h1>
       <div class="w-form">
         <form
-        [formGroup]="userForm"
-        (ngSubmit)="onSubmitFeedback()"
+          [formGroup]="userForm"
+          (ngSubmit)="onSubmitFeedback()"
           id="email-form1"
           name="email-form"
           data-name="Email Form"
@@ -38,29 +36,37 @@
           data-wf-page-id="65b37dc83e5b85e23fc5ea08"
           data-wf-element-id="250cd369-1376-16af-4b58-4f9ff70033f3"
         >
-          <label for="name" class="field-label-3"> Your username:</label
-          ><input
-            class="text-field-3 w-input"
-            maxlength="256"
-            name="name"
-            data-name="Name"
-            placeholder=""
-            type="text"
-            id="name"
-            formControlName="Fullname"
-          /><label for="field" class="field-label-4" id="field4"
-            ><br />
-            <br />Your message:</label
-          ><textarea
-            required=""
-            placeholder="feedback Message"
-            maxlength="5000"
-            id="field"
-            name="field"
-            data-name="Field"
-            class="textarea w-input"
-            formControlName="message"
-          ></textarea>
+          <div class="form-group">
+            <label for="name" class="form-label">Username:</label>
+            <input
+              type="text"
+              id="name"
+              class="form-input"
+              [value]="aspUserName"
+              formControlName="Username"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Subject:</label>
+            <input
+              type="text"
+              id="email"
+              class="form-input"
+              placeholder="Enter your subject"
+              formControlName="title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Message:</label>
+
+            <textarea
+              class="form-input"
+              placeholder="Enter your feedback message"
+              formControlName="message"
+              style="height: 200px"
+            ></textarea>
+          </div>
           <br /><input
             type="submit"
             data-wait="Please wait..."

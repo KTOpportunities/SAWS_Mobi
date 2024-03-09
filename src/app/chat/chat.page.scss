@@ -5329,6 +5329,9 @@
 }
 
 @media screen and (max-width: 479px) {
+  .grid-38 {
+    width: 350px;
+  }
   #w-node-_98a40e1d-dd8c-3085-b8fc-2c6e0851cc2f-847dc521,
   #w-node-baf2c695-dc7d-239a-214f-78aae7ec4a02-5aa24fea,
   #w-node-_89e35c67-8544-644a-5d2f-ff5abcbff190-a17d1408,
@@ -5354,4 +5357,11 @@
   #w-node-cd3e9c90-8e08-db1f-b9df-21d1e2297290-ce3d400c {
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
+}
+
+.chatRow {
+  z-index: 2000;
+  position: relative;
+  /* left: -4px; */
+  bottom: 20px;
 }

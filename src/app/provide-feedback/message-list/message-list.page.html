@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <section class="message-list">
+  <section class="message-list" style="overflow: hidden">
     <div></div>
     <div class="div-block-2">
       <img
@@ -10,7 +10,7 @@
         class="image"
       />
     </div>
-    <div class="message-list-div">
+    <div class="message-list-div" style="overflow: hidden">
       <h1 class="header">Messages</h1>
       <div class="div-block-14-copy">
         <div (click)="providerfeedback()" class="search-button w-button">
@@ -30,33 +30,27 @@
               required=""
             /><input
               type="submit"
+              (click)="feedbacks()"
               class="search-button w-button"
               value="Search"
             />
           </form>
         </div>
       </div>
-      <div
-        class="w-layout-grid grid-list"
-        style="overflow-y: auto; height: 63%"
-      >
-        <a
-          *ngFor="let message of feedbackMessages"
-          id="w-node-_53abbd44-15dd-9a1d-b3a8-8e1d34ffa0df-378bdca1"
-          (click)="navigateToChat()"
-          class="chat-link w-inline-block"
-        >
-          <h1 class="heading-5">{{message.senderEmail}}</h1>
-          <h1 class="chat-date">{{message.updated_at}}</h1>
-        </a>
-        <a
-          (click)="navigateToChat()"
-          id="w-node-_98198f6a-9a73-edf2-7452-b1af8a3026fb-378bdca1"
-          class="chat-link w-inline-block"
-        >
-          <h1 class="heading-5">Lucia_Admin</h1>
-          <h1 class="chat-date">12/02/2024</h1>
-        </a>
+      <div class="scrollable-content">
+        <div class="w-layout-grid grid-list">
+          <a
+            *ngFor="let message of feedbackMessages"
+            id="w-node-_53abbd44-15dd-9a1d-b3a8-8e1d34ffa0df-378bdca1"
+            (click)="navigateToChat(message.feedbackId, message.fullname)"
+            class="chat-link w-inline-block"
+          >
+            <h1 class="heading-5">{{message.title}}</h1>
+            <h1 class="chat-date">
+              {{message.updated_at | date:'dd/MM/yyyy'}}
+            </h1>
+          </a>
+        </div>
       </div>
     </div>
     <div class="bottomdivMessage">

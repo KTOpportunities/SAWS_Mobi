@@ -17,6 +17,7 @@ export class ProvideFeedbackPage implements OnInit {
   aspUserName: any;
   aspUserEmail: any;
   aspUserID: any;
+  fullname: any;
 
   userForm: any;
 
@@ -28,32 +29,43 @@ export class ProvideFeedbackPage implements OnInit {
     private alertController: AlertController
   ) {
     this.userForm = this.formBuilder.group({
-      Fullname: ['', Validators.required],
+      Username: [this.aspUserName, Validators.required],
       message: ['', Validators.required],
+      title: ['', Validators.required],
     });
   }
 
   ngOnInit() {
-    debugger;
     var user: any = this.authService.getCurrentUser();
     console.log('userData in ProvideFeedbackPage:', this.userData);
+    console.log('user:', user);
     const userLoginDetails = JSON.parse(user);
     this.aspUserName = userLoginDetails?.aspUserName;
     this.aspUserID = userLoginDetails?.aspUserID;
     this.aspUserEmail = userLoginDetails?.aspUserEmail;
+    this.fullname = userLoginDetails?.fullname;
     console.log('userData in ProvideFeedbackPage:', this.aspUserName);
+
+    this.userForm = this.formBuilder.group({
+      Username: [this.aspUserName, Validators.required],
+      title: ['', Validators.required],
+      message: ['', Validators.required],
+    });
   }
 
   onSubmitFeedback() {
     // Populate feedback data
+    let user = JSON.parse(sessionStorage.getItem('CurrentUser')!);
     const feedbackData = {
-      feebackId: 0,
-      fullname: this.userForm.value.Fullname,
+      feedbackId: 0,
+      fullname: user.fullname,
       senderId: this.aspUserID, // You need to populate this based on your application logic
       senderEmail: this.aspUserEmail,
       responderId: '',
       responderEmail: '',
+      title: this.userForm.value.title,
       isresponded: false,
+
       FeedbackMessages: [
         {
           senderId: this.aspUserID,
@@ -65,6 +77,7 @@ export class ProvideFeedbackPage implements OnInit {
         },
       ],
     };
+
     console.log('BODY:', feedbackData);
     // Call API to send feedback data
     this.api.PostInsertNewFeedback(feedbackData).subscribe(
@@ -72,7 +85,7 @@ export class ProvideFeedbackPage implements OnInit {
         // Handle success response
         console.log('Feedback submitted successfully:', response);
         this.presentSuccessAlert();
-        this.router.navigate(['provide-feedback']); // Navigate to a success page
+        this.router.navigate(['/message-list']); // Navigate to a success page
       },
       (error) => {
         // Handle error response
