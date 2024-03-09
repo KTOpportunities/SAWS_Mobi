@@ -135,29 +135,16 @@ export class LandingPage implements OnInit {
 
 // This method fetches all advertisements 
 loadAllAdvertisements() {
-  this.apiService.getAllAdverts().subscribe(
+  // is called to make an HTTP request to fetch advertisements.
+  this.apiService.getAllAdverts().subscribe( //This allows us to react to the data when it arrives or handle any errors.
     (data: any[]) => {
-      debugger;
       console.log('getAllAdverts', data);
-      // this.totalAdvertisements = data.length;
-      data.forEach(ad => {
-        debugger;
-        console.log('Advertisement :', ad); // Log the advertisement ID
-        // this.GetAdvertByAdvertId(ad.advertId);
-        let image = this.sanitizer.bypassSecurityTrustResourceUrl(
-          'data:image/jpg;base64,' + ad.base64_file_url
-        );
-         // Use the sanitized URL
-         const advertisement = { imageUrl:image, link: ad.advert_url} as Advertisement; 
-         this.advertisements.push(advertisement);
-         // Update Swiper when new advertisement is added
-         if (this.swiper) {
-           this.swiper.update(); 
-         }
-         
+      this.advertisements = data.map(ad => {
+        // prevent security vulnerabilities, creating a safe URL for the image.
+        const imageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(ad.file_url);
+        return { imageUrl, link: ad.advert_url } as Advertisement;
       });
-     console.log('advertisement',this.advertisement);
-
+      console.log('advertisements', this.advertisements);
       this.initializeSwiper();
     },
     (error: any) => {
@@ -165,6 +152,7 @@ loadAllAdvertisements() {
     }
   );
 }
+
 
 
 initializeSwiper() {
