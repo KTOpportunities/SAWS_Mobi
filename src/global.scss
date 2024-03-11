@@ -24,6 +24,12 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+// @import '~swiper/swiper-bundle.min.css';
+
+
+// @import '~swiper/swiper-bundle.min.css';
+
+
 
 :root {
   --white: white;
@@ -41,6 +47,12 @@
   right: 0%;
   margin-top: 40px;
 }
+
+
+.active-slide {
+  border-color: green; /* Border color for active slide */
+}
+
 .w-layout-grid {
   grid-row-gap: 16px;
   grid-column-gap: 16px;
@@ -487,7 +499,7 @@
 .grid-4 {
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-top: 20px;
+  // margin-top: 20px ;
 }
 
 .div-block-9 {
@@ -2195,6 +2207,8 @@
 
   .grid-4 {
     margin-top: 80px;
+    position: relative;
+    bottom: 54px !important;
   }
 
   .navbar-logo-left-container {

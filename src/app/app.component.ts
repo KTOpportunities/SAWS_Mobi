@@ -7,6 +7,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Platform } from '@ionic/angular';
+// import { MatIconModule } from '@angular/material/icon';
+// import { MatMenuModule } from '@angular/material/menu';
+// import { MatButtonModule } from '@angular/material/button';
+// import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {register} from 'swiper/element/bundle';
+register();
 
 @Component({
   selector: 'app-root',
@@ -14,6 +20,7 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+   adverts: any[] = [];
   userDetails: any;
   isSubscribed: boolean = false;
   logout() {

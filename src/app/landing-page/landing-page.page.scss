@@ -19,6 +19,7 @@
   margin-bottom: 90px;
 }
 
+
 .mobile-images {
   width: 100%;
   height: 77%;
@@ -34,3 +35,47 @@
 .login-for {
   margin-top: -15px;
 }
+
+
+.swiper-container{
+width: 100%;
+height: 100%;
+}
+
+.swiper-slide{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-slide {
+  // flex-shrink: inherit !important;
+  // width: auto !important;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: block;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 10%;
+}
+
+.swiper-slide {
+  text-align: center;
+}
+
+.swiper-slide img {
+  // width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
