@@ -36,11 +36,9 @@ interface AdvertResponse {
 export class LandingPage implements OnInit {
   @ViewChild('swiper', { static: true }) swiperElement?: ElementRef;
   swiper?: Swiper;
-  advertisement: Advertisement | null = null;
   advertisements: Advertisement[] = [];
   currentAdvertisementIndex: number = 0;
-  //This is a union type. It means that currentAdvertisement can hold either an object of type Advertisement or the value null.
-  currentAdvertisement: Advertisement | null = null; 
+  currentAdvertisement: Advertisement | null = null;
 
   swiperConfig: any;
 
@@ -53,15 +51,19 @@ export class LandingPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.loadAdvertisement();
-    //This method is called to load all the advertisements.
-    this.loadAllAdvertisements(); 
+    // Load all advertisements
+    this.loadAllAdvertisements();
+  
+    // Call rotateAdvertisements immediately after loading advertisements
+    this.rotateAdvertisements();
+  
+    // Set interval to rotate the advertisements every 10 seconds
     setInterval(() => {
-      // This method is responsible for rotating the advertisements
-   
       this.rotateAdvertisements();
-    }, 10000); 
+    }, 10000);
   }
+  
+  
   rotateAdvertisements() {
        // It checks if there are advertisements available 
     if (this.advertisements.length > 0)
@@ -135,16 +137,23 @@ export class LandingPage implements OnInit {
 
 // This method fetches all advertisements 
 loadAllAdvertisements() {
-  // is called to make an HTTP request to fetch advertisements.
-  this.apiService.getAllAdverts().subscribe( //This allows us to react to the data when it arrives or handle any errors.
+  // Make an HTTP request to fetch advertisements.
+  this.apiService.getAllAdverts().subscribe(
     (data: any[]) => {
       console.log('getAllAdverts', data);
       this.advertisements = data.map(ad => {
-        // prevent security vulnerabilities, creating a safe URL for the image.
+        // Prevent security vulnerabilities, creating a safe URL for the image.
         const imageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(ad.file_url);
         return { imageUrl, link: ad.advert_url } as Advertisement;
       });
       console.log('advertisements', this.advertisements);
+
+      // Set the currentAdvertisement to the first advertisement in the array
+      if (this.advertisements.length > 0) {
+        this.currentAdvertisement = this.advertisements[0];
+      }
+
+      // Initialize Swiper after loading advertisements
       this.initializeSwiper();
     },
     (error: any) => {
@@ -155,24 +164,24 @@ loadAllAdvertisements() {
 
 
 
+
 initializeSwiper() {
   console.log('Initializing Swiper');
   if (this.advertisements.length > 0 && this.swiperElement) {
     console.log('Creating Swiper instance');
     this.swiper = new Swiper(this.swiperElement.nativeElement, {
       direction: 'vertical',
-      loop: false, // Disable looping
+      loop: true, // Enable looping to seamlessly rotate banners
       autoplay: {
-        delay: 3000, // Delay between slides (in milliseconds)
-        disableOnInteraction: false, // Enable continuous autoplay
+        delay: 10000, // Set autoplay delay to 10 seconds
+        disableOnInteraction: false,
       },
-      navigation: false, // Disable navigation buttons
-      allowTouchMove: false, // Disable user interaction
+      navigation: false,
+      allowTouchMove: true, // Allow users to swipe if needed
     });
-  } else {
-    console.log('Advertisements array is empty or ');
-  }
+  } 
 }
+
 
 
 
