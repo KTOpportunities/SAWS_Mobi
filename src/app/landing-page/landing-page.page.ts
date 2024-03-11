@@ -60,7 +60,7 @@ export class LandingPage implements OnInit {
       // This method is responsible for rotating the advertisements
    
       this.rotateAdvertisements();
-    }, 3000); 
+    }, 10000); 
   }
   rotateAdvertisements() {
        // It checks if there are advertisements available 
