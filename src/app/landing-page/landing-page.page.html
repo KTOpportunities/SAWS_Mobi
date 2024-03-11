@@ -5,12 +5,12 @@
     
     <h1 class="alllinks">ALL LINKS</h1>
     <div>
-      <div style="height: 75px;">
+      <div style="height: 35px;">
     <swiper-container #swiper *ngIf="advertisements.length > 0">
       <div class="swiper-wrapper">
         <!-- *ngIf is used to add or remove elements from the DOM (Document Object Model)  -->
         <a *ngIf="currentAdvertisement" [href]="currentAdvertisement.link" target="_blank">
-          <img [src]="currentAdvertisement.imageUrl" [alt]="currentAdvertisement.description" width="281px" height="76">
+          <img [src]="currentAdvertisement.imageUrl" [alt]="currentAdvertisement.description" width="300px" height="50">
         </a>
       </div>
     </swiper-container>
