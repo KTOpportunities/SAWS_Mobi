@@ -314,3 +314,27 @@
   transform: translateY(-50%);
   cursor: pointer;
 }
+.custom-content {
+  --ion-background-color: #ffffff; /* Set background color */
+  --ion-text-color: #000000; /* Set text color */
+}
+
+.custom-content.dark {
+  --ion-background-color: #ffffff; /* Set background color for dark mode */
+  --ion-text-color: #121212; /* Set text color for dark mode */
+}
+.w-checkbox-input {
+  background-color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: #333;
+}
+
+/* Checkbox label styling */
+.checkbox-label {
+  font-size: 14px;
+  color: #333;
+}
