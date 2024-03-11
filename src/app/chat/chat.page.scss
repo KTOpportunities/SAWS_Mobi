@@ -865,9 +865,10 @@
 }
 
 .heading-6 {
-  color: #002b53;
-  font-family: Montserrat, sans-serif;
-  font-size: 40px;
+  color: #00386c;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .link-block-4 {
@@ -2853,7 +2854,10 @@
 }
 
 .text-field-4 {
-  color: #000;
+  color: #ffffffba;
+  font-size: 14px;
+  width: 276px;
+  height: 42px;
   background-color: rgba(130, 149, 194, 0.61);
   border-radius: 15px;
   margin-top: 7px;
@@ -2861,16 +2865,21 @@
   margin-right: 20px;
   font-family: Montserrat, sans-serif;
   font-weight: 600;
+  border: none;
 }
 
 .submit-button-4 {
   background-color: #00386c;
   background-image: url("../../assets/Icon-material-send.svg");
   background-position: 50%;
-  background-repeat: repeat-y;
-  background-size: auto 39px;
-  border-radius: 100px;
-  padding: 18px 12px 12px 47px;
+  background-repeat: no-repeat;
+  background-size: auto 20px;
+  border-radius: 100%;
+  padding: 20px;
+  width: 35px;
+  height: 35px;
+  margin-left: -75px;
+  border: none;
 }
 
 @media screen and (min-width: 1280px) {
@@ -3971,7 +3980,7 @@
   }
 
   .footerdiv {
-    margin-top: -73px;
+    margin-top: -91px;
     padding-top: 0;
   }
 
@@ -5330,7 +5339,16 @@
 
 @media screen and (max-width: 479px) {
   .grid-38 {
+    width: 340px;
+    height: 55vh;
     width: 350px;
+    height: 55vh;
+    border: none;
+    border-radius: 25px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+
+    box-shadow: 0px 0px 6px 1px #00386c69;
   }
   #w-node-_98a40e1d-dd8c-3085-b8fc-2c6e0851cc2f-847dc521,
   #w-node-baf2c695-dc7d-239a-214f-78aae7ec4a02-5aa24fea,
@@ -5364,4 +5382,7 @@
   position: relative;
   /* left: -4px; */
   bottom: 20px;
+
+  margin-top: 19px;
+  margin-bottom: -24px;
 }

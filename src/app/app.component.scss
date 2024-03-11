@@ -1324,7 +1324,6 @@ ion-menu-button {
     align-items: center;
     text-decoration: none;
     display: flex;
-  
   }
 
   .w-inline-block {
@@ -2525,6 +2524,24 @@ ion-menu-button {
     padding-top: 75px;
   }
 }
+// @media screen and (max-width: 320px) {
+//   .round-image {
+//     width: 70px;
+//     height: 70px;
+//     border-radius: 50%;
+//     overflow: hidden;
+//     background-color: white;
+//     margin-top: -109px;
+//     margin-left: -237px;
+//     margin-bottom: 90px;
+//   }
+//   .left-aligned-menu-button {
+//     width: 50%;
+//     color: #fff;
+//     margin-left: 209px;
+//     margin-top: -74px;
+//   }
+// }
 
 #w-node-_6e6af7e3-63da-7985-a081-2b45a0e94176-b367414f {
   grid-area: span 1 / span 1 / span 1 / span 1;
