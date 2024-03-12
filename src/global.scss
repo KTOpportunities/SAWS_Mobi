@@ -3331,7 +3331,7 @@
   }
   .bottom-nav-div {
     height: 21vh;
-    margin-top: 213px;
+    margin-top: 195px;
   }
   .logout {
     padding-left: 3px;
@@ -3438,6 +3438,12 @@ select {
 }
 :root {
   --background-color: #ffffff; /* Default background color */
+}
+#nav-link2{
+  position: relative;
+  left: 118px;
+  margin-right: 139px;
+  width: 164px;
 }
 
 body {

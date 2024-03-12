@@ -708,6 +708,8 @@ ion-menu-button {
   text-decoration: none;
 }
 
+
+
 .nav-link:hover {
   color: rgba(26, 27, 31, 0.75);
 }
@@ -972,6 +974,8 @@ ion-menu-button {
     padding: 20px;
     display: flex;
     box-shadow: 0 8px 50px rgba(0, 0, 0, 0.05);
+    position: relative !important;
+    top: 107px !important;
   }
 
   .nav-link {

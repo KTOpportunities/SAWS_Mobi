@@ -60,7 +60,7 @@ export class LandingPage implements OnInit {
     // Set interval to rotate the advertisements every 10 seconds
     setInterval(() => {
       this.rotateAdvertisements();
-    }, 10000);
+    }, 6000);
   }
   
   

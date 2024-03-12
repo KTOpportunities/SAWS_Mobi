@@ -14,6 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @NgModule({
   // Declarations: Components, Directives, and Pipes declared in this module
@@ -21,27 +22,24 @@ import { MatListModule } from '@angular/material/list';
 
   // Imports: Other modules whose exported classes are needed by component templates declared in this NgModule
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule, 
-    NoopAnimationsModule, 
-    MatSlideToggleModule, 
+    HttpClientModule,
+    NoopAnimationsModule,
+    MatSlideToggleModule,
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
     MatListModule,
-  
+
     // SwiperModule,
   ],
-
- 
   providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy } // Ionic Route Strategy
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    InAppBrowser,
   ],
-
-  // Bootstrap: The main application view, called the root component, that hosts all other app views
   bootstrap: [AppComponent],
 })
 export class AppModule {} // AppModule class that acts as the root NgModule of the application
