@@ -90,4 +90,13 @@ export class APIService {
       // }
     );
   }
+
+  paySubscription(body: any) {
+    console.log('Subscribe: ', body);
+    debugger;
+    return this.http.post<any>(
+      environment.serverAPI + 'Subscriber/MakeRecurringPayment',
+      body
+    );
+  }
 }
