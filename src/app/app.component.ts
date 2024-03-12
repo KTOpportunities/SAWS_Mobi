@@ -78,15 +78,24 @@ export class AppComponent {
       this.router.navigate(['/login']);
     }
   }
-  provideFeedback() {
+  // provideFeedback() {
+  //   if (this.authService.getIsLoggedIn()) {
+  //     this.router.navigate(['/message-list']);
+  //   } else {
+  //     this.authService.setRedirectUrl('/message-list');
+  //     this.router.navigate(['/login']);
+   
+  //   }
+  // }
+  gotoProvideFeedback() {
     if (this.authService.getIsLoggedIn()) {
-      this.router.navigate(['/provide-feedback']);
+      this.router.navigate(['/message-list']);
     } else {
-      this.authService.setRedirectUrl('/provide-feedback');
+      this.authService.setRedirectUrl('/message-list');
       this.router.navigate(['/login']);
+   
     }
   }
-
   subscriptionPackage() {
     this.router.navigate(['/subscription-package']);
   }

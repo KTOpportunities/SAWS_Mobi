@@ -161,15 +161,15 @@
 
               <ion-menu-toggle class="ion-menu-toggle">
                 <mat-list-item role="listitem" class="">
-                  <a [routerLink]="['/subscription-package/subscription-package.module']"
+                  <a [routerLink]="['/subscription-package']"
                    class="nav-link" id="nav-link2">Subscription Packages</a>
                 </mat-list-item>
               </ion-menu-toggle>
 
               <ion-menu-toggle class="ion-menu-toggle">
                 <mat-list-item role="listitem" class="list-item">
-                  <a [routerLink]="['/provide-feedback']"
-                   class="nav-link" id="nav-link2">Provide Feedback</a>
+                  <a (click)="gotoProvideFeedback()"
+                   class="nav-link" id="nav-link2" >Provide Feedback</a>
                 </mat-list-item>
               </ion-menu-toggle>
 
