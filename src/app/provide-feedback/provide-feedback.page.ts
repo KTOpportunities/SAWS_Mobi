@@ -34,7 +34,10 @@ export class ProvideFeedbackPage implements OnInit {
       title: ['', Validators.required],
     });
   }
-
+  BacktoMessagelist() {
+    debugger;
+    this.router.navigate(['/message-list']);
+  }
   ngOnInit() {
     var user: any = this.authService.getCurrentUser();
     console.log('userData in ProvideFeedbackPage:', this.userData);

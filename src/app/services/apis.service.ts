@@ -66,50 +66,64 @@ export class APIService {
   }
   getFeedbackById(id: number) {
     return this.http.get<any>(
-      environment.serverAPI + ` Feedback/GetFeedbackById?Id=${id}`
+      environment.serverAPI + `Feedback/GetFeedbackById?Id=${id}`
     );
   }
   getFeedbackMessagesBySenderId(senderId: string) {
     return this.http.get<any>(
-      environment.serverAPI + `Feedback/GetFeedbackMessagesBySenderId?Id=${senderId}`
+      environment.serverAPI +
+        `Feedback/GetFeedbackMessagesBySenderId?Id=${senderId}`
     );
   }
 
-
-   // Method to fetch advertisement by ID
-   getAdvertByAdvertId(id: number) {
+  // Method to fetch advertisement by ID
+  getAdvertByAdvertId(id: number) {
     return this.http.get<any>(
-      environment.serverAPI +`Advert/GetAdvertByAdvertId?id=${id}`
-    );
-
-
-  }
-
-
-   // Method to fetch all advertisements
-   getAllAdverts() {
-    return this.http.get<any>(
-      environment.serverAPI +`Advert/GetAllAdverts`
+      environment.serverAPI + `Advert/GetAdvertByAdvertId?id=${id}`
     );
   }
-  
+
+  // Method to fetch all advertisements
+  getAllAdverts() {
+    return this.http.get<any>(environment.serverAPI + `Advert/GetAllAdverts`);
+  }
+
   // getDocAdvertFileById(id: number) {
   //   return this.http.get<any>(
   //     environment.serverAPI +`FileManager/GetDocAdvertFileById?Id=${id}`
- 
+
   //   );
   // }
   // GetAdvertByAdvertId(id: any): Observable<any> {
   //   return this.http.get<any>(`${environment.serverAPI}Advert/GetAdvertByAdvertId?Id=${id}`);
   // }
 
-  
+  getDocAdvertFileById(id: any) {
+    return this.http.get(
+      environment.serverAPI + `FileManager/GetDocAdvertFileById?Id=${id}`,
+      { responseType: 'blob' }
+    );
+  }
+  postInsertNewFeedback(body: {}) {
+    return this.http.post<any>(
+      environment.serverAPI + 'Feedback/PostInsertNewFeedback',
+      body
+      // this.httpOptions
+      // {
+      //   headers: new HttpHeaders().append(
+      //     "Authorization",
+      //     `Bearer ${this.token}`
+      //   ),
+      // }
+    );
+  }
 
-  // getDocAdvertFileById(id: any) {
-  //   return this.http.get(
-  //     environment.serverAPI +`FileManager/GetDocAdvertFileById?Id=${id}`,
-  //     { responseType: 'blob' }
-  //   );
-  // }
-
+  paySubscription(body: any) {
+    console.log('Subscribe: ', body);
+    debugger;
+    return this.http.post<any>(
+      environment.serverAPI + 'Subscriber/MakeRecurringPayment',
+      body
+    );
+  }
 }

@@ -7,7 +7,7 @@
           id="w-node-e9bccd0a-9bf8-1d60-ceb4-e3622f16eb99-4350eb02"
           class="heading"
         >
-          {{username}}
+          <!-- {{username}} -->
         </h1>
         <div #scroll class="scroll" [scrollTop]="scroll.scrollHeight">
           <ng-container *ngFor="let message of fdMessages; let i = index">
@@ -160,10 +160,26 @@
         alt=""
         class="image"
       />
-      <div class="footerdiv" (click)="home()">
-        <a class="w-inline-block">
-          <img src="../../assets/Group-3489.svg" loading="lazy" alt="" />
-        </a>
+
+      <div class="footerdiv" id="footerdivid">
+        <a (click)="BacktoMessagelist()" class="link-block-5 w-inline-block"
+          ><img src="../../assets/Group-4522.svg" loading="lazy" alt="" />
+          <h6
+            class="heading-10-copy"
+            style="
+              color: #fff;
+              margin-top: 10px;
+              margin-bottom: 0;
+              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              text-decoration: none;
+              font-size: 10px;
+              margin-top: -4px;
+              margin-left: 8px;
+            "
+          >
+            Message
+          </h6></a
+        >
       </div>
     </div>
   </section>

@@ -26,10 +26,7 @@
 @import "@ionic/angular/css/flex-utils.css";
 // @import '~swiper/swiper-bundle.min.css';
 
-
 // @import '~swiper/swiper-bundle.min.css';
-
-
 
 :root {
   --white: white;
@@ -47,7 +44,6 @@
   right: 0%;
   margin-top: 40px;
 }
-
 
 .active-slide {
   border-color: green; /* Border color for active slide */
@@ -104,8 +100,10 @@
   display: block;
 }
 #submitbutton {
-  width: 40%;
-  margin-left: 43% !important;
+  width: 72%;
+  margin-left: 23% !important;
+  padding: 5px;
+  border-radius: 11px;
 }
 
 .w-checkbox:before {
@@ -2576,7 +2574,7 @@
   }
 
   .footerdiv {
-    margin-top: -73px;
+    margin-top: -91px;
     padding-top: 0;
   }
 
@@ -3313,6 +3311,15 @@
   #w-node-_87e21b55-c8fb-4630-3be2-2b7e8aef64dc-a17d1408 {
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
+  .submit-button-2 {
+    background-color: #00386c;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-left: 50%;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: verdana, bold;
+  }
   .list {
     list-style-type: none;
   }
@@ -3324,7 +3331,7 @@
   }
   .bottom-nav-div {
     height: 21vh;
-    margin-top: 213px;
+    margin-top: 195px;
   }
   .logout {
     padding-left: 3px;
@@ -3351,4 +3358,51 @@
     line-height: 30px;
     margin-bottom: -34px;
   }
+}
+@media screen and (max-width: 320px) {
+  .round-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    margin-top: -109px;
+    margin-left: -237px;
+    margin-bottom: 90px;
+  }
+  .left-aligned-menu-button {
+    width: 50%;
+    color: #fff;
+    margin-left: 209px;
+    margin-top: -74px;
+  }
+}
+
+:root {
+  --background-color: #ffffff; /* Default background color */
+}
+#nav-link2{
+  position: relative;
+  left: 118px;
+  margin-right: 139px;
+  width: 164px;
+}
+
+body {
+  background-color: var(--background-color);
+}
+.w-checkbox-input {
+  background-color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: #333;
+}
+
+/* Checkbox label styling */
+.checkbox-label {
+  font-size: 14px;
+  color: #333;
 }

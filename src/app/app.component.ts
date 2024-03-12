@@ -2,6 +2,11 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../app/services/auth.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { Platform } from '@ionic/angular';
 // import { MatIconModule } from '@angular/material/icon';
 // import { MatMenuModule } from '@angular/material/menu';
 // import { MatButtonModule } from '@angular/material/button';
@@ -32,16 +37,23 @@ export class AppComponent {
     private authService: AuthService,
     private sanitizer: DomSanitizer,
     private activatedRoute: ActivatedRoute,
-    private authAPI: AuthService
+    private authAPI: AuthService,
+    private platform: Platform
   ) {}
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }
 
   ngOnInit() {
+    this.initializeApp();
     this.fetchUserData();
   }
-
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // Override system dark mode
+      document.body.classList.toggle('light-theme', true);
+    });
+  }
   fetchUserData() {
     this.userDetails = this.authService.getUserData();
   }
@@ -72,7 +84,6 @@ export class AppComponent {
     } else {
       this.authService.setRedirectUrl('/provide-feedback');
       this.router.navigate(['/login']);
-      
     }
   }
 
@@ -100,9 +111,4 @@ export class AppComponent {
     const currentRoute = this.router.url;
     return currentRoute.includes('/subscription-package');
   }
-  // BacktoLadingpage(){
-  //   debugger;
-  //   this.router.navigate(['/landing-page']);
-
-  // }
 }

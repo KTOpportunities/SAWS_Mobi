@@ -1,54 +1,27 @@
 <section class="landing-page-section">
-  <!-- <ion-menu-button class="left-aligned-menu-button"></ion-menu-button>
-  <div class="div-block-2">
-    <img
-      src="../../assets/Path-3452.svg"
-      loading="lazy"
-      width="1216"
-      alt=""
-      class="image"
-    />
-  </div> -->
+
   <div class="div-block">
-    <!-- <div class="round-image">
-      <img
-        src="../../assets/Mask-Group-33x.png"
-        width="212"
-        alt=""
-        loading="lazy"
-        width="115"
-        alt=""
-        class="mobile-images"
-      />
-    </div> -->
+    
     
     <h1 class="alllinks">ALL LINKS</h1>
+    <div>
+      <div style="height: 50px;">
     <swiper-container #swiper *ngIf="advertisements.length > 0">
       <div class="swiper-wrapper">
         <!-- *ngIf is used to add or remove elements from the DOM (Document Object Model)  -->
         <a *ngIf="currentAdvertisement" [href]="currentAdvertisement.link" target="_blank">
-          <img [src]="currentAdvertisement.imageUrl" [alt]="currentAdvertisement.description" width="281px" height="76">
+          <img [src]="currentAdvertisement.imageUrl" [alt]="currentAdvertisement.description" width="300px" height="50">
         </a>
       </div>
     </swiper-container>
+  </div>
+</div>
     
-    
-    
-
-    <!-- <swiper-container #swiper *ngIf="advertisements.length > 0">
-      <div class="swiper-wrapper">
-        <a *ngFor="let advertisement of advertisements" [href]="advertisement.link" target="_blank">
-          <img *ngIf="currentAdvertisement" [src]="currentAdvertisement.imageUrl" [alt]="currentAdvertisement.description" width="281px" height="76">
-        </a>
-      </div>
-    </swiper-container> -->
-    
-
     <div class="w-layout-grid grid-4">
       <div
         id="w-node-af071feb-0e36-aeae-49b6-c57e5055a218-847dc521"
         class="landing-div-grid"
-       
+        (click)="forecastPage()"
       >
         <div class="green-div">
           <img
@@ -60,6 +33,7 @@
         </div>
         <h5 class="sub-heading_grid">Forecast</h5>
       </div>
+
       <div
         id="w-node-_61659ae2-b0ef-a8ad-99eb-874255c0bab5-847dc521"
         class="landing-div-grid"
@@ -73,6 +47,9 @@
             alt=""
           />
         </div>
+
+
+        
         <h5 class="sub-heading_grid">Flight Briefing</h5>
       </div>
       <div
