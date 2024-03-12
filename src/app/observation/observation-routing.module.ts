@@ -6,8 +6,15 @@ import { ObservationPage } from './observation.page';
 const routes: Routes = [
   {
     path: '',
-    component: ObservationPage
-  }
+    component: ObservationPage,
+  },
+  {
+    path: 'observation-metar-history',
+    loadChildren: () =>
+      import(
+        './observation-metar-history/observation-metar-history.module'
+      ).then((m) => m.ObservationMetarHistoryPageModule),
+  },
 ];
 
 @NgModule({

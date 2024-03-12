@@ -56,7 +56,7 @@ export class SubscriptionPackagePage implements OnInit {
     this.router.navigate(['/landing-page']);
   }
   forecastPage2() {
-    this.router.navigate(['/alnding-page'])
+    this.router.navigate(['/landing-page'])
   }
   monthlypage() {
     this.selectedPaymentType = 'monthly'; // Update selected payment type
