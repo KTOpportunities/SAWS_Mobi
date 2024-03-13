@@ -1,9 +1,8 @@
-<ion-content
-  ><section class="list-page">
+<ion-content>
+  <section class="list-page" *ngIf="!webcamActive">
     <!-- Login required services: -->
     <div
       class=""
-      
       [ngClass]="{'applied-styles': !isLoggedIn}"
       *ngIf="isLoggedIn==true"
     >
@@ -11,50 +10,52 @@
         class="heading-6"
         [ngStyle]="{'text-align': isLoggedIn ? 'center' : 'left'}"
       >
-      Observation
+        Observation
       </h1>
-      <div class="w-layout-grid grid-list"
-      style="overflow-y: auto; max-height: 499px; -ms-overflow-style: none">
+      <div
+        class="w-layout-grid grid-list"
+        style="overflow-y: auto; max-height: 499px; -ms-overflow-style: none"
+      >
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">METAR</h1>
+        </a>
 
-      <a
-      id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
-      href="#"
-      class="link-block-3 w-inline-block"
-    >
-      <h1 class="heading-5">METAR</h1>
-    </a>
-
-    <a
-    id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
-    href="#"
-    class="link-block-3 w-inline-block"
-  >
-    <h1 class="heading-5">Webcams</h1>
-  </a>
+        <a
+          (click)="observMetarPage()"
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">Webcams</h1>
+        </a>
 
         <a
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
-          <h1 class="heading-5">METAR: Color Coded </h1>
+          <h1 class="heading-5">METAR: Color Coded</h1>
         </a>
 
         <a
-        id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
-        href="#"
-        class="link-block-3 w-inline-block"
-      >
-        <h1 class="heading-5">METAR: Recent </h1>
-      </a>
-      <a
-      id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
-      href="#"
-      class="link-block-3 w-inline-block"
-    >
-      <h1 class="heading-5">METAR: History</h1>
-    </a>
-    
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">METAR: Recent</h1>
+        </a>
+        <a
+          id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
+          href="#"
+          class="link-block-3 w-inline-block"
+        >
+          <h1 class="heading-5">METAR: History</h1>
+        </a>
+
         <a
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
@@ -81,9 +82,7 @@
           href="#"
           class="link-block-3 w-inline-block"
         >
-          <h1 class="heading-5">Satellite
-
-          </h1>
+          <h1 class="heading-5">Satellite</h1>
         </a>
         <a
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
@@ -94,7 +93,6 @@
         </a>
       </div>
     </div>
-
 
     <!-- Non login required service -->
 
@@ -109,17 +107,16 @@
           <h1 class="heading-5">METAR</h1>
         </a>
         <a
+          (click)="observMetarPage()"
           id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Webcams</h1>
         </a>
-       
-     
       </div>
     </div>
-    <div class="bottomdiv" style=" margin-top: 156%;">
+    <div class="bottomdiv" style="margin-top: 156%">
       <img
         src="../../assets/Path-3447.svg"
         loading="lazy"
@@ -128,9 +125,205 @@
         class="image"
       />
       <div class="footerdiv">
-        <a  class="w-inline-block" (click)="observPage()"
+        <a class="w-inline-block" (click)="observPage()"
           ><img src="../../assets/Group-3489.svg" loading="lazy" alt=""
         /></a>
       </div>
-    </div></section
-></ion-content>
+    </div>
+  </section>
+  <section class="ob-randar" *ngIf="webcamActive">
+    <div class="div-block-2">
+      <img
+        src="images/Path-3452.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+    </div>
+    <div class="metar-history-main-div">
+      <h1 class="heading-6">Randar Images</h1>
+      <div>
+        <div class="w-layout-grid grid-20">
+          <div
+            id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef4552-df47fded"
+            class="div-block-35"
+          >
+            <div
+              id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef4553-df47fded"
+              class="w-layout-grid grid-21"
+            >
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef4554-df47fded"
+                class="div-block-36"
+              >
+                <h4 class="heading-24">Individual Image</h4>
+              </div>
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef4557-df47fded"
+                class="div-block-36"
+              >
+                <h4 class="heading-24">View Image</h4>
+              </div>
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef455a-df47fded"
+                class="div-block-36"
+              ></div>
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef455d-df47fded"
+                class="div-block-36"
+              ></div>
+            </div>
+          </div>
+          <div
+            id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef4560-df47fded"
+            class="div-block-452"
+          >
+            <div class="w-layout-grid grid-22">
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef4562-df47fded"
+                class="div-block-37"
+              >
+                <h4 class="heading-25">FABL</h4>
+              </div>
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef4565-df47fded"
+                class="div-block-37"
+              >
+                <a href="#" class="button-2 w-button">View Image</a>
+              </div>
+            </div>
+          </div>
+          <div
+            id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef456e-df47fded"
+            class="div-block-38"
+          >
+            <div class="w-layout-grid grid-22">
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef4570-df47fded"
+                class="div-block-37"
+              >
+                <h4 class="heading-25">FABM</h4>
+              </div>
+              <div
+                id="w-node-_5586f8de-500c-3d0d-41e6-8fc6e92cb068-df47fded"
+                class="div-block-37"
+              >
+                <a href="#" class="button-2 w-button">View Image</a>
+              </div>
+            </div>
+          </div>
+          <div
+            id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef457c-df47fded"
+            class="div-block-453"
+          >
+            <div class="w-layout-grid grid-22">
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef457e-df47fded"
+                class="div-block-37"
+              >
+                <h4 class="heading-25">FACT</h4>
+              </div>
+              <div
+                id="w-node-e7c9e1d2-4d07-0cf8-ea26-9a926eb740ec-df47fded"
+                class="div-block-37"
+              >
+                <a href="#" class="button-2 w-button">View Image</a>
+              </div>
+            </div>
+          </div>
+          <div
+            id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef458a-df47fded"
+            class="div-block-38"
+          >
+            <div class="w-layout-grid grid-22">
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef458c-df47fded"
+                class="div-block-37"
+              >
+                <h4 class="heading-25">FADN</h4>
+              </div>
+              <div
+                id="w-node-_782976cf-bafb-5f5e-9603-d16b861e96af-df47fded"
+                class="div-block-37"
+              >
+                <a href="#" class="button-2 w-button">View Image</a>
+              </div>
+            </div>
+          </div>
+          <div
+            id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef4598-df47fded"
+            class="div-block-454"
+          >
+            <div class="w-layout-grid grid-22">
+              <div
+                id="w-node-_354b2412-f49a-8b91-8aaa-52a332ef459a-df47fded"
+                class="div-block-37"
+              >
+                <h4 class="heading-25">FADY</h4>
+              </div>
+              <div
+                id="w-node-_35a877aa-3c3a-5cd6-9810-4b38617c6d8b-df47fded"
+                class="div-block-37"
+              >
+                <a href="#" class="button-2 w-button">View Image</a>
+              </div>
+            </div>
+          </div>
+          <div
+            id="w-node-_175008b7-03e9-ac1a-057d-ade9f62da856-df47fded"
+            class="div-block-38"
+          >
+            <div class="w-layout-grid grid-22">
+              <div
+                id="w-node-_175008b7-03e9-ac1a-057d-ade9f62da858-df47fded"
+                class="div-block-37"
+              >
+                <h4 class="heading-25">FADN</h4>
+              </div>
+              <div
+                id="w-node-_175008b7-03e9-ac1a-057d-ade9f62da85b-df47fded"
+                class="div-block-37"
+              >
+                <a href="#" class="button-2 w-button">View Image</a>
+              </div>
+            </div>
+          </div>
+          <div
+            id="w-node-_7f4e90fb-d37e-728c-a303-85e1ab38eed3-df47fded"
+            class="div-block-455"
+          >
+            <div class="w-layout-grid grid-22">
+              <div
+                id="w-node-_7f4e90fb-d37e-728c-a303-85e1ab38eed5-df47fded"
+                class="div-block-37"
+              >
+                <h4 class="heading-25">FADY</h4>
+              </div>
+              <div
+                id="w-node-_7f4e90fb-d37e-728c-a303-85e1ab38eed8-df47fded"
+                class="div-block-37"
+              >
+                <a href="#" class="button-2 w-button">View Image</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottomdiv" style="margin-top: 156%">
+      <img
+        src="../../assets/Path-3447.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+        class="image"
+      />
+      <div class="footerdiv">
+        <a class="w-inline-block" (click)="observPage()"
+          ><img src="../../assets/Group-3489.svg" loading="lazy" alt=""
+        /></a>
+      </div>
+    </div>
+  </section>
+</ion-content>

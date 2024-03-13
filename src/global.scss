@@ -269,7 +269,7 @@
 .forgotpassword {
   font-size: 12px;
   text-decoration: underline;
-  margin-right: 0px;
+  margin-right: 29px;
 }
 
 .createlinktext {
@@ -3377,7 +3377,65 @@
     margin-top: -74px;
   }
 }
+/* Input styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="time"],
+input[type="search"],
+input[type="color"],
+input[type="checkbox"],
+input[type="radio"],
+textarea,
+select {
+  background-color: var(--background-light); /* Set default background */
+  color: #000000; /* Default text color */
+  border: 1px solid #cccccc; /* Default border */
+  padding: 8px;
+  margin: 5px 0;
+}
 
+/* Dark mode input styles */
+@media (prefers-color-scheme: dark) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="date"],
+  input[type="time"],
+  input[type="search"],
+  input[type="color"],
+  input[type="checkbox"],
+  input[type="radio"],
+  textarea,
+  select {
+    background-color: var(--background-dark); /* Set dark mode background */
+    color: #000000; /* Text color in dark mode - same as light mode */
+    border-color: #cccccc; /* Border color in dark mode - same as light mode */
+  }
+}
+.checkbox-field input[type="checkbox"] {
+  -webkit-appearance: none; /* Prevent default appearance */
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #000; /* You can adjust the border color as needed */
+  background-color: #fff; /* Force white background */
+  width: 16px; /* Set width and height to match typical checkbox dimensions */
+  height: 16px;
+  border-radius: 3px; /* Optional: add border-radius for rounded corners */
+  margin-right: 8px; /* Optional: add spacing between checkbox and label */
+}
+
+/* Optional: Style for label associated with the checkbox */
+.checkbox-label {
+  color: #000; /* Set label text color */
+}
 :root {
   --background-color: #ffffff; /* Default background color */
 }
@@ -3390,6 +3448,7 @@
 
 body {
   background-color: var(--background-color);
+  color: #000;
 }
 .w-checkbox-input {
   background-color: #ffffff;
