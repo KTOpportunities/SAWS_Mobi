@@ -19,5 +19,7 @@ export class WebCamPage implements OnInit {
   observPage() {
     this.router.navigate(['/landing-page']);
   }
-
+  ObservationPage() {
+    this.router.navigate(['/observation']);
+  }
 }

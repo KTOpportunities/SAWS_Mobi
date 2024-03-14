@@ -11,7 +11,7 @@ import { Platform } from '@ionic/angular';
 // import { MatMenuModule } from '@angular/material/menu';
 // import { MatButtonModule } from '@angular/material/button';
 // import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {register} from 'swiper/element/bundle';
+import { register } from 'swiper/element/bundle';
 register();
 
 @Component({
@@ -20,7 +20,7 @@ register();
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-   adverts: any[] = [];
+  adverts: any[] = [];
   userDetails: any;
   isSubscribed: boolean = false;
   logout() {
@@ -84,7 +84,7 @@ export class AppComponent {
   //   } else {
   //     this.authService.setRedirectUrl('/message-list');
   //     this.router.navigate(['/login']);
-   
+
   //   }
   // }
   gotoProvideFeedback() {
@@ -93,7 +93,6 @@ export class AppComponent {
     } else {
       this.authService.setRedirectUrl('/message-list');
       this.router.navigate(['/login']);
-   
     }
   }
   subscriptionPackage() {
@@ -118,6 +117,9 @@ export class AppComponent {
 
   displayIcon(): boolean {
     const currentRoute = this.router.url;
-    return currentRoute.includes('/subscription-package');
+    return (
+      currentRoute.includes('/subscription-package') ||
+      currentRoute.includes('/web-cam')
+    );
   }
 }

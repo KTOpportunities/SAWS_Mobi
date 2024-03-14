@@ -4324,7 +4324,7 @@
   }
 
   .bottomdiv {
-    margin-top: 70px;
+    margin-top: 151%;
     margin-bottom: 0;
   }
 
@@ -4348,10 +4348,19 @@
   }
 
   .footerdiv {
-    margin-top: -73px;
+    margin-top: -87px;
     padding-top: 0;
   }
-
+  #styleh6 {
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    font-size: 10px;
+    margin-top: 0px;
+    margin-left: 8px;
+  }
   .registerlabel {
     margin-left: 0;
     margin-right: 0;
@@ -5233,8 +5242,9 @@
   }
 
   .scroll {
+    margin-top: 10px;
     max-width: 89vw;
-    height: 43vh;
+    height: 53vh;
   }
 
   .scroll-table-content {
@@ -5297,7 +5307,7 @@
 
   .para-webc {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     font-family: Montserrat, sans-serif;
     font-size: 19px;
     line-height: 20px;
