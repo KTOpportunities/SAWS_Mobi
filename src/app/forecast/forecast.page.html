@@ -35,90 +35,84 @@
         >
           <h1 class="heading-5">Central Interior</h1>
         </div>
-        <!-- <a
+        <a
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Color coded:TAF</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Color coded:Warning</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Take-off data</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">TAF:Accuracy</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">TAF:Recent</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Trend Forecast</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">WAF Harmonized GRID Products</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">SIGWX Charts(Landscape)</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">SPOT Graph</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Advisories</h1>
-        </a> -->
-        <!-- <a
+        </a>
+        <a
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Warnings</h1>
-        </a> -->
-        <div (click)="toggleFormVisibility()"
-          id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
-          href="#"
-          class="link-block-3 w-inline-block"
-        >
-          <h1 class="heading-5">Synoptic Analysis</h1>
-        </div>
+        </a>
+      
       </div>
     </div>
   </div>
@@ -166,10 +160,12 @@
     </div>
 
 
-    <section class="aerosport-ci"  *ngIf="isFormVisible">
+    <section class="aerosport-ci"  *ngIf="isFormVisible" style="margin-top: -18px !important;">
       <div class="div-block-2"><img src="images/Path-3452.svg" loading="lazy" width="1216" alt="" class="image"></div>
-      <div class="aerosport">
-        <h1 class="heading-6">Central Interior</h1>
+      <h1 class="heading-6" >Central Interior</h1>
+
+      <div class="aerosport" >
+        <div class="aerosportScrol">
         <div class="div-block-464">
           <h1 class="sub-headings">Cloud Cover                     </h1>
           <div class="w-form">
@@ -178,16 +174,16 @@
               <div data-hover="false" data-delay="0" class="text-field-blue w-dropdown">
                 <div class="w-dropdown-toggle" >
                   <div class="icon-2 w-icon-dropdown-toggle"></div>
-                  <div class="text-block">Low</div>
+                  <div class="text-block" (click)="toggleDropdown('dropdown1')">{{selectedOption1}}</div>
                 </div>
-                <!-- <nav class="dropdown-list"
-               >
+                <nav class="dropdown-list1"
+                *ngIf="isDropdownOpen1">
               
-                  <a href="#" class="w-dropdown-link"  >Low</a>
-                  <a href="#" class="w-dropdown-link" >Middle</a>
-                  <a href="#" class="w-dropdown-link" >High</a>
+                  <a href="#" class="w-dropdown-link" (click)="selectOption('Low', 'dropdown1')" >Low</a>
+                  <a href="#" class="w-dropdown-link" (click)="selectOption('Middle', 'dropdown1')">Middle</a>
+                  <a href="#" class="w-dropdown-link" (click)="selectOption('High', 'dropdown1')">High</a>
                 
-                </nav> -->
+                </nav>
                 
               </div>
             </div>
@@ -199,6 +195,8 @@
               <div>Oops! Something went wrong while submitting the form.</div>
             </div>
           </div>
+
+
           <div class="grid-div">
             <div class="w-layout-grid central-grid">
               <div id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aa4-bb9b1d15" class="div-block-35">
@@ -384,17 +382,17 @@
                   <div data-hover="false" data-delay="0" class="text-field-blue w-dropdown">
                     <div class="w-dropdown-toggle">
                       <div class="icon-2 w-icon-dropdown-toggle" ></div>
-                      <div class="text-block">Surface</div>
+                      <div class="text-block" (click)="toggleDropdown('dropdown2')">{{selectedOption2}}</div>
                     </div>
-                    <!-- <nav class="dropdown-list1"  
-                    >
-                      <a href="#" class="w-dropdown-link" >FL060</a>
-                      <a href="#" class="w-dropdown-link" >FL080</a>
-                      <a href="#" class="w-dropdown-link" >FL100</a>
-                      <a href="#" class="w-dropdown-link" >FL120</a>
-                      <a href="#" class="w-dropdown-link" >FL140</a>
-                      <a href="#" class="w-dropdown-link" >FL160</a>
-                    </nav> -->
+                    <nav class="dropdown-list1" *ngIf="isDropdownOpen2">  
+                    
+                      <a href="#" class="w-dropdown-link" (click)="selectOption('', 'dropdown2')">FL060</a>
+                      <a href="#" class="w-dropdown-link" (click)="selectOption('', 'dropdown2')">FL080</a>
+                      <a href="#" class="w-dropdown-link" (click)="selectOption('', 'dropdown2')">FL100</a>
+                      <a href="#" class="w-dropdown-link"  (click)="selectOption('', 'dropdown2')">FL120</a>
+                      <a href="#" class="w-dropdown-link" (click)="selectOption('', 'dropdown2')" >FL140</a>
+                      <a href="#" class="w-dropdown-link" (click)="selectOption('', 'dropdown2')">FL160</a>
+                    </nav>
                   </div>
                 </div>
               </div>
@@ -406,6 +404,9 @@
               <div>Oops! Something went wrong while submitting the form.</div>
             </div>
           </div>
+
+
+
           <div class="grid-div">
             <div class="w-layout-grid central-grid">
               <div id="w-node-_263303c5-1301-967e-e68c-c272135c6358-bb9b1d15" class="div-block-35">
@@ -582,33 +583,38 @@
             </div>
           </div>
         </div>
+
+
         <div class="div-block-464">
           <h1 class="sub-headings">Temperature                       </h1>
-          <div class="w-form">
+           <div class="w-form">
             <form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" class="form-3" data-wf-page-id="65ef0e606bbd1609bb9b1d15" data-wf-element-id="e56588f0-a404-c7f6-783b-ec1c6c397e7f">
               <div class="w-layout-grid grid-25">
                 <div id="w-node-e56588f0-a404-c7f6-783b-ec1c6c397e81-bb9b1d15"><label for="" class="field-label">Select Temperature</label>
                   <div data-hover="false" data-delay="0" class="text-field-blue w-dropdown">
                     <div class="w-dropdown-toggle" >
                       <div class="icon-2 w-icon-dropdown-toggle"></div>
-                      <div class="text-block">Normal</div>
+                      <div class="text-block" (click)="toggleDropdown('dropdown3')">{{selectedOption3}}</div>
                     </div>
-                    <nav class="dropdown-list w-dropdown-list" 
-                   >
-                      <a href="#" class="w-dropdown-link">Middle</a>
-                      <a href="#" class="w-dropdown-link">Dewpoint</a>
+                    <nav class="dropdown-list1" 
+                    *ngIf="isDropdownOpen3">
+                      <a href="#" class="w-dropdown-link" (click)="selectOption('', 'dropdown3')">Middle</a>
+                      <a href="#" class="w-dropdown-link"(click)="selectOption('', 'dropdown3')">Dewpoint</a>
                     </nav>
                   </div>
                 </div>
               </div>
             </form>
+
+          
             <div class="w-form-done">
               <div>Thank you! Your submission has been received!</div>
             </div>
             <div class="w-form-fail">
               <div>Oops! Something went wrong while submitting the form.</div>
             </div>
-          </div>
+          </div> 
+
           <div class="grid-div">
             <div class="w-layout-grid central-grid">
               <div id="w-node-e56588f0-a404-c7f6-783b-ec1c6c397e98-bb9b1d15" class="div-block-35">
@@ -704,10 +710,11 @@
           </a>
         </div>
       </div>
+    </div>
     </section>
 
     
-    <section class="aerosport-ci"  *ngIf="isFormVisible">
+    <!-- <section class="aerosport-ci"  *ngIf="isFormVisible">
       <div class="div-block-2"><img src="images/Path-3452.svg" loading="lazy" width="1216" alt="" class="image"></div>
       <div class="aerosport">
         <h1 class="heading-6">Central Interior</h1>
@@ -721,14 +728,7 @@
                   <div class="icon-2 w-icon-dropdown-toggle"></div>
                   <div class="text-block">Low</div>
                 </div>
-                <!-- <nav class="dropdown-list"
-               >
-              
-                  <a href="#" class="w-dropdown-link"  >Low</a>
-                  <a href="#" class="w-dropdown-link" >Middle</a>
-                  <a href="#" class="w-dropdown-link" >High</a>
-                
-                </nav> -->
+            
                 
               </div>
             </div>
@@ -927,15 +927,7 @@
                       <div class="icon-2 w-icon-dropdown-toggle" ></div>
                       <div class="text-block">Surface</div>
                     </div>
-                    <!-- <nav class="dropdown-list1"  
-                    >
-                      <a href="#" class="w-dropdown-link" >FL060</a>
-                      <a href="#" class="w-dropdown-link" >FL080</a>
-                      <a href="#" class="w-dropdown-link" >FL100</a>
-                      <a href="#" class="w-dropdown-link" >FL120</a>
-                      <a href="#" class="w-dropdown-link" >FL140</a>
-                      <a href="#" class="w-dropdown-link" >FL160</a>
-                    </nav> -->
+                  
                   </div>
                 </div>
               </div>
@@ -1245,7 +1237,7 @@
           </a>
         </div>
       </div>
-    </section>
+    </section> -->
     
  
     <div class="bottomdiv" style="margin-top: 156%">
