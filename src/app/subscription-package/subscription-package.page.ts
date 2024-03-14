@@ -101,6 +101,7 @@ export class SubscriptionPackagePage implements OnInit {
     // Toggle the specified dropdown
     this.dropdownVisible[dropdownName] = !this.dropdownVisible[dropdownName];
   }
+  
 
   forecastPage() {
     this.router.navigate(['/landing-page']);
