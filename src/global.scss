@@ -1811,6 +1811,17 @@
 }
 
 @media screen and (max-width: 991px) {
+  .logout {
+    padding-left: 3px;
+    width: 25px;
+    transform: rotate(360deg);
+    color: #00386c;
+  }
+  .dropdownidon {
+    padding-left: 4px;
+    width: 15px;
+    margin-left: 10px;
+  }
   .section {
     position: static;
     top: 0%;
@@ -1841,13 +1852,13 @@
     margin-top: 29px;
   }
   .round-image {
-    width: 80px;
-    height: 80px;
+    width: 114px;
+    height: 114px;
     border-radius: 50%;
     overflow: hidden;
     background-color: white;
-    margin-top: -128px;
-    margin-left: -204px;
+    margin-top: -30%;
+    margin-left: -70%;
     margin-bottom: 90px;
   }
 
@@ -2077,6 +2088,18 @@
     left: 0%;
     right: 0%;
   }
+  .landing-page-section {
+    margin-top: -1px;
+    position: static;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+  }
+  .bottomdiv {
+    position: fixed;
+    margin-top: 131%;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -2200,7 +2223,10 @@
   .forgot-password-field {
     width: 56vw;
   }
-
+  .bottomdiv {
+    position: fixed;
+    margin-top: 125%;
+  }
   .grid-4 {
     margin-top: 80px;
     position: relative;
@@ -2485,6 +2511,10 @@
 }
 
 @media screen and (max-width: 479px) {
+  .bottomdivlogin {
+    position: fixed;
+    margin-top: 150%;
+  }
   .landing-page-section {
     flex-direction: column;
     justify-content: flex-start;
@@ -3297,10 +3327,6 @@
   .bottomdiv {
     // margin-top: 221px;
   }
-  .bottomdivlogin {
-    position: fixed;
-    margin-top: 150%;
-  }
 }
 
 @media screen and (max-width: 479px) {
@@ -3361,13 +3387,13 @@
 }
 @media screen and (max-width: 320px) {
   .round-image {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     overflow: hidden;
     background-color: white;
-    margin-top: -109px;
-    margin-left: -237px;
+    margin-top: -107px;
+    margin-left: -246px;
     margin-bottom: 90px;
   }
   .left-aligned-menu-button {
@@ -3439,7 +3465,7 @@ select {
 :root {
   --background-color: #ffffff; /* Default background color */
 }
-#nav-link2{
+#nav-link2 {
   position: relative;
   left: 118px;
   margin-right: 139px;
@@ -3457,7 +3483,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 3px;
   margin-right: 5px;
-  color: #333;
+  color: #00386c;
 }
 
 /* Checkbox label styling */

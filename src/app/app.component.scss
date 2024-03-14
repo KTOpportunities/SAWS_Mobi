@@ -708,8 +708,6 @@ ion-menu-button {
   text-decoration: none;
 }
 
-
-
 .nav-link:hover {
   color: rgba(26, 27, 31, 0.75);
 }
@@ -2195,6 +2193,10 @@ ion-menu-button {
   .menu-button.w--open {
     color: #fff;
     background-color: #a6b1bf;
+  }
+  ion-menu-button {
+    color: #ffffff;
+    margin-left: 65%;
   }
 }
 

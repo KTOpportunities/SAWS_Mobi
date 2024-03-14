@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-observation',
-  templateUrl: './observation.page.html',
-  styleUrls: ['./observation.page.scss'],
+  selector: 'app-web-cam',
+  templateUrl: './web-cam.page.html',
+  styleUrls: ['./web-cam.page.scss'],
 })
-export class ObservationPage implements OnInit {
+export class WebCamPage implements OnInit {
   isLogged: boolean = false;
   webcamActive: boolean = false;
   constructor(private router: Router, private authService: AuthService) {}
@@ -19,8 +19,5 @@ export class ObservationPage implements OnInit {
   observPage() {
     this.router.navigate(['/landing-page']);
   }
-  observMetarPage() {
-    // this.router.navigate(['/news']);
-    this.router.navigate(['/web-cam']);
-  }
+
 }

@@ -147,7 +147,15 @@ const routes: Routes = [
       import('../app/provide-feedback/message-list/message-list.module').then(
         (m) => m.MessageListPageModule
       ),
+  },  {
+    path: 'observation-metar-history',
+    loadChildren: () => import('./observation-metar-history/observation-metar-history.module').then( m => m.ObservationMetarHistoryPageModule)
   },
+  {
+    path: 'web-cam',
+    loadChildren: () => import('./web-cam/web-cam.module').then( m => m.WebCamPageModule)
+  },
+
 ];
 
 @NgModule({
