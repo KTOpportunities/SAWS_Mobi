@@ -84,8 +84,14 @@ export class SubscriptionPackagePage implements OnInit {
     return this.authService.getIsLoggedIn();
   }
   provideFeedback() {
-    this.router.navigate(['/login']);
+    if (this.authService.getIsLoggedIn()) {
+      this.authService.setRedirectUrl('/subscription-package?id=1');
+    } else {
+      this.authService.setRedirectUrl('/subscription-package?id=1');
+      this.router.navigate(['/login']);
+    }
   }
+
   displayIcon(): boolean {
     return this.isSubscriber; // Return true if the user is a subscriber, false otherwise
   }
@@ -101,7 +107,6 @@ export class SubscriptionPackagePage implements OnInit {
     // Toggle the specified dropdown
     this.dropdownVisible[dropdownName] = !this.dropdownVisible[dropdownName];
   }
-  
 
   forecastPage() {
     this.router.navigate(['/landing-page']);
