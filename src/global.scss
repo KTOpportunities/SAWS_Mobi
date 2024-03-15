@@ -758,8 +758,8 @@
   margin-top: 10px;
   width: 92%;
   margin-left: -9px;
-
-  position: absolute;
+  width: 105%;
+  position: relative;
   z-index: 999; /* Set a high z-index value to ensure the dropdown appears on top */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionally, add a box shadow */
 }
