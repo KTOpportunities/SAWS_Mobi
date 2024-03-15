@@ -115,6 +115,10 @@ export class AeroSportPage implements OnInit {
   }
 
   forecastPage() {
-    this.router.navigate(['/landing-page']);
+    this.isFormVisible = true;
+    this.isKwazulNatal = false;
+    this.isFormVisible1 = false;
+    this.isFormVisible2 = false;
+    this.isFormVisible3 = false;
   }
 }
