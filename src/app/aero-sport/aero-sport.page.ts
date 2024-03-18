@@ -20,6 +20,7 @@ export class AeroSportPage implements OnInit {
   isFormVisible2: boolean = false;
   isFormVisible3: boolean = false;
   isKwazulNatal: boolean = false;
+  isSpotGfraph: boolean = false;
   isDropdownOpen1: boolean = false;
   isDropdownOpen2: boolean = false;
   isDropdownOpen3: boolean = false;
@@ -88,6 +89,7 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible1 = true;
     this.isFormVisible2 = false;
     this.isFormVisible3 = false;
+    this.isSpotGfraph = false;
   }
   toggleFormVisibility1() {
     this.isFormVisible = false;
@@ -95,12 +97,14 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible1 = false;
     this.isFormVisible2 = true;
     this.isFormVisible3 = false;
+    this.isSpotGfraph = false;
   }
   toggleFormVisibility2() {
     this.isFormVisible = false;
     this.isKwazulNatal = false;
     this.isFormVisible1 = false;
     this.isFormVisible3 = true;
+    this.isSpotGfraph = false;
   }
   KwazulNatalToggle() {
     // this.isKwazulNatal=true;
@@ -108,6 +112,15 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible = false;
     this.isKwazulNatal = true;
     this.isFormVisible = false;
+    this.isSpotGfraph = false;
+  }
+  SpotGraphToggle() {
+    // this.isKwazulNatal=true;
+    this.isFormVisible2 = false;
+    this.isFormVisible = false;
+    this.isKwazulNatal = false;
+    this.isFormVisible = false;
+    this.isSpotGfraph = true;
   }
 
   aerosportPage() {
@@ -120,5 +133,6 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible1 = false;
     this.isFormVisible2 = false;
     this.isFormVisible3 = false;
+    this.isSpotGfraph = false;
   }
 }

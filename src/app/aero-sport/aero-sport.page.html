@@ -43,13 +43,14 @@
           >
             <h1 class="heading-5">Southwestern Cape</h1>
           </div>
-          <a
+          <div
+            (click)="SpotGraphToggle()"
             id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
             href="#"
             class="link-block-3 w-inline-block"
           >
             <h1 class="heading-5">Spot Graph Map</h1>
-          </a>
+          </div>
           <div
             (click)="toggleFormVisibility2()"
             id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
@@ -909,16 +910,12 @@
                     <div
                       data-hover="false"
                       data-delay="0"
-                      class="text-field-blue w-dropdown" (click)="toggleDropdown('dropdown3')"
+                      class="text-field-blue w-dropdown"
+                      (click)="toggleDropdown('dropdown3')"
                     >
                       <div class="w-dropdown-toggle">
                         <div class="icon-2 w-icon-dropdown-toggle"></div>
-                        <div
-                          class="text-block"
-                          
-                        >
-                          {{selectedOption3}}
-                        </div>
+                        <div class="text-block">{{selectedOption3}}</div>
                       </div>
                       <nav class="dropdown-list1" *ngIf="isDropdownOpen3">
                         <a
@@ -1953,16 +1950,12 @@
                     <div
                       data-hover="false"
                       data-delay="0"
-                      class="text-field-blue w-dropdown" (click)="toggleDropdown('dropdown3')"
+                      class="text-field-blue w-dropdown"
+                      (click)="toggleDropdown('dropdown3')"
                     >
                       <div class="w-dropdown-toggle">
                         <div class="icon-2 w-icon-dropdown-toggle"></div>
-                        <div
-                          class="text-block"
-                          
-                        >
-                          {{selectedOption3}}
-                        </div>
+                        <div class="text-block">{{selectedOption3}}</div>
                       </div>
                       <nav class="dropdown-list1" *ngIf="isDropdownOpen3">
                         <a
@@ -3024,16 +3017,12 @@
                     <div
                       data-hover="false"
                       data-delay="0"
-                      class="text-field-blue w-dropdown" (click)="toggleDropdown('dropdown3')"
+                      class="text-field-blue w-dropdown"
+                      (click)="toggleDropdown('dropdown3')"
                     >
                       <div class="w-dropdown-toggle">
                         <div class="icon-2 w-icon-dropdown-toggle"></div>
-                        <div
-                          class="text-block"
-                          
-                        >
-                          {{selectedOption3}}
-                        </div>
+                        <div class="text-block">{{selectedOption3}}</div>
                       </div>
                       <nav class="dropdown-list1" *ngIf="isDropdownOpen3">
                         <a
@@ -4085,16 +4074,12 @@
                     <div
                       data-hover="false"
                       data-delay="0"
-                      class="text-field-blue w-dropdown" (click)="toggleDropdown('dropdown3')"
+                      class="text-field-blue w-dropdown"
+                      (click)="toggleDropdown('dropdown3')"
                     >
                       <div class="w-dropdown-toggle">
                         <div class="icon-2 w-icon-dropdown-toggle"></div>
-                        <div
-                          class="text-block"
-                          
-                        >
-                          {{selectedOption3}}
-                        </div>
+                        <div class="text-block">{{selectedOption3}}</div>
                       </div>
                       <nav class="dropdown-list1" *ngIf="isDropdownOpen3">
                         <a
@@ -4287,8 +4272,442 @@
         </div>
       </div>
     </section>
+    <!-- Spot Graph-->
+    <section
+      class="aerosport-ci"
+      *ngIf="isSpotGfraph"
+      style="margin-top: -18px !important"
+    >
+      <h1 class="heading-6">Spot Graph Map</h1>
 
-    <div class="bottomdiv" style="margin-top: 140%">
+      <div class="aerosport">
+        <div class="aerosportScrol">
+          <div class="div-block-464">
+            <h1 class="sub-headings">Regions                     </h1>
+
+            <div class="grid-div">
+              <div class="w-layout-grid central-grid">
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aa4-bb9b1d15"
+                  class="div-block-35"
+                >
+                  <div
+                    id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aa5-bb9b1d15"
+                    class="w-layout-grid grid-21"
+                  >
+                    <div
+                      id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aa6-bb9b1d15"
+                      class="div-block-36"
+                    >
+                      <h4 class="heading-24">Individual Image</h4>
+                    </div>
+                    <div
+                      id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aa9-bb9b1d15"
+                      class="div-block-36"
+                    >
+                      <h4 class="heading-24">View Image</h4>
+                    </div>
+                    <div
+                      id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aac-bb9b1d15"
+                      class="div-block-36"
+                    ></div>
+                    <div
+                      id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aad-bb9b1d15"
+                      class="div-block-36"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aae-bb9b1d15"
+                  class="div-block-452"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_707270c1-b2ff-8f51-f118-3b3665aeea79-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_5e42ce22-6a2b-b585-398b-a09e34e0d36c-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Haertbeesport</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ab6-bb9b1d15"
+                  class="div-block-38"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-db37a491-8dad-40b9-a88e-cc55c6b1b566-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-db37a491-8dad-40b9-a88e-cc55c6b1b569-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Pilanesberg</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02abe-bb9b1d15"
+                  class="div-block-453"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_3f048f9e-5836-8c6a-6952-e097080e1b78-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_3f048f9e-5836-8c6a-6952-e097080e1b7b-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Pretoria</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ac6-bb9b1d15"
+                  class="div-block-38"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_5380366f-d675-46f7-ca6a-e0b033a4f3c0-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_5380366f-d675-46f7-ca6a-e0b033a4f3c3-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Van Reenen</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ace-bb9b1d15"
+                  class="div-block-454"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-b6c488a8-be9f-7f84-66a4-28e55c9843d7-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-b6c488a8-be9f-7f84-66a4-28e55c9843da-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Jan Kempdorp</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
+                  class="div-block-38"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Dunnottar</h1>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ade-bb9b1d15"
+                  class="div-block-455"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e67-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e6a-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Hoedspruit</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
+                  class="div-block-38"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Brits A/F</h1>
+                    </div>
+                  </div>
+                </div>
+                <!---->
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ade-bb9b1d15"
+                  class="div-block-455"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e67-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e6a-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Orient</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
+                  class="div-block-38"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Worcester</h1>
+                    </div>
+                  </div>
+                </div>
+                <!---->
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ade-bb9b1d15"
+                  class="div-block-455"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e67-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e6a-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Mossel Bay</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
+                  class="div-block-38"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">Beaufort West</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="div-block-464">
+            <h1 class="sub-headings">Aerodromes  </h1>
+            <div class="grid-div">
+              <div class="w-layout-grid central-grid">
+                <div
+                  id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba086-bb9b1d15"
+                  class="div-block-35"
+                >
+                  <div
+                    id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba087-bb9b1d15"
+                    class="w-layout-grid grid-21"
+                  >
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba088-bb9b1d15"
+                      class="div-block-36"
+                    >
+                      <h4 class="heading-24">CB</h4>
+                    </div>
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba08b-bb9b1d15"
+                      class="div-block-36"
+                    >
+                      <h4 class="heading-24">View Image</h4>
+                    </div>
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba08e-bb9b1d15"
+                      class="div-block-36"
+                    ></div>
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba08f-bb9b1d15"
+                      class="div-block-36"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba090-bb9b1d15"
+                  class="div-block-452"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba092-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba095-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">FABL</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba098-bb9b1d15"
+                  class="div-block-38"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba09a-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba09d-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">FABM</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0a0-bb9b1d15"
+                  class="div-block-453"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0a2-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0a5-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">FACT</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0a8-bb9b1d15"
+                  class="div-block-38"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0aa-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ad-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">FADN</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
+                  class="div-block-454"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">FADY</h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
+                  class="div-block-38"
+                >
+                  <div class="w-layout-grid grid-41">
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <a href="#" class="button-2-copy w-button">View</a>
+                    </div>
+                    <div
+                      id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
+                      class="div-block-465"
+                    >
+                      <h1 class="heading-25">FADN</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--SPOT GRAPH-->
+
+    <div class="bottomdiv" style="margin-top: 148%">
       <img
         src="../../assets/Path-3447.svg"
         loading="lazy"
