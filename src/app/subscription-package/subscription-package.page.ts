@@ -85,8 +85,12 @@ export class SubscriptionPackagePage implements OnInit {
   }
   provideFeedback() {
     if (this.authService.getIsLoggedIn()) {
-      this.authService.setRedirectUrl('/subscription-package?id=1');
+      // If user is logged in, redirect to subscription package page with ID parameter
+      this.router.navigate(['/subscription-package'], {
+        queryParams: { id: 1 },
+      });
     } else {
+      // If user is not logged in, set the redirect URL and navigate to the login page
       this.authService.setRedirectUrl('/subscription-package?id=1');
       this.router.navigate(['/login']);
     }

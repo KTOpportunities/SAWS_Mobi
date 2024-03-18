@@ -7,7 +7,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  right: -50px;
   margin: auto;
   margin-right: 20px;
   width: 1em;
@@ -37,11 +37,11 @@
   margin-right: auto;
   z-index: 900;
 }
-#icon2{
+#icon2 {
   padding-right: 61px !important;
   margin-left: -47px !important;
 }
-#icon3{
+#icon3 {
   padding-right: 30px;
 }
 .w-dropdown1 {
@@ -12099,7 +12099,8 @@ textarea.w-select {
     margin-right: 47px;
   }
 
-  .aerosport-ci,.spotgraph-section  {
+  .aerosport-ci,
+  .spotgraph-section {
     margin-top: -118px;
     position: static;
     top: 0%;
@@ -13828,7 +13829,8 @@ textarea.w-select {
     display: flex;
   }
 
-  .aerosport-ci,.spotgraph-section  {
+  .aerosport-ci,
+  .spotgraph-section {
     margin-top: -91px;
     padding-left: 0;
     padding-right: 0;
