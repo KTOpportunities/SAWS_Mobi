@@ -7008,7 +7008,11 @@ th {
 
 @media screen and (max-width: 479px) {
   #footerdivid {
-    margin-top: 221%;
+    margin-top: -25%;
+  }
+  .footerdiv {
+    margin-top: -87px;
+    padding-top: 0;
   }
   .custom-input {
     background-color: #fff; /* Adjust color as per your requirement */

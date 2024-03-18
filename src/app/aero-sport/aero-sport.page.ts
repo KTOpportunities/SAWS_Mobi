@@ -135,4 +135,5 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible3 = false;
     this.isSpotGfraph = false;
   }
+ 
 }
