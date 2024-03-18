@@ -32,6 +32,36 @@
   --white: white;
   --black: black;
 }
+
+#RaderImages{
+  text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 30px;
+}
+#grid21{
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+.w-button {
+  display: inline-block;
+  padding: 9px 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+  background-color: #3898EC;
+  color: white;
+  border: 0;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+}
+#grid22 {
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+}
 .landing-page-section {
   flex-direction: column;
   justify-content: flex-start;
@@ -1885,6 +1915,13 @@
   font-family: Montserrat, sans-serif;
   font-size: 30px;
 }
+#heading-24{
+  font-size: 14px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  padding-left: 10px;
+  font-family: Montserrat, sans-serif !important;
+}
 
 .div-block-35 {
   background-image: linear-gradient(#00386c, #00386c);
@@ -1943,6 +1980,17 @@
 }
 
 @media screen and (max-width: 991px) {
+  .logout {
+    padding-left: 3px;
+    width: 25px;
+    transform: rotate(360deg);
+    color: #00386c;
+  }
+  .dropdownidon {
+    padding-left: 4px;
+    width: 15px;
+    margin-left: 10px;
+  }
   
   .section {
     position: static;
@@ -1982,13 +2030,13 @@
     margin-top: 29px;
   }
   .round-image {
-    width: 80px;
-    height: 80px;
+    width: 114px;
+    height: 114px;
     border-radius: 50%;
     overflow: hidden;
     background-color: white;
-    margin-top: -128px;
-    margin-left: -204px;
+    margin-top: -30%;
+    margin-left: -70%;
     margin-bottom: 90px;
   }
 
@@ -2218,6 +2266,18 @@
     left: 0%;
     right: 0%;
   }
+  .landing-page-section {
+    margin-top: -1px;
+    position: static;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+  }
+  .bottomdiv {
+    position: fixed;
+    margin-top: 131%;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -2353,7 +2413,10 @@
   .forgot-password-field {
     width: 56vw;
   }
-
+  .bottomdiv {
+    position: fixed;
+    margin-top: 125%;
+  }
   .grid-4 {
     margin-top: 80px;
     position: relative;
@@ -2700,7 +2763,7 @@
     padding-top: 0;
   }
   .image {
-    margin-top: -29px;
+    // margin-top: -29px;
   }
   .div-block-3 {
     padding-left: 20px;
@@ -3003,6 +3066,7 @@
     margin-bottom: 0;
     font-family: Montserrat, sans-serif;
     text-decoration: none;
+    display: none;
   }
 
   .aviation_home {
@@ -3225,7 +3289,7 @@
   .heading-29 {
     font-size: 14px;
   }
-}
+
 
 #w-node-_6e6af7e3-63da-7985-a081-2b45a0e94176-b367414f {
   grid-area: span 1 / span 1 / span 1 / span 1;
@@ -3481,10 +3545,6 @@
   .bottomdiv {
     // margin-top: 221px;
   }
-  .bottomdivlogin {
-    position: fixed;
-    margin-top: 150%;
-  }
 }
 
 @media screen and (max-width: 479px) {
@@ -3562,13 +3622,13 @@
 }
 @media screen and (max-width: 320px) {
   .round-image {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     overflow: hidden;
     background-color: white;
-    margin-top: -109px;
-    margin-left: -237px;
+    margin-top: -107px;
+    margin-left: -246px;
     margin-bottom: 90px;
   }
   .left-aligned-menu-button {
@@ -3640,7 +3700,7 @@ select {
 :root {
   --background-color: #ffffff; /* Default background color */
 }
-#nav-link2{
+#nav-link2 {
   position: relative;
   left: 118px;
   margin-right: 139px;
@@ -3658,11 +3718,12 @@ body {
   border: 1px solid #ccc;
   border-radius: 3px;
   margin-right: 5px;
-  color: #333;
+  color: #00386c;
 }
 
 /* Checkbox label styling */
 .checkbox-label {
   font-size: 14px;
   color: #333;
+}
 }

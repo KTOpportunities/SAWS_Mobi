@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef,
+  HostListener, } from '@angular/core';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -8,19 +9,33 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./observation.page.scss'],
 })
 export class ObservationPage implements OnInit {
+  
   isLogged: boolean = false;
+  isMetar:boolean = true;
+  isRanderImages:boolean = false;
+
   webcamActive: boolean = false;
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService, private elRef: ElementRef) {}
   ngOnInit() {}
+  
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
+  }
+  metar () {
+    this.isMetar = false;
+    this.isRanderImages = true
+  }
+
+  observatPage() {
+    this.isMetar = true;
+    this.isRanderImages = false
   }
 
   observPage() {
     this.router.navigate(['/landing-page']);
   }
   observMetarPage() {
-    this.webcamActive = true; // Verify if this assignment is executed
-    console.log('webcamActive set to true:', this.webcamActive);
+    // this.router.navigate(['/news']);
+    this.router.navigate(['/web-cam']);
   }
 }
