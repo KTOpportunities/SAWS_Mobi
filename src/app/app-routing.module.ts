@@ -15,6 +15,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'subscription-package/:id', // Define the route with the ID parameter
+    loadChildren: () =>
+      import('./subscription-package/subscription-package.module').then(
+        (m) => m.SubscriptionPackagePageModule
+      ),
+  },
+  {
     path: 'folder/:id',
     loadChildren: () =>
       import('./folder/folder.module').then((m) => m.FolderPageModule),
@@ -147,7 +154,8 @@ const routes: Routes = [
       import('../app/provide-feedback/message-list/message-list.module').then(
         (m) => m.MessageListPageModule
       ),
-  },  {
+  },
+  {
     path: 'observation-metar-history',
     loadChildren: () => import('./observation-metar-history/observation-metar-history.module').then( m => m.ObservationMetarHistoryPageModule)
   },

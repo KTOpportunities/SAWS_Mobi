@@ -10,6 +10,7 @@ import { APIService } from 'src/app/services/apis.service';
   styleUrls: ['./subscription-package.page.scss'],
 })
 export class SubscriptionPackagePage implements OnInit {
+  selectedSubscriptionPackageId: number | undefined;
   showAnnuallySection: boolean = false;
   showMonthlySection: boolean = true;
   isSubscriber: boolean = true;
@@ -83,19 +84,32 @@ export class SubscriptionPackagePage implements OnInit {
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }
-  provideFeedback() {
-    if (this.authService.getIsLoggedIn()) {
-      // If user is logged in, redirect to subscription package page with ID parameter
-      this.router.navigate(['/subscription-package'], {
-        queryParams: { id: 1 },
-      });
-    } else {
-      // If user is not logged in, set the redirect URL and navigate to the login page
-      this.authService.setRedirectUrl('/subscription-package?id=1');
+  // provideFeedback() {
+  //   if (this.authService.getIsLoggedIn()) {
+  //     // If user is logged in, redirect to subscription package page with ID parameter
+  //     this.authService.setRedirectUrl('/subscription-package');
+  //   } else {
+  //     // If user is not logged in, set the redirect URL and navigate to the login page
+  //     this.authService.setRedirectUrl('/subscription-package');
+  //     this.router.navigate(['/login']);
+  //   }
+  // }
+  provideFeedback(subscriptionPackageId: number) {
+    // Check if the user is logged in
+    if (!this.authService.getIsLoggedIn()) {
+      // If not logged in, set redirect URL and navigate to login page
+      this.authService.setRedirectUrl(
+        `/subscription-package?id=${subscriptionPackageId}`
+      );
       this.router.navigate(['/login']);
+      return; // Exit the method
     }
-  }
 
+    // User is logged in, perform subscription process
+    // Here, you can handle subscription based on the provided package ID
+    this.selectedSubscriptionPackageId = subscriptionPackageId;
+    // Implement your subscription logic...
+  }
   displayIcon(): boolean {
     return this.isSubscriber; // Return true if the user is a subscriber, false otherwise
   }
