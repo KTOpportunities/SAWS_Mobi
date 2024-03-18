@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { APIService } from 'src/app/services/apis.service';
@@ -14,6 +14,7 @@ export class SubscriptionPackagePage implements OnInit {
   showAnnuallySection: boolean = false;
   showMonthlySection: boolean = true;
   isSubscriber: boolean = true;
+  subscriptionId:number|undefined;
   dropdownVisible: { [key: string]: boolean } = {
     paymentType: false,
     freeSubscription: false,
@@ -43,15 +44,40 @@ export class SubscriptionPackagePage implements OnInit {
     private router: Router,
     private authService: AuthService,
     private iab: InAppBrowser,
-    private APIService: APIService
-  ) {}
+    private APIService: APIService,
+    private route: ActivatedRoute,
+    private api: APIService,
 
+  ) {}
+ 
   ngOnInit() {
+
+    if(this.authService.getIsLoggedIn()){
+      var user: any = this.authService.getCurrentUser();
+    }
+    if (user) {
+      // Populate subsObj with user's information
+      this.subsObj.name_first = user.firstName;
+      this.subsObj.name_last = user.lastName;
+      this.subsObj.email_address = user.email;
+      this.subsObj.confirmation_email = user.email;
+    }
+    this.route.queryParams.subscribe(params => {
+      this.subscriptionId = +params['id'];
+      // Optionally, you can perform any actions based on the subscription package ID here
+    });
     this.selectedPaymentType = 'monthly';
 
     const currentUrl = window.location.href;
     console.log(currentUrl);
     this.subsObj.returnUrl = currentUrl;
+
+    let ID = 1;
+    if (this.subscriptionId == 1) {
+      this.subscribe(180);
+    } else if (this.subscriptionId == 2) {
+      this.subscribe(380);
+    }
   }
 
   openInAppBrowser(url: string) {
@@ -64,9 +90,11 @@ export class SubscriptionPackagePage implements OnInit {
     });
   }
 
-  subscribe(amount: number) {
+  subscribe(amount: number, subscriptionType?: string) {
     this.subsObj.amount = Number(amount.toFixed(2));
     this.subsObj.recurring_amount = Number(amount.toFixed(2));
+    
+    
     console.log('subO: ', this.subsObj);
     debugger;
 
@@ -94,7 +122,7 @@ export class SubscriptionPackagePage implements OnInit {
   //     this.router.navigate(['/login']);
   //   }
   // }
-  provideFeedback(subscriptionPackageId: number) {
+  provideFeedback(subscriptionPackageId: number, amount?: number) {
     // Check if the user is logged in
     if (!this.authService.getIsLoggedIn()) {
       // If not logged in, set redirect URL and navigate to login page
@@ -103,6 +131,8 @@ export class SubscriptionPackagePage implements OnInit {
       );
       this.router.navigate(['/login']);
       return; // Exit the method
+    } else {
+      this.subscribe(amount!);
     }
 
     // User is logged in, perform subscription process
