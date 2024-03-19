@@ -20,8 +20,8 @@
             <h1 class="heading-5">Central Interior</h1>
           </div>
           <a
+            (click)="CloudForecast()"
             id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
-            href="#"
             class="link-block-3 w-inline-block"
           >
             <h1 class="heading-5">Cloud Forecast</h1>
@@ -5352,1062 +5352,159 @@
         </div>
       </div>
     </section>
-       <!-- Cloud Forecast-->
-       <section
-       class="aerosport-ci"
-       *ngIf="isSpotGfraph"
-       style="margin-top: -18px !important"
-     >
-       <h1 class="heading-6">Spot Graph Map</h1>
- 
-       <div class="aerosport">
-         <div class="aerosportScrol">
-           <div class="div-block-464">
-             <h1 class="sub-headings">Locations                     </h1>
- 
-             <div class="grid-div">
-               <div class="w-layout-grid central-grid">
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aa4-bb9b1d15"
-                   class="div-block-35"
-                 >
-                   <div
-                     id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aa5-bb9b1d15"
-                     class="w-layout-grid grid-21"
-                   >
-                     <div
-                       id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aa6-bb9b1d15"
-                       class="div-block-36"
-                     >
-                       <h4 class="heading-24">Regions</h4>
-                     </div>
-                     <div
-                       id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aa9-bb9b1d15"
-                       class="div-block-36"
-                     >
-                       <h4 class="heading-24">View Image</h4>
-                     </div>
-                     <div
-                       id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aac-bb9b1d15"
-                       class="div-block-36"
-                     ></div>
-                     <div
-                       id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aad-bb9b1d15"
-                       class="div-block-36"
-                     ></div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02aae-bb9b1d15"
-                   class="div-block-452"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_707270c1-b2ff-8f51-f118-3b3665aeea79-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a
-                         href="https://aviation.weathersa.co.za/#showAerosportReq?tM=xl-25.8327.75_spot_d1&view=nw&region="
-                         class="button-2-copy w-button"
-                         >View</a
-                       >
-                     </div>
-                     <div
-                       id="w-node-_5e42ce22-6a2b-b585-398b-a09e34e0d36c-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Haertbeesport</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ab6-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-db37a491-8dad-40b9-a88e-cc55c6b1b566-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-db37a491-8dad-40b9-a88e-cc55c6b1b569-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Pilanesberg</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02abe-bb9b1d15"
-                   class="div-block-453"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3f048f9e-5836-8c6a-6952-e097080e1b78-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3f048f9e-5836-8c6a-6952-e097080e1b7b-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Pretoria</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ac6-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_5380366f-d675-46f7-ca6a-e0b033a4f3c0-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_5380366f-d675-46f7-ca6a-e0b033a4f3c3-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Van Reenen</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ace-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-b6c488a8-be9f-7f84-66a4-28e55c9843d7-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-b6c488a8-be9f-7f84-66a4-28e55c9843da-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Jan Kempdorp</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Dunnottar</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ade-bb9b1d15"
-                   class="div-block-455"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e67-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e6a-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Hoedspruit</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Brits A/F</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <!---->
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ade-bb9b1d15"
-                   class="div-block-455"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e67-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e6a-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Orient</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Worcester</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <!---->
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ade-bb9b1d15"
-                   class="div-block-455"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e67-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e6a-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Mossel Bay</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Beaufort West</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ade-bb9b1d15"
-                   class="div-block-455"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e67-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e6a-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Groblersdal</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Malmesbury</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ade-bb9b1d15"
-                   class="div-block-455"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e67-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e6a-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Middelburg</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Morningside</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <!---->
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ade-bb9b1d15"
-                   class="div-block-455"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e67-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_740c5105-c953-07a1-3f05-c6c30f0e2e6a-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Outdshoorn</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-cfe5f63b-1252-659b-3929-d5675cc02ad6-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360b-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_6da9dbc6-7d2d-5655-2cbc-e3a25afe360e-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">Warmbath</h1>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-           <div class="div-block-464">
-             <h1 class="sub-headings">Aerodromes  </h1>
-             <div class="grid-div">
-               <div class="w-layout-grid central-grid">
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba086-bb9b1d15"
-                   class="div-block-35"
-                 >
-                   <div
-                     id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba087-bb9b1d15"
-                     class="w-layout-grid grid-21"
-                   >
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba088-bb9b1d15"
-                       class="div-block-36"
-                     >
-                       <h4 class="heading-24">CB</h4>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba08b-bb9b1d15"
-                       class="div-block-36"
-                     >
-                       <h4 class="heading-24">View Image</h4>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba08e-bb9b1d15"
-                       class="div-block-36"
-                     ></div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba08f-bb9b1d15"
-                       class="div-block-36"
-                     ></div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba090-bb9b1d15"
-                   class="div-block-452"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba092-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba095-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAAB</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba098-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba09a-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba09d-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FABL</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0a0-bb9b1d15"
-                   class="div-block-453"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0a2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0a5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FACT</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0a8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0aa-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ad-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAEL</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAEO</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAGG</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAHS</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAKM</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAKN</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FALA</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FALE</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FALM</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FALW</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAMM</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAMK</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAOB</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAOR</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAPA</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAPE</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAPG</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAPM</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAPN</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAPN</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAPP</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FARB</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FASZ</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAUP</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAUT</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAWB</h1>
-                     </div>
-                   </div>
-                 </div>
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b8-bb9b1d15"
-                   class="div-block-38"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0ba-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0bd-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAWK</h1>
-                     </div>
-                   </div>
-                 </div>
- 
-                 <!---->
-                 <div
-                   id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b0-bb9b1d15"
-                   class="div-block-454"
-                 >
-                   <div class="w-layout-grid grid-41">
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b2-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <a href="#" class="button-2-copy w-button">View</a>
-                     </div>
-                     <div
-                       id="w-node-_3a2b9a5a-cc94-4474-e9b2-321530eba0b5-bb9b1d15"
-                       class="div-block-465"
-                     >
-                       <h1 class="heading-25">FAYP</h1>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </section>
+    <!-- Cloud Forecast-->
+
+    <section class="ob-metar-history" *ngIf="isCloudForecast">
+      <div class="cloud-cover">
+        <h1 class="heading6">Cloud Cover</h1>
+        <div class="w-layout-grid metar-history-grid">
+          <div
+            id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db26-7830bece"
+            class="div-block-15"
+          >
+            <div class="div-block-14"></div>
+          </div>
+          <div
+            id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db28-7830bece"
+            class="form-block w-form"
+          >
+            <div class="w-form">
+              <div id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db2b-7830bece">
+                <label for="" class="field-label">Select Product:</label>
+              </div>
+              <form
+                id="email-form-3"
+                name="email-form-3"
+                data-name="Email Form 3"
+                method="get"
+                class="form-3"
+                data-wf-page-id="65ef0e606bbd1609bb9b1d15"
+                data-wf-element-id="5127f7e5-929e-7445-9e38-c3d8c5b5c252"
+              >
+                <div>
+                  <div
+                    data-hover="false"
+                    data-delay="0"
+                    class="text-field-blue w-dropdown"
+                    (click)="forecastDropdown('dropdown1')"
+                  >
+                    <div class="w-dropdown-toggle">
+                      <div class="icon-2 w-icon-dropdown-toggle"></div>
+                      <div class="text-block">{{selectedOption5}}</div>
+                    </div>
+                    <nav class="dropdown-list1" *ngIf="isDropdownOpen1">
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('Low', 'dropdown1')"
+                        >2024-03-20 20:00</a
+                      >
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('Middle', 'dropdown1')"
+                        >2024-03-20 20:00</a
+                      >
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('High', 'dropdown1')"
+                        >2024-03-20 20:00</a
+                      >
+                    </nav>
+                  </div>
+                </div>
+              </form>
+              <div id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db3a-7830bece">
+                <label for="" class="field-label">Current Frame:</label>
+              </div>
+              <form
+                id="email-form-3"
+                name="email-form-3"
+                data-name="Email Form 3"
+                method="get"
+                class="form-3"
+                data-wf-page-id="65ef0e606bbd1609bb9b1d15"
+                data-wf-element-id="5127f7e5-929e-7445-9e38-c3d8c5b5c252"
+              >
+                <div>
+                  <div
+                    data-hover="false"
+                    data-delay="0"
+                    class="text-field-blue w-dropdown"
+                    (click)="forecastDropdown('dropdown1')"
+                  >
+                    <div class="w-dropdown-toggle">
+                      <div class="icon-2 w-icon-dropdown-toggle"></div>
+                      <div class="text-block">{{selectedOption4}}</div>
+                    </div>
+                    <nav class="dropdown-list1" *ngIf="isDropdownOpen1">
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('Low', 'dropdown1')"
+                        >2020</a
+                      >
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('Middle', 'dropdown1')"
+                        >Middle</a
+                      >
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('High', 'dropdown1')"
+                        >High</a
+                      >
+                    </nav>
+                  </div>
+                </div>
+              </form>
+              <div class="w-form-done">
+                <div></div>
+              </div>
+              <div class="w-form-fail">
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="div-block-15">
+          <div>
+            <div class="scroll small-m">
+              <div class="rows-wrap">
+                <div
+                  data-delay="4000"
+                  data-animation="slide"
+                  class="slider-2 w-slider"
+                  data-autoplay="false"
+                  data-easing="ease"
+                  data-hide-arrows="false"
+                  data-disable-swipe="false"
+                  data-autoplay-limit="0"
+                  data-nav-spacing="3"
+                  data-duration="500"
+                  data-infinite="true"
+                >
+                  <div class="w-slider-mask">
+                    <div class="w-slide"></div>
+                    <div class="w-slide"></div>
+                  </div>
+                  <div class="w-slider-arrow-left">
+                    <div class="w-icon-slider-left"></div>
+                  </div>
+                  <div class="w-slider-arrow-right">
+                    <div class="w-icon-slider-right"></div>
+                  </div>
+                  <div class="w-slider-nav w-round w-num"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div class="bottomdiv" style="margin-top: 148%" *ngIf="isFormVisible">
       <img
