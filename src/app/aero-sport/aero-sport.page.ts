@@ -25,6 +25,8 @@ export class AeroSportPage implements OnInit {
   isDropdownOpen1: boolean = false;
   isDropdownOpen2: boolean = false;
   isDropdownOpen3: boolean = false;
+  isDropdownOpen4: boolean = false;
+  isDropdownOpen5: boolean = false;
   selectedOption1: string = 'Wind';
   selectedOption2: string = 'Surface';
   selectedOption3: string = 'Temperature';
@@ -67,7 +69,13 @@ export class AeroSportPage implements OnInit {
       this.isDropdownOpen1 = false;
       this.isDropdownOpen2 = false;
     }
+    if (dropdown === 'dropdown3') {
+      this.isDropdownOpen3 = !this.isDropdownOpen3;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen2 = false;
+    }
   }
+
   selectOption(option: string, dropdown: string) {
     if (dropdown === 'dropdown1') {
       this.selectedOption1 = option;
@@ -83,16 +91,37 @@ export class AeroSportPage implements OnInit {
       this.isDropdownOpen1 = !this.isDropdownOpen1;
       this.isDropdownOpen2 = false;
       this.isDropdownOpen3 = false;
+      this.isDropdownOpen4 = false;
+      this.isDropdownOpen5 = false;
     }
 
     if (dropdown === 'dropdown2') {
       this.isDropdownOpen2 = !this.isDropdownOpen2;
       this.isDropdownOpen1 = false;
       this.isDropdownOpen3 = false;
+      this.isDropdownOpen4 = false;
+      this.isDropdownOpen5 = false;
     }
     if (dropdown === 'dropdown3') {
       this.isDropdownOpen3 = !this.isDropdownOpen3;
       this.isDropdownOpen1 = false;
+      this.isDropdownOpen2 = false;
+      this.isDropdownOpen4 = false;
+      this.isDropdownOpen5 = false;
+    }
+
+    if (dropdown === 'dropdown4') {
+      this.isDropdownOpen4 = !this.isDropdownOpen4;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen3 = false;
+      this.isDropdownOpen2 = false;
+      this.isDropdownOpen5 = false;
+    }
+    if (dropdown === 'dropdown5') {
+      this.isDropdownOpen5 = !this.isDropdownOpen5;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen3 = false;
+      this.isDropdownOpen4 = false;
       this.isDropdownOpen2 = false;
     }
   }
