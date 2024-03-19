@@ -13,6 +13,8 @@ export class ObservationPage implements OnInit {
   isLogged: boolean = false;
   isMetar:boolean = true;
   isRanderImages:boolean = false;
+  // iscolorcoded:boolean = true;
+  iscodeTafs:boolean = false;
 
   webcamActive: boolean = false;
   constructor(private router: Router, private authService: AuthService, private elRef: ElementRef) {}
@@ -29,6 +31,12 @@ export class ObservationPage implements OnInit {
   observatPage() {
     this.isMetar = true;
     this.isRanderImages = false
+    this.iscodeTafs = false
+  }
+
+  colorcoded () {
+  this.isMetar = false;
+  this.iscodeTafs = true
   }
 
   observPage() {

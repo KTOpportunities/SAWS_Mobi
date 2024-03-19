@@ -16,7 +16,7 @@
         class="w-layout-grid grid-list"
         style="overflow-y: auto; max-height: 499px; -ms-overflow-style: none"
       >
-        <div (click)="metar()"
+        <div 
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
           class="link-block-3 w-inline-block"
@@ -32,13 +32,13 @@
           <h1 class="heading-5">Webcams</h1>
         </a>
 
-        <a
+        <div (click)="colorcoded()"
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">METAR: Color Coded</h1>
-        </a>
+        </div>
 
         <a
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
@@ -69,13 +69,13 @@
         >
           <h1 class="heading-5">METAR/TAF : Recent</h1>
         </a>
-        <a
+        <div (click)="metar()"
           id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Radar</h1>
-        </a>
+        </div>
         <a
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
           href="#"
@@ -207,6 +207,169 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="bottomdiv"><img src="images/Path-3447.svg" loading="lazy" width="1216" alt="" class="image">
+        <div class="footerdiv">
+          <a href="landing-page.html" class="link-block-5 w-inline-block"><img src="images/Group-4522.svg" loading="lazy" width="35" alt="">
+            <h6 class="heading-10">Forecast</h6>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <section class="colour-coded-tafs-page"  
+    *ngIf="iscodeTafs">
+      <div class="div-block-2"><img src="images/Path-3452.svg" loading="lazy" width="1216" alt="" class="image"></div>
+
+      <div class="tafs-div">
+        <h1 class="heading-6" id="colorcoded">Colour Coded TAFs</h1>
+        <div  class="ObservScrol">
+          <div class="w-layout-grid grid-6" id="layout">
+            <div id="w-node-e7ec9294-4182-a125-c428-84c8c81f6e70-5aa24fea" class="w-layout-grid grid-cct-copy">
+              <div id="w-node-_211f6e7f-4ab3-965d-1518-9c1f84dfceec-5aa24fea" class="cct">
+                <h1 class="heading-7">Date :</h1>
+                <h1 class="heading-8">2024 - 01 - 22</h1>
+              </div>
+              <div id="w-node-_2ef88a37-3b9e-7fec-658a-a6f84d594d57-5aa24fea" class="cct">
+                <h1 class="heading-7">Time : </h1>
+                <h1 class="heading-8">13:15:45</h1>
+              </div>
+            </div>
+            <div id="w-node-f5bb06e8-f72c-b502-4775-b999902099d0-5aa24fea" class="div-block-14-copy">
+              <div>
+                <h5 class="heading-9">Query TAFs</h5>
+                <form action="/search" class="search w-form"><input class="search-input w-input" maxlength="256" name="query" placeholder="Search…" type="search" id="search" required=""><input type="submit" class="search-button w-button" value="Search"></form>
+              </div>
+            </div>
+            <div id="w-node-d555042c-2103-3281-e838-d1322ba47d6d-5aa24fea" class="div-block-15">
+              <h1 class="heading-22">Gauteng</h1>
+              <div class="div-block-32">
+                <div class="w-layout-grid ccta-grid">
+                  <div id="w-node-_57550a27-1ac8-4e06-fec5-4615467d2d92-5aa24fea" class="cct-copy-copy">
+                    <a href="#" class="button w-button" id="Normal">Normal</a>
+                  </div>
+                  <div id="w-node-dca3828b-c7c5-dc10-2800-1d3f80dab2ac-5aa24fea" class="cct-copy">
+                    <a href="#" class="button-2 w-button" >Colour / Style Index</a>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div id="w-node-a834d5f5-d929-0d29-d8b5-fea245e1469a-5aa24fea" class="cct-copy-copy">
+                    <h1 class="heading-21">TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040</h1>
+                  </div>
+                  <div id="w-node-a834d5f5-d929-0d29-d8b5-fea245e1469f-5aa24fea" class="cct-copy">
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div id="w-node-deccbcce-e2a3-809c-2b63-5e2db6329c6d-5aa24fea" class="div-block-16">
+                    <p class="paragraph-2">TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong> FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG 0300/0302 35010KT=</p>
+                  </div>
+                  <div id="w-node-deccbcce-e2a3-809c-2b63-5e2db6329c70-5aa24fea" class="div-block-17"></div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div id="w-node-_119b902f-f2e9-e7f8-ff03-97df0eb32135-5aa24fea" class="cct-copy-copy">
+                    <h1 class="heading-21">TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040</h1>
+                  </div>
+                  <div id="w-node-_119b902f-f2e9-e7f8-ff03-97df0eb32138-5aa24fea" class="cct-copy">
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div id="w-node-_119b902f-f2e9-e7f8-ff03-97df0eb3213c-5aa24fea" class="div-block-16">
+                    <p class="paragraph-2">TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong> FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG 0300/0302 35010KT=</p>
+                  </div>
+                  <div id="w-node-_119b902f-f2e9-e7f8-ff03-97df0eb32148-5aa24fea" class="div-block-17"></div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div id="w-node-_1511af9d-a613-35a7-2eb5-86bd8d2053fd-5aa24fea" class="cct-copy-copy">
+                    <h1 class="heading-21">TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040</h1>
+                  </div>
+                  <div id="w-node-_1511af9d-a613-35a7-2eb5-86bd8d205400-5aa24fea" class="cct-copy">
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div id="w-node-_1511af9d-a613-35a7-2eb5-86bd8d205404-5aa24fea" class="div-block-16">
+                    <p class="paragraph-2">TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong> FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG 0300/0302 35010KT=</p>
+                  </div>
+                  <div id="w-node-_1511af9d-a613-35a7-2eb5-86bd8d205410-5aa24fea" class="div-block-17"></div>
+                </div>
+              </div>
+            </div>
+            <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a02-5aa24fea" class="div-block-15">
+              <h1 class="heading-22">Limpopo</h1>
+              <div class="div-block-32">
+                <div class="w-layout-grid ccta-grid">
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a07-5aa24fea" class="cct-copy-copy">
+                    <a href="#" class="button w-button" id="Normal">Normal</a>
+                  </div>
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a0a-5aa24fea" class="cct-copy">
+                    <a href="#" class="button-2 w-button">Colour / Style Index</a>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a0f-5aa24fea" class="cct-copy-copy">
+                    <h1 class="heading-21">TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040</h1>
+                  </div>
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a12-5aa24fea" class="cct-copy">
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a16-5aa24fea" class="div-block-16">
+                    <p class="paragraph-2">TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong> FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG 0300/0302 35010KT=</p>
+                  </div>
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a22-5aa24fea" class="div-block-17"></div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a25-5aa24fea" class="cct-copy-copy">
+                    <h1 class="heading-21">TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040</h1>
+                  </div>
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a28-5aa24fea" class="cct-copy">
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a2c-5aa24fea" class="div-block-16">
+                    <p class="paragraph-2">TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong> FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG 0300/0302 35010KT=</p>
+                  </div>
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a38-5aa24fea" class="div-block-17"></div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a3b-5aa24fea" class="cct-copy-copy">
+                    <h1 class="heading-21">TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040</h1>
+                  </div>
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a3e-5aa24fea" class="cct-copy">
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a42-5aa24fea" class="div-block-16">
+                    <p class="paragraph-2">TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong> FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG 0300/0302 35010KT=</p>
+                  </div>
+                  <div id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a4e-5aa24fea" class="div-block-17"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
       </div>
       <div class="bottomdiv"><img src="images/Path-3447.svg" loading="lazy" width="1216" alt="" class="image">
         <div class="footerdiv">
