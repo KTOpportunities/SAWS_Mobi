@@ -5372,95 +5372,111 @@
               <div id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db2b-7830bece">
                 <label for="" class="field-label">Select Product:</label>
               </div>
-              <form
-                id="email-form-3"
-                name="email-form-3"
-                data-name="Email Form 3"
-                method="get"
-                class="form-3"
-                data-wf-page-id="65ef0e606bbd1609bb9b1d15"
-                data-wf-element-id="5127f7e5-929e-7445-9e38-c3d8c5b5c252"
-              >
-                <div>
-                  <div
-                    data-hover="false"
-                    data-delay="0"
-                    class="text-field-blue w-dropdown"
-                    (click)="forecastDropdown('dropdown1')"
-                  >
-                    <div class="w-dropdown-toggle">
-                      <div class="icon-2 w-icon-dropdown-toggle"></div>
-                      <div class="text-block">{{selectedOption5}}</div>
+              <div>
+                <form
+                  id="email-form-3"
+                  name="email-form-3"
+                  data-name="Email Form 3"
+                  method="get"
+                  class="form-3"
+                  data-wf-page-id="65ef0e606bbd1609bb9b1d15"
+                  data-wf-element-id="5127f7e5-929e-7445-9e38-c3d8c5b5c252"
+                >
+                  <div>
+                    <div
+                      data-hover="false"
+                      data-delay="0"
+                      class="text-field-blue w-dropdown"
+                      (click)="forecastDropdown('dropdown4')"
+                    >
+                      <div class="w-dropdown-toggle">
+                        <div class="icon-2 w-icon-dropdown-toggle"></div>
+                        <div class="text-block">{{selectedOption4}}</div>
+                      </div>
+                      <nav
+                        class="dropdown-list1"
+                        style="z-index: 1000"
+                        *ngIf="isDropdownOpen4"
+                      >
+                        <a
+                          href="#"
+                          class="w-dropdown-link"
+                          (click)="selectOption('Total Cloud', 'dropdown4')"
+                          >Total Cloud</a
+                        >
+                        <a
+                          href="#"
+                          class="w-dropdown-link"
+                          (click)="selectOption('Medium level', 'dropdown4')"
+                          >Medium level</a
+                        >
+                        <a
+                          href="#"
+                          class="w-dropdown-link"
+                          (click)="selectOption('Low level', 'dropdown4')"
+                          >Low level</a
+                        >
+                        <a
+                          href="#"
+                          class="w-dropdown-link"
+                          (click)="selectOption('High Level', 'dropdown4')"
+                          >High Level</a
+                        >
+                      </nav>
                     </div>
-                    <nav class="dropdown-list1" *ngIf="isDropdownOpen1">
-                      <a
-                        href="#"
-                        class="w-dropdown-link"
-                        (click)="selectOption('Low', 'dropdown1')"
-                        >2024-03-20 20:00</a
-                      >
-                      <a
-                        href="#"
-                        class="w-dropdown-link"
-                        (click)="selectOption('Middle', 'dropdown1')"
-                        >2024-03-20 20:00</a
-                      >
-                      <a
-                        href="#"
-                        class="w-dropdown-link"
-                        (click)="selectOption('High', 'dropdown1')"
-                        >2024-03-20 20:00</a
-                      >
-                    </nav>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
+
               <div id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db3a-7830bece">
                 <label for="" class="field-label">Current Frame:</label>
               </div>
-              <form
-                id="email-form-3"
-                name="email-form-3"
-                data-name="Email Form 3"
-                method="get"
-                class="form-3"
-                data-wf-page-id="65ef0e606bbd1609bb9b1d15"
-                data-wf-element-id="5127f7e5-929e-7445-9e38-c3d8c5b5c252"
-              >
-                <div>
-                  <div
-                    data-hover="false"
-                    data-delay="0"
-                    class="text-field-blue w-dropdown"
-                    (click)="forecastDropdown('dropdown1')"
-                  >
-                    <div class="w-dropdown-toggle">
-                      <div class="icon-2 w-icon-dropdown-toggle"></div>
-                      <div class="text-block">{{selectedOption4}}</div>
+              <div>
+                <form
+                  id="email-form-3"
+                  name="email-form-3"
+                  data-name="Email Form 3"
+                  method="get"
+                  class="form-3"
+                  data-wf-page-id="65ef0e606bbd1609bb9b1d15"
+                  data-wf-element-id="5127f7e5-929e-7445-9e38-c3d8c5b5c252"
+                >
+                  <div>
+                    <div
+                      data-hover="false"
+                      data-delay="0"
+                      class="text-field-blue w-dropdown"
+                      (click)="forecastDropdown('dropdown5')"
+                    >
+                      <div class="w-dropdown-toggle">
+                        <div class="icon-2 w-icon-dropdown-toggle"></div>
+                        <div class="text-block">{{selectedOption5}}</div>
+                      </div>
+                      <nav class="dropdown-list1" *ngIf="isDropdownOpen5">
+                        <a
+                          href="#"
+                          class="w-dropdown-link"
+                          (click)="selectOption('Low', 'dropdown5')"
+                          >2020</a
+                        >
+                        <a
+                          href="#"
+                          class="w-dropdown-link"
+                          (click)="selectOption('Middle', 'dropdown5')"
+                          >Middle</a
+                        >
+                        <a
+                          href="#"
+                          class="w-dropdown-link"
+                          (click)="selectOption('High', 'dropdown5')"
+                          >High</a
+                        >
+                      </nav>
                     </div>
-                    <nav class="dropdown-list1" *ngIf="isDropdownOpen1">
-                      <a
-                        href="#"
-                        class="w-dropdown-link"
-                        (click)="selectOption('Low', 'dropdown1')"
-                        >2020</a
-                      >
-                      <a
-                        href="#"
-                        class="w-dropdown-link"
-                        (click)="selectOption('Middle', 'dropdown1')"
-                        >Middle</a
-                      >
-                      <a
-                        href="#"
-                        class="w-dropdown-link"
-                        (click)="selectOption('High', 'dropdown1')"
-                        >High</a
-                      >
-                    </nav>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
+
               <div class="w-form-done">
                 <div></div>
               </div>
