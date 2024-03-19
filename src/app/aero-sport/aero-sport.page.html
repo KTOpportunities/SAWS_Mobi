@@ -20,8 +20,8 @@
             <h1 class="heading-5">Central Interior</h1>
           </div>
           <a
+            (click)="CloudForecast()"
             id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
-            href="#"
             class="link-block-3 w-inline-block"
           >
             <h1 class="heading-5">Cloud Forecast</h1>
@@ -61,7 +61,7 @@
           </div>
           <a
             id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
-            href="#"
+            href="https://aviation.weathersa.co.za/#showTSProbability"
             class="link-block-3 w-inline-block"
           >
             <h1 class="heading-5">TS Probability</h1>
@@ -5352,7 +5352,159 @@
         </div>
       </div>
     </section>
-    <!--SPOT GRAPH-->
+    <!-- Cloud Forecast-->
+
+    <section class="ob-metar-history" *ngIf="isCloudForecast">
+      <div class="cloud-cover">
+        <h1 class="heading6">Cloud Cover</h1>
+        <div class="w-layout-grid metar-history-grid">
+          <div
+            id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db26-7830bece"
+            class="div-block-15"
+          >
+            <div class="div-block-14"></div>
+          </div>
+          <div
+            id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db28-7830bece"
+            class="form-block w-form"
+          >
+            <div class="w-form">
+              <div id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db2b-7830bece">
+                <label for="" class="field-label">Select Product:</label>
+              </div>
+              <form
+                id="email-form-3"
+                name="email-form-3"
+                data-name="Email Form 3"
+                method="get"
+                class="form-3"
+                data-wf-page-id="65ef0e606bbd1609bb9b1d15"
+                data-wf-element-id="5127f7e5-929e-7445-9e38-c3d8c5b5c252"
+              >
+                <div>
+                  <div
+                    data-hover="false"
+                    data-delay="0"
+                    class="text-field-blue w-dropdown"
+                    (click)="forecastDropdown('dropdown1')"
+                  >
+                    <div class="w-dropdown-toggle">
+                      <div class="icon-2 w-icon-dropdown-toggle"></div>
+                      <div class="text-block">{{selectedOption5}}</div>
+                    </div>
+                    <nav class="dropdown-list1" *ngIf="isDropdownOpen1">
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('Low', 'dropdown1')"
+                        >2024-03-20 20:00</a
+                      >
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('Middle', 'dropdown1')"
+                        >2024-03-20 20:00</a
+                      >
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('High', 'dropdown1')"
+                        >2024-03-20 20:00</a
+                      >
+                    </nav>
+                  </div>
+                </div>
+              </form>
+              <div id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db3a-7830bece">
+                <label for="" class="field-label">Current Frame:</label>
+              </div>
+              <form
+                id="email-form-3"
+                name="email-form-3"
+                data-name="Email Form 3"
+                method="get"
+                class="form-3"
+                data-wf-page-id="65ef0e606bbd1609bb9b1d15"
+                data-wf-element-id="5127f7e5-929e-7445-9e38-c3d8c5b5c252"
+              >
+                <div>
+                  <div
+                    data-hover="false"
+                    data-delay="0"
+                    class="text-field-blue w-dropdown"
+                    (click)="forecastDropdown('dropdown1')"
+                  >
+                    <div class="w-dropdown-toggle">
+                      <div class="icon-2 w-icon-dropdown-toggle"></div>
+                      <div class="text-block">{{selectedOption4}}</div>
+                    </div>
+                    <nav class="dropdown-list1" *ngIf="isDropdownOpen1">
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('Low', 'dropdown1')"
+                        >2020</a
+                      >
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('Middle', 'dropdown1')"
+                        >Middle</a
+                      >
+                      <a
+                        href="#"
+                        class="w-dropdown-link"
+                        (click)="selectOption('High', 'dropdown1')"
+                        >High</a
+                      >
+                    </nav>
+                  </div>
+                </div>
+              </form>
+              <div class="w-form-done">
+                <div></div>
+              </div>
+              <div class="w-form-fail">
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="div-block-15">
+          <div>
+            <div class="scroll small-m">
+              <div class="rows-wrap">
+                <div
+                  data-delay="4000"
+                  data-animation="slide"
+                  class="slider-2 w-slider"
+                  data-autoplay="false"
+                  data-easing="ease"
+                  data-hide-arrows="false"
+                  data-disable-swipe="false"
+                  data-autoplay-limit="0"
+                  data-nav-spacing="3"
+                  data-duration="500"
+                  data-infinite="true"
+                >
+                  <div class="w-slider-mask">
+                    <div class="w-slide"></div>
+                    <div class="w-slide"></div>
+                  </div>
+                  <div class="w-slider-arrow-left">
+                    <div class="w-icon-slider-left"></div>
+                  </div>
+                  <div class="w-slider-arrow-right">
+                    <div class="w-icon-slider-right"></div>
+                  </div>
+                  <div class="w-slider-nav w-round w-num"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div class="bottomdiv" style="margin-top: 148%" *ngIf="isFormVisible">
       <img
@@ -5367,11 +5519,7 @@
           (click)="aerosportPage()"
           class="link-block-5 w-inline-block"
           style="position: relative; top: -11px"
-          ><img
-          
-            src="../../assets/Group-3489.svg"
-            loading="lazy"
-            alt="" />
+          ><img src="../../assets/Group-3489.svg" loading="lazy" alt="" />
           <h6
             class="heading-10-copy"
             style="
@@ -5382,7 +5530,6 @@
               text-decoration: none;
               font-size: 12px;
               margin-top: 4px;
-          
             "
           ></h6
         ></a>
