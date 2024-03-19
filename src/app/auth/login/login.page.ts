@@ -60,14 +60,14 @@ export class LoginPage implements OnInit, OnDestroy {
     // Check if the current route is the login page
     return this.router.url === '/login';
   }
+  register(){
+    this.router.navigate(['/register']);
+  }
   home() {
     // Check if the current route is the login page
     this.router.navigate(['/landing-page']);
   }
-  // onSubmit() {
-  //   this.authAPI.setLoggedInStatus(true);
-  //   this.router.navigate(['/landing-page']);
-  // }
+
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.valid) {

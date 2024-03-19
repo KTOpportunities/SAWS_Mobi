@@ -14,7 +14,7 @@ export class SubscriptionPackagePage implements OnInit {
   showAnnuallySection: boolean = false;
   showMonthlySection: boolean = true;
   isSubscriber: boolean = true;
-  subscriptionId:number|undefined;
+  subscriptionId: number | undefined;
   dropdownVisible: { [key: string]: boolean } = {
     paymentType: false,
     freeSubscription: false,
@@ -46,23 +46,11 @@ export class SubscriptionPackagePage implements OnInit {
     private iab: InAppBrowser,
     private APIService: APIService,
     private route: ActivatedRoute,
-    private api: APIService,
-
+    private api: APIService
   ) {}
- 
-  ngOnInit() {
 
-    if(this.authService.getIsLoggedIn()){
-      var user: any = this.authService.getCurrentUser();
-    }
-    if (user) {
-      // Populate subsObj with user's information
-      this.subsObj.name_first = user.firstName;
-      this.subsObj.name_last = user.lastName;
-      this.subsObj.email_address = user.email;
-      this.subsObj.confirmation_email = user.email;
-    }
-    this.route.queryParams.subscribe(params => {
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
       this.subscriptionId = +params['id'];
       // Optionally, you can perform any actions based on the subscription package ID here
     });
@@ -72,11 +60,10 @@ export class SubscriptionPackagePage implements OnInit {
     console.log(currentUrl);
     this.subsObj.returnUrl = currentUrl;
 
-    let ID = 1;
     if (this.subscriptionId == 1) {
-      this.subscribe(180);
+      this.subscribe(180, this.subscriptionId);
     } else if (this.subscriptionId == 2) {
-      this.subscribe(380);
+      this.subscribe(380, this.subscriptionId, 'Regulated');
     }
   }
 
@@ -90,11 +77,26 @@ export class SubscriptionPackagePage implements OnInit {
     });
   }
 
-  subscribe(amount: number, subscriptionType?: string) {
+  subscribe(amount: number, subscriptionId: number, subscriptionType?: string) {
+    var user: any = this.authService.getCurrentUser();
+    const userLoginDetails = JSON.parse(user);
+
+    if ((subscriptionId = 1)) {
+      subscriptionType = 'Premium';
+    } else if ((subscriptionId = 2)) {
+      subscriptionType = 'Regulated';
+    }
+
     this.subsObj.amount = Number(amount.toFixed(2));
     this.subsObj.recurring_amount = Number(amount.toFixed(2));
-    
-    
+    this.subsObj.name_first = userLoginDetails?.aspUserName;
+    this.subsObj.name_last = userLoginDetails?.aspUserName;
+    this.subsObj.email_address = userLoginDetails?.aspUserEmail;
+    this.subsObj.confirmation_email = userLoginDetails?.aspUserEmail;
+    this.subsObj.m_payment_id = subscriptionId.toString();
+    this.subsObj.item_name = subscriptionType;
+    this.subsObj.item_description = subscriptionType;
+
     console.log('subO: ', this.subsObj);
     debugger;
 
@@ -132,7 +134,7 @@ export class SubscriptionPackagePage implements OnInit {
       this.router.navigate(['/login']);
       return; // Exit the method
     } else {
-      this.subscribe(amount!);
+      this.subscribe(amount!, subscriptionPackageId);
     }
 
     // User is logged in, perform subscription process
@@ -146,7 +148,7 @@ export class SubscriptionPackagePage implements OnInit {
 
   toggleDropdown(dropdownName: string) {
     // Close all dropdowns
-    for (let key in this.dropdownVisible) {
+    for (let key in this.dropdownVisible) {   
       if (key !== dropdownName) {
         this.dropdownVisible[key] = false;
       }
