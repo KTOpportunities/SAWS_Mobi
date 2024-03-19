@@ -87,6 +87,9 @@
   grid-auto-columns: 1fr;
   display: grid;
 }
+#layout{
+  grid-row-gap: 0px !important;
+}
 .loading-indicator {
   display: flex;
   align-items: center;
@@ -1160,6 +1163,14 @@
   padding-right: 0;
   display: flex;
 }
+#Normal {
+  background-color: #008c1d;
+  border-radius: 5px;
+  margin-bottom: 0;
+  margin-left: 0;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+}
 
 .search-button {
   background-color: #00386c;
@@ -1168,7 +1179,7 @@
   background-repeat: repeat-y;
   background-size: 0;
   border-radius: 10px;
-  margin-top: -9px;
+  margin-top: 5px !important;
   margin-left: -15px;
 }
 
@@ -1183,7 +1194,8 @@
 
 .heading-9 {
   color: #00386c;
-  font-family: Montserrat, sans-serif;
+  font: 405 15px/32px Roboto, sans-serif !important;
+  
 }
 
 .grid-8,
@@ -1355,6 +1367,32 @@
   justify-content: flex-start;
   align-items: flex-start;
   display: flex;
+}
+.grid-cct-copy {
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  justify-content: stretch;
+}
+.search-input {
+  color: #000;
+  background-color: rgba(0, 56, 108, .25) !important;
+  border-radius: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: Montserrat, sans-serif;
+}
+.w-input, .w-select {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333333;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
 }
 
 .grid-10 {
@@ -1760,6 +1798,7 @@
   border-radius: 10px;
   grid-template-rows: auto;
   grid-template-columns: 1fr;
+  display: flex;
   padding: 0 10px 0 20px;
 }
 
@@ -2705,6 +2744,23 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
+  .heading-8 {
+    
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+  }
+  .heading-21 {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    font-size: 12px !important;
+    line-height: 20px !important;
+    font-weight: 500 !important;
+  }
   .div-block-453, .div-block-454, .div-block-455 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -2994,8 +3050,23 @@
   .heading-7 {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 12px;
+    font-size: 12px !important;
     display: block;
+    font: 410 13px/32px Roboto, sans-serif !important;
+  }
+  .heading-6 {
+    text-align: center;
+  margin-top: 90px; 
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 30px;
+  }
+  #colorcoded {
+    text-align: center;
+  margin-top: 75px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  line-height: 30px;
   }
 
   .heading-8 {
@@ -3554,6 +3625,10 @@
     padding-left: 0;
     padding-right: 0;
    
+  }
+  .ObservScrol{
+    overflow-y: auto;
+    height: 34em;
   }
 
   .aerosportScrol{
