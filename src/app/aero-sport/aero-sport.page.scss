@@ -7240,6 +7240,18 @@ th {
   .list-dive {
     width: 25vw;
   }
+  .date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
 
   .heading-6 {
     text-align: center;
@@ -7248,13 +7260,16 @@ th {
     font-size: 20px;
     line-height: 30px;
   }
-.heading6{
-  margin-top: -114px;
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 20px;
-  line-height: 30px;
-}
+  .heading6 {
+    color: #002b53;
+    font-family: Montserrat, sans-serif;
+    font-size: 40px;
+    margin-top: -114px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 30px;
+  }
   .colour-coded-tafs-page {
     margin-top: -91px;
     padding-left: 0;

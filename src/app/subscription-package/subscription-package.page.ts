@@ -58,7 +58,7 @@ export class SubscriptionPackagePage implements OnInit {
 
     const currentUrl = window.location.href;
     console.log(currentUrl);
-    var landingPage = currentUrl.substr(0, currentUrl.lastIndexOf("\\") + 1);
+    var landingPage = currentUrl.substr(0, currentUrl.lastIndexOf('\\') + 1);
     console.log(landingPage + 'landing-page');
     this.subsObj.returnUrl = landingPage + 'landing-page';
 
@@ -129,28 +129,26 @@ export class SubscriptionPackagePage implements OnInit {
   provideFeedback(subscriptionPackageId: number, amount?: number) {
     // Check if the user is logged in
     if (!this.authService.getIsLoggedIn()) {
-      // If not logged in, set redirect URL and navigate to login page
-      this.authService.setRedirectUrl(
-        `/subscription-package?id=${subscriptionPackageId}`
-      );
-      this.router.navigate(['/login']);
+      // If not logged in, set redirect URL with subscriptionPackageId and navigate to login page
+      const redirectUrl = `/subscription-package?id=${subscriptionPackageId}`;
+      this.authService.setRedirectUrl(redirectUrl);
+      this.router.navigate(['/login'], { queryParams: { redirectUrl } });
       return; // Exit the method
     } else {
+      // If logged in, call the subscribe method
       this.subscribe(amount!, subscriptionPackageId);
     }
-
-    // User is logged in, perform subscription process
-    // Here, you can handle subscription based on the provided package ID
+    // Set the selectedSubscriptionPackageId
     this.selectedSubscriptionPackageId = subscriptionPackageId;
-    // Implement your subscription logic...
   }
+
   displayIcon(): boolean {
     return this.isSubscriber; // Return true if the user is a subscriber, false otherwise
   }
 
   toggleDropdown(dropdownName: string) {
     // Close all dropdowns
-    for (let key in this.dropdownVisible) {   
+    for (let key in this.dropdownVisible) {
       if (key !== dropdownName) {
         this.dropdownVisible[key] = false;
       }

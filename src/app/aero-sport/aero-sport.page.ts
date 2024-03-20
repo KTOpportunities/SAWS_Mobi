@@ -21,6 +21,7 @@ export class AeroSportPage implements OnInit {
   isFormVisible3: boolean = false;
   isKwazulNatal: boolean = false;
   isSpotGfraph: boolean = false;
+  isTSProbability:boolean=false;
   isCloudForecast: boolean = false;
   isDropdownOpen1: boolean = false;
   isDropdownOpen2: boolean = false;
@@ -142,6 +143,7 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible3 = false;
     this.isSpotGfraph = false;
     this.isCloudForecast = false;
+    this.isTSProbability=false;
   }
   toggleFormVisibility1() {
     this.isFormVisible = false;
@@ -151,6 +153,7 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible3 = false;
     this.isSpotGfraph = false;
     this.isCloudForecast = false;
+    this.isTSProbability=false;
   }
   toggleFormVisibility2() {
     this.isFormVisible = false;
@@ -159,6 +162,7 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible3 = true;
     this.isSpotGfraph = false;
     this.isCloudForecast = false;
+    this.isTSProbability=false;
   }
   KwazulNatalToggle() {
     // this.isKwazulNatal=true;
@@ -168,6 +172,7 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible = false;
     this.isSpotGfraph = false;
     this.isCloudForecast = false;
+    this.isTSProbability=false;
   }
   SpotGraphToggle() {
     // this.isKwazulNatal=true;
@@ -177,8 +182,18 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible = false;
     this.isSpotGfraph = true;
     this.isCloudForecast = false;
+    this.isTSProbability=false;
   }
-
+  TSProbability() {
+    // this.isKwazulNatal=true;
+    this.isFormVisible2 = false;
+    this.isFormVisible = false;
+    this.isKwazulNatal = false;
+    this.isFormVisible = false;
+    this.isSpotGfraph = false;
+    this.isCloudForecast = false;
+    this.isTSProbability=true;
+  }
   aerosportPage() {
     this.router.navigate(['/landing-page']);
   }

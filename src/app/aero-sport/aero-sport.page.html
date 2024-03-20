@@ -59,13 +59,14 @@
           >
             <h1 class="heading-5">Synoptic Analysis</h1>
           </div>
-          <a
+          <div
+            (click)="TSProbability()"
             id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
             href="https://aviation.weathersa.co.za/#showTSProbability"
             class="link-block-3 w-inline-block"
           >
             <h1 class="heading-5">TS Probability</h1>
-          </a>
+          </div>
         </div>
       </div>
     </div>
@@ -5357,6 +5358,7 @@
     <section class="ob-metar-history" *ngIf="isCloudForecast">
       <div class="cloud-cover">
         <h1 class="heading6">Cloud Cover</h1>
+
         <div class="w-layout-grid metar-history-grid">
           <div
             id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db26-7830bece"
@@ -5388,36 +5390,32 @@
                       data-delay="0"
                       class="text-field-blue w-dropdown"
                       (click)="forecastDropdown('dropdown4')"
+                      style="z-index: 1000; position: relative"
                     >
                       <div class="w-dropdown-toggle">
-                        <div class="icon-2 w-icon-dropdown-toggle"></div>
+                        <div
+                          class="icon-2 w-icon-dropdown-toggle"
+                          style="right: -2px"
+                        ></div>
                         <div class="text-block">{{selectedOption4}}</div>
                       </div>
-                      <nav
-                        class="dropdown-list1"
-                        style="z-index: 1000"
-                        *ngIf="isDropdownOpen4"
-                      >
+                      <nav class="dropdown-list1" *ngIf="isDropdownOpen4">
                         <a
-                          href="#"
                           class="w-dropdown-link"
                           (click)="selectOption('Total Cloud', 'dropdown4')"
                           >Total Cloud</a
                         >
                         <a
-                          href="#"
                           class="w-dropdown-link"
                           (click)="selectOption('Medium level', 'dropdown4')"
                           >Medium level</a
                         >
                         <a
-                          href="#"
                           class="w-dropdown-link"
                           (click)="selectOption('Low level', 'dropdown4')"
                           >Low level</a
                         >
                         <a
-                          href="#"
                           class="w-dropdown-link"
                           (click)="selectOption('High Level', 'dropdown4')"
                           >High Level</a
@@ -5449,27 +5447,42 @@
                       (click)="forecastDropdown('dropdown5')"
                     >
                       <div class="w-dropdown-toggle">
-                        <div class="icon-2 w-icon-dropdown-toggle"></div>
+                        <div
+                          class="icon-2 w-icon-dropdown-toggle"
+                          style="right: 44px"
+                        ></div>
                         <div class="text-block">{{selectedOption5}}</div>
                       </div>
                       <nav class="dropdown-list1" *ngIf="isDropdownOpen5">
                         <a
-                          href="#"
                           class="w-dropdown-link"
                           (click)="selectOption('Low', 'dropdown5')"
-                          >2020</a
+                          >2023-03-20 20:00</a
                         >
                         <a
-                          href="#"
                           class="w-dropdown-link"
                           (click)="selectOption('Middle', 'dropdown5')"
-                          >Middle</a
+                          >2023-03-20 20:00</a
                         >
                         <a
-                          href="#"
                           class="w-dropdown-link"
                           (click)="selectOption('High', 'dropdown5')"
-                          >High</a
+                          >2023-03-20 20:00</a
+                        >
+                        <a
+                          class="w-dropdown-link"
+                          (click)="selectOption('High', 'dropdown5')"
+                          >2023-03-20 20:00</a
+                        >
+                        <a
+                          class="w-dropdown-link"
+                          (click)="selectOption('High', 'dropdown5')"
+                          >2023-03-20 20:00</a
+                        >
+                        <a
+                          class="w-dropdown-link"
+                          (click)="selectOption('High', 'dropdown5')"
+                          >2023-03-20 20:00</a
                         >
                       </nav>
                     </div>
@@ -5486,6 +5499,56 @@
             </div>
           </div>
         </div>
+        <div class="div-block-15">
+          <div>
+            <div class="scroll small-m">
+              <div class="rows-wrap">
+                <div
+                  data-delay="4000"
+                  data-animation="slide"
+                  class="slider-2 w-slider"
+                  data-autoplay="false"
+                  data-easing="ease"
+                  data-hide-arrows="false"
+                  data-disable-swipe="false"
+                  data-autoplay-limit="0"
+                  data-nav-spacing="3"
+                  data-duration="500"
+                  data-infinite="true"
+                >
+                  <div class="w-slider-mask">
+                    <div class="w-slide"></div>
+                    <div class="w-slide"></div>
+                  </div>
+                  <div class="w-slider-arrow-left">
+                    <div class="w-icon-slider-left"></div>
+                  </div>
+                  <div class="w-slider-arrow-right">
+                    <div class="w-icon-slider-right"></div>
+                  </div>
+                  <div class="w-slider-nav w-round w-num"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TS Probability-->
+
+    <section class="ob-metar-history" *ngIf="isTSProbability">
+      <div class="cloud-cover">
+        <h1 class="heading6">TS Probability</h1>
+
+        <div class="w-layout-grid metar-history-grid">
+          <div class="date-container">
+            <button id="last-day-btn"><< Last Day</button>
+            <span id="current-date"></span>
+            <button id="next-day-btn">Next Day >></button>
+          </div>
+        </div>
+
         <div class="div-block-15">
           <div>
             <div class="scroll small-m">
