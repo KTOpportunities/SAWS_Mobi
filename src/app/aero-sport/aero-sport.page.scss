@@ -8896,6 +8896,7 @@ textarea.w-select {
 .w-background-video--control > [hidden] {
   display: none !important;
 }
+
 .w-slider {
   position: relative;
   height: 300px;
@@ -8974,6 +8975,7 @@ textarea.w-select {
   background-color: #fff;
 }
 .w-slider-dot:focus {
+  
   outline: none;
   box-shadow: 0px 0px 0px 2px #fff;
 }

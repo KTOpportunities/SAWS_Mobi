@@ -19,8 +19,8 @@ export class ObservationPage implements OnInit {
   isSpeci:boolean =false
   isDropdownOpen1: boolean = false;
   isDropdownOpen2: boolean = false;
-  selectedOption1: string = 'Product';
-  selectedOption2: string = 'Frame';
+  selectedOption1: string = 'Animation Type';
+  selectedOption2: string = '2024-03-20 13:15';
 
 
   webcamActive: boolean = false;
