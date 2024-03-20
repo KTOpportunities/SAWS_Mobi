@@ -1334,6 +1334,10 @@
   font-size: 12px;
   text-decoration: none;
 }
+.slider-2 {
+  width: 61vw;
+  max-width: 153vw;
+}
 
 .div-block-19,
 .div-block-20 {
@@ -1625,6 +1629,16 @@ width: 148px !important;
   bottom: 0%;
   left: 0%;
   right: 0%;
+}
+.w-slider {
+  position: relative;
+  height: 300px;
+  text-align: center;
+  background: #dddddd;
+  clear: both;
+  margin-left: 21px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  
 }
 
 .grid-17 {
@@ -2768,6 +2782,9 @@ width: 148px !important;
 }
 
 @media screen and (max-width: 479px) {
+  .slider-2 {
+    width: 88vw;
+  }
   .div-block-453, .div-block-454, .div-block-455 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -2907,6 +2924,8 @@ width: 148px !important;
   .footerdiv {
     margin-top: -91px;
     padding-top: 0;
+    position: relative;
+    top: 11px;
   }
 
   .registerlabel {
@@ -3058,7 +3077,7 @@ width: 148px !important;
   }
 
   .colour-coded-tafs-page {
-    margin-top: -91px;
+    margin-top: -89px;
     padding-left: 0;
     padding-right: 0;
   }
@@ -3157,6 +3176,7 @@ width: 148px !important;
     align-items: center;
     text-decoration: none;
     display: flex;
+    margin-top: -1px;
   }
 
   .heading-10 {
@@ -3305,7 +3325,11 @@ width: 148px !important;
     margin-right: 0;
     padding-left: 10px;
     padding-right: 10px;
-    font-size: 10px;
+    font-size: 9px;
+    height: 47px;
+    padding: 7px;
+    padding-top: 7px;
+    padding-top: 4px;
   }
 
   .heading-21 {
@@ -3656,7 +3680,10 @@ width: 148px !important;
   }
   .ObservScrol{
     overflow-y: auto;
-    height: 34em;
+    height: 29em !important;
+    margin-top: -5px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .aerosportScrol{

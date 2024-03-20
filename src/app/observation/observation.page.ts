@@ -17,6 +17,10 @@ export class ObservationPage implements OnInit {
   iscodeTafs:boolean = false;
   issatelite:boolean = false;
   isSpeci:boolean =false
+  isDropdownOpen1: boolean = false;
+  isDropdownOpen2: boolean = false;
+  selectedOption1: string = 'Product';
+  selectedOption2: string = 'Frame';
 
 
   webcamActive: boolean = false;
@@ -41,10 +45,11 @@ export class ObservationPage implements OnInit {
 
   observatPage() {
     this.isMetar = true;
-    this.isRanderImages = false
-    this.iscodeTafs = false
-    this.isObservMeter =false
-    this.issatelite= false
+    this.isRanderImages = false;
+    this.iscodeTafs = false;
+    this.isObservMeter =false;
+    this.issatelite= false;
+    this.isSpeci = false
   }
 
   colorcoded () {
@@ -54,6 +59,50 @@ export class ObservationPage implements OnInit {
   ObservMeter () {
     this.isMetar = false;
     this.isObservMeter = true
+    this.router.navigate (['/observation'])
+  }
+
+  toggleDropdown(dropdown: string) {
+    if (dropdown === 'dropdown1') {
+      this.isDropdownOpen1 = !this.isDropdownOpen1;
+      this.isDropdownOpen2 = false;
+   
+    }
+
+    if (dropdown === 'dropdown2') {
+      this.isDropdownOpen2 = !this.isDropdownOpen2;
+      this.isDropdownOpen1 = false;
+    
+    }
+   
+  }
+  selectOption(option: string, dropdown: string) {
+    if (dropdown === 'dropdown1') {
+      this.selectedOption1 = option;
+      this.isDropdownOpen1 = false;
+    } else if (dropdown === 'dropdown2') {
+      this.selectedOption2 = option;
+      this.isDropdownOpen2 = false;
+    }
+  }
+
+  sateliteDropdown(dropdown: string) {
+    if (dropdown === 'dropdown1') {
+      this.isDropdownOpen1 = !this.isDropdownOpen1;
+      this.isDropdownOpen2 = false;
+   
+    }
+
+    if (dropdown === 'dropdown2') {
+      this.isDropdownOpen2 = !this.isDropdownOpen2;
+      this.isDropdownOpen1 = false;
+    
+    }
+   
+  }
+  closeAllDropdowns() {
+    this.isDropdownOpen1 = false;
+    this.isDropdownOpen2 = false;
   }
 
   
@@ -66,4 +115,5 @@ export class ObservationPage implements OnInit {
     // this.router.navigate(['/news']);
     this.router.navigate(['/web-cam']);
   }
+ 
 }
