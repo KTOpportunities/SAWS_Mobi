@@ -100,7 +100,7 @@ export class LoginPage implements OnInit, OnDestroy {
           if (redirectUrl) {
             // If yes, navigate them to that URL
             this.router.navigateByUrl(redirectUrl);
-          } else {
+          }else if(this.authAPI.getIsFromSubscription()) {
             // If not, navigate them to the landing page
             this.router.navigate(['/landing-page']);
           }
