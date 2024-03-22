@@ -44,6 +44,11 @@ const routes: Routes = [
       import('./auth/login/login.module').then((m) => m.LoginPageModule),
   },
   {
+    path: 'login/:id', // Define the route with the ID parameter
+    loadChildren: () =>
+      import('./auth/login/login.module').then((m) => m.LoginPageModule),
+  },
+  {
     path: 'forgot-password',
     loadChildren: () =>
       import('./auth/forgot-password/forgot-password.module').then(
@@ -157,13 +162,16 @@ const routes: Routes = [
   },
   {
     path: 'observation-metar-history',
-    loadChildren: () => import('./observation-metar-history/observation-metar-history.module').then( m => m.ObservationMetarHistoryPageModule)
+    loadChildren: () =>
+      import(
+        './observation-metar-history/observation-metar-history.module'
+      ).then((m) => m.ObservationMetarHistoryPageModule),
   },
   {
     path: 'web-cam',
-    loadChildren: () => import('./web-cam/web-cam.module').then( m => m.WebCamPageModule)
+    loadChildren: () =>
+      import('./web-cam/web-cam.module').then((m) => m.WebCamPageModule),
   },
-
 ];
 
 @NgModule({

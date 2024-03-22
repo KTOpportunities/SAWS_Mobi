@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -31,6 +31,7 @@ export class LoginPage implements OnInit, OnDestroy {
   });
   constructor(
     private router: Router,
+    private route:ActivatedRoute,
     private mediaMatcher: MediaMatcher,
     private authAPI: AuthService,
     private fb: FormBuilder,
@@ -42,8 +43,18 @@ export class LoginPage implements OnInit, OnDestroy {
     this.mobileQuery.addEventListener('change', this.mobileQueryListener);
     this.isMobile = this.mobileQuery.matches;
   }
-
-  ngOnInit() {}
+  ngOnInit() {
+    // Retrieve subscriptionPackageId from query parameters
+    this.route.queryParams.subscribe(params => {
+      const subscriptionPackageId = params['id'];
+      if (subscriptionPackageId) {
+        // Set subscriptionPackageId in the login form or handle as needed
+        this.loginForm.patchValue({
+          subscriptionPackageId: subscriptionPackageId
+        });
+      }
+    });
+  }
 
   ngOnDestroy() {
     this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
@@ -89,7 +100,7 @@ export class LoginPage implements OnInit, OnDestroy {
           if (redirectUrl) {
             // If yes, navigate them to that URL
             this.router.navigateByUrl(redirectUrl);
-          } else {
+          }else if(this.authAPI.getIsFromSubscription()) {
             // If not, navigate them to the landing page
             this.router.navigate(['/landing-page']);
           }

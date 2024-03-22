@@ -27,11 +27,19 @@ export class AuthService {
     );
   }
   private isLoggedIn = false;
+  private isFromSubscription=false;
+
 
   getIsLoggedIn(): boolean {
     return this.isLoggedIn;
   }
+  getIsFromSubscription(): boolean {
+    return this.isFromSubscription;
+  }
 
+  setIsFromSubscription(status: boolean): void {
+    this.isFromSubscription = status;
+  }
   setLoggedInStatus(status: boolean): void {
     this.isLoggedIn = status;
   }
