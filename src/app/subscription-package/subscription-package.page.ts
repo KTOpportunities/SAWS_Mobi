@@ -133,6 +133,7 @@ export class SubscriptionPackagePage implements OnInit {
       const redirectUrl = `/subscription-package?id=${subscriptionPackageId}`;
       this.authService.setRedirectUrl(redirectUrl);
       this.router.navigate(['/login'], { queryParams: { redirectUrl } });
+      this.authService.setIsFromSubscription(true);
       return; // Exit the method
     } else {
       // If logged in, call the subscribe method
