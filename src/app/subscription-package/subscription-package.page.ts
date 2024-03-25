@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { APIService } from 'src/app/services/apis.service';
@@ -10,9 +10,11 @@ import { APIService } from 'src/app/services/apis.service';
   styleUrls: ['./subscription-package.page.scss'],
 })
 export class SubscriptionPackagePage implements OnInit {
+  selectedSubscriptionPackageId: number | undefined;
   showAnnuallySection: boolean = false;
   showMonthlySection: boolean = true;
   isSubscriber: boolean = true;
+  subscriptionId: number | undefined;
   dropdownVisible: { [key: string]: boolean } = {
     paymentType: false,
     freeSubscription: false,
@@ -42,15 +44,29 @@ export class SubscriptionPackagePage implements OnInit {
     private router: Router,
     private authService: AuthService,
     private iab: InAppBrowser,
-    private APIService: APIService
+    private APIService: APIService,
+    private route: ActivatedRoute,
+    private api: APIService
   ) {}
 
   ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      this.subscriptionId = +params['id'];
+      // Optionally, you can perform any actions based on the subscription package ID here
+    });
     this.selectedPaymentType = 'monthly';
 
     const currentUrl = window.location.href;
     console.log(currentUrl);
-    this.subsObj.returnUrl = currentUrl;
+    var landingPage = currentUrl.substr(0, currentUrl.lastIndexOf('\\') + 1);
+    console.log(landingPage + 'landing-page');
+    this.subsObj.returnUrl = landingPage + 'landing-page';
+
+    if (this.subscriptionId == 1) {
+      this.subscribe(180, this.subscriptionId);
+    } else if (this.subscriptionId == 2) {
+      this.subscribe(380, this.subscriptionId, 'Regulated');
+    }
   }
 
   openInAppBrowser(url: string) {
@@ -63,9 +79,26 @@ export class SubscriptionPackagePage implements OnInit {
     });
   }
 
-  subscribe(amount: number) {
+  subscribe(amount: number, subscriptionId: number, subscriptionType?: string) {
+    var user: any = this.authService.getCurrentUser();
+    const userLoginDetails = JSON.parse(user);
+
+    if ((subscriptionId = 1)) {
+      subscriptionType = 'Premium';
+    } else if ((subscriptionId = 2)) {
+      subscriptionType = 'Regulated';
+    }
+
     this.subsObj.amount = Number(amount.toFixed(2));
     this.subsObj.recurring_amount = Number(amount.toFixed(2));
+    this.subsObj.name_first = userLoginDetails?.aspUserName;
+    this.subsObj.name_last = userLoginDetails?.aspUserName;
+    this.subsObj.email_address = userLoginDetails?.aspUserEmail;
+    this.subsObj.confirmation_email = userLoginDetails?.aspUserEmail;
+    this.subsObj.m_payment_id = subscriptionId.toString();
+    this.subsObj.item_name = subscriptionType;
+    this.subsObj.item_description = subscriptionType;
+
     console.log('subO: ', this.subsObj);
     debugger;
 
@@ -83,9 +116,33 @@ export class SubscriptionPackagePage implements OnInit {
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }
-  provideFeedback() {
-    this.router.navigate(['/login']);
+  // provideFeedback() {
+  //   if (this.authService.getIsLoggedIn()) {
+  //     // If user is logged in, redirect to subscription package page with ID parameter
+  //     this.authService.setRedirectUrl('/subscription-package');
+  //   } else {
+  //     // If user is not logged in, set the redirect URL and navigate to the login page
+  //     this.authService.setRedirectUrl('/subscription-package');
+  //     this.router.navigate(['/login']);
+  //   }
+  // }
+  provideFeedback(subscriptionPackageId: number, amount?: number) {
+    // Check if the user is logged in
+    if (!this.authService.getIsLoggedIn()) {
+      // If not logged in, set redirect URL with subscriptionPackageId and navigate to login page
+      const redirectUrl = `/subscription-package?id=${subscriptionPackageId}`;
+      this.authService.setRedirectUrl(redirectUrl);
+      this.router.navigate(['/login'], { queryParams: { redirectUrl } });
+      this.authService.setIsFromSubscription(true);
+      return; // Exit the method
+    } else {
+      // If logged in, call the subscribe method
+      this.subscribe(amount!, subscriptionPackageId);
+    }
+    // Set the selectedSubscriptionPackageId
+    this.selectedSubscriptionPackageId = subscriptionPackageId;
   }
+
   displayIcon(): boolean {
     return this.isSubscriber; // Return true if the user is a subscriber, false otherwise
   }

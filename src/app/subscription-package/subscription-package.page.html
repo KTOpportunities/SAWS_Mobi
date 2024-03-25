@@ -97,7 +97,7 @@
                   class="div-block-55"
                 ></div>
                 <a
-                  (click)="provideFeedback()"
+                  (click)="provideFeedback(0)"
                   *ngIf="!isLoggedIn"
                   class="button-2-copy w-button"
                   >Subscribe Now</a
@@ -194,7 +194,9 @@
                   id="w-node-_6c1890b3-3c19-96b9-c4da-81bac2d03e47-871273fb"
                   class="div-block-55"
                 ></div>
-                <a (click)="subscribe(180)" class="button-2-copy w-button"
+                <a
+                  (click)="provideFeedback(1,180)"
+                  class="button-2-copy w-button"
                   >Subscribe Now</a
                 >
               </div>
@@ -268,7 +270,11 @@
               </div>
               <div class="div-block-56">
                 <div class="div-block-55"></div>
-                <a href="#" class="button-2-copy w-button">Subscribe Now</a>
+                <a
+                  (click)="provideFeedback(2, 380)"
+                  class="button-2-copy w-button"
+                  >Subscribe Now</a
+                >
               </div>
             </div>
           </div>

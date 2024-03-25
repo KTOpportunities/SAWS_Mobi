@@ -1,3 +1,4 @@
+// Import necessary Angular modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -8,15 +9,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatIcon } from '@angular/material/icon';
-import { MatMenu, MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @NgModule({
+  // Declarations: Components, Directives, and Pipes declared in this module
   declarations: [AppComponent],
+
+  // Imports: Other modules whose exported classes are needed by component templates declared in this NgModule
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -25,13 +29,12 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
     HttpClientModule,
     NoopAnimationsModule,
     MatSlideToggleModule,
-    MatIcon,
-    MatMenu,
-    MatMenuTrigger,
-    MatButtonModule,
+    MatIconModule,
     MatMenuModule,
+    MatButtonModule,
     MatListModule,
-    ReactiveFormsModule,
+
+    // SwiperModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -39,4 +42,4 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {} // AppModule class that acts as the root NgModule of the application

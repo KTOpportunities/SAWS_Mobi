@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { catchError } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -65,17 +65,43 @@ export class APIService {
   }
   getFeedbackById(id: number) {
     return this.http.get<any>(
-      `${environment.serverAPI}Feedback/GetFeedbackById?Id=${id}`
+      environment.serverAPI + `Feedback/GetFeedbackById?Id=${id}`
     );
   }
   getFeedbackMessagesBySenderId(senderId: string) {
     return this.http.get<any>(
-      `${environment.serverAPI}Feedback/GetFeedbackMessagesBySenderId?Id=${senderId}`
+      environment.serverAPI +
+        `Feedback/GetFeedbackMessagesBySenderId?Id=${senderId}`
     );
   }
-  getAdvertisement() {
-    // Make HTTP request to fetch advertisement data from backend
-    return this.http.get<any>('your-backend-url/advertisement');
+
+  // Method to fetch advertisement by ID
+  getAdvertByAdvertId(id: number) {
+    return this.http.get<any>(
+      environment.serverAPI + `Advert/GetAdvertByAdvertId?id=${id}`
+    );
+  }
+
+  // Method to fetch all advertisements
+  getAllAdverts() {
+    return this.http.get<any>(environment.serverAPI + `Advert/GetAllAdverts`);
+  }
+
+  // getDocAdvertFileById(id: number) {
+  //   return this.http.get<any>(
+  //     environment.serverAPI +`FileManager/GetDocAdvertFileById?Id=${id}`
+
+  //   );
+  // }
+  // GetAdvertByAdvertId(id: any): Observable<any> {
+  //   return this.http.get<any>(`${environment.serverAPI}Advert/GetAdvertByAdvertId?Id=${id}`);
+  // }
+
+  getDocAdvertFileById(id: any) {
+    return this.http.get(
+      environment.serverAPI + `FileManager/GetDocAdvertFileById?Id=${id}`,
+      { responseType: 'blob' }
+    );
   }
   postInsertNewFeedback(body: {}) {
     return this.http.post<any>(

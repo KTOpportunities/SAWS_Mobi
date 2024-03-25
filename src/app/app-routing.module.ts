@@ -11,7 +11,14 @@ const routes: Routes = [
     path: 'landing-page',
     loadChildren: () =>
       import('./landing-page/landing-page.module').then(
-        (m) => m.LandingPagePageModule
+        (m) => m.LandingPageModule
+      ),
+  },
+  {
+    path: 'subscription-package/:id', // Define the route with the ID parameter
+    loadChildren: () =>
+      import('./subscription-package/subscription-package.module').then(
+        (m) => m.SubscriptionPackagePageModule
       ),
   },
   {
@@ -33,6 +40,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    loadChildren: () =>
+      import('./auth/login/login.module').then((m) => m.LoginPageModule),
+  },
+  {
+    path: 'login/:id', // Define the route with the ID parameter
     loadChildren: () =>
       import('./auth/login/login.module').then((m) => m.LoginPageModule),
   },
@@ -147,6 +159,18 @@ const routes: Routes = [
       import('../app/provide-feedback/message-list/message-list.module').then(
         (m) => m.MessageListPageModule
       ),
+  },
+  {
+    path: 'observation-metar-history',
+    loadChildren: () =>
+      import(
+        './observation-metar-history/observation-metar-history.module'
+      ).then((m) => m.ObservationMetarHistoryPageModule),
+  },
+  {
+    path: 'web-cam',
+    loadChildren: () =>
+      import('./web-cam/web-cam.module').then((m) => m.WebCamPageModule),
   },
 ];
 

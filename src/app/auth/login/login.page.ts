@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -31,6 +31,7 @@ export class LoginPage implements OnInit, OnDestroy {
   });
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private mediaMatcher: MediaMatcher,
     private authAPI: AuthService,
     private fb: FormBuilder,
@@ -42,8 +43,18 @@ export class LoginPage implements OnInit, OnDestroy {
     this.mobileQuery.addEventListener('change', this.mobileQueryListener);
     this.isMobile = this.mobileQuery.matches;
   }
-
-  ngOnInit() {}
+  ngOnInit() {
+    // Retrieve subscriptionPackageId from query parameters
+    this.route.queryParams.subscribe((params) => {
+      const subscriptionPackageId = params['id'];
+      if (subscriptionPackageId) {
+        // Set subscriptionPackageId in the login form or handle as needed
+        this.loginForm.patchValue({
+          subscriptionPackageId: subscriptionPackageId,
+        });
+      }
+    });
+  }
 
   ngOnDestroy() {
     this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
@@ -60,14 +71,14 @@ export class LoginPage implements OnInit, OnDestroy {
     // Check if the current route is the login page
     return this.router.url === '/login';
   }
+  register() {
+    this.router.navigate(['/register']);
+  }
   home() {
     // Check if the current route is the login page
     this.router.navigate(['/landing-page']);
   }
-  // onSubmit() {
-  //   this.authAPI.setLoggedInStatus(true);
-  //   this.router.navigate(['/landing-page']);
-  // }
+
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.valid) {
@@ -83,16 +94,19 @@ export class LoginPage implements OnInit, OnDestroy {
               this.authAPI.setLoggedInStatus(true);
               this.userData = response;
               this.authAPI.setUserData(this.userData);
-              this.authAPI.saveCurrentUser(response);  
+              this.authAPI.saveCurrentUser(response);
               console.log('TEST::', this.userData);
               const redirectUrl = this.authAPI.getRedirectUrl();
-          if (redirectUrl) {
-            // If yes, navigate them to that URL
-            this.router.navigateByUrl(redirectUrl);
-          } else {
-            // If not, navigate them to the landing page
-            this.router.navigate(['/landing-page']);
-          }
+              if (redirectUrl) {
+                // If yes, navigate them to that URL
+                this.router.navigateByUrl(redirectUrl);
+              } else if (this.authAPI.getIsFromSubscription() && redirectUrl) {
+                // If not, navigate them to the landing page
+                this.router.navigateByUrl(redirectUrl);
+                // this.router.navigate(['/landing-page']);
+              } else {
+                this.router.navigate(['/landing-page']);
+              }
             } else {
               this.errorMessage = 'Only subscribers can login';
               this.router.navigate(['login']);

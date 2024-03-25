@@ -116,16 +116,8 @@
                     </button></ion-menu-toggle
                   >
 
-                  <ion-menu-toggle
-                    ><button
-                      mat-menu-item
-                      value="messagelist"
-                      (click)="messagelist()"
-                    >
-                      Provide Feedback
-                    </button></ion-menu-toggle
-                  >
-                  <ion-menu-toggle
+                 
+                   <!-- <ion-menu-toggle
                     ><button
                       mat-menu-item
                       value="Subscription Packages"
@@ -133,7 +125,16 @@
                     >
                       Subscription Packages
                     </button></ion-menu-toggle
+                  >  -->
+                  <!-- <ion-menu-toggle
+                  ><button
+                    mat-menu-item
+                    value="messagelist"
+                    (click)="messagelist()"
                   >
+                    Provide Feedback
+                  </button></ion-menu-toggle
+                > -->
                   <ion-menu-toggle
                     ><button
                       mat-menu-item
@@ -153,11 +154,25 @@
 
               <ion-menu-toggle class="ion-menu-toggle">
                 <mat-list-item role="listitem" class="list-item">
-                  <a [routerLink]="['/landing-page']" class="nav-link"
-                    >Support</a
-                  >
+                  <a [routerLink]="['/news']"
+                   class="nav-link" id="nav-link2">News</a>
                 </mat-list-item>
               </ion-menu-toggle>
+
+              <ion-menu-toggle class="ion-menu-toggle">
+                <mat-list-item role="listitem" class="">
+                  <a [routerLink]="['/subscription-package']"
+                   class="nav-link" id="nav-link2">Subscription Packages</a>
+                </mat-list-item>
+              </ion-menu-toggle>
+
+              <ion-menu-toggle class="ion-menu-toggle">
+                <mat-list-item role="listitem" class="list-item">
+                  <a (click)="gotoProvideFeedback()"
+                   class="nav-link" id="nav-link2" >Provide Feedback</a>
+                </mat-list-item>
+              </ion-menu-toggle>
+
             </mat-list>
 
             <ion-menu-toggle

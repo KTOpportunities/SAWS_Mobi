@@ -129,6 +129,9 @@ export class ChatPage implements OnInit {
     // Check if the current route is the login page
     this.router.navigate(['/landing-page']);
   }
+  BacktoMessagelist() {
+    this.router.navigate(['/message-list']);
+  }
   async presentErrorAlert() {
     const alert = await this.alertController.create({
       header: 'Error',

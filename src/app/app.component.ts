@@ -6,6 +6,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { Platform } from '@ionic/angular';
+// import { MatIconModule } from '@angular/material/icon';
+// import { MatMenuModule } from '@angular/material/menu';
+// import { MatButtonModule } from '@angular/material/button';
+// import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { register } from 'swiper/element/bundle';
+register();
 
 @Component({
   selector: 'app-root',
@@ -13,6 +20,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  adverts: any[] = [];
   userDetails: any;
   isSubscribed: boolean = false;
   logout() {
@@ -29,16 +37,23 @@ export class AppComponent {
     private authService: AuthService,
     private sanitizer: DomSanitizer,
     private activatedRoute: ActivatedRoute,
-    private authAPI: AuthService
+    private authAPI: AuthService,
+    private platform: Platform
   ) {}
   get isLoggedIn(): boolean {
     return this.authService.getIsLoggedIn();
   }
 
   ngOnInit() {
+    this.initializeApp();
     this.fetchUserData();
   }
-
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // Override system dark mode
+      document.body.classList.toggle('light-theme', true);
+    });
+  }
   fetchUserData() {
     this.userDetails = this.authService.getUserData();
   }
@@ -63,16 +78,23 @@ export class AppComponent {
       this.router.navigate(['/login']);
     }
   }
-  provideFeedback() {
+  // provideFeedback() {
+  //   if (this.authService.getIsLoggedIn()) {
+  //     this.router.navigate(['/message-list']);
+  //   } else {
+  //     this.authService.setRedirectUrl('/message-list');
+  //     this.router.navigate(['/login']);
+
+  //   }
+  // }
+  gotoProvideFeedback() {
     if (this.authService.getIsLoggedIn()) {
-      this.router.navigate(['/provide-feedback']);
+      this.router.navigate(['/message-list']);
     } else {
-      this.authService.setRedirectUrl('/provide-feedback');
+      this.authService.setRedirectUrl('/message-list');
       this.router.navigate(['/login']);
-      
     }
   }
-
   subscriptionPackage() {
     this.router.navigate(['/subscription-package']);
   }
@@ -95,11 +117,9 @@ export class AppComponent {
 
   displayIcon(): boolean {
     const currentRoute = this.router.url;
-    return currentRoute.includes('/subscription-package');
+    return (
+      currentRoute.includes('/subscription-package') ||
+      currentRoute.includes('/web-cam') || currentRoute.includes('/observation')
+    );
   }
-  // BacktoLadingpage(){
-  //   debugger;
-  //   this.router.navigate(['/landing-page']);
-
-  // }
 }
