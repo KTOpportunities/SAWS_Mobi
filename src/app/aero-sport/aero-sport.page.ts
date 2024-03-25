@@ -33,6 +33,8 @@ export class AeroSportPage implements OnInit {
   selectedOption3: string = 'Temperature';
   selectedOption4: string = 'Total cloud';
   selectedOption5: string = '2023-03-20 20:00';
+  nextday: boolean = true;
+  prevday: boolean = false;
 
   constructor(
     private router: Router,
@@ -216,5 +218,14 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible2 = false;
     this.isFormVisible3 = false;
     this.isSpotGfraph = false;
+  }
+
+  nextDay() {
+    this.nextday = true;
+    this.prevday = false;
+  }
+  previousDay() {
+    this.nextday = false;
+    this.prevday = true;
   }
 }

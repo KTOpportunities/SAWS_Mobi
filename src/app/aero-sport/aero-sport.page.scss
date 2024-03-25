@@ -7014,12 +7014,29 @@ th {
     margin-top: -87px;
     padding-top: 0;
   }
+  #next-day-btn {
+    background-color: #008c1d;
+    color: #fff;
+    border-radius: 10px;
+    font-family: Open Sans, sans-serif;
+    font-size: 12px;
+  }
+  #last-day-btn {
+    color: #fff;
+    background-color: #00386c;
+    border-radius: 10px;
+    font-family: Open Sans, sans-serif;
+    font-size: 12px;
+  }
   .custom-input {
     background-color: #fff; /* Adjust color as per your requirement */
     border-radius: 8px; /* Adjust border-radius as per your requirement */
     padding: 10px; /* Adjust padding as per your requirement */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust box-shadow as per your requirement */
     /* Add any other styling you need */
+  }
+  .button-spacing {
+    margin: 0 23px; /* Adjust the margin value according to your preference */
   }
   .message-list-div {
     flex-direction: column;
@@ -8990,7 +9007,6 @@ textarea.w-select {
   background-color: #fff;
 }
 .w-slider-dot:focus {
-  
   outline: none;
   box-shadow: 0px 0px 0px 2px #fff;
 }
@@ -13740,7 +13756,10 @@ textarea.w-select {
   .slide-nav {
     padding-top: 62px;
   }
-
+  .prev {
+    background-color: #008c1d;
+    color: #fff;
+  }
   .icon-5 {
     margin-left: 45px;
     margin-right: 0;

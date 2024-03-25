@@ -31,7 +31,7 @@ export class LoginPage implements OnInit, OnDestroy {
   });
   constructor(
     private router: Router,
-    private route:ActivatedRoute,
+    private route: ActivatedRoute,
     private mediaMatcher: MediaMatcher,
     private authAPI: AuthService,
     private fb: FormBuilder,
@@ -45,12 +45,12 @@ export class LoginPage implements OnInit, OnDestroy {
   }
   ngOnInit() {
     // Retrieve subscriptionPackageId from query parameters
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       const subscriptionPackageId = params['id'];
       if (subscriptionPackageId) {
         // Set subscriptionPackageId in the login form or handle as needed
         this.loginForm.patchValue({
-          subscriptionPackageId: subscriptionPackageId
+          subscriptionPackageId: subscriptionPackageId,
         });
       }
     });
@@ -71,7 +71,7 @@ export class LoginPage implements OnInit, OnDestroy {
     // Check if the current route is the login page
     return this.router.url === '/login';
   }
-  register(){
+  register() {
     this.router.navigate(['/register']);
   }
   home() {
@@ -94,16 +94,19 @@ export class LoginPage implements OnInit, OnDestroy {
               this.authAPI.setLoggedInStatus(true);
               this.userData = response;
               this.authAPI.setUserData(this.userData);
-              this.authAPI.saveCurrentUser(response);  
+              this.authAPI.saveCurrentUser(response);
               console.log('TEST::', this.userData);
               const redirectUrl = this.authAPI.getRedirectUrl();
-          if (redirectUrl) {
-            // If yes, navigate them to that URL
-            this.router.navigateByUrl(redirectUrl);
-          }else if(this.authAPI.getIsFromSubscription()) {
-            // If not, navigate them to the landing page
-            this.router.navigate(['/landing-page']);
-          }
+              if (redirectUrl) {
+                // If yes, navigate them to that URL
+                this.router.navigateByUrl(redirectUrl);
+              } else if (this.authAPI.getIsFromSubscription() && redirectUrl) {
+                // If not, navigate them to the landing page
+                this.router.navigateByUrl(redirectUrl);
+                // this.router.navigate(['/landing-page']);
+              } else {
+                this.router.navigate(['/landing-page']);
+              }
             } else {
               this.errorMessage = 'Only subscribers can login';
               this.router.navigate(['login']);

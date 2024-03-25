@@ -5540,12 +5540,23 @@
     <section class="ob-metar-history" *ngIf="isTSProbability">
       <div class="cloud-cover">
         <h1 class="heading6">TS Probability</h1>
-
         <div class="w-layout-grid metar-history-grid">
           <div class="date-container">
-            <button id="last-day-btn"><< Last Day</button>
+            <button
+              id="last-day-btn"
+              class="button-spacing"
+              (click)="previousDay()"
+            >
+              << Previous Day
+            </button>
             <span id="current-date"></span>
-            <button id="next-day-btn">Next Day >></button>
+            <button
+              id="next-day-btn"
+              class="button-spacing"
+              (click)="nextDay()"
+            >
+              Next Day >>
+            </button>
           </div>
         </div>
 
@@ -5566,17 +5577,37 @@
                   data-duration="500"
                   data-infinite="true"
                 >
-                  <div class="w-slider-mask">
-                    <div class="w-slide"></div>
-                    <div class="w-slide"></div>
+                  <div class="w-slider-mask prev"  *ngIf="prevday">
+                    <!-- <div class="w-slide"></div> -->
+                    <img
+                      src="../../assets/Previous day.png"
+                      loading="lazy"
+                      width="1216"
+                      alt=""
+                      class="image"
+                    />
+                    <!-- <div class="w-slide"></div> -->
                   </div>
-                  <div class="w-slider-arrow-left">
+                  <div class="w-slider-mask next" *ngIf="nextday">
+                    <!-- <div class="w-slide"></div> -->
+                    <img
+                      src="../../assets/Next day.png"
+                      loading="lazy"
+                      width="1216"
+                      alt=""
+                      class="image"
+                    />
+                    <!-- <div class="w-slide"></div> -->
+                  </div>
+                  <!-- <div class="w-slider-arrow-left">
                     <div class="w-icon-slider-left"></div>
                   </div>
                   <div class="w-slider-arrow-right">
                     <div class="w-icon-slider-right"></div>
-                  </div>
-                  <div class="w-slider-nav w-round w-num"></div>
+                  </div> -->
+                  <!-- <div class="w-slider-nav w-round w-num"> -->
+
+                  <!-- </div> -->
                 </div>
               </div>
             </div>
@@ -5591,7 +5622,6 @@
         loading="lazy"
         width="1216"
         alt=""
-        class="image"
       />
       <div class="footerdiv">
         <a
