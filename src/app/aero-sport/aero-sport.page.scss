@@ -8937,6 +8937,7 @@ textarea.w-select {
   clear: both;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   tap-highlight-color: rgba(0, 0, 0, 0);
+  margin-left: 8px;
 }
 .w-slider-mask {
   position: relative;
@@ -13617,7 +13618,7 @@ textarea.w-select {
 
   .heading-10-copy {
     color: #fff;
-    margin-top: 4px;
+    margin-top: 0px;
     margin-bottom: 0;
     font-family: Montserrat, sans-serif;
     text-decoration: none;

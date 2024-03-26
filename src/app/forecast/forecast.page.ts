@@ -17,24 +17,25 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 export class ForecastPage implements OnInit {
   isLogged: boolean = false;
   isFormVisible: boolean = true;
+  isform2Visible:boolean=true;
   iscodeTafs: boolean = false;
   isSigmentAirmet: boolean = false;
   isColorSigmentAirmet: boolean = false;
   iscolorCodedWarning: boolean = false;
   isWarning: boolean = false;
   isAdvesories: boolean = false;
-  istakeOfData:boolean= false;
-  isTAF:boolean = false;
-  isRecentTAF:boolean = false;
-  isTafAccuracy:boolean=false;
-  isTrends:boolean=false
-  isHarmonized:boolean=false;
+  istakeOfData: boolean = false;
+  isTAF: boolean = false;
+  isRecentTAF: boolean = false;
+  isTafAccuracy: boolean = false;
+  isTrends: boolean = false;
+  isHarmonized: boolean = false;
   isDropdownOpen1: boolean = false;
   isDropdownOpen2: boolean = false;
   isDropdownOpen3: boolean = false;
-  selectedOption1: string = 'Wind';
-  selectedOption2: string = 'Surface';
-  selectedOption3: string = 'Temperature';
+  selectedOption1: string = 'select saved Template';
+  selectedOption2: string = 'Last Hour';
+  selectedOption3: string = '5 minutes';
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -89,6 +90,32 @@ export class ForecastPage implements OnInit {
     this.isDropdownOpen1 = false;
     this.isDropdownOpen2 = false;
   }
+  LandingPage() {
+    this.router.navigate(['/landing-page']);
+  }
+  forecastDropdown(dropdown: string) {
+    if (dropdown === 'dropdown1') {
+      this.isDropdownOpen1 = !this.isDropdownOpen1;
+      this.isDropdownOpen2 = false;
+      this.isDropdownOpen3 = false;
+     
+    }
+
+    if (dropdown === 'dropdown2') {
+      this.isDropdownOpen2 = !this.isDropdownOpen2;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen3 = false;
+   
+    }
+    if (dropdown === 'dropdown3') {
+      this.isDropdownOpen3 = !this.isDropdownOpen3;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen2 = false;
+   
+    }
+
+
+  }
   ColorCoded() {
     this.iscodeTafs = true;
     this.isFormVisible = false;
@@ -100,9 +127,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
 
   forecastPage() {
@@ -116,9 +143,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   ColorcodedSigmetAirmet() {
     this.iscodeTafs = false;
@@ -131,9 +158,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   SigmetAirmet() {
     this.iscodeTafs = false;
@@ -146,9 +173,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   ColorcodedWarning() {
     this.iscodeTafs = false;
@@ -161,9 +188,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   Advesories() {
     this.iscodeTafs = false;
@@ -176,9 +203,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   Warning() {
     this.iscodeTafs = false;
@@ -191,10 +218,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
-
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   TakeOfData() {
     this.iscodeTafs = false;
@@ -207,10 +233,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = true;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
-
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   TAF() {
     this.iscodeTafs = false;
@@ -223,10 +248,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = true;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
-
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   RecentTAF() {
     this.iscodeTafs = false;
@@ -239,10 +263,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = true;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=false;
-
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   tafAccuracy() {
     this.iscodeTafs = false;
@@ -255,10 +278,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=true;
-    this.isTrends=false
-    this.isHarmonized=false;
-
+    this.isTafAccuracy = true;
+    this.isTrends = false;
+    this.isHarmonized = false;
   }
   Trends() {
     this.iscodeTafs = false;
@@ -271,10 +293,9 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=true
-    this.isHarmonized=false;
-
+    this.isTafAccuracy = false;
+    this.isTrends = true;
+    this.isHarmonized = false;
   }
   harmonized() {
     this.iscodeTafs = false;
@@ -287,9 +308,8 @@ export class ForecastPage implements OnInit {
     this.istakeOfData = false;
     this.isTAF = false;
     this.isRecentTAF = false;
-    this.isTafAccuracy=false;
-    this.isTrends=false
-    this.isHarmonized=true;
-
+    this.isTafAccuracy = false;
+    this.isTrends = false;
+    this.isHarmonized = true;
   }
 }
