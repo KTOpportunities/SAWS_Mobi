@@ -24,6 +24,7 @@ export class ObservationPage implements OnInit {
   issatelite:boolean = false;
   isSpeci:boolean =false
   isRecentMetar:boolean = false;
+  isRecentTafs:boolean = false;
   isMetarHistory: boolean = false;
   isDropdownOpen1: boolean = false;
   isDropdownOpen2: boolean = false;
@@ -79,6 +80,7 @@ export class ObservationPage implements OnInit {
     this.isSpeci = false;
     this.isMetarHistory = false;
     this.isRecentMetar = false;
+    this.isRecentTafs= false
   }
 
   colorcoded () {
@@ -100,6 +102,10 @@ export class ObservationPage implements OnInit {
   RecentMetar(){
     this.isMetar = false;
     this.isRecentMetar = true
+  }
+  RecentTafs() {
+    this.isMetar = false;
+    this.isRecentTafs = true;
   }
 
   toggleDropdown(dropdown: string) {
@@ -186,16 +192,12 @@ export class ObservationPage implements OnInit {
     if (dropdown === 'dropdown1') {
       this.isDropdownOpen1 = !this.isDropdownOpen1;
       this.isDropdownOpen2 = false;
-   
     }
 
     if (dropdown === 'dropdown2') {
       this.isDropdownOpen2 = !this.isDropdownOpen2;
       this.isDropdownOpen1 = false;
-    
     }
-    
-   
   }
 
   selectDropdown(dropdown: string) {

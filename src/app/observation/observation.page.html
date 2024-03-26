@@ -62,7 +62,7 @@
         >
           <h1 class="heading-5">SPECI</h1>
         </div>
-        <div (click)="recentmeter()"
+        <div (click)="RecentTafs()"
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           
           class="link-block-3 w-inline-block"
@@ -2073,8 +2073,194 @@
   </section>
 
   <!-- RecentTafs -->
+  <section class="re" *ngIf="isRecentTafs">
+    <!-- <div class="div-block-2"><img src="images/Path-3452.svg" loading="lazy" width="1216" alt="" class="image"></div> -->
+    <div class="recent-tafs">
+      <h1 class="heading-6" id="heading7">Recent METAR/TAFs</h1>
+      <div class="w-layout-grid1 grid-6-copy">
+        <div id="w-node-c8da85be-f06f-2243-5777-654520b149b0-9377a649" class="div-block-15">
+          <div class="div-block-14">
+            <div class="w-layout-grid grid-19">
+              <div id="w-node-c8da85be-f06f-2243-5777-654520b149b3-9377a649" class="div-block-34">
+                <h1 class="heading-23">Date:</h1>
+                <h1 class="heading-23-copy">2024 -02-05</h1>
+              </div>
+              <div id="w-node-c8da85be-f06f-2243-5777-654520b149b8-9377a649" class="div-block-34">
+                <h1 class="heading-23">Time</h1>
+                <h1 class="heading-23-copy">2024/02/ 12:00Z</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  class="ObservScrol">
+        <div id="w-node-a4a2a6b3-fb94-67a5-1e0f-a72ba37feb73-9377a649" class="form-block w-form">
+          <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" data-wf-page-id="65c0c298a377a85c9377a649" data-wf-element-id="a4a2a6b3-fb94-67a5-1e0f-a72ba37feb74"
+          >
+            <div class="grid-24">
+              <div id="w-node-ca5eddba-f83b-3b16-a8ac-5450b410e804-9377a649" class="div-block-41"><label for="field-2" class="field-label">Tempalate Name</label><input class="text-field w-input" maxlength="256" name="field-2" data-name="Field 2" placeholder="" type="text" id="field-2" required=""></div>
+              <div id="w-node-baad291d-2bab-45c3-5004-d7d652581b41-9377a649"><label for="" class="field-label">Select Template</label>
+                <div data-hover="false" data-delay="0" 
+                class="text-field-blue w-dropdown"
+                (click)="selectDropdown('dropdown5')">
+                  <div class="w-dropdown-toggle">
+                    <div class="icon-2 w-icon-dropdown-toggle" id="icon2"></div>
+                    <div class="text-block">{{selectedOption5}}</div>
+                  </div>
+                  <nav class="dropdown-list1"
+                  *ngIf="isDropdownOpen5">
+                    <div class="w-dropdown-link" (click)="selectOption('','dropdown5')">Link 1</div>
+                    <div class="w-dropdown-link" (click)="selectOption('','dropdown5')">Link 2</div>
+                    <div class="w-dropdown-link" (click)="selectOption('','dropdown5')">Link 3</div>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <div class="div-block-39"><input type="submit" data-wait="Please wait..." class="submit-button-3-copy w-button" value="Save"><input type="submit" data-wait="Please wait..." class="submit-button-3 w-button" value="Cancel"></div>
+            <div class="div-block-40">
+              <!-- <h4 class="heading-45">Successfully added a template</h4> -->
+            </div>
+          </form>
+          <div class="">
+            <!-- <div>Thank you! Your submission has been received!</div> -->
+          </div>
+          <div class="">
+            <!-- <div>Oops! Something went wrong while submitting the form.</div> -->
+          </div>
+        </div>
+        <div id="w-node-_38257011-dae8-5f44-9e44-5a2e6988a1a7-9377a649" >
+          <div id="w-node-_31003eb4-ce66-d881-6d3a-e92898efc8f5-9377a649" class="div-block-14">
+            <h5 class="heading-9">Query TAFs</h5>
+            <form action="/search" class="search w-form"><input class="search-input w-input" maxlength="256" name="query" placeholder="Search…" type="search" id="search" required=""><input type="submit" class="search-button w-button" value="Search"></form>
+          </div>
+          <div class="w-form">
+            <form id="email-form-3" name="email-form-3" data-name="Email Form 3" method="get" data-wf-page-id="65c0c298a377a85c9377a649" data-wf-element-id="f1b8684b-0b39-7e93-2135-f1650deadc75">
+              <div class="w-layout-grid grid-25">
+                <div id="w-node-_5ca72a72-b198-e603-e4a9-5569bcb17122-9377a649"><label for="" class="field-label">Time</label>
+                  <div data-hover="false"
+                   data-delay="0" class="text-field-blue w-dropdown"
+                   (click)="selectDropdown('dropdown6')"
+                 >
+                    <div class="w-dropdown-toggle">
+                      <div class="icon-2 w-icon-dropdown-toggle" id="icon2"></div>
+                      <div class="text-block">{{selectedOption6}}</div>
+                    </div>
+                    <nav class="dropdown-list1"
+                    *ngIf="isDropdownOpen6">
+                      <div  class="w-dropdown-link" (click)="selectOption('', 'dropdown6')">Link 1</div>
+                      <div class="w-dropdown-link" (click)="selectOption('', 'dropdown6')">Link 2</div>
+                      <div class="w-dropdown-link" (click)="selectOption('', 'dropdown6')">Link 3</div>
+                    </nav>
+                  </div>
+                </div>
+                <div id="w-node-_3e49d3ec-67c7-cead-1c50-d5e7fa7f12d9-9377a649"><label for="" class="field-label">Refresh This page every</label>
+                  <div data-hover="false" data-delay="0" 
+                  class="text-field-blue w-dropdown"
+                  (click)="selectDropdown('dropdown7')">
+                    <div class="dropdown-toggle w-dropdown-toggle">
+                      <div class="icon-2-copy w-icon-dropdown-toggle" id="icon2"></div>
+                      <div class="text-block">{{selectedOption7}}</div>
+                    </div>
+                    <nav class="dropdown-list1" 
+                    *ngIf="isDropdownOpen7">
+                      <div class="w-dropdown-link" (click)="selectOption('','dropdown7')">1 Min</div>
+                      <div class="w-dropdown-link" (click)="selectOption('','dropdown7')">2 Min</div>
+                      <div class="w-dropdown-link" (click)="selectOption('','dropdown7')">3 Min</div>
+                      <div class="w-dropdown-link" (click)="selectOption('','dropdown7')">4 Min</div>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="w-form-done">
+              <!-- <div>Thank you! Your submission has been received!</div> -->
+            </div>
+            <div class="w-form-fail">
+              <!-- <div>Oops! Something went wrong while submitting the form.</div> -->
+            </div>
+          </div>
+        </div>
   
-
+        <div class="div-block-15" id="block-15">
+          <h1 class="heading-22">Gauteng</h1>
+          <div class="div-block-32">
+            <div class="w-layout-grid ccta-grid">
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062c7-9377a649" class="cct-copy-copy">
+                <div class="button w-button">Normal</div>
+              </div>
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062ca-9377a649" class="cct-copy">
+                <div class="button-2 w-button">Colour / Style Index</div>
+              </div>
+            </div>
+          </div>
+          <div class="div-block-45">
+            <div class="w-layout-grid heading-text">
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062cf-9377a649" class="cct-copy-copy">
+                <h1 class="heading-21">TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040</h1>
+              </div>
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062d2-9377a649" class="cct-copy">
+                <div class="button-2-copy w-button">View Decoded</div>
+              </div>
+            </div>
+            <div class="w-layout-grid grid-18">
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062d6-9377a649" class="div-block-16">
+                <p class="paragraph-2">TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong> FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG 0300/0302 35010KT=</p>
+              </div>
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062e2-9377a649" class="div-block-17"></div>
+            </div>
+          </div>
+          <div>
+            <div class="w-layout-grid heading-text">
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062e5-9377a649" class="cct-copy-copy">
+                <h1 class="heading-21">TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040</h1>
+              </div>
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062e8-9377a649" class="cct-copy">
+                <div class="button-2-copy w-button">View Decoded</div>
+              </div>
+            </div>
+            <div class="w-layout-grid grid-18">
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062ec-9377a649" class="div-block-16">
+                <p class="paragraph-2">TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong> FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG 0300/0302 35010KT=</p>
+              </div>
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062f8-9377a649" class="div-block-17"></div>
+            </div>
+          </div>
+          <div>
+            <div class="w-layout-grid heading-text">
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062fb-9377a649" class="cct-copy-copy">
+                <h1 class="heading-21">TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040</h1>
+              </div>
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062fe-9377a649" class="cct-copy">
+                <div class="button-2-copy w-button">View Decoded</div>
+              </div>
+            </div>
+            <div class="w-layout-grid grid-18">
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f06302-9377a649" class="div-block-16">
+                <p class="paragraph-2">TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong> FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG 0300/0302 35010KT=</p>
+              </div>
+              <div id="w-node-_2138101a-874f-ccf2-cab5-adfa22f0630e-9377a649" class="div-block-17"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      
+      </div>
+       
+    
+   
+  
+  
+  
+  
+    <div class="bottomdiv"><img src="images/Path-3447.svg" loading="lazy" width="1216" alt="" class="image">
+      <div class="footerdiv">
+        <a href="landing-page.html" class="link-block-5 w-inline-block"><img src="images/Group-4522.svg" loading="lazy" width="35" alt="">
+          <h6 class="heading-10">Forecast</h6>
+        </a>
+      </div>
+    </div>
+  </section>
 
 
     <div class="bottomdiv" style="margin-top: 147% !important;">
