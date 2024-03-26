@@ -820,6 +820,10 @@
   font-family: Montserrat, sans-serif;
   font-weight: 600;
 }
+#button-2{
+  background-color: #008c1d;
+  border-radius: 5px;
+}
 
 .grid-18 {
   grid-template-rows: auto;
@@ -1506,10 +1510,10 @@
   padding-right: 0;
   display: flex;
   position: absolute;
-  top: 0%;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
+  // top: 0%;
+  // bottom: 0%;
+  // left: 0%;
+  // right: 0%;
 }
 
 .metar-history-main-div {
@@ -4032,6 +4036,7 @@
     flex-direction: column;
     align-items: flex-start;
     display: flex;
+ 
   }
 
   .submit-button-3-copy {
@@ -4186,7 +4191,7 @@
   }
 
   .ob-metar-history {
-    margin-top: -91px;
+    // margin-top: -91px;
     padding-left: 0;
     padding-right: 0;
   }

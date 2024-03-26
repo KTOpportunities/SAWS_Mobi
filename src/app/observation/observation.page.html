@@ -1984,74 +1984,252 @@
     <div class="div-block-2"><img src="images/Path-3452.svg" loading="lazy" width="1216" alt="" class="image"></div>
     <div class="metar-history-main-div">
       <h1 class="heading-6">Metar History For FAOR</h1>
-      <div class=" metar-history-grid">
-        <div id="w-node-a3e89a9d-706c-301b-ed7f-a8d1997c22c1-a9068d94" class="div-block-15">
-          <div class="div-block-14"></div>
-        </div>
-        <div id="w-node-a3e89a9d-706c-301b-ed7f-a8d1997c22ce-a9068d94" class="form-block w-form">
-          <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" data-wf-page-id="65c9ee145d072c23a9068d94" data-wf-element-id="a3e89a9d-706c-301b-ed7f-a8d1997c22cf">
-            <div class=" grid-24">
-              <div id="w-node-a3e89a9d-706c-301b-ed7f-a8d1997c22d5-a9068d94"><label for="" class="field-label">Select another station:</label>
-                <div data-hover="false" data-delay="0" class="text-field-blue w-dropdown">
-                  <div class="w-dropdown-toggle">
-                    <div class="icon-2 w-icon-dropdown-toggle" id="icon2"></div>
-                    <div class="text-block">{{selectedOption3}}</div>
+      <div class="ObservScrol">
+        <div class=" metar-history-grid">
+          <div id="w-node-a3e89a9d-706c-301b-ed7f-a8d1997c22c1-a9068d94" class="div-block-15">
+            <div class="div-block-14"></div>
+          </div>
+          <div id="w-node-a3e89a9d-706c-301b-ed7f-a8d1997c22ce-a9068d94" class="form-block w-form">
+            <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" data-wf-page-id="65c9ee145d072c23a9068d94" data-wf-element-id="a3e89a9d-706c-301b-ed7f-a8d1997c22cf">
+              <div class=" grid-24">
+                <div id="w-node-baad291d-2bab-45c3-5004-d7d652581b41-9377a649"><label for="" class="field-label">Select Template</label>
+                  <div data-hover="false" data-delay="0" 
+                  class="text-field-blue w-dropdown"
+                  (click)="selectDropdown('dropdown5')">
+                    <div class="w-dropdown-toggle">
+                      <div class="icon-2 w-icon-dropdown-toggle" id="icon2"></div>
+                      <div class="text-block">{{selectedOption5}}</div>
+                    </div>
+                    <nav class="dropdown-list1"
+                    *ngIf="isDropdownOpen5">
+                      <div class="w-dropdown-link" (click)="selectOption('','dropdown5')">Link 1</div>
+                      <div class="w-dropdown-link" (click)="selectOption('','dropdown5')">Link 2</div>
+                      <div class="w-dropdown-link" (click)="selectOption('','dropdown5')">Link 3</div>
+                    </nav>
                   </div>
-                  <nav class="dropdown-list3"
-                  *ngIf="isDropdownOpen3">
-                    <div  class="w-dropdown-link" (click)="selectOption('', 'dropdown3')">Link 1</div>
-                    <div  class="w-dropdown-link" (click)="selectOption('', 'dropdown3')">Link 2</div>
-                    <div class="w-dropdown-link" (click)="selectOption('', 'dropdown3')">Link 3</div>
-                  </nav>
+                </div>
+                <div id="w-node-_9bfb377b-e0d8-05d4-3338-378b893cc2eb-a9068d94"><label for="" class="field-label">Plot meteogram</label>
+                 
+                   <div data-hover="false" 
+                  data-delay="0" class="text-field-blue w-dropdown"
+                  (click)="selectDropdown('dropdown')">
+                    <div class="w-dropdown-toggle">
+                      <div class="icon-2 w-icon-dropdown-toggle" id="icon2"></div>
+                      <div class="text-block">{{selectedOption}}</div>
+                    </div>
+                    <nav class="dropdown-list1"
+                    *ngIf="isDropdownOpen">
+                      <div  class="w-dropdown-link" (click)="selectOption('', 'dropdown')">Link 1</div>
+                      <div   class="w-dropdown-link" (click)="selectOption('', 'dropdown')">Link 2</div>
+                      <div  class="w-dropdown-link" (click)="selectOption('', 'dropdown')">Link 3</div>
+                    </nav>
+                  </div> 
                 </div>
               </div>
-              <div id="w-node-_9bfb377b-e0d8-05d4-3338-378b893cc2eb-a9068d94"><label for="" class="field-label">Plot meteogram</label>
-                <div data-hover="false" data-delay="0" class="text-field-blue w-dropdown">
-                  <div class="w-dropdown-toggle">
-                    <div class="icon-2 w-icon-dropdown-toggle" id="icon2"></div>
-                    <div class="text-block">{{selectedOption4}}</div>
-                  </div>
-                  <nav class="dropdown-list4"
-                  *ngIf="isDropdownOpen4">
-                    <div  class="w-dropdown-link" (click)="selectOption('', 'dropdown4')">Link 1</div>
-                    <div   class="w-dropdown-link" (click)="selectOption('', 'dropdown4')">Link 2</div>
-                    <div  class="w-dropdown-link" (click)="selectOption('', 'dropdown4')">Link 3</div>
-                  </nav>
-                </div>
+              <div class="div-block-451">
+                <div  class=" w-button" id="button-2">Download</div>
               </div>
+            </form>
+            <div class="w-form-done">
+              <!-- <div>Thank you! Your submission has been received!</div> -->
             </div>
-            <div class="div-block-451">
-              <div  class=" w-button" id="button-2">Download</div>
+            <div class="w-form-fail">
+              <!-- <div>Oops! Something went wrong while submitting the form.</div> -->
             </div>
-          </form>
-          <div class="w-form-done">
-            <!-- <div>Thank you! Your submission has been received!</div> -->
+            
           </div>
-          <div class="w-form-fail">
-            <!-- <div>Oops! Something went wrong while submitting the form.</div> -->
-          </div>
+  
+       
+  
         </div>
-      </div>
-      <div class="div-block-15">
-        <div>
-          <div class="scroll small-m">
-            <div class="rows-wrap">
-              <div class="table-wrapper">
-               
-                <div class="table-container">
-                  <div class="table-data-wrapper">
-                    <div class="scroll-container">
-                     
-                      <div class="example-container mat-elevation-z8">
-                    
+        <div class="div-block-15">
+          <div>
+            <div class="scroll small-m">
+              <div class="rows-wrap">
+                <div class="table-wrapper">
+                  <div class="table-row head">
+                    <div class="table-box">
+                      <div class="table-heading">Full Name</div>
+                    </div>
+                    <div class="table-box">
+                      <div class="table-heading">Email</div>
+                    </div>
+                    <div class="table-box">
+                      <div class="table-heading">Phone</div>
+                    </div>
+                    <div class="table-box">
+                      <div class="table-heading">Role</div>
+                    </div>
+                    <div class="table-box _11">
+                      <div class="table-heading">Last update</div>
+                    </div>
+                    <div class="table-box action">
+                      <div class="table-heading">Status</div>
+                    </div>
+                    <div class="table-box action">
+                      <div class="table-heading">Action</div>
+                    </div>
+                  </div>
+                  <div class="table-container">
+                    <div class="table-data-wrapper">
+                      <div class="scroll-container">
+                        <div class="scroll-table-content">
+                          <div class="table-row head hide">
+                            <div class="div-block-406"></div>
+                            <div class="table-box">
+                              <div class="table-heading">Name</div>
+                            </div>
+                            <div class="table-box">
+                              <div class="table-heading">Email</div>
+                            </div>
+                            <div class="table-box">
+                              <div class="table-heading">Phone</div>
+                            </div>
+                            <div class="table-box">
+                              <div class="table-heading">Country</div>
+                            </div>
+                            <div class="table-box _11">
+                              <div class="table-heading">Last Update</div>
+                            </div>
+                            <div class="table-box action">
+                              <div class="table-heading">Status</div>
+                            </div>
+                            <div class="table-box action">
+                              <div class="table-heading">Action</div>
+                            </div>
+                          </div>
+                          <div class="table-row">
+                            <div class="table-box _2"><img src="images/5dd1ca04edfe6a591970a2cd_face-chad_15dd1ca04edfe6a591970a2cd_face-chad.jpg" width="32" alt="" class="image-7">
+                              <div class="table-data name">Walter A. Price</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data link">email.com</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">813-200-2741</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">United States</div>
+                            </div>
+                            <div class="table-box _2 small">
+                              <div class="table-data">May 22, 2020</div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <div data-ix="toggle" data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a715288e" class="togglebutton active w-inline-block">
+                                <div class="buttontoggle _2"></div>
+                              </div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <div data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a7152891"  class="link-block-12 w-inline-block"><img src="images/edit-24px.svg" alt="" class="table-action-icon"></div>
+                              <div  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a7152893"  class="link-block-13 w-inline-block"><img src="images/close-2.svg" alt="" class="table-action-icon-2 x"></div>
+                            </div>
+                          </div>
+                          <div class="table-row">
+                            <div class="table-box _2"><img src="images/5dd1ca04edfe6a591970a2cd_face-chad_15dd1ca04edfe6a591970a2cd_face-chad.jpg" width="32" alt="" class="image-7">
+                              <div class="table-data name">Walter A. Price</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data link">wpriceemail.com</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">813-200-2741</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">United States</div>
+                            </div>
+                            <div class="table-box _2 small">
+                              <div class="table-data">May 22, 2020</div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <div data-ix="toggle" data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528a7" class="togglebutton active w-inline-block">
+                                <div class="buttontoggle _2"></div>
+                              </div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <div data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528aa"  class="link-block-12 w-inline-block"><img src="images/edit-24px.svg" alt="" class="table-action-icon"></div>
+                              <div data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528ac"  class="link-block-13 w-inline-block"><img src="images/close-2.svg" alt="" class="table-action-icon-2 x"></div>
+                            </div>
+                          </div>
+                          <div class="table-row">
+                            <div class="table-box _2"><img src="images/5dd1ca04edfe6a591970a2cd_face-chad_15dd1ca04edfe6a591970a2cd_face-chad.jpg" width="32" alt="" class="image-7">
+                              <div class="table-data name">Walter A. Price</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data link">wpriceemail.com</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">813-200-2741</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">United States</div>
+                            </div>
+                            <div class="table-box _2 small">
+                              <div class="table-data">May 22, 2020</div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <div data-ix="toggle" data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528c0" class="togglebutton active w-inline-block">
+                                <div class="buttontoggle _2"></div>
+                              </div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <div data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528c3"  class="link-block-12 w-inline-block"><img src="images/edit-24px.svg" alt="" class="table-action-icon"></div>
+                              <div  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528c5"  class="link-block-13 w-inline-block"><img src="images/close-2.svg" alt="" class="table-action-icon-2 x"></div>
+                            </div>
+                          </div>
+                          <div class="table-row">
+                            <div class="table-box _2"><img src="images/photo-1535162777965-1304efc8c6dc.jpeg" width="32" sizes="(max-width: 991px) 31.990741729736328px, (max-width: 1279px) 3vw, (max-width: 1919px) 2vw, 31.990741729736328px" srcset="images/photo-1535162777965-1304efc8c6dc-p-500.jpeg 500w, images/photo-1535162777965-1304efc8c6dc.jpeg 800w" alt="" class="image-7">
+                              <div class="table-data name">John Smith</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data link">jsmithemail.com</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">813-200-2741</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">United Kingdom</div>
+                            </div>
+                            <div class="table-box _2 small">
+                              <div class="table-data">May 16, 2020</div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <div data-ix="toggle" data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528d9" class="togglebutton active w-inline-block">
+                                <div class="buttontoggle _2"></div>
+                              </div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <a data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528dc" href="#" class="link-block-12 w-inline-block"><img src="images/edit-24px.svg" alt="" class="table-action-icon"></a>
+                              <a data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528de" href="#" class="link-block-13 w-inline-block"><img src="images/close-2.svg" alt="" class="table-action-icon-2 x"></a>
+                            </div>
+                          </div>
+                          <div class="table-row">
+                            <div class="table-box _2"><img src="images/daniil-lobachev-XAo09LtQiAQ-unsplash.jpg" width="32" sizes="(max-width: 991px) 31.990741729736328px, (max-width: 1279px) 3vw, (max-width: 1919px) 2vw, 31.990741729736328px" srcset="images/daniil-lobachev-XAo09LtQiAQ-unsplash-p-500.jpeg 500w, images/daniil-lobachev-XAo09LtQiAQ-unsplash-p-800.jpeg 800w, images/daniil-lobachev-XAo09LtQiAQ-unsplash-p-1080.jpeg 1080w, images/daniil-lobachev-XAo09LtQiAQ-unsplash-p-1600.jpeg 1600w, images/daniil-lobachev-XAo09LtQiAQ-unsplash-p-2000.jpeg 2000w, images/daniil-lobachev-XAo09LtQiAQ-unsplash-p-2600.jpeg 2600w, images/daniil-lobachev-XAo09LtQiAQ-unsplash-p-3200.jpeg 3200w, images/daniil-lobachev-XAo09LtQiAQ-unsplash.jpg 4016w" alt="" class="image-7">
+                              <div class="table-data name">Bianca Rossi</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data link">brossiemail.com</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">813-200-2741</div>
+                            </div>
+                            <div class="table-box _2">
+                              <div class="table-data">Italy</div>
+                            </div>
+                            <div class="table-box _2 small">
+                              <div class="table-data">May 04, 2020</div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <div data-ix="toggle" data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528f2" class="togglebutton w-inline-block">
+                                <div class="buttontoggle"></div>
+                              </div>
+                            </div>
+                            <div class="table-box _2 action">
+                              <a data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528f5" href="#" class="link-block-12 w-inline-block"><img src="images/edit-24px.svg" alt="" class="table-action-icon"></a>
+                              <a data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528f7" href="#" class="link-block-13 w-inline-block"><img src="images/close-2.svg" alt="" class="table-action-icon-2 x"></a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      
-                      <div class="example-container mat-elevation-z8">
-                      
-                      </div>
-                  
-
-
                     </div>
                   </div>
                 </div>
@@ -2060,6 +2238,7 @@
           </div>
         </div>
       </div>
+    
     </div>
 
 

@@ -33,10 +33,11 @@ export class ObservationPage implements OnInit {
   isDropdownOpen5: boolean = false;
   isDropdownOpen6: boolean = false;
   isDropdownOpen7: boolean = false;
+  isDropdownOpen: boolean = false;
   selectedOption1: string = 'Animation Type';
   selectedOption2: string = '2024-03-20 13:15';
   selectedOption3: string = 'FAVV';
-  selectedOption4: string = 'Select Plot meteogram';
+  selectedOption: string = 'Select Plot meteogram';
   selectedOption5: string = 'Select saved Template';
   selectedOption6: string = 'Last Hour';
   selectedOption7: string = '5 Min';
@@ -164,8 +165,17 @@ export class ObservationPage implements OnInit {
       this.isDropdownOpen4 = false;
       this.isDropdownOpen5 = false;
       this.isDropdownOpen6 = false;
+    }
+    if (dropdown === 'dropdown') {
+      this.isDropdownOpen = !this.isDropdownOpen;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen2 = false;
+      this.isDropdownOpen3 = false;
+      this.isDropdownOpen4 = false;
+      this.isDropdownOpen5 = false;
     
     }
+   
    
   }
   selectOption(option: string, dropdown: string) {
@@ -181,10 +191,11 @@ export class ObservationPage implements OnInit {
       this.selectedOption3 = option;
       this.isDropdownOpen2 = false;
     }
-    if (dropdown === 'dropdown4') {
-      this.selectedOption4 = option;
-      this.isDropdownOpen2 = false;
-    }
+    
+    // if (dropdown === 'dropdown4') {
+    //   this.selectedOption4 = option;
+    //   this.isDropdownOpen2 = false;
+    // }
    
   }
 
