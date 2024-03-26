@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  HostListener,
-  ViewChild,
-  ElementRef,
-  Renderer2,
-} from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -15,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { APIService } from 'src/app/services/apis.service';
 import { AlertController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -56,7 +50,8 @@ export class RegisterPage implements OnInit {
     private api: APIService,
     private router: Router,
     private renderer: Renderer2,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private authAPI: AuthService,
   ) {
     this.userForm = this.formBuilder.group({
       Fullname: ['', Validators.required],
@@ -167,8 +162,14 @@ export class RegisterPage implements OnInit {
             this.statusMessage = true;
             this.errorMessage = null;
             this.loading = false; // Set loading to false when validation fails
-            this.Successfully();
-            this.onReset();
+            const redirectUrl = this.authAPI.getRedirectUrl();
+            if(this.authAPI.getIsFromSubscription()){
+              this.router.navigate(['login']);
+            }else{
+              this.Successfully();
+              this.onReset();
+            }
+ 
           }
         },
         (error: any) => {

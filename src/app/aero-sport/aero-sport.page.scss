@@ -7014,12 +7014,29 @@ th {
     margin-top: -87px;
     padding-top: 0;
   }
+  #next-day-btn {
+    background-color: #008c1d;
+    color: #fff;
+    border-radius: 10px;
+    font-family: Open Sans, sans-serif;
+    font-size: 12px;
+  }
+  #last-day-btn {
+    color: #fff;
+    background-color: #00386c;
+    border-radius: 10px;
+    font-family: Open Sans, sans-serif;
+    font-size: 12px;
+  }
   .custom-input {
     background-color: #fff; /* Adjust color as per your requirement */
     border-radius: 8px; /* Adjust border-radius as per your requirement */
     padding: 10px; /* Adjust padding as per your requirement */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust box-shadow as per your requirement */
     /* Add any other styling you need */
+  }
+  .button-spacing {
+    margin: 0 23px; /* Adjust the margin value according to your preference */
   }
   .message-list-div {
     flex-direction: column;
@@ -7240,6 +7257,18 @@ th {
   .list-dive {
     width: 25vw;
   }
+  .date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
 
   .heading-6 {
     text-align: center;
@@ -7248,7 +7277,16 @@ th {
     font-size: 20px;
     line-height: 30px;
   }
-
+  .heading6 {
+    color: #002b53;
+    font-family: Montserrat, sans-serif;
+    font-size: 40px;
+    margin-top: -114px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 30px;
+  }
   .colour-coded-tafs-page {
     margin-top: -91px;
     padding-left: 0;
@@ -8890,6 +8928,7 @@ textarea.w-select {
 .w-background-video--control > [hidden] {
   display: none !important;
 }
+
 .w-slider {
   position: relative;
   height: 300px;
@@ -13717,7 +13756,10 @@ textarea.w-select {
   .slide-nav {
     padding-top: 62px;
   }
-
+  .prev {
+    background-color: #008c1d;
+    color: #fff;
+  }
   .icon-5 {
     margin-left: 45px;
     margin-right: 0;

@@ -1,4 +1,10 @@
-import { Component, inject, OnInit,ElementRef,HostListener  } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnInit,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
@@ -10,16 +16,31 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 })
 export class ForecastPage implements OnInit {
   isLogged: boolean = false;
-  isFormVisible: boolean = false;
+  isFormVisible: boolean = true;
+  iscodeTafs: boolean = false;
+  isSigmentAirmet: boolean = false;
+  isColorSigmentAirmet: boolean = false;
+  iscolorCodedWarning: boolean = false;
+  isWarning: boolean = false;
+  isAdvesories: boolean = false;
+  istakeOfData:boolean= false;
+  isTAF:boolean = false;
+  isRecentTAF:boolean = false;
+  isTafAccuracy:boolean=false;
+  isTrends:boolean=false
+  isHarmonized:boolean=false;
   isDropdownOpen1: boolean = false;
   isDropdownOpen2: boolean = false;
   isDropdownOpen3: boolean = false;
   selectedOption1: string = 'Wind';
   selectedOption2: string = 'Surface';
   selectedOption3: string = 'Temperature';
-  constructor(private router: Router,
-     private authService: AuthService,
-     private elRef: ElementRef,private iab: InAppBrowser,) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private elRef: ElementRef,
+    private iab: InAppBrowser
+  ) {}
 
   ngOnInit() {}
   get isLoggedIn(): boolean {
@@ -36,7 +57,6 @@ export class ForecastPage implements OnInit {
     }
   }
 
-
   toggleDropdown(dropdown: string) {
     if (dropdown === 'dropdown1') {
       this.isDropdownOpen1 = !this.isDropdownOpen1;
@@ -44,7 +64,7 @@ export class ForecastPage implements OnInit {
       this.isDropdownOpen3 = false;
     }
 
-     if (dropdown === 'dropdown2') {
+    if (dropdown === 'dropdown2') {
       this.isDropdownOpen2 = !this.isDropdownOpen2;
       this.isDropdownOpen1 = false;
       this.isDropdownOpen3 = false;
@@ -65,18 +85,211 @@ export class ForecastPage implements OnInit {
       this.isDropdownOpen2 = false;
     }
   }
-   closeAllDropdowns() {
+  closeAllDropdowns() {
     this.isDropdownOpen1 = false;
     this.isDropdownOpen2 = false;
   }
-
-
-
-
-
-  
-  forecastPage() {
-    this.router.navigate(['/landing-page']);
+  ColorCoded() {
+    this.iscodeTafs = true;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isColorSigmentAirmet = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
   }
- 
+
+  forecastPage() {
+    this.iscodeTafs = false;
+    this.isFormVisible = true;
+    this.isSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isColorSigmentAirmet = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
+  }
+  ColorcodedSigmetAirmet() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = true;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
+  }
+  SigmetAirmet() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = true;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
+  }
+  ColorcodedWarning() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = true;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
+  }
+  Advesories() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = true;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
+  }
+  Warning() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = false;
+    this.isWarning = true;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
+
+  }
+  TakeOfData() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = true;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
+
+  }
+  TAF() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = true;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
+
+  }
+  RecentTAF() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = true;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=false;
+
+  }
+  tafAccuracy() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=true;
+    this.isTrends=false
+    this.isHarmonized=false;
+
+  }
+  Trends() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=true
+    this.isHarmonized=false;
+
+  }
+  harmonized() {
+    this.iscodeTafs = false;
+    this.isFormVisible = false;
+    this.isSigmentAirmet = false;
+    this.isColorSigmentAirmet = false;
+    this.iscolorCodedWarning = false;
+    this.isAdvesories = false;
+    this.isWarning = false;
+    this.istakeOfData = false;
+    this.isTAF = false;
+    this.isRecentTAF = false;
+    this.isTafAccuracy=false;
+    this.isTrends=false
+    this.isHarmonized=true;
+
+  }
 }

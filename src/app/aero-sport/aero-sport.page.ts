@@ -21,12 +21,20 @@ export class AeroSportPage implements OnInit {
   isFormVisible3: boolean = false;
   isKwazulNatal: boolean = false;
   isSpotGfraph: boolean = false;
+  isTSProbability: boolean = false;
+  isCloudForecast: boolean = false;
   isDropdownOpen1: boolean = false;
   isDropdownOpen2: boolean = false;
   isDropdownOpen3: boolean = false;
+  isDropdownOpen4: boolean = false;
+  isDropdownOpen5: boolean = false;
   selectedOption1: string = 'Wind';
   selectedOption2: string = 'Surface';
   selectedOption3: string = 'Temperature';
+  selectedOption4: string = 'Total cloud';
+  selectedOption5: string = '2023-03-20 20:00';
+  nextday: boolean = true;
+  prevday: boolean = false;
 
   constructor(
     private router: Router,
@@ -64,13 +72,59 @@ export class AeroSportPage implements OnInit {
       this.isDropdownOpen1 = false;
       this.isDropdownOpen2 = false;
     }
+    if (dropdown === 'dropdown3') {
+      this.isDropdownOpen3 = !this.isDropdownOpen3;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen2 = false;
+    }
   }
+
   selectOption(option: string, dropdown: string) {
     if (dropdown === 'dropdown1') {
       this.selectedOption1 = option;
       this.isDropdownOpen1 = false;
     } else if (dropdown === 'dropdown2') {
       this.selectedOption2 = option;
+      this.isDropdownOpen2 = false;
+    }
+  }
+
+  forecastDropdown(dropdown: string) {
+    if (dropdown === 'dropdown1') {
+      this.isDropdownOpen1 = !this.isDropdownOpen1;
+      this.isDropdownOpen2 = false;
+      this.isDropdownOpen3 = false;
+      this.isDropdownOpen4 = false;
+      this.isDropdownOpen5 = false;
+    }
+
+    if (dropdown === 'dropdown2') {
+      this.isDropdownOpen2 = !this.isDropdownOpen2;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen3 = false;
+      this.isDropdownOpen4 = false;
+      this.isDropdownOpen5 = false;
+    }
+    if (dropdown === 'dropdown3') {
+      this.isDropdownOpen3 = !this.isDropdownOpen3;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen2 = false;
+      this.isDropdownOpen4 = false;
+      this.isDropdownOpen5 = false;
+    }
+
+    if (dropdown === 'dropdown4') {
+      this.isDropdownOpen4 = !this.isDropdownOpen4;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen3 = false;
+      this.isDropdownOpen2 = false;
+      this.isDropdownOpen5 = false;
+    }
+    if (dropdown === 'dropdown5') {
+      this.isDropdownOpen5 = !this.isDropdownOpen5;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen3 = false;
+      this.isDropdownOpen4 = false;
       this.isDropdownOpen2 = false;
     }
   }
@@ -90,6 +144,8 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible2 = false;
     this.isFormVisible3 = false;
     this.isSpotGfraph = false;
+    this.isCloudForecast = false;
+    this.isTSProbability = false;
   }
   toggleFormVisibility1() {
     this.isFormVisible = false;
@@ -98,6 +154,8 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible2 = true;
     this.isFormVisible3 = false;
     this.isSpotGfraph = false;
+    this.isCloudForecast = false;
+    this.isTSProbability = false;
   }
   toggleFormVisibility2() {
     this.isFormVisible = false;
@@ -105,6 +163,8 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible1 = false;
     this.isFormVisible3 = true;
     this.isSpotGfraph = false;
+    this.isCloudForecast = false;
+    this.isTSProbability = false;
   }
   KwazulNatalToggle() {
     // this.isKwazulNatal=true;
@@ -113,6 +173,8 @@ export class AeroSportPage implements OnInit {
     this.isKwazulNatal = true;
     this.isFormVisible = false;
     this.isSpotGfraph = false;
+    this.isCloudForecast = false;
+    this.isTSProbability = false;
   }
   SpotGraphToggle() {
     // this.isKwazulNatal=true;
@@ -121,8 +183,19 @@ export class AeroSportPage implements OnInit {
     this.isKwazulNatal = false;
     this.isFormVisible = false;
     this.isSpotGfraph = true;
+    this.isCloudForecast = false;
+    this.isTSProbability = false;
   }
-
+  TSProbability() {
+    // this.isKwazulNatal=true;
+    this.isFormVisible2 = false;
+    this.isFormVisible = false;
+    this.isKwazulNatal = false;
+    this.isFormVisible = false;
+    this.isSpotGfraph = false;
+    this.isCloudForecast = false;
+    this.isTSProbability = true;
+  }
   aerosportPage() {
     this.router.navigate(['/landing-page']);
   }
@@ -134,6 +207,25 @@ export class AeroSportPage implements OnInit {
     this.isFormVisible2 = false;
     this.isFormVisible3 = false;
     this.isSpotGfraph = false;
+    this.isCloudForecast = false;
+    this.isTSProbability = false;
   }
- 
+  CloudForecast() {
+    this.isCloudForecast = true;
+    this.isFormVisible = false;
+    this.isKwazulNatal = false;
+    this.isFormVisible1 = false;
+    this.isFormVisible2 = false;
+    this.isFormVisible3 = false;
+    this.isSpotGfraph = false;
+  }
+
+  nextDay() {
+    this.nextday = true;
+    this.prevday = false;
+  }
+  previousDay() {
+    this.nextday = false;
+    this.prevday = true;
+  }
 }
