@@ -2517,6 +2517,10 @@
 
   .heading-5 {
     font-size: 14px;
+    color: #002f5a;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Montserrat, sans-serif;
   }
 
   .heading-6 {
@@ -2974,7 +2978,7 @@
   }
 
   .text-field {
-    width: 80vw;
+    width: 91vw;
   }
 
   .submit-button {
@@ -3428,6 +3432,8 @@
 
   .selection {
     background-color: #00386c;
+    height: 53px;
+    margin-top: 2px;
   }
 
   .grid-19 {
@@ -3512,7 +3518,7 @@
   }
 
   .div-block-39 {
-    flex-direction: column;
+    flex-direction: initial;
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -3684,7 +3690,10 @@
   }
 
   .grid-28 {
-    grid-column-gap: 21px;
+    //grid-column-gap: 21px;
+
+    grid-column-gap: 0px;
+    width: 300px;
   }
 
   .div-block-50 {
@@ -3722,7 +3731,7 @@
   }
 
   .text-field-copy {
-    width: 80vw;
+    width: 91vw;
   }
 
   .ob-metar-history {
@@ -4905,7 +4914,7 @@
   }
   .trand-grid {
     overflow-y: auto;
-    height: 50vh;
+    height: 53vh;
   }
   #w-node-_3138f03a-958e-bfd0-7aae-6103597a6919-114c6fed {
     align-self: center;

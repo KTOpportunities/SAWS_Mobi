@@ -17,7 +17,7 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 export class ForecastPage implements OnInit {
   isLogged: boolean = false;
   isFormVisible: boolean = true;
-  isform2Visible:boolean=true;
+  isform2Visible: boolean = true;
   iscodeTafs: boolean = false;
   isSigmentAirmet: boolean = false;
   isColorSigmentAirmet: boolean = false;
@@ -98,23 +98,18 @@ export class ForecastPage implements OnInit {
       this.isDropdownOpen1 = !this.isDropdownOpen1;
       this.isDropdownOpen2 = false;
       this.isDropdownOpen3 = false;
-     
     }
 
     if (dropdown === 'dropdown2') {
       this.isDropdownOpen2 = !this.isDropdownOpen2;
       this.isDropdownOpen1 = false;
       this.isDropdownOpen3 = false;
-   
     }
     if (dropdown === 'dropdown3') {
       this.isDropdownOpen3 = !this.isDropdownOpen3;
       this.isDropdownOpen1 = false;
       this.isDropdownOpen2 = false;
-   
     }
-
-
   }
   ColorCoded() {
     this.iscodeTafs = true;
@@ -146,6 +141,7 @@ export class ForecastPage implements OnInit {
     this.isTafAccuracy = false;
     this.isTrends = false;
     this.isHarmonized = false;
+    this.isform2Visible = true && this.isLoggedIn == false;
   }
   ColorcodedSigmetAirmet() {
     this.iscodeTafs = false;
@@ -176,6 +172,7 @@ export class ForecastPage implements OnInit {
     this.isTafAccuracy = false;
     this.isTrends = false;
     this.isHarmonized = false;
+    this.isform2Visible = false && this.isLoggedIn == false;
   }
   ColorcodedWarning() {
     this.iscodeTafs = false;
@@ -206,6 +203,7 @@ export class ForecastPage implements OnInit {
     this.isTafAccuracy = false;
     this.isTrends = false;
     this.isHarmonized = false;
+    this.isform2Visible = false && this.isLoggedIn == false;
   }
   Warning() {
     this.iscodeTafs = false;
@@ -251,6 +249,7 @@ export class ForecastPage implements OnInit {
     this.isTafAccuracy = false;
     this.isTrends = false;
     this.isHarmonized = false;
+    this.isform2Visible = false && this.isLoggedIn == false;
   }
   RecentTAF() {
     this.iscodeTafs = false;
@@ -266,6 +265,7 @@ export class ForecastPage implements OnInit {
     this.isTafAccuracy = false;
     this.isTrends = false;
     this.isHarmonized = false;
+    this.isform2Visible = false && this.isLoggedIn == false;
   }
   tafAccuracy() {
     this.iscodeTafs = false;
