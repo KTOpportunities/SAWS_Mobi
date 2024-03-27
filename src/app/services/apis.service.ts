@@ -131,4 +131,23 @@ export class APIService {
       environment.serverAPI + `RawSource/GetSourceTextFolderFiles?textfoldername=${foldername}`
     );
   }
+
+  getFileType(fileMimetype: string): string {
+    const videoMimeTypes = ["video/mp4", "video/quicktime", "video/x-msvideo", "video/x-ms-wmv"];
+    const imageMimeTypes = ["image/jpeg", "image/png", "image/gif", "image/bmp", "image/jpg", "image/svg+xml"];
+    const applicationMimeTypes = ["application/pdf"];
+    const audioMimeTypes = ["audio/mpeg", "audio/mp4", "audio/ogg", "audio/wav",  "audio/mp3"];
+
+    if (videoMimeTypes.includes(fileMimetype)) {
+      return "Video";
+    } else if (imageMimeTypes.includes(fileMimetype)) {
+      return "Image";
+    } else if (applicationMimeTypes.includes(fileMimetype)) {
+      return "Application";
+    } else if (audioMimeTypes.includes(fileMimetype)) {
+      return "Audio";
+    } else {
+      return "Unknown";
+    }
+  }
 }

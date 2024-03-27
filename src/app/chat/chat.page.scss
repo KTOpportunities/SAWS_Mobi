@@ -3914,6 +3914,23 @@
 }
 
 @media screen and (max-width: 479px) {
+
+  .uploaded-files-container {
+    margin-top: 20px;
+  }
+  
+  .uploaded-files-container h2 {
+    font-size: 1.2rem;
+  }
+  
+  .uploaded-files-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .uploaded-files-container li {
+    margin-bottom: 5px;
+  }
   .section {
     padding-top: 0;
   }
