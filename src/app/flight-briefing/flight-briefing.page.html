@@ -10,7 +10,8 @@
         class="image"
       />
     </div> -->
-    <div
+    <div *ngIf="isFlight">
+      <div 
       class=""
       [ngClass]="{'applied-styles': !isLoggedIn}"
       *ngIf="isLoggedIn==true"
@@ -25,20 +26,20 @@
         class="w-layout-grid grid-list"
         style="overflow-y: auto; max-height: 460px; -ms-overflow-style: none"
       >
-        <a
+        <div 
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Flight:Edit</h1>
-        </a>
-        <a
+        </div>
+        <div (click)="importExport()"
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Flight:Import/Export</h1>
-        </a>
+        </div>
         <a
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
@@ -63,6 +64,90 @@
 
       </div>
     </div>
+    </div>
+ 
+
+
+
+    <section class="import-and-export-list"
+    *ngIf="isexportImport">
+      <div class="div-block-2"><img src="images/Path-3452.svg" loading="lazy" width="1216" alt="" class="image"></div>
+      <div class="import-and-export-main-div">
+        <h1 class="heading-6">Import and export flights for <br>lefentse_kto</h1>
+        <div class="w-layout-grid trand-grid">
+          <div id="w-node-_53e524b5-e4df-8ef2-c706-97ca6c55d083-8de35a57" class="div-block-15">
+            <div class="div-block-14"></div>
+          </div>
+          <h1 class="heading-6">Export a flight</h1>
+          <div id="w-node-_53e524b5-e4df-8ef2-c706-97ca6c55d085-8de35a57" class="form-block w-form">
+            <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" class="form-2" data-wf-page-id="66028f62f9359d328de35a57" data-wf-element-id="53e524b5-e4df-8ef2-c706-97ca6c55d086">
+              <div class="div-block-44">
+                <div class="div-block-43"><label for="field-3" class="field-label-2">Choose a flight to be exported to a file:</label>
+                  <div data-hover="false" data-delay="0" class="text-field-blue-copy w-dropdown">
+                    <div class="w-dropdown-toggle">
+                      <div class="icon-2 w-icon-dropdown-toggle"></div>
+                      <div class="text-block">Select flight</div>
+                    </div>
+                    <nav class="dropdown-list w-dropdown-list">
+                      <a href="#" class="w-dropdown-link">Link 1</a>
+                      <a href="#" class="w-dropdown-link">Link 2</a>
+                      <a href="#" class="w-dropdown-link">Link 3</a>
+                    </nav>
+                  </div>
+                </div>
+                <a href="#" class="button-2-copy w-button">Export</a>
+              </div>
+            </form>
+            <div class="w-form-done">
+              <div>Thank you! Your submission has been received!</div>
+            </div>
+            <div class="w-form-fail">
+              <div>Oops! Something went wrong while submitting the form.</div>
+            </div>
+          </div>
+          <h1 class="heading-6">Import a flight</h1>
+          <div id="w-node-_53e524b5-e4df-8ef2-c706-97ca6c55d094-8de35a57" class="div-block-467">
+            <div id="w-node-_0e8e5c57-cfb1-5057-7316-e7393c323e61-8de35a57" class="form-block w-form">
+              <form id="email-form-2" name="email-form-2" data-name="Email Form 2" method="get" class="form-2" data-wf-page-id="66028f62f9359d328de35a57" data-wf-element-id="0e8e5c57-cfb1-5057-7316-e7393c323e62">
+                <div class="div-block-44">
+                  <div class="div-block-43"><label for="field-2" class="field-label-2">Choose File</label>
+                    <div class="upload-div-copy">
+                      <div class="upload-div">
+                        <div class="w-embed">
+                          <form action="/action_page.php">
+                            <input type="file" id="myFile" name="filename">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="div-block-469">
+                    <a href="#" class="button-2-copy w-button">Upload</a>
+                  </div>
+                </div>
+              </form>
+              <div class="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottomdiv"><img src="images/Path-3447.svg" loading="lazy" width="1216" alt="" class="image">
+        <div class="footerdiv">
+          <a href="landing-page.html" class="link-block-5 w-inline-block"><img src="images/Group-4522.svg" loading="lazy" width="35" alt="">
+            <h6 class="heading-10">Forecast</h6>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+
 
     <div class="bottomdiv" style="margin-top: 156%">
       <img
