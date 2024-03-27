@@ -64,6 +64,7 @@
           >
             <h1 class="heading-5">SIGMET/AIRMET</h1>
           </div>
+
           <div
             (click)="TakeOfData()"
             id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
@@ -72,37 +73,38 @@
           >
             <h1 class="heading-5">Take-off data</h1>
           </div>
-          <a
+          <div
+            (click)="TAF()"
             id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
-            href="#"
             class="link-block-3 w-inline-block"
           >
             <h1 class="heading-5">TAF</h1>
-          </a>
+          </div>
 
           <div (click)="RecentTAF()" class="link-block-3 w-inline-block">
             <h1 class="heading-5">Recent TAFs</h1>
           </div>
           <div
+            (click)=" tafAccuracy()"
             id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
             class="link-block-3 w-inline-block"
           >
             <h1 class="heading-5">TAF Accuracy</h1>
           </div>
-          <a
+          <div
+            (click)="Trends() "
             id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
-            href="#"
             class="link-block-3 w-inline-block"
           >
             <h1 class="heading-5">Trends</h1>
-          </a>
-          <a
+          </div>
+          <div
+            (click)="harmonized()"
             id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
-            href="#"
             class="link-block-3 w-inline-block"
           >
             <h1 class="heading-5">WAF Harmonized GRID Products</h1>
-          </a>
+          </div>
           <div
             (click)="Advesories()"
             id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
@@ -122,44 +124,39 @@
       </div>
     </div>
 
-    <div class="list-div" *ngIf="isLoggedIn==false">
+    <div class="list-div" *ngIf="isLoggedIn==false && isform2Visible==true">
       <h1 class="heading-6">Forecast</h1>
       <div class="w-layout-grid grid-list">
-        <a
+        <div
+          (click)="SigmetAirmet()"
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">SIGMET/AIRMET</h1>
-        </a>
-        <a
+        </div>
+        <div
+          (click)="TAF()"
           id="w-node-eeb1886e-2c92-e02c-6736-b9ae31e75cb6-56144603"
-          href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">TAFS</h1>
-        </a>
-        <a
+        </div>
+        <div
+          (click)="RecentTAF()"
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
           href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Recent TAFs</h1>
-        </a>
-        <a
+        </div>
+        <div
+          (click)="Advesories()"
           id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
-          href="#"
           class="link-block-3 w-inline-block"
         >
           <h1 class="heading-5">Advisories</h1>
-        </a>
-        <a
-          id="w-node-_15267599-4e64-b2e4-4f2f-f2a4545a7361-56144603"
-          href="#"
-          class="link-block-3 w-inline-block"
-        >
-          <h1 class="heading-5">Warnings</h1>
-        </a>
+        </div>
       </div>
     </div>
     <section class="colour-coded-tafs-page" *ngIf="iscodeTafs">
@@ -1188,15 +1185,11 @@
     <section class="colour-coded-tafs-page" *ngIf="iscolorCodedWarning">
       <div class="tafs-div">
         <h1 class="heading-6" id="colorcoded">Colour Coded Warnings</h1>
-
         <div class="w-layout-grid grid-6" id="layout">
-          <div
-            id="w-node-e7ec9294-4182-a125-c428-84c8c81f6e70-5aa24fea"
-            class="w-layout-grid grid-cct-copy"
-          >
+          <div class="ObservScrol">
             <div
-              id="w-node-_211f6e7f-4ab3-965d-1518-9c1f84dfceec-5aa24fea"
-              class="cct"
+              id="w-node-d555042c-2103-3281-e838-d1322ba47d6d-5aa24fea"
+              class="div-block-15"
             >
               <h1 class="heading-7">
                 Compiled at Aviation Weather Centre, O.R.T. Int Aiport
@@ -1308,7 +1301,7 @@
               id="w-node-d555042c-2103-3281-e838-d1322ba47d6d-5aa24fea"
               class="div-block-15"
             >
-              <h1 class="heading-22">No valid warnings were found.</h1>
+              <h1 class="heading-7">No valid warnings were found.</h1>
             </div>
           </div>
         </div>
@@ -1396,6 +1389,7 @@
             <div
               id="w-node-_0f4cf57b-54fd-cef3-5784-79020a3fc876-a17d1408"
               class="div-block-35"
+              style="width: 342px"
             >
               <div
                 id="w-node-_1290a973-af24-2a59-897b-d7d3e1d83441-a17d1408"
@@ -1578,8 +1572,377 @@
       </div>
     </section>
 
+    <!--Recent TAF-->
+
+    <section class="re" *ngIf="isRecentTAF">
+      <div class="recent-tafs">
+        <h1 class="heading-6">Recent TAFs</h1>
+        <div class="scrolltaffA">
+          <div class="w-layout-grid grid-6-copy">
+            <div
+              id="w-node-c8da85be-f06f-2243-5777-654520b149b0-9377a649"
+              class="div-block-15"
+            >
+              <div class="div-block-14">
+                <div class="w-layout-grid grid-19">
+                  <div
+                    id="w-node-c8da85be-f06f-2243-5777-654520b149b3-9377a649"
+                    class="div-block-34"
+                  >
+                    <h1 class="heading-23">Date:</h1>
+                    <h1 class="heading-23-copy">2024 -02-05</h1>
+                  </div>
+                  <div
+                    id="w-node-c8da85be-f06f-2243-5777-654520b149b8-9377a649"
+                    class="div-block-34"
+                  >
+                    <h1 class="heading-23">Time</h1>
+                    <h1 class="heading-23-copy">2024/02/ 12:00Z</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              id="w-node-a4a2a6b3-fb94-67a5-1e0f-a72ba37feb73-9377a649"
+              class="form-block w-form"
+            >
+              <form
+                id="email-form-2"
+                name="email-form-2"
+                data-name="Email Form 2"
+                method="get"
+                data-wf-page-id="65c0c298a377a85c9377a649"
+                data-wf-element-id="a4a2a6b3-fb94-67a5-1e0f-a72ba37feb74"
+              >
+                <div class="w-layout-grid grid-24">
+                  <div
+                    id="w-node-ca5eddba-f83b-3b16-a8ac-5450b410e804-9377a649"
+                    class="div-block-41"
+                  >
+                    <label for="field-2" class="field-label"
+                      >Tempalate Name</label
+                    ><input
+                      class="text-field w-input"
+                      maxlength="256"
+                      name="field-2"
+                      data-name="Field 2"
+                      placeholder=""
+                      type="text"
+                      id="field-2"
+                      required=""
+                    />
+                  </div>
+                  <div>
+                    <div
+                      data-hover="false"
+                      data-delay="0"
+                      class="text-field-blue w-dropdown"
+                      (click)="forecastDropdown('dropdown1')"
+                    >
+                      <div class="w-dropdown-toggle">
+                        <div
+                          class="w-icon-dropdown-toggle"
+                          style="margin-left: 300px"
+                        ></div>
+                        <div class="text-block">{{selectedOption1}}</div>
+                      </div>
+                      <nav class="dropdown-list1" *ngIf="isDropdownOpen1">
+                        <a
+                          class="w-dropdown-link"
+                          (click)="selectOption('Total Cloud', 'dropdown1')"
+                          >Total Cloud</a
+                        >
+                        <a
+                          class="w-dropdown-link"
+                          (click)="selectOption('Medium level', 'dropdown1')"
+                          >Medium level</a
+                        >
+                        <a
+                          class="w-dropdown-link"
+                          (click)="selectOption('Low level', 'dropdown1')"
+                          >Low level</a
+                        >
+                        <a
+                          class="w-dropdown-link"
+                          (click)="selectOption('High Level', 'dropdown1')"
+                          >High Level</a
+                        >
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+                <div class="div-block-39">
+                  <input
+                    type="submit"
+                    data-wait="Please wait..."
+                    class="submit-button-3-copy w-button"
+                    value="Save"
+                  /><input
+                    type="submit"
+                    data-wait="Please wait..."
+                    class="submit-button-3 w-button"
+                    value="Cancel"
+                  />
+                </div>
+              </form>
+            </div>
+            <div id="w-node-_38257011-dae8-5f44-9e44-5a2e6988a1a7-9377a649">
+              <div
+                id="w-node-_31003eb4-ce66-d881-6d3a-e92898efc8f5-9377a649"
+                class="div-block-14"
+              >
+                <h5 class="heading-9">Query TAFs</h5>
+                <form action="/search" class="search w-form">
+                  <input
+                    class="search-input w-input"
+                    maxlength="256"
+                    name="query"
+                    placeholder="Search…"
+                    type="search"
+                    id="search"
+                    required=""
+                  /><input
+                    type="submit"
+                    class="search-button w-button"
+                    value="Search"
+                  />
+                </form>
+              </div>
+              <div class="w-form">
+                <form
+                  id="email-form-3"
+                  name="email-form-3"
+                  data-name="Email Form 3"
+                  method="get"
+                  data-wf-page-id="65c0c298a377a85c9377a649"
+                  data-wf-element-id="f1b8684b-0b39-7e93-2135-f1650deadc75"
+                >
+                  <div class="w-layout-grid grid-25">
+                    <div
+                      id="w-node-_5ca72a72-b198-e603-e4a9-5569bcb17122-9377a649"
+                    >
+                      <label for="" class="field-label">Time</label>
+                      <div>
+                        <div
+                          data-hover="false"
+                          data-delay="0"
+                          class="text-field-blue w-dropdown"
+                          (click)="forecastDropdown('dropdown2')"
+                          style="z-index: 1000; position: relative"
+                        >
+                          <div class="w-dropdown-toggle">
+                            <div
+                              class="w-icon-dropdown-toggle"
+                              style="margin-left: 300px"
+                            ></div>
+                            <div class="text-block">{{selectedOption2}}</div>
+                          </div>
+                          <nav class="dropdown-list1" *ngIf="isDropdownOpen2">
+                            <a
+                              class="w-dropdown-link"
+                              (click)="selectOption('Total Cloud', 'dropdown2')"
+                              >Total Cloud</a
+                            >
+                            <a
+                              class="w-dropdown-link"
+                              (click)="selectOption('Medium level', 'dropdown2')"
+                              >Medium level</a
+                            >
+                            <a
+                              class="w-dropdown-link"
+                              (click)="selectOption('Low level', 'dropdown2')"
+                              >Low level</a
+                            >
+                            <a
+                              class="w-dropdown-link"
+                              (click)="selectOption('High Level', 'dropdown2')"
+                              >High Level</a
+                            >
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="w-node-_3e49d3ec-67c7-cead-1c50-d5e7fa7f12d9-9377a649"
+                    >
+                      <label for="" class="field-label"
+                        >Refresh This page every</label
+                      >
+                      <div>
+                        <div
+                          data-hover="false"
+                          data-delay="0"
+                          class="text-field-blue w-dropdown"
+                          (click)="forecastDropdown('dropdown3')"
+                          style="z-index: 1000; position: relative"
+                        >
+                          <div class="w-dropdown-toggle">
+                            <div
+                              class="w-icon-dropdown-toggle"
+                              style="margin-left: 300px"
+                            ></div>
+                            <div class="text-block">{{selectedOption3}}</div>
+                          </div>
+                          <nav class="dropdown-list1" *ngIf="isDropdownOpen3">
+                            <a
+                              class="w-dropdown-link"
+                              (click)="selectOption('Total Cloud', 'dropdown3')"
+                              >1 min</a
+                            >
+                            <a
+                              class="w-dropdown-link"
+                              (click)="selectOption('Medium level', 'dropdown3')"
+                              >2 Min</a
+                            >
+                            <a
+                              class="w-dropdown-link"
+                              (click)="selectOption('Low level', 'dropdown3')"
+                              >3 min</a
+                            >
+                            <a
+                              class="w-dropdown-link"
+                              (click)="selectOption('High Level', 'dropdown3')"
+                              >4 min</a
+                            >
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="div-block-15">
+            <h1 class="heading-22">Gauteng</h1>
+            <div class="div-block-32">
+              <div class="w-layout-grid ccta-grid">
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062c7-9377a649"
+                  class="cct-copy-copy"
+                >
+                  <a href="#" class="button w-button">Normal</a>
+                </div>
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062ca-9377a649"
+                  class="cct-copy"
+                >
+                  <a href="#" class="button-2 w-button">Colour / Style Index</a>
+                </div>
+              </div>
+            </div>
+            <div class="div-block-45">
+              <div class="w-layout-grid heading-text">
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062cf-9377a649"
+                  class="cct-copy-copy"
+                >
+                  <h1 class="heading-21">
+                    TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                  </h1>
+                </div>
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062d2-9377a649"
+                  class="cct-copy"
+                >
+                  <a href="#" class="button-2-copy w-button">View Decoded</a>
+                </div>
+              </div>
+              <div class="w-layout-grid grid-18">
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062d6-9377a649"
+                  class="div-block-16"
+                >
+                  <p class="paragraph-2">
+                    TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT
+                    <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong>
+                    FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG
+                    0300/0302 35010KT=
+                  </p>
+                </div>
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062e2-9377a649"
+                  class="div-block-17"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div class="w-layout-grid heading-text">
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062e5-9377a649"
+                  class="cct-copy-copy"
+                >
+                  <h1 class="heading-21">
+                    TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                  </h1>
+                </div>
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062e8-9377a649"
+                  class="cct-copy"
+                >
+                  <a href="#" class="button-2-copy w-button">View Decoded</a>
+                </div>
+              </div>
+              <div class="w-layout-grid grid-18">
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062ec-9377a649"
+                  class="div-block-16"
+                >
+                  <p class="paragraph-2">
+                    TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT
+                    <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong>
+                    FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG
+                    0300/0302 35010KT=
+                  </p>
+                </div>
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062f8-9377a649"
+                  class="div-block-17"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div class="w-layout-grid heading-text">
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062fb-9377a649"
+                  class="cct-copy-copy"
+                >
+                  <h1 class="heading-21">
+                    TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                  </h1>
+                </div>
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f062fe-9377a649"
+                  class="cct-copy"
+                >
+                  <a href="#" class="button-2-copy w-button">View Decoded</a>
+                </div>
+              </div>
+              <div class="w-layout-grid grid-18">
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f06302-9377a649"
+                  class="div-block-16"
+                >
+                  <p class="paragraph-2">
+                    TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT
+                    <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong>
+                    FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG
+                    0300/0302 35010KT=
+                  </p>
+                </div>
+                <div
+                  id="w-node-_2138101a-874f-ccf2-cab5-adfa22f0630e-9377a649"
+                  class="div-block-17"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!--TAF Accuracy-->
-    <section class="tafs-div" *ngIf="isRecentTAF">
+    <section class="tafs-div" *ngIf="isTafAccuracy">
       <div class="taf-accuracy-main-div">
         <h1 class="heading-6">TAF Accuracy</h1>
         <h1 class="heading-23">
@@ -1613,7 +1976,10 @@
                   (click)="toggleDropdown('dropdown1')"
                 >
                   <div class="w-dropdown-toggle">
-                    <div class="icon-2 w-icon-dropdown-toggle"></div>
+                    <div
+                      class="w-icon-dropdown-toggle"
+                      style="margin-left: 300px"
+                    ></div>
                     <div class="text-block">{{selectedOption1}}</div>
                   </div>
                   <nav class="dropdown-list1" *ngIf="isDropdownOpen1">
@@ -1661,7 +2027,10 @@
                       class="text-field w-dropdown"
                     >
                       <div class="w-dropdown-toggle">
-                        <div class="icon-2 w-icon-dropdown-toggle"></div>
+                        <div
+                          class="w-icon-dropdown-toggle"
+                          style="margin-left: 300px"
+                        ></div>
                         <div class="text-block">00:00</div>
                       </div>
                       <nav class="dropdown-list w-dropdown-list">
@@ -1732,7 +2101,747 @@
         </div>
       </div>
     </section>
-    <div class="bottomdiv" style="margin-top: 148%">
+    <!--Trends-->
+    <section class="trends-section" *ngIf="isTrends">
+      <div class="trends-main-div">
+        <h1 class="heading-6">METAR trend analysis for FAPP</h1>
+        <div class="w-layout-grid trand-grid">
+          <div
+            id="w-node-_6a0a6966-5958-4d57-f8ce-0295cfc1bcc3-08dc15aa"
+            class="div-block-15"
+          >
+            <div class="div-block-14"></div>
+          </div>
+          <div
+            id="w-node-_6a0a6966-5958-4d57-f8ce-0295cfc1bcc5-08dc15aa"
+            class="form-block w-form"
+          >
+            <form
+              id="email-form-2"
+              name="email-form-2"
+              data-name="Email Form 2"
+              method="get"
+              class="form-2"
+              data-wf-page-id="65c5f8d4368e2bdb08dc15aa"
+              data-wf-element-id="6a0a6966-5958-4d57-f8ce-0295cfc1bcc6"
+            >
+              <div>
+                <div
+                  data-hover="false"
+                  data-delay="0"
+                  class="text-field-blue w-dropdown"
+                  (click)="forecastDropdown('dropdown3')"
+                  style="z-index: 1000; position: relative"
+                >
+                  <div class="w-dropdown-toggle">
+                    <div
+                      class="w-icon-dropdown-toggle"
+                      style="margin-left: 300px"
+                    ></div>
+                    <div class="text-block">Select One</div>
+                  </div>
+                  <nav class="dropdown-list1" *ngIf="isDropdownOpen3">
+                    <a
+                      class="w-dropdown-link"
+                      (click)="selectOption('Total Cloud', 'dropdown3')"
+                      >Option 1</a
+                    >
+                    <a
+                      class="w-dropdown-link"
+                      (click)="selectOption('Medium level', 'dropdown3')"
+                      >Option 2</a
+                    >
+                    <a
+                      class="w-dropdown-link"
+                      (click)="selectOption('Low level', 'dropdown3')"
+                      >Option 3</a
+                    >
+                    <a
+                      class="w-dropdown-link"
+                      (click)="selectOption('High Level', 'dropdown3')"
+                      >Option 4</a
+                    >
+                  </nav>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div id="w-node-_6a0a6966-5958-4d57-f8ce-0295cfc1bcf0-08dc15aa">
+            <h4 class="heading-18-copy">Last 5 METARs</h4>
+            <div class="w-layout-grid heading-copy">
+              <div
+                id="w-node-_6b3c4011-ab92-bc1a-c98c-e86dca91f155-08dc15aa"
+                class="cct-copy-copy"
+              >
+                <h1 class="heading-21">
+                  TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                </h1>
+              </div>
+              <div
+                id="w-node-_6b3c4011-ab92-bc1a-c98c-e86dca91f158-08dc15aa"
+                class="cct-copy"
+              >
+                <a href="#" class="button-2-copy w-button">View Decoded</a>
+              </div>
+            </div>
+            <div class="w-layout-grid heading-copy">
+              <div
+                id="w-node-dff9d405-0d56-505d-ae65-91adf39a3ecc-08dc15aa"
+                class="cct-copy-copy"
+              >
+                <h1 class="heading-21">
+                  TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                </h1>
+              </div>
+              <div
+                id="w-node-dff9d405-0d56-505d-ae65-91adf39a3ecf-08dc15aa"
+                class="cct-copy"
+              >
+                <a href="#" class="button-2-copy w-button">View Decoded</a>
+              </div>
+            </div>
+            <div class="w-layout-grid heading-copy">
+              <div
+                id="w-node-e09cd6a8-0cd3-2ddd-2975-e95933cb124d-08dc15aa"
+                class="cct-copy-copy"
+              >
+                <h1 class="heading-21">
+                  TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                </h1>
+              </div>
+              <div
+                id="w-node-e09cd6a8-0cd3-2ddd-2975-e95933cb1250-08dc15aa"
+                class="cct-copy"
+              >
+                <a href="#" class="button-2-copy w-button">View Decoded</a>
+              </div>
+            </div>
+            <div class="w-layout-grid heading-copy">
+              <div
+                id="w-node-_5ad5d13a-eda8-4afe-b77e-03a61a6d0528-08dc15aa"
+                class="cct-copy-copy"
+              >
+                <h1 class="heading-21">
+                  TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                </h1>
+              </div>
+              <div
+                id="w-node-_5ad5d13a-eda8-4afe-b77e-03a61a6d052b-08dc15aa"
+                class="cct-copy"
+              >
+                <a href="#" class="button-2-copy w-button">View Decoded</a>
+              </div>
+            </div>
+            <div class="w-layout-grid heading-copy">
+              <div
+                id="w-node-bf359430-1eaf-8c1e-0417-ed4b8510f999-08dc15aa"
+                class="cct-copy-copy"
+              >
+                <h1 class="heading-21">
+                  TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                </h1>
+              </div>
+              <div
+                id="w-node-bf359430-1eaf-8c1e-0417-ed4b8510f99c-08dc15aa"
+                class="cct-copy"
+              >
+                <a href="#" class="button-2-copy w-button">View Decoded</a>
+              </div>
+            </div>
+          </div>
+          <h4 class="heading-18-copy">Recent trends</h4>
+          <div id="w-node-_32fa1da3-ec8e-2287-b099-1777af56f137-08dc15aa">
+            <div class="w-layout-grid grid-26">
+              <div
+                id="w-node-_2831ec07-9178-f247-23e8-74ec8d8279c6-08dc15aa"
+                class="div-blue"
+              >
+                <h1 class="heading-18-copy-copy">phphphph</h1>
+              </div>
+              <div
+                id="w-node-_7b94f6ac-a15d-11bd-9793-42488f62af06-08dc15aa"
+                class="div-white"
+              >
+                <div class="w-layout-grid grid-27">
+                  <div
+                    id="w-node-d5c612e6-82be-f36c-2825-54ff2c0c14cf-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">0100</h4>
+                  </div>
+                  <div
+                    id="w-node-d9258c83-a834-e7ee-fadf-302e5193fc04-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">1023</h4>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="w-node-_4364189e-7533-569b-4202-f234740a5ba9-08dc15aa"
+                class="div-blue-copy"
+              >
+                <div class="w-layout-grid grid-27">
+                  <div
+                    id="w-node-e99390c0-062e-a085-84d5-3b4f508f3e91-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">0100</h4>
+                  </div>
+                  <div
+                    id="w-node-e99390c0-062e-a085-84d5-3b4f508f3e94-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">1023</h4>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="w-node-fdce030b-8893-82a4-4606-e7ead4d215f8-08dc15aa"
+                class="div-white"
+              >
+                <div class="w-layout-grid grid-27">
+                  <div
+                    id="w-node-fdce030b-8893-82a4-4606-e7ead4d215fa-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">0100</h4>
+                  </div>
+                  <div
+                    id="w-node-fdce030b-8893-82a4-4606-e7ead4d215fd-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">1023</h4>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="w-node-f2b16de9-1edf-5f62-9ecb-6689b47d089a-08dc15aa"
+                class="div-blue-copy"
+              >
+                <div class="w-layout-grid grid-27">
+                  <div
+                    id="w-node-f2b16de9-1edf-5f62-9ecb-6689b47d089c-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">0100</h4>
+                  </div>
+                  <div
+                    id="w-node-f2b16de9-1edf-5f62-9ecb-6689b47d089f-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">1023</h4>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="w-node-_22798957-302f-17e7-7edf-a8fec698c683-08dc15aa"
+                class="div-white"
+              >
+                <div class="w-layout-grid grid-27">
+                  <div
+                    id="w-node-_22798957-302f-17e7-7edf-a8fec698c685-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">0100</h4>
+                  </div>
+                  <div
+                    id="w-node-_22798957-302f-17e7-7edf-a8fec698c688-08dc15aa"
+                    class="div-block-48"
+                  >
+                    <h4 class="heading-21">1023</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            id="w-node-_6a0a6966-5958-4d57-f8ce-0295cfc1bd1c-08dc15aa"
+            class="w-layout-blockcontainer w-container"
+          >
+            <img
+              src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg"
+              loading="lazy"
+              width="687"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Harmonized Grid Productsa-->
+    <section class="wafs" *ngIf="isHarmonized">
+      <div class="wafs-main-div">
+        <h1 class="heading-6">WAFS Harmonized Grid Products</h1>
+        <div>
+          <div class="w-layout-grid wafs-grid">
+            <h1 class="heading-22">Turbulence severity</h1>
+            <div
+              id="w-node-ef019769-0a23-e54b-1d86-7b9710894eda-2fcb9e5c"
+              class="div-block-49"
+            >
+              <div class="w-layout-grid grid-28">
+                <div
+                  id="w-node-dd13de53-47d1-a093-716d-5de4c2fdc0fa-2fcb9e5c"
+                  class="div-block-50"
+                >
+                  <h1 class="heading-24">1800</h1>
+                </div>
+                <div
+                  id="w-node-ec3b6dab-fe4f-2132-5aef-df806503eb56-2fcb9e5c"
+                  class="div-block-51"
+                >
+                  <h1 class="heading-24">1200</h1>
+                </div>
+              </div>
+            </div>
+            <div
+              id="w-node-_5733523f-306c-32b4-30fb-a20710a06e96-2fcb9e5c"
+              class="div-white"
+            >
+              <div class="w-layout-grid grid-28">
+                <div
+                  id="w-node-_5733523f-306c-32b4-30fb-a20710a06e98-2fcb9e5c"
+                  class="div-block-50"
+                >
+                  <h1 class="heading-25">700_hPa/FL100</h1>
+                </div>
+                <div id="w-node-_5733523f-306c-32b4-30fb-a20710a06e9b-2fcb9e5c">
+                  <h1 class="heading-25">700_hPa/FL100</h1>
+                </div>
+              </div>
+            </div>
+            <div
+              id="w-node-_1446fe88-0eed-1640-3b3d-3000a8722628-2fcb9e5c"
+              class="div-blue-copy"
+            >
+              <div class="w-layout-grid grid-28">
+                <div
+                  id="w-node-_1446fe88-0eed-1640-3b3d-3000a872262a-2fcb9e5c"
+                  class="div-block-50"
+                >
+                  <h1 class="heading-25">600_hPa/FL140</h1>
+                </div>
+                <div id="w-node-_1446fe88-0eed-1640-3b3d-3000a872262d-2fcb9e5c">
+                  <h1 class="heading-25">600_hPa/FL140</h1>
+                </div>
+              </div>
+            </div>
+            <div
+              id="w-node-_7f080c93-2a9a-ecef-2f45-91c33411282e-2fcb9e5c"
+              class="div-white"
+            >
+              <div class="w-layout-grid grid-28">
+                <div
+                  id="w-node-_7f080c93-2a9a-ecef-2f45-91c334112830-2fcb9e5c"
+                  class="div-block-50"
+                >
+                  <h1 class="heading-25">700_hPa/FL100</h1>
+                </div>
+                <div id="w-node-_7f080c93-2a9a-ecef-2f45-91c334112833-2fcb9e5c">
+                  <h1 class="heading-25">700_hPa/FL100</h1>
+                </div>
+              </div>
+            </div>
+            <div
+              id="w-node-bf115e35-c5f9-ded9-6714-e4336c46ee5f-2fcb9e5c"
+              class="div-blue-copy"
+            >
+              <div class="w-layout-grid grid-28">
+                <div
+                  id="w-node-bf115e35-c5f9-ded9-6714-e4336c46ee61-2fcb9e5c"
+                  class="div-block-50"
+                >
+                  <h1 class="heading-25">600_hPa/FL140</h1>
+                </div>
+                <div id="w-node-bf115e35-c5f9-ded9-6714-e4336c46ee64-2fcb9e5c">
+                  <h1 class="heading-25">600_hPa/FL140</h1>
+                </div>
+              </div>
+            </div>
+            <div
+              id="w-node-_1ac7c2df-d52b-24c7-97e0-266ea375bff5-2fcb9e5c"
+              class="div-white"
+            >
+              <div class="w-layout-grid grid-28">
+                <div
+                  id="w-node-_1ac7c2df-d52b-24c7-97e0-266ea375bff7-2fcb9e5c"
+                  class="div-block-50"
+                >
+                  <h1 class="heading-25">700_hPa/FL100</h1>
+                </div>
+                <div id="w-node-_1ac7c2df-d52b-24c7-97e0-266ea375bffa-2fcb9e5c">
+                  <h1 class="heading-25">700_hPa/FL100</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--TAF-->
+    <section class="colour-coded-tafs-page" *ngIf="isTAF">
+      <div class="tafs-div">
+        <h1 class="heading-6" id="colorcoded">
+          TAF - Terminal Aerodrome Forecast
+        </h1>
+
+        <div class="w-layout-grid grid-6" id="layout">
+          <div
+            id="w-node-e7ec9294-4182-a125-c428-84c8c81f6e70-5aa24fea"
+            class="w-layout-grid grid-cct-copy"
+          >
+            <div
+              id="w-node-_211f6e7f-4ab3-965d-1518-9c1f84dfceec-5aa24fea"
+              class="cct"
+            >
+              <h1 class="heading-7">Date :</h1>
+              <h1 class="heading-8">2024 - 01 - 22</h1>
+            </div>
+            <div
+              id="w-node-_2ef88a37-3b9e-7fec-658a-a6f84d594d57-5aa24fea"
+              class="cct"
+            >
+              <h1 class="heading-7">Time :</h1>
+              <h1 class="heading-8">13:15:45</h1>
+            </div>
+          </div>
+          <div class="ObservScrol">
+            <div
+              id="w-node-f5bb06e8-f72c-b502-4775-b999902099d0-5aa24fea"
+              class="div-block-14-copy"
+            >
+              <div>
+                <h5 class="heading-9">Query Airmet</h5>
+                <form action="/search" class="search w-form">
+                  <input
+                    class="search-input w-input"
+                    maxlength="256"
+                    name="query"
+                    placeholder="Search…"
+                    type="search"
+                    id="search"
+                    required=""
+                  /><input
+                    type="submit"
+                    class="search-button w-button"
+                    value="Search"
+                  />
+                </form>
+              </div>
+            </div>
+            <div
+              id="w-node-d555042c-2103-3281-e838-d1322ba47d6d-5aa24fea"
+              class="div-block-15"
+            >
+              <h1 class="heading-22">Gauteng</h1>
+              <div class="div-block-32">
+                <div class="w-layout-grid ccta-grid">
+                  <div
+                    id="w-node-_57550a27-1ac8-4e06-fec5-4615467d2d92-5aa24fea"
+                    class="cct-copy-copy"
+                  >
+                    <a href="#" class="button w-button" id="Normal">Normal</a>
+                  </div>
+                  <div
+                    id="w-node-dca3828b-c7c5-dc10-2800-1d3f80dab2ac-5aa24fea"
+                    class="cct-copy"
+                  >
+                    <a href="#" class="button-2 w-button"
+                      >Colour / Style Index</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div
+                    id="w-node-a834d5f5-d929-0d29-d8b5-fea245e1469a-5aa24fea"
+                    class="cct-copy-copy"
+                  >
+                    <h1 class="heading-21">
+                      TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                    </h1>
+                  </div>
+                  <div
+                    id="w-node-a834d5f5-d929-0d29-d8b5-fea245e1469f-5aa24fea"
+                    class="cct-copy"
+                  >
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div
+                    id="w-node-deccbcce-e2a3-809c-2b63-5e2db6329c6d-5aa24fea"
+                    class="div-block-16"
+                  >
+                    <p class="paragraph-2">
+                      TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT
+                      <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong>
+                      FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG
+                      0300/0302 35010KT=
+                    </p>
+                  </div>
+                  <div
+                    id="w-node-deccbcce-e2a3-809c-2b63-5e2db6329c70-5aa24fea"
+                    class="div-block-17"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div
+                    id="w-node-_119b902f-f2e9-e7f8-ff03-97df0eb32135-5aa24fea"
+                    class="cct-copy-copy"
+                  >
+                    <h1 class="heading-21">
+                      TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                    </h1>
+                  </div>
+                  <div
+                    id="w-node-_119b902f-f2e9-e7f8-ff03-97df0eb32138-5aa24fea"
+                    class="cct-copy"
+                  >
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div
+                    id="w-node-_119b902f-f2e9-e7f8-ff03-97df0eb3213c-5aa24fea"
+                    class="div-block-16"
+                  >
+                    <p class="paragraph-2">
+                      TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT
+                      <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong>
+                      FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG
+                      0300/0302 35010KT=
+                    </p>
+                  </div>
+                  <div
+                    id="w-node-_119b902f-f2e9-e7f8-ff03-97df0eb32148-5aa24fea"
+                    class="div-block-17"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div
+                    id="w-node-_1511af9d-a613-35a7-2eb5-86bd8d2053fd-5aa24fea"
+                    class="cct-copy-copy"
+                  >
+                    <h1 class="heading-21">
+                      TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                    </h1>
+                  </div>
+                  <div
+                    id="w-node-_1511af9d-a613-35a7-2eb5-86bd8d205400-5aa24fea"
+                    class="cct-copy"
+                  >
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div
+                    id="w-node-_1511af9d-a613-35a7-2eb5-86bd8d205404-5aa24fea"
+                    class="div-block-16"
+                  >
+                    <p class="paragraph-2">
+                      TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT
+                      <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong>
+                      FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG
+                      0300/0302 35010KT=
+                    </p>
+                  </div>
+                  <div
+                    id="w-node-_1511af9d-a613-35a7-2eb5-86bd8d205410-5aa24fea"
+                    class="div-block-17"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a02-5aa24fea"
+              class="div-block-15"
+            >
+              <h1 class="heading-22">Limpopo</h1>
+              <div class="div-block-32">
+                <div class="w-layout-grid ccta-grid">
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a07-5aa24fea"
+                    class="cct-copy-copy"
+                  >
+                    <a href="#" class="button w-button" id="Normal">Normal</a>
+                  </div>
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a0a-5aa24fea"
+                    class="cct-copy"
+                  >
+                    <a href="#" class="button-2 w-button"
+                      >Colour / Style Index</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a0f-5aa24fea"
+                    class="cct-copy-copy"
+                  >
+                    <h1 class="heading-21">
+                      TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                    </h1>
+                  </div>
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a12-5aa24fea"
+                    class="cct-copy"
+                  >
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a16-5aa24fea"
+                    class="div-block-16"
+                  >
+                    <p class="paragraph-2">
+                      TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT
+                      <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong>
+                      FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG
+                      0300/0302 35010KT=
+                    </p>
+                  </div>
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a22-5aa24fea"
+                    class="div-block-17"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a25-5aa24fea"
+                    class="cct-copy-copy"
+                  >
+                    <h1 class="heading-21">
+                      TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                    </h1>
+                  </div>
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a28-5aa24fea"
+                    class="cct-copy"
+                  >
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a2c-5aa24fea"
+                    class="div-block-16"
+                  >
+                    <p class="paragraph-2">
+                      TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT
+                      <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong>
+                      FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG
+                      0300/0302 35010KT=
+                    </p>
+                  </div>
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a38-5aa24fea"
+                    class="div-block-17"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="w-layout-grid heading-text">
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a3b-5aa24fea"
+                    class="cct-copy-copy"
+                  >
+                    <h1 class="heading-21">
+                      TAF AMD FAOR 221033Z 2212/2318 VRB03KT 9999 SCT040
+                    </h1>
+                  </div>
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a3e-5aa24fea"
+                    class="cct-copy"
+                  >
+                    <a href="#" class="button-2-copy w-button">View Decoded</a>
+                  </div>
+                </div>
+                <div class="w-layout-grid grid-18">
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a42-5aa24fea"
+                    class="div-block-16"
+                  >
+                    <p class="paragraph-2">
+                      TX26/0213Z TN16/0303Z BECMG 0209/0211 15010KT
+                      <em>PROB30</em> TEMPO 0214/0220 -<strong>TSRA</strong>
+                      FEW030<strong>CB</strong>BECMG 0217/0219 VRB03KT BECMG
+                      0300/0302 35010KT=
+                    </p>
+                  </div>
+                  <div
+                    id="w-node-baf2c695-dc7d-239a-214f-78aae7ec4a4e-5aa24fea"
+                    class="div-block-17"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottomdiv">
+        <img
+          src="images/Path-3447.svg"
+          loading="lazy"
+          width="1216"
+          alt=""
+          class="image"
+        />
+        <div class="footerdiv">
+          <a href="landing-page.html" class="link-block-5 w-inline-block"
+            ><img
+              src="images/Group-4522.svg"
+              loading="lazy"
+              width="35"
+              alt=""
+            />
+            <h6 class="heading-10">Forecast</h6>
+          </a>
+        </div>
+      </div>
+    </section>
+    <div class="bottomdiv" style="margin-top: 148%" *ngIf="isFormVisible">
+      <img
+        src="../../assets/Path-3447.svg"
+        loading="lazy"
+        width="1216"
+        alt=""
+      />
+      <div class="footerdiv">
+        <a
+          (click)="LandingPage()"
+          class="link-block-5 w-inline-block"
+          style="position: relative; top: -11px"
+          ><img src="../../assets/Group-3489.svg" loading="lazy" alt="" />
+          <h6
+            class="heading-10-copy"
+            style="
+              color: #fff;
+              margin-top: 9px;
+              margin-bottom: 0;
+              font-family: Montserrat, sans-serif;
+              text-decoration: none;
+              font-size: 12px;
+              margin-top: 4px;
+            "
+          ></h6
+        ></a>
+      </div>
+    </div>
+
+    <div class="bottomdiv" style="margin-top: 148%" *ngIf="!isFormVisible">
       <img
         src="../../assets/Path-3447.svg"
         loading="lazy"
@@ -1740,31 +2849,14 @@
         alt=""
         class="image"
       />
-      <div class="footerdiv">
+
+      <div class="footerdiv" id="footerdivid">
         <a
           (click)="forecastPage()"
           class="link-block-5 w-inline-block"
           style="position: relative; top: -11px"
-          ><img
-            style="height: 35px"
-            src="../../assets/Group-4522.svg"
-            loading="lazy"
-            alt=""
-          />
-          <h6
-            class="heading-10-copy"
-            style="
-              color: #fff;
-              margin-top: 10px;
-              margin-bottom: 0;
-              font-family: Montserrat, sans-serif;
-              text-decoration: none;
-              font-size: 12px;
-              margin-top: 4px;
-            "
-          >
-            Forecast
-          </h6></a
+          ><img src="../../assets/Group-4522.svg" loading="lazy" alt="" />
+          <h6 class="heading-10-copy" id="styleh6">Forecast</h6></a
         >
       </div>
     </div>
