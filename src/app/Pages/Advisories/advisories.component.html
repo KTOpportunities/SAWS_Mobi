@@ -1,0 +1,110 @@
+
+<ion-content>
+  <div *ngIf="isLoading == true" class="loading-indicator"><ion-spinner *ngIf="isLoading == true" name="bubbles"></ion-spinner>Loading...</div>
+  <section class="list-page" style="overflow-x: scroll;">
+        <!--Advesories-->
+        <section class="tafs-div">
+          <h1 class="heading-6" id="colorcoded">Advisories</h1>
+          <div class="advisoires-main-div">
+            <div class="div-blue">
+              <div class="w-layout-grid grid-31">
+                <div>
+                  <div class="w-form">
+                    <form
+                      id="email-form-2"
+                      name="email-form-2"
+                      data-name="Email Form 2"
+                      method="get"
+                      data-wf-page-id="65c9da2a037d4dc4642a39ea"
+                      data-wf-element-id="e0b19718-0678-64c8-b782-9d993cb1a88c"
+                    >
+                      <div>
+                        <label for="field-2" class="adv-text-f">Volcanos</label
+                        ><select
+                          id="field-2"
+                          name="field-2"
+                          data-name="Field 2"
+                          class="text-field-copy w-select"
+                          [(ngModel)]="filter"
+                          (change)="ScrollToFilter($event)"
+                        >
+                        <option disabled>volcano</option>
+                          <option *ngFor="let volcano of VolcanoList"
+                          [value]="volcano.value">{{volcano.viewValue}}</option>
+                        </select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div>
+                  <div class="w-form">
+                    <form
+                      id="email-form-2"
+                      name="email-form-2"
+                      data-name="Email Form 2"
+                      method="get"
+                      data-wf-page-id="65c9da2a037d4dc4642a39ea"
+                      data-wf-element-id="a090cc6e-1de4-51e9-48c9-85380b9034b0"
+                    >
+                      <div>
+                        <label for="field-3" class="adv-text-f">Cyclone</label
+                        ><select
+                          id="field-2"
+                          name="field-2"
+                          data-name="Field 2"
+                          class="text-field-copy w-select"
+                          [(ngModel)]="filter2"
+                          (change)="ScrollToFilter($event)"
+                        >
+                          <option *ngFor="let cyclone of CycloneList"
+                          [value]="cyclone.value">{{cyclone.viewValue}}</option>
+                        </select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div>
+                  <div class="w-form">
+                    <form
+                      id="email-form-2"
+                      name="email-form-2"
+                      data-name="Email Form 2"
+                      method="get"
+                      data-wf-page-id="65c9da2a037d4dc4642a39ea"
+                      data-wf-element-id="104b6498-cff7-78e0-c9d3-3cdee0c139e7"
+                    >
+                      <div>
+                        <label for="field-3" class="adv-text-f">SWX</label
+                        ><select
+                          id="field-2"
+                          name="field-2"
+                          data-name="Field 2"
+                          class="text-field-copy w-select"
+                        >
+                          <option value="">Select one...</option>
+                        </select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="tafs-div" *ngFor="let text of AdvisoriesList">
+          <h1 class="heading-6" id="{{text.Id}}">{{text.heading}}</h1>
+          <h1 class="heading-6" >{{text.lastmodified | date: "yyyy/MM/dd HH:mm"}}</h1>
+          <span style="white-space: pre-line;" id="{{text.Id}}">
+            {{text.filetextcontent}}
+          </span>
+          <hr>
+        </section>
+
+        <button (click)="ScrollToTop('colorcoded')" id="btntotop" title="Go to top">Top</button>
+  </section>
+    
+</ion-content>
+
+
+

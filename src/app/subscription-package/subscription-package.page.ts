@@ -58,7 +58,7 @@ export class SubscriptionPackagePage implements OnInit {
 
     const currentUrl = window.location.href;
     console.log(currentUrl);
-    var landingPage = currentUrl.substr(0, currentUrl.lastIndexOf('\\') + 1);
+    var landingPage = currentUrl.substr(0, currentUrl.lastIndexOf('/') + 1);
     console.log(landingPage + 'landing-page');
     this.subsObj.returnUrl = landingPage + 'landing-page';
 
