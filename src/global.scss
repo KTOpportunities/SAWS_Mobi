@@ -3145,7 +3145,6 @@
 }
 
 @media screen and (max-width: 479px) {
-  
   .slider-2 {
     width: 88vw;
   }
@@ -3153,11 +3152,12 @@
     max-width: 89vw;
   }
   .heading-5 {
-    font-size: 14px !important;
+    font-size: 14px;
     color: #002f5a;
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: Montserrat, sans-serif;
+    font-weight: bold;
   }
   .div-block-453,
   .div-block-454,
