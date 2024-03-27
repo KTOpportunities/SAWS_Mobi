@@ -8,6 +8,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-forecast',
@@ -39,7 +40,8 @@ export class ForecastPage implements OnInit {
     private router: Router,
     private authService: AuthService,
     private elRef: ElementRef,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit() {}
@@ -179,6 +181,10 @@ export class ForecastPage implements OnInit {
     this.isTafAccuracy=false;
     this.isTrends=false
     this.isHarmonized=false;
+    debugger;
+    this.spinner.show();
+      this.router.navigate(['/advisories']);
+
   }
   Warning() {
     this.iscodeTafs = false;

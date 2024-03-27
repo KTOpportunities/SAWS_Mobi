@@ -172,6 +172,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./web-cam/web-cam.module').then((m) => m.WebCamPageModule),
   },
+  {
+    path: 'advisories',
+    loadChildren: () =>
+      import('./Pages/Advisories/advisories.module').then((m) => m.advisoriesPageModule),
+  },
 ];
 
 @NgModule({
