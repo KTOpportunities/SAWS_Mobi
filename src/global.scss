@@ -1306,12 +1306,20 @@
   background-size: auto, cover;
   border-bottom: 1.5px solid #000;
 }
+#maindiv{
+  position: relative;
+  top: 108px;
+}
 
 .paragraph-3 {
   color: #002b53;
   font-family: Montserrat, sans-serif;
   font-size: 16px;
   font-weight: 600;
+}
+#footerdivid1{
+  position: relative;
+  top: -9px;
 }
 
 .grid-9 {
@@ -3724,15 +3732,28 @@
   }
 
   .button-2-copy {
+    // background-color: #00386c;
+    // margin-top: 0;
+    // margin-left: 0;
+    // margin-right: 0;
+    // padding-left: 10px;
+    // padding-right: 10px;
+    // font-size: 10px;
+    // height: 50px;
+    // padding-top: 5px;
+    // border-radius: 5px;
     background-color: #00386c;
-    margin-top: 0;
+    margin-top: 0px;
     margin-left: 0;
     margin-right: 0;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
     font-size: 10px;
-    height: 50px;
-    padding-top: 5px;
+    width: 100px;
+    width: 100px;
+    padding-bottom: 10px;
+    padding-top: 4px;
+    height: 4vh;
     border-radius: 5px;
   }
 
@@ -4082,7 +4103,7 @@
     }
     .ObservScrol {
       overflow-y: auto;
-      height: 34em;
+      height: 30em;
     }
 
     .aerosportScrol {
