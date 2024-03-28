@@ -213,6 +213,11 @@ export class ForecastPage implements OnInit {
     this.isTrends = false;
     this.isHarmonized = false;
     this.isform2Visible = false && this.isLoggedIn == false;
+
+    debugger;
+    this.spinner.show();
+      this.router.navigate(['/advisories']);
+
   }
   Warning() {
     this.iscodeTafs = false;

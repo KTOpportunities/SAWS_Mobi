@@ -14,7 +14,7 @@
       </h1>
       <div
         class="w-layout-grid grid-list"
-        style="overflow-y: auto; max-height: 499px; -ms-overflow-style: none"
+        style="overflow-y: auto; max-height: 33em; -ms-overflow-style: none"
       >
         <div (click)="ObservMeter()"
           id="w-node-_0de2fb19-c504-712a-b299-1a10b36205eb-56144603"
@@ -119,7 +119,7 @@
     <section class="ob-randar"
     *ngIf="isRanderImages">
       <div class="div-block-2"><img src="images/Path-3452.svg" loading="lazy" width="1216" alt="" class="image"></div>
-      <div class="metar-history-main-div">
+      <div class="metar-history-main-div" id="maindiv">
         <h1 class="heading-6" id="RaderImages">Radar Images</h1>
         <div>
           <div class="w-layout-grid grid-20">
@@ -1627,9 +1627,12 @@
     <section class="taf-accuracy" *ngIf="issatelite">
 
         <div class="cloud-cover">
-          <h1 class="heading-6">SAWS Satelite</h1>
+          <h1 class="heading-12"
+          style="">SAWS Satelite</h1>
 
-          <div class="w-layout-grid metar-history-grid" style="margin-right: 18px;">
+          <div class="w-layout-grid metar-history-grid" style="margin-right: 18px; 
+          margin-right: 18px;
+           margin-top: 171px;">
             <div
               id="w-node-_81fe7d7e-9d98-6d05-8ae3-2b550ca5db26-7830bece"
               class="div-block-15"
@@ -2466,7 +2469,7 @@
         class="image"
       />
 
-      <div class="footerdiv" id="footerdivid" >
+      <div class="footerdiv" id="footerdivid1" >
         <a    (click)=" observatPage()" class="link-block-5 w-inline-block"
           ><img src="../../assets/Group-4522.svg" loading="lazy" alt="" />
           <h6 class="heading-10-copy" id="styleh6"

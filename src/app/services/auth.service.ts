@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { UserLoggedIn } from '../Models/User.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +29,13 @@ export class AuthService {
   }
   private isLoggedIn = false;
   private isFromSubscription=false;
+  private subscriptionPackageIdSubject = new BehaviorSubject<number | undefined>(undefined);
+  subscriptionPackageId$ = this.subscriptionPackageIdSubject.asObservable();
 
+
+  setSubscriptionPackageId(subscriptionPackageId: number) {
+    this.subscriptionPackageIdSubject.next(subscriptionPackageId);
+  }
 
   getIsLoggedIn(): boolean {
     return this.isLoggedIn;

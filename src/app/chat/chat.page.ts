@@ -167,4 +167,6 @@ export class ChatPage implements OnInit {
       this.fdMessages.some((message: any) => message.broadcast === null)
     );
   }
+
+  
 }
