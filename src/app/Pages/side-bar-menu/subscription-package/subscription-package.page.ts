@@ -229,15 +229,27 @@ export class SubscriptionPackagePage implements OnInit {
       this.GetSubscriptions();
     }
 
-    const currentUrl = window.location.href;
-    console.log(currentUrl);
-    var landingPage = currentUrl.substr(0, currentUrl.lastIndexOf('/') + 1);
-    console.log(landingPage + 'subscription-Successful');
-    this.subsObj.returnUrl = landingPage + 'subscription-successful';
-    // this.subsObj.notifyUrl = landingPage + 'subscription-successful/:token';
-    // this.subsObj.notifyUrl = 'http://160.119.253.130/saws/#/subscription/success';
+    // PayFast requires public http(s) URLs for return_url/cancel_url.
+    // The backend will now own these URLs; keep the app aligned so InAppBrowser auto-close works.
+    // Use API-side return/cancel endpoints (must be publicly reachable via HTTPS).
+    const apiBase = (environment.serverAPI ?? '').trim();
+    const apiBaseNormalized = apiBase.endsWith('/') ? apiBase : apiBase + '/';
+
+    if (apiBaseNormalized.toLowerCase().startsWith('https://')) {
+      this.subsObj.returnUrl = `${apiBaseNormalized}v1/subscriptions/payfast/return`;
+      this.subsObj.cancelUrl = `${apiBaseNormalized}v1/subscriptions/payfast/cancel`;
+    } else {
+      // Fallback to previous behavior (may fail on iOS if not http(s)).
+      const currentUrl = window.location.href;
+      console.log(currentUrl);
+      const landingPage = currentUrl.substr(0, currentUrl.lastIndexOf('/') + 1);
+      console.log(landingPage + 'subscription-Successful');
+      this.subsObj.returnUrl = landingPage + 'subscription-successful';
+      this.subsObj.cancelUrl = landingPage + 'subscription-package';
+    }
+
+    // Server-to-server notification endpoint (IPN)
     this.subsObj.notifyUrl = environment.serverAPI + 'v1/Subscriptions/Notify';
-    this.subsObj.cancelUrl = landingPage + 'subscription-package';
   }
 
   nextSlide(type: string) {
@@ -387,7 +399,12 @@ switch (this.subsArray.package_id) {
 
     console.log('loadstart- event', event);
 
-    if (event.url == this.subsObj.returnUrl) {
+    const url: string = (event?.url ?? '').toLowerCase();
+    const returnUrl: string = (this.subsObj.returnUrl ?? '').toLowerCase();
+    const cancelUrl: string = (this.subsObj.cancelUrl ?? '').toLowerCase();
+
+    // PayFast may append query params, so avoid strict equality.
+    if (returnUrl && url.startsWith(returnUrl)) {
       debugger;
       this.authService.setIsToReturnToSub(true);
       this.browser.close();
@@ -400,7 +417,7 @@ switch (this.subsArray.package_id) {
         'checkmark'
       );
       this.router.navigate(['/landing-page']);
-    } else if (event.url == this.subsObj.cancelUrl) {
+    } else if (cancelUrl && url.startsWith(cancelUrl)) {
       this.browser.close();
       this.loading = false;
       this.presentToast(
