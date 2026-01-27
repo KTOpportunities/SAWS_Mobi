@@ -4,6 +4,6 @@ export const environment = {
 
   production: true,
   //serverAPI: 'http://aviapp.weathersa.co.za:81/api/',
-  serverAPI: 'http://qa.j-cred.co.za/aviappapi/api/',
+  serverAPI: 'https://aviationapp.weathersa.co.za/api/',
 
 };
