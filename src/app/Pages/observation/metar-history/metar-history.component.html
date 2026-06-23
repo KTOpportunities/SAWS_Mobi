@@ -1,423 +1,210 @@
+<app-package-header class="package-header">
+  Metar History For {{ selectedOption3 }}
+</app-package-header>
+
 <ion-content>
   <app-loading *ngIf="loading"></app-loading>
 
   <div id="top"></div>
+
   <app-package-content>
     <app-package-header class="package-header">
-      Metar History For FAOR
+      Metar History For {{ selectedOption3 }}
     </app-package-header>
 
     <app-package-sub-header></app-package-sub-header>
 
     <app-package-list-items>
+      <!-- TOP FILTER AREA -->
       <div class="image-container">
         <div class="div-block-15"></div>
 
         <div class="form-block w-form">
-          <label for="" class="field-label">Select Template:</label>
-          <div class="dropdown-container" (click)="selectDropdown('dropdown5')">
+          <label class="field-label">Select Template:</label>
+
+          <div
+            class="dropdown-container"
+            (click)="selectDropdown('dropdown3', $event)"
+          >
             <div class="dropdown-toggle">
-              <div class="text-block">{{ selectedOption5 }}</div>
+              <div class="text-block">
+                {{ selectedOption3 }}
+              </div>
               <div class="dropdown-arrow">
-                <img
-                  src="../../assets/icon/arrow-drop-down-svgrepo-com.svg"
-                  loading="lazy"
-                  alt=""
-                />
+                <img src="../../assets/icon/arrow-drop-down-svgrepo-com.svg" />
               </div>
-              <!-- Arrow icon -->
             </div>
-            <nav class="dropdown-list1" *ngIf="isDropdownOpen5">
-              <div
-                class="w-dropdown-link"
-                (click)="selectOption('', 'dropdown5')"
-              >
-                Link 1
-              </div>
-              <div
-                class="w-dropdown-link"
-                (click)="selectOption('', 'dropdown5')"
-              >
-                Link 2
-              </div>
-              <div
-                class="w-dropdown-link"
-                (click)="selectOption('', 'dropdown5')"
-              >
-                Link 3
+
+            <nav class="dropdown-list1" *ngIf="isDropdownOpen3">
+              <div *ngFor="let group of groupedStations">
+                <div class="province-header">
+                  {{ group.province }}
+                </div>
+
+                <div
+                  class="w-dropdown-link station-item"
+                  *ngFor="let station of group.stations"
+                  (click)="selectOption(station, 'dropdown3', $event)"
+                >
+                  {{ station }}
+                </div>
               </div>
             </nav>
           </div>
 
-          <label for="" class="field-label">Plot meteogram:</label>
+          <label class="field-label">Plot meteogram:</label>
+
           <div
             class="dropdown-container"
-            (click)="selectDropdown('dropdown11')"
+            (click)="selectDropdown('dropdown11', $event)"
           >
             <div class="dropdown-toggle">
               <div class="text-block">
                 {{ selectedOption11 }}
               </div>
               <div class="dropdown-arrow">
-                <img
-                  src="../../assets/icon/arrow-drop-down-svgrepo-com.svg"
-                  loading="lazy"
-                  alt=""
-                />
+                <img src="../../assets/icon/arrow-drop-down-svgrepo-com.svg" />
               </div>
-              <!-- Arrow icon -->
             </div>
+
             <nav class="dropdown-list1" *ngIf="isDropdownOpen11">
               <div
                 class="w-dropdown-link"
-                (click)="selectOption('', 'dropdown11')"
+                (click)="selectOption('Link 1', 'dropdown11', $event)"
               >
-                Link 1
+                Visibility
               </div>
               <div
                 class="w-dropdown-link"
-                (click)="selectOption('', 'dropdown11')"
+                (click)="selectOption('Link 2', 'dropdown11', $event)"
               >
-                Link 2
+                Pressure
               </div>
               <div
                 class="w-dropdown-link"
-                (click)="selectOption('', 'dropdown11')"
+                (click)="selectOption('Link 3', 'dropdown11', $event)"
               >
-                Link 3
+                Temperature
+              </div>
+              <div
+                class="w-dropdown-link"
+                (click)="selectOption('Link 4', 'dropdown11', $event)"
+              >
+                Dewpoint
               </div>
             </nav>
           </div>
         </div>
       </div>
+
+      <!-- TABLE AREA with sticky header + scroll -->
       <div class="w-layout-grid grid-6" id="layout">
-        <div
-          class="ObservScrol"
-          style="overflow-y: auto; height: 35em !important"
-        >
-          <div class="div-block-15">
-            <div>
-              <div class="">
-                <div class="rows-wrap">
-                  <div class="table-wrapper">
-                    <div class="table-row head">
-                      <div class="table-box">
-                        <div class="table-heading">Full Name</div>
-                      </div>
-                      <div class="table-box">
-                        <div class="table-heading">Email</div>
-                      </div>
-                      <div class="table-box">
-                        <div class="table-heading">Phone</div>
-                      </div>
-                      <div class="table-box">
-                        <div class="table-heading">Role</div>
-                      </div>
-                      <div class="table-box _11">
-                        <div class="table-heading">Last update</div>
-                      </div>
-                      <div class="table-box action">
-                        <div class="table-heading">Status</div>
-                      </div>
-                      <div class="table-box action">
-                        <div class="table-heading">Action</div>
-                      </div>
-                    </div>
-                    <div class="table-container">
-                      <div class="table-data-wrapper">
-                        <div class="scroll-container">
-                          <div class="scroll-table-content">
-                            <div class="table-row head hide">
-                              <div class="div-block-406"></div>
-                              <div class="table-box">
-                                <div class="table-heading">Name</div>
-                              </div>
-                              <div class="table-box">
-                                <div class="table-heading">Email</div>
-                              </div>
-                              <div class="table-box">
-                                <div class="table-heading">Phone</div>
-                              </div>
-                              <div class="table-box">
-                                <div class="table-heading">Country</div>
-                              </div>
-                              <div class="table-box _11">
-                                <div class="table-heading">Last Update</div>
-                              </div>
-                              <div class="table-box action">
-                                <div class="table-heading">Status</div>
-                              </div>
-                              <div class="table-box action">
-                                <div class="table-heading">Action</div>
-                              </div>
-                            </div>
-                            <div class="table-row">
-                              <div class="table-box _2">
-                                <img
-                                  src="../../assets/webclip.png"
-                                  width="32"
-                                  alt=""
-                                  class="image-7"
-                                />
-                                <div class="table-data name">
-                                  Walter A. Price
-                                </div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data link">email.com</div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">813-200-2741</div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">United States</div>
-                              </div>
-                              <div class="table-box _2 small">
-                                <div class="table-data">May 22, 2020</div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-ix="toggle"
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a715288e"
-                                  class="togglebutton active w-inline-block"
-                                >
-                                  <div class="buttontoggle _2"></div>
-                                </div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528f5"
-                                  class="link-block-12 w-inline-block"
-                                >
-                                  <img
-                                    src="../../assets/close-2.svg"
-                                    alt=""
-                                    class="table-action-icon"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="table-row">
-                              <div class="table-box _2">
-                                <img
-                                  src="../../assets/webclip.png"
-                                  width="32"
-                                  alt=""
-                                  class="image-7"
-                                />
-                                <div class="table-data name">
-                                  Walter A. Price
-                                </div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data link">
-                                  wpriceemail.com
-                                </div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">813-200-2741</div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">United States</div>
-                              </div>
-                              <div class="table-box _2 small">
-                                <div class="table-data">May 22, 2020</div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-ix="toggle"
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528a7"
-                                  class="togglebutton active w-inline-block"
-                                >
-                                  <div class="buttontoggle _2"></div>
-                                </div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528f5"
-                                  class="link-block-12 w-inline-block"
-                                >
-                                  <img
-                                    src="../../assets/close-2.svg"
-                                    alt=""
-                                    class="table-action-icon"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="table-row">
-                              <div class="table-box _2">
-                                <img
-                                  src="../../assets/webclip.png"
-                                  width="32"
-                                  alt=""
-                                  class="image-7"
-                                />
-                                <div class="table-data name">
-                                  Walter A. Price
-                                </div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data link">
-                                  wpriceemail.com
-                                </div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">813-200-2741</div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">United States</div>
-                              </div>
-                              <div class="table-box _2 small">
-                                <div class="table-data">May 22, 2020</div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-ix="toggle"
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528c0"
-                                  class="togglebutton active w-inline-block"
-                                >
-                                  <div class="buttontoggle _2"></div>
-                                </div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528f5"
-                                  class="link-block-12 w-inline-block"
-                                >
-                                  <img
-                                    src="../../assets/close-2.svg"
-                                    alt=""
-                                    class="table-action-icon"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="table-row">
-                              <div class="table-box _2">
-                                <img
-                                  src="../../assets/webclip.png"
-                                  width="32"
-                                  alt=""
-                                  class="image-7"
-                                />
-                                <div class="table-data name">John Smith</div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data link">
-                                  jsmithemail.com
-                                </div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">813-200-2741</div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">United Kingdom</div>
-                              </div>
-                              <div class="table-box _2 small">
-                                <div class="table-data">May 16, 2020</div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-ix="toggle"
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528d9"
-                                  class="togglebutton active w-inline-block"
-                                >
-                                  <div class="buttontoggle _2"></div>
-                                </div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528f5"
-                                  class="link-block-12 w-inline-block"
-                                >
-                                  <img
-                                    src="../../assets/close-2.svg"
-                                    alt=""
-                                    class="table-action-icon"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="table-row">
-                              <div class="table-box _2">
-                                <img
-                                  src="../../assets/webclip.png"
-                                  width="32"
-                                  alt=""
-                                  class="image-7"
-                                />
-                                <div class="table-data name">Bianca Rossi</div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data link">
-                                  brossiemail.com
-                                </div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">813-200-2741</div>
-                              </div>
-                              <div class="table-box _2">
-                                <div class="table-data">Italy</div>
-                              </div>
-                              <div class="table-box _2 small">
-                                <div class="table-data">May 04, 2020</div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-ix="toggle"
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528f2"
-                                  class="togglebutton w-inline-block"
-                                >
-                                  <div class="buttontoggle"></div>
-                                </div>
-                              </div>
-                              <div class="table-box _2 action">
-                                <div
-                                  data-w-id="ed5455b6-c8e4-85d0-85ac-7d98a71528f5"
-                                  class="link-block-12 w-inline-block"
-                                >
-                                  <img
-                                    src="../../assets/close-2.svg"
-                                    alt=""
-                                    class="table-action-icon"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- TABLE AREA with sticky header + scroll -->
+        <div class="table-container mat-elevation-z2">
+          <table mat-table [dataSource]="parsedReports" class="metar-table">
+            <!-- TYPE -->
+            <ng-container matColumnDef="type">
+              <th mat-header-cell *matHeaderCellDef sticky>Type</th>
+              <td mat-cell *matCellDef="let row">{{ row.type }}</td>
+            </ng-container>
+
+            <!-- YYGGgg -->
+            <ng-container matColumnDef="yygggg">
+              <th mat-header-cell *matHeaderCellDef sticky>YYGGgg</th>
+              <td mat-cell *matCellDef="let row">{{ row.yygggg }}</td>
+            </ng-container>
+
+            <!-- WIND SPEED -->
+            <ng-container matColumnDef="windSpeed">
+              <th mat-header-cell *matHeaderCellDef sticky>Wind Speed</th>
+              <td mat-cell *matCellDef="let row">{{ row.windSpeed }}</td>
+            </ng-container>
+
+            <!-- WIND DIR -->
+            <ng-container matColumnDef="windDir">
+              <th mat-header-cell *matHeaderCellDef sticky>Wind Dir</th>
+              <td mat-cell *matCellDef="let row">{{ row.windDir }}</td>
+            </ng-container>
+
+            <!-- VISIBILITY -->
+            <ng-container matColumnDef="visibility">
+              <th mat-header-cell *matHeaderCellDef sticky>Visibility</th>
+              <td mat-cell *matCellDef="let row">{{ row.visibility }}</td>
+            </ng-container>
+
+            <!-- WW1 -->
+            <ng-container matColumnDef="ww1">
+              <th mat-header-cell *matHeaderCellDef sticky>WW1</th>
+              <td mat-cell *matCellDef="let row">{{ row.ww1 }}</td>
+            </ng-container>
+
+            <!-- NS1 -->
+            <ng-container matColumnDef="ns1">
+              <th mat-header-cell *matHeaderCellDef sticky>NS1</th>
+              <td mat-cell *matCellDef="let row">{{ row.ns1 }}</td>
+            </ng-container>
+
+            <!-- HS1 -->
+            <ng-container matColumnDef="hs1">
+              <th mat-header-cell *matHeaderCellDef sticky>HS1</th>
+              <td mat-cell *matCellDef="let row">{{ row.hs1 }}</td>
+            </ng-container>
+
+            <!-- NS2 -->
+            <ng-container matColumnDef="ns2">
+              <th mat-header-cell *matHeaderCellDef sticky>NS2</th>
+              <td mat-cell *matCellDef="let row">{{ row.ns2 }}</td>
+            </ng-container>
+
+            <!-- HS2 -->
+            <ng-container matColumnDef="hs2">
+              <th mat-header-cell *matHeaderCellDef sticky>HS2</th>
+              <td mat-cell *matCellDef="let row">{{ row.hs2 }}</td>
+            </ng-container>
+            <!-- WW2 -->
+            <ng-container matColumnDef="ww2">
+              <th mat-header-cell *matHeaderCellDef sticky>WW2</th>
+              <td mat-cell *matCellDef="let row">{{ row.ww2 }}</td>
+            </ng-container>
+
+            <!-- TEMP -->
+            <ng-container matColumnDef="temp">
+              <th mat-header-cell *matHeaderCellDef sticky>Temp</th>
+              <td mat-cell *matCellDef="let row">{{ row.temp }}</td>
+            </ng-container>
+
+            <!-- DEWPOINT -->
+            <ng-container matColumnDef="dewpoint">
+              <th mat-header-cell *matHeaderCellDef sticky>Dewpoint</th>
+              <td mat-cell *matCellDef="let row">{{ row.dewpoint }}</td>
+            </ng-container>
+
+            <!-- PRESSURE -->
+            <ng-container matColumnDef="pressure">
+              <th mat-header-cell *matHeaderCellDef sticky>Pressure</th>
+              <td mat-cell *matCellDef="let row">{{ row.pressure }}</td>
+            </ng-container>
+
+            <!-- RECV TIME -->
+            <ng-container matColumnDef="recvTime">
+              <th mat-header-cell *matHeaderCellDef sticky>Recv Time</th>
+              <td mat-cell *matCellDef="let row">{{ row.recvTime }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
         </div>
       </div>
     </app-package-list-items>
   </app-package-content>
 </ion-content>
+
 <app-footer></app-footer>
 
 <div class="footerdiv" id="footerdivid1">
   <div (click)="navigateToObservation()" class="link-block-5 w-inline-block">
-    <img src="../../assets/Group-4522.svg" loading="lazy" alt="" />
-    <h6
-      class="heading-10-copy"
-      id="styleh6"
-      style="
-        color: #fff;
-        margin-top: 10px;
-        margin-bottom: 0;
-        font-family: Montserrat, sans-serif;
-        text-decoration: none;
-        font-size: 12px;
-        margin-top: 4px;
-      "
-    >
-      Observation
-    </h6>
+    <img src="../../assets/Group-4522.svg" />
+    <h6 class="heading-10-copy">Observation</h6>
   </div>
 </div>
