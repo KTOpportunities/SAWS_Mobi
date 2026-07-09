@@ -23,6 +23,8 @@ import { HammerModule } from '@angular/platform-browser';
 import { HammerGestureConfig } from '@angular/platform-browser';
 
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 
 
@@ -38,31 +40,36 @@ export class MyHammerConfig extends HammerGestureConfig {
   declarations: [AppComponent],
 
   // Imports: Other modules whose exported classes are needed by component templates declared in this NgModule
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    NoopAnimationsModule,
-    MatSlideToggleModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatListModule,
-    MatTableModule, // Add MatTableModule
-    MatPaginatorModule, // Add MatPaginatorModule
-    MatSortModule, // Add MatSortModule
-    HammerModule,
-    IonicModule.forRoot(),
-   
-  ],
+ imports: [
+  BrowserModule,
+  IonicModule.forRoot(),
+  AppRoutingModule,
+  ReactiveFormsModule,
+  HttpClientModule,
+  NoopAnimationsModule,
+
+  MatSlideToggleModule,
+  MatIconModule,
+  MatMenuModule,
+  MatButtonModule,
+  MatListModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+
+  HammerModule
+],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     InAppBrowser,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: MyHammerConfig,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

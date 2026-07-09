@@ -13,6 +13,7 @@
           <div
             id="w-node-db8303b9-23b4-91f6-d1e3-4ad3c3e9df85-07cb82d5"
             class="div-block-471"
+            (click)="openPopup('scheduling')"
           >
             <img src="../../assets/Mask-Group-28.svg" loading="lazy" alt="" />
             <h3 class="heading-49">Scheduling <br />Options</h3>
@@ -20,6 +21,7 @@
           <div
             id="w-node-f0d9d6d5-5c8a-19cb-657c-78eea791915e-07cb82d5"
             class="div-block-471"
+            (click)="openPopup('folder')"
           >
             <img
               src="../../assets/Icon-ionic-ios-folder.svg"
@@ -34,6 +36,7 @@
           <div
             id="w-node-e0a4dcc2-7287-193f-9f87-4ce3e4e69ddf-07cb82d5"
             class="div-block-471"
+            (click)="openPopup('document')"
           >
             <img
               src="../../assets/content-management.svg"
@@ -45,6 +48,7 @@
           <div
             id="w-node-c8b58079-d1bc-ab6a-7a9f-97eff9b0fde3-07cb82d5"
             class="div-block-471"
+            (click)="openPopup('operation')"
           >
             <img src="../../assets/pilot.svg" loading="lazy" alt="" />
             <h3 class="heading-49">Operation <br />Information</h3>
@@ -52,6 +56,7 @@
           <div
             id="w-node-ac96661a-f28d-f1fe-af74-56e4d9825879-07cb82d5"
             class="div-block-471"
+            (click)="openPopup('output')"
           >
             <img
               src="../../assets/export-disc-data.svg"
@@ -65,46 +70,63 @@
           id="w-node-df5f50f1-8d35-aa2e-8867-57e80d178335-07cb82d5"
           class="div-off"
         >
-          <div
-            id="w-node-df5f50f1-8d35-aa2e-8867-57e80d178335-07cb82d5"
-            class="div-off"
-          >
-            <div class="w-form">
-              <form
-                id="email-form-2"
-                name="email-form-2"
-                data-name="Email Form 2"
-                method="get"
-                data-wf-page-id="660b9e8f66bf590207cb82d5"
-                data-wf-element-id="df5f50f1-8d35-aa2e-8867-57e80d178337"
+          <div class="w-form">
+            <form
+              id="email-form-2"
+              name="email-form-2"
+              data-name="Email Form 2"
+              method="get"
+            >
+              <h5 class="heading-9">Search</h5>
+              <div class="inline">
+                <input
+                  class="search-input w-input"
+                  maxlength="256"
+                  name="query"
+                  placeholder="Search…"
+                  type="search"
+                  id="searchValue"
+                />
+                <button type="submit" class="search-button w-button">
+                  Search
+                </button>
+              </div>
+              <div
+                style="display: flex; justify-content: flex-end; margin: 10px 0"
               >
-                <h5 class="heading-9">Search</h5>
-                <div class="inline">
-                  <input
-                    class="search-input w-input"
-                    maxlength="256"
-                    name="query"
-                    placeholder="Search…"
-                    type="search"
-                    id="searchValue"
-                  />
-                  <button type="submit" class="search-button w-button">
-                    Search
-                  </button>
-                </div>
-
-                <label for="field-2" class="heading-9"
-                  >Select a Saved template</label
+                <div
+                  id="w-node-ac96661a-f28d-f1fe-af74-56e4d9825879-07cb82d5"
+                  class="div-block-471"
+                  (click)="addNewTemplate()"
                 >
-              </form>
-              <div class="w-form-done"></div>
-              <div class="w-form-fail"></div>
-            </div>
+                  <ion-icon
+                    name="add-circle"
+                    style="color: #28a745; font-size: 32px; cursor: pointer"
+                  ></ion-icon>
+                </div>
+              </div>
+              <label for="field-2" class="heading-9"
+                >Select a Saved template</label
+              >
+            </form>
+          </div>
+
+          <!-- WRAPPER FOR DROPDOWN + ICONS -->
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-top: 8px;
+            "
+          >
+            <!-- DROPDOWN -->
             <div
               data-hover="false"
               data-delay="0"
               (click)="selectDropdown('dropdown2')"
               class="template-select w-dropdown"
+              style="flex: 1"
             >
               <div class="w-dropdown-toggle">
                 <div class="text-block">{{ selectedOption2 }}</div>
@@ -118,33 +140,45 @@
               </div>
 
               <nav class="dropdown-list1" *ngIf="isDropdownOpen2">
+                <div *ngIf="loading" class="w-dropdown-link">Loading...</div>
                 <div
+                  *ngIf="!loading && templates.length === 0"
                   class="w-dropdown-link"
-                  (click)="selectOption('', 'dropdown2')"
                 >
-                  1 Min
+                  No templates saved
                 </div>
+
                 <div
                   class="w-dropdown-link"
-                  (click)="selectOption('', 'dropdown2')"
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  "
+                  *ngFor="let template of templates"
+                  (click)="selectTemplate(template)"
                 >
-                  2 Min
-                </div>
-                <div
-                  class="w-dropdown-link"
-                  (click)="selectOption('', 'dropdown2')"
-                >
-                  3 Min
-                </div>
-                <div
-                  class="w-dropdown-link"
-                  (click)="selectOption('', 'dropdown2')"
-                >
-                  4 Min
+                  <span>{{ template.flightNumber }}</span>
+                  <!-- DELETE ICON PER ITEM -->
+                  <ion-icon
+                    name="trash-outline"
+                    (click)="deleteTemplate(template); $event.stopPropagation()"
+                    style="color: #e74c3c; font-size: 18px"
+                  ></ion-icon>
                 </div>
               </nav>
             </div>
           </div>
+
+          <!-- DELETE SELECTED BUTTON -->
+          <button
+            *ngIf="selectedTemplate"
+            class="icon-btn delete-btn"
+            (click)="deleteSelectedTemplate()"
+            title="Delete selected template"
+          >
+            <ion-icon name="trash-outline"></ion-icon>
+          </button>
         </div>
         <h1 class="heading">Flight definition</h1>
         <div class="w-layout-grid edit-flight-grid">
@@ -182,6 +216,7 @@
                         type="text"
                         id="field-2"
                         required=""
+                        [(ngModel)]="flightName"
                       />
                     </div>
                   </form>
@@ -225,7 +260,8 @@
                         data-name="Field 2"
                         placeholder=""
                         type="text"
-                        id="field-2"
+                        id="departure"
+                        [(ngModel)]="departureAirport"
                         required=""
                       />
                     </div>
@@ -270,6 +306,7 @@
                         type="text"
                         id="field-2"
                         required=""
+                        [(ngModel)]="enroute"
                       />
                     </div>
                   </form>
@@ -313,6 +350,7 @@
                         type="text"
                         id="field-2"
                         required=""
+                        [(ngModel)]="destinationAirport"
                       />
                     </div>
                   </form>
@@ -356,6 +394,7 @@
                         type="text"
                         id="field-2"
                         required=""
+                        [(ngModel)]="etd"
                       />
                     </div>
                   </form>
@@ -401,6 +440,7 @@
                         type="text"
                         id="field-2"
                         required=""
+                        [(ngModel)]="ete"
                       />
                     </div>
                   </form>
@@ -440,7 +480,8 @@
                         id="checkbox-2"
                         name="checkbox-2"
                         data-name="Checkbox 2"
-                        class="w-checkbox-input checkbox" /><span
+                        class="w-checkbox-input checkbox"
+                        [(ngModel)]="isVfr" /><span
                         class="checkbox-label-2 w-form-label"
                         for="checkbox-2"
                       ></span
@@ -487,6 +528,7 @@
                         class="w-checkbox-input checkbox" /><span
                         class="checkbox-label-2 w-form-label"
                         for="checkbox-2"
+                        [(ngModel)]="includeCrossSection"
                       ></span
                     ></label>
                   </form>
@@ -528,6 +570,7 @@
                           name="checkbox-2"
                           data-name="Checkbox 2"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="includeTakeoff"
                         />
                         <span
                           class="checkbox-label-2-copy w-form-label"
@@ -600,7 +643,8 @@
                         id="checkbox-2"
                         name="checkbox-2"
                         data-name="Checkbox 2"
-                        class="w-checkbox-input checkbox" /><span
+                        class="w-checkbox-input checkbox"
+                        [(ngModel)]="includeTakeoff" /><span
                         class="checkbox-label-2 w-form-label"
                         for="checkbox-2"
                       ></span
@@ -642,7 +686,8 @@
                         id="checkbox-2"
                         name="checkbox-2"
                         data-name="Checkbox 2"
-                        class="w-checkbox-input checkbox" /><span
+                        class="w-checkbox-input checkbox"
+                        [(ngModel)]="includeAispib" /><span
                         class="checkbox-label-2 w-form-label"
                         for="checkbox-2"
                       ></span
@@ -663,78 +708,69 @@
               name="email-form-4"
               data-name="Email Form 4"
               method="get"
-              data-wf-page-id="660b9e8f66bf590207cb82d5"
-              data-wf-element-id="4d047cef-83c1-468a-ec09-6f695f226806"
             >
               <div class="div-block-474">
-                <label class="w-radio"
-                  ><input
-                    type="radio"
-                    data-name="Radio"
-                    id="radio"
-                    name="radio"
-                    class="w-form-formradioinput w-radio-input"
-                    value="Radio"
-                  />
-                  <span
-                    class="w-form-label"
-                    for="radio"
-                    style="position: relative; top: 2px"
-                  >
-                    <strong>Narrow (20NM)</strong></span
-                  > </label
-                ><label class="radio-button-field w-radio">
+                <label class="w-radio">
                   <input
                     type="radio"
-                    data-name="Radio 2"
-                    id="radio-2"
-                    name="radio"
+                    name="corridorWidth"
                     class="w-form-formradioinput w-radio-input"
-                    value="Radio"
+                    value="narrow"
+                    [(ngModel)]="settings.corridorWidth"
                   />
                   <span
                     class="w-form-label"
-                    for="radio-2"
                     style="position: relative; top: 2px"
-                    ><strong>Wide (150NM)</strong></span
-                  ></label
-                >
+                  >
+                    <strong>Narrow (20NM)</strong>
+                  </span>
+                </label>
+
                 <label class="radio-button-field w-radio">
                   <input
                     type="radio"
-                    data-name="Radio 3"
-                    id="radio-3"
-                    name="radio"
-                    class="w-form-formradioinput w-radio-input"
-                    value="Radio"
-                  /><span
-                    class="radio-button-label w-form-label"
-                    for="radio-3"
+                    name="corridorWidth"
+                    class="w-formradioinput w-radio-input"
+                    value="wide"
+                    [(ngModel)]="settings.corridorWidth"
+                  />
+                  <span
+                    class="w-form-label"
                     style="position: relative; top: 2px"
                   >
-                    <strong>Wide (150NM)</strong></span
-                  ></label
-                ><input
+                    <strong>Wide (150NM)</strong>
+                  </span>
+                </label>
+
+                <label class="radio-button-field w-radio">
+                  <input
+                    type="radio"
+                    name="corridorWidth"
+                    class="w-form-formradioinput w-radio-input"
+                    value="custom"
+                    [(ngModel)]="settings.corridorWidth"
+                  />
+                  <span
+                    class="radio-button-label w-form-label"
+                    style="position: relative; top: 2px"
+                  >
+                    <strong>Custom</strong>
+                  </span>
+                </label>
+
+                <input
                   class="text-field-blue-borders-copy-copy w-input"
                   maxlength="256"
-                  name="field-3"
-                  data-name="Field 3"
-                  placeholder="Example Text"
-                  type="text"
+                  name="customNM"
+                  [(ngModel)]="settings.customNM"
+                  placeholder="Enter NM"
+                  type="number"
                   id="fieldb"
-                  required=""
-                /><label class="radio-button-field-copy w-radio"
-                  ><input
-                    type="radio"
-                    data-name="Radio 4"
-                    id="radio-4"
-                    name="radio"
-                    class="w-form-formradioinput radio-button w-radio-input"
-                    value="Radio"
-                  /><span class="w-form-label" for="radio-4"
-                    ><strong>NM</strong></span
-                  ></label
-                >
+                />
+
+                <label class="radio-button-field-copy w-radio">
+                  <span class="w-form-label"><strong>NM</strong></span>
+                </label>
               </div>
             </form>
             <div class="w-form-done"></div>
@@ -773,10 +809,7 @@
                 loading="lazy"
                 alt=""
               />
-              <h3 class="heading-49">
-                FIR / UIR Met<br />
-                <br />
-              </h3>
+              <h3 class="heading-49">FIR / UIR Met<br /><br /></h3>
             </div>
           </div>
           <div class="div-block-475">
@@ -787,32 +820,30 @@
                 data-name="Email Form 5"
                 method="get"
                 class="form-4"
-                data-wf-page-id="660b9e8f66bf590207cb82d5"
-                data-wf-element-id="74361e63-8fa9-ebc0-33a0-cc034c8cb31e"
               >
                 <div class="div-block-476">
-                  <label for="name" class="heading-9"
-                    ><strong>Other Aerodromes (Alternates)</strong></label
-                  ><textarea
-                    placeholder="Example Text"
+                  <label for="otherAerodromes" class="heading-9">
+                    <strong>Other Aerodromes (Alternates)</strong>
+                  </label>
+                  <textarea
+                    placeholder="FAOR, FALE, FQMA"
                     maxlength="5000"
-                    id="field-4"
-                    name="field-4"
-                    data-name="Field 4"
+                    id="otherAerodromes"
+                    name="otherAerodromes"
+                    [(ngModel)]="settings.otherAerodromes"
                     class="text-field-blue-borders w-input"
                   ></textarea>
                 </div>
                 <div class="div-block-476">
-                  <label for="email"><strong>FIR/UIRs</strong></label
-                  ><input
+                  <label for="firs"><strong>FIR/UIRs</strong></label>
+                  <input
                     class="text-field-blue-borders w-input"
                     maxlength="256"
-                    name="email"
-                    data-name="Email"
-                    placeholder=""
-                    type="email"
-                    id="email"
-                    required=""
+                    name="firs"
+                    [(ngModel)]="settings.firs"
+                    placeholder="FAJS, FQMA"
+                    type="text"
+                    id="firs"
                   />
                 </div>
               </form>
@@ -824,422 +855,249 @@
         <div class="div-block-473">
           <h1 class="heading"><strong>Significant Weather Charts</strong></h1>
           <div class="div-block-478">
-            <h4 class="heading-6-copy">
-              <strong>Flight levels</strong>
-            </h4>
-            <div class="button-2-copy w-button">Clear All</div>
+            <h4 class="heading-6-copy"><strong>Flight levels</strong></h4>
+            <div
+              class="button-2-copy w-button"
+              (click)="clearAll('weatherLevels')"
+            >
+              Clear All
+            </div>
           </div>
           <div class="w-layout-grid grid-45">
-            <div
-              id="w-node-efc03fed-2f85-2dba-f792-0c6cb6252284-07cb82d5"
-              class="div-block-48-copy"
-            >
+            <!-- LOW LEVEL -->
+            <div class="div-block-48-copy">
               <div class="w-form">
-                <form
-                  id="email-form-3"
-                  name="email-form-3"
-                  data-name="Email Form 3"
-                  method="get"
-                  data-wf-page-id="660b9e8f66bf590207cb82d5"
-                  data-wf-element-id="efc03fed-2f85-2dba-f792-0c6cb6252286"
-                >
+                <form>
                   <div class="div-blue-copy">
                     <div class="div-block-477">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="defaultLow"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="settings.weatherLevels.defaultLow"
                         />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                        <span class="checkbox-label-2-copy w-form-label"
                           >Default Low Level</span
-                        ></label
-                      >
-                    </div>
-                  </div>
-                </form>
-                <div class="w-form-done"></div>
-                <div class="w-form-fail"></div>
-              </div>
-              <div
-                id="w-node-_76a3cde3-4699-b545-b8c2-6142bf50e392-07cb82d5"
-                class="div-block-48-copy"
-              >
-                <div class="w-form">
-                  <form
-                    id="email-form-3"
-                    name="email-form-3"
-                    data-name="Email Form 3"
-                    method="get"
-                    data-wf-page-id="660b9e8f66bf590207cb82d5"
-                    data-wf-element-id="76a3cde3-4699-b545-b8c2-6142bf50e394"
-                  >
-                    <div class="div-block-477">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL050</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL140</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL240</span
-                        ></label
-                      >
-                    </div>
-                    <div class="div-block-477">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                        >
-                          FL320</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                        >
-                          FL390</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL480</span
-                        ></label
-                      >
-                    </div>
-                  </form>
-                  <div class="w-form-done"></div>
-                  <div class="w-form-fail"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- end1 -->
-
-            <div
-              id="w-node-efc03fed-2f85-2dba-f792-0c6cb6252284-07cb82d5"
-              class="div-block-48-copy"
-            >
-              <div class="w-form">
-                <form
-                  id="email-form-3"
-                  name="email-form-3"
-                  data-name="Email Form 3"
-                  method="get"
-                  data-wf-page-id="660b9e8f66bf590207cb82d5"
-                  data-wf-element-id="efc03fed-2f85-2dba-f792-0c6cb6252286"
-                >
-                  <div class="div-blue-copy">
-                    <div class="div-block-477">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >Default Medium Level</span
-                        ></label
-                      >
-                    </div>
-                  </div>
-                </form>
-                <div class="w-form-done"></div>
-                <div class="w-form-fail"></div>
-              </div>
-              <div
-                id="w-node-_76a3cde3-4699-b545-b8c2-6142bf50e392-07cb82d5"
-                class="div-block-48-copy"
-              >
-                <div class="w-form">
-                  <form
-                    id="email-form-3"
-                    name="email-form-3"
-                    data-name="Email Form 3"
-                    method="get"
-                    data-wf-page-id="660b9e8f66bf590207cb82d5"
-                    data-wf-element-id="76a3cde3-4699-b545-b8c2-6142bf50e394"
-                  >
-                    <div class="div-block-477">
-                      <label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL050</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL140</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL240</span
-                        ></label
-                      >
-                    </div>
-                    <div class="div-block-477">
-                      <label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                        >
-                          FL320</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                        >
-                          FL390</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL480</span
-                        ></label
-                      >
-                    </div>
-                  </form>
-                  <div class="w-form-done"></div>
-                  <div class="w-form-fail"></div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              id="w-node-efc03fed-2f85-2dba-f792-0c6cb6252284-07cb82d5"
-              class="div-block-48-copy"
-            >
-              <div class="w-form">
-                <form
-                  id="email-form-3"
-                  name="email-form-3"
-                  data-name="Email Form 3"
-                  method="get"
-                  data-wf-page-id="660b9e8f66bf590207cb82d5"
-                  data-wf-element-id="efc03fed-2f85-2dba-f792-0c6cb6252286"
-                >
-                  <div class="div-blue-copy">
-                    <div class="div-block-477">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >Default High Level</span
-                        ></label
-                      >
-                    </div>
-                  </div>
-                </form>
-                <div class="w-form-done"></div>
-                <div class="w-form-fail"></div>
-              </div>
-              <div
-                id="w-node-_76a3cde3-4699-b545-b8c2-6142bf50e392-07cb82d5"
-                class="div-block-48-copy"
-              >
-                <div class="w-form">
-                  <form
-                    id="email-form-3"
-                    name="email-form-3"
-                    data-name="Email Form 3"
-                    method="get"
-                    data-wf-page-id="660b9e8f66bf590207cb82d5"
-                    data-wf-element-id="76a3cde3-4699-b545-b8c2-6142bf50e394"
-                  >
-                    <div class="div-block-477">
-                      <label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                        >
-                          FL300</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL210</span
-                        > </label
-                      ><label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL100</span
                         >
                       </label>
                     </div>
+                  </div>
+                </form>
+              </div>
+              <div class="div-block-48-copy">
+                <form>
+                  <div class="div-block-477">
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl050"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl050"
+                      /><span>FL050</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl140"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl140"
+                      /><span>FL140</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl240"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl240"
+                      /><span>FL240</span></label
+                    >
+                  </div>
+                  <div class="div-block-477">
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl320"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl320"
+                      /><span>FL320</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl390"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl390"
+                      /><span>FL390</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl480"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl480"
+                      /><span>FL480</span></label
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- MEDIUM LEVEL -->
+            <div class="div-block-48-copy">
+              <div class="w-form">
+                <form>
+                  <div class="div-blue-copy">
                     <div class="div-block-477">
                       <label class="w-checkbox checkbox-field-6">
                         <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="defaultMed"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="settings.weatherLevels.defaultMed"
                         />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >Default Medium Level</span
                         >
-                          FL450</span
-                        > </label
-                      ><label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                        >
-                          FL390</span
-                        > </label
-                      ><label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >FL360</span
-                        ></label
-                      >
+                      </label>
                     </div>
-                  </form>
-                  <div class="w-form-done"></div>
-                  <div class="w-form-fail"></div>
-                </div>
+                  </div>
+                </form>
+              </div>
+              <div class="div-block-48-copy">
+                <form>
+                  <div class="div-block-477">
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl100"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl100"
+                      /><span>FL100</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl210"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl210"
+                      /><span>FL210</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl300"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl300"
+                      /><span>FL300</span></label
+                    >
+                  </div>
+                  <div class="div-block-477">
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl360"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl360"
+                      /><span>FL360</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl390m"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl390"
+                      /><span>FL390</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl450"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl450"
+                      /><span>FL450</span></label
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- HIGH LEVEL -->
+            <div class="div-block-48-copy">
+              <div class="w-form">
+                <form>
+                  <div class="div-blue-copy">
+                    <div class="div-block-477">
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
+                          type="checkbox"
+                          name="defaultHigh"
+                          class="w-checkbox-input zz"
+                          [(ngModel)]="settings.weatherLevels.defaultHigh"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >Default High Level</span
+                        >
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="div-block-48-copy">
+                <form>
+                  <div class="div-block-477">
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl300h"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl300"
+                      /><span>FL300</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl210h"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl210"
+                      /><span>FL210</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl100h"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl100"
+                      /><span>FL100</span></label
+                    >
+                  </div>
+                  <div class="div-block-477">
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl450h"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl450"
+                      /><span>FL450</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl390h"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl390"
+                      /><span>FL390</span></label
+                    >
+                    <label class="w-checkbox checkbox-field-6"
+                      ><input
+                        type="checkbox"
+                        name="fl360h"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.weatherLevels.fl360"
+                      /><span>FL360</span></label
+                    >
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -1247,172 +1105,108 @@
         <div class="div-block-473">
           <h1 class="heading"><strong>Charts</strong></h1>
           <div class="div-block-478">
-            <div class="button-2-copy w-button">Clear All</div>
+            <div class="button-2-copy w-button" (click)="clearAll('charts')">
+              Clear All
+            </div>
           </div>
           <div class="w-layout-grid grid-45">
-            <div
-              id="w-node-c5cf66c6-a6b4-59fc-bdba-80e505b9246f-07cb82d5"
-              class="div-block-48-copy"
-            >
+            <div class="div-block-48-copy">
               <div class="w-form">
-                <form
-                  id="email-form-3"
-                  name="email-form-3"
-                  data-name="Email Form 3"
-                  method="get"
-                  data-wf-page-id="660b9e8f66bf590207cb82d5"
-                  data-wf-element-id="c5cf66c6-a6b4-59fc-bdba-80e505b92471"
-                >
+                <form>
                   <div class="div-blue-copy"></div>
+                </form>
+              </div>
+              <div class="div-block-48-copy">
+                <form>
+                  <div class="div-block-470">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        name="routeChart"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.route"
+                      />
+                      <span class="checkbox-label-2-copy w-form-label"
+                        >ROUTE</span
+                      >
+                    </label>
+                    <label
+                      class="w-checkbox checkbox-field-6"
+                      style="position: relative; right: 7px"
+                    >
+                      <input
+                        type="checkbox"
+                        name="eurChart"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.eur"
+                      />
+                      <span class="checkbox-label-2-copy w-form-label"
+                        >EUR</span
+                      >
+                    </label>
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        name="sioChart"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.sio"
+                      />
+                      <span class="checkbox-label-2-copy w-form-label"
+                        >SIO<br />(AREA-K)</span
+                      >
+                    </label>
+                  </div>
+                  <div class="div-block-470">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        name="eurafiChart"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.eurafi"
+                      />
+                      <span class="checkbox-label-2-copy w-form-label"
+                        >EURAFI<br />(AREA-C)</span
+                      >
+                    </label>
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        name="afrasiaChart"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.afrasia"
+                      />
+                      <span class="checkbox-label-2-copy w-form-label"
+                        >AFRASIA<br />(AREA-D)</span
+                      >
+                    </label>
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        name="eursamBChart"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.eursam"
+                      />
+                      <span class="checkbox-label-2-copy w-form-label"
+                        >EURSAM<br />(AREA-B)</span
+                      >
+                    </label>
+                  </div>
+                  <div class="div-block-470">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        name="natChart"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.nat"
+                      />
+                      <span class="checkbox-label-2-copy w-form-label"
+                        >NAT<br />(AREA-H)</span
+                      >
+                    </label>
+                  </div>
                 </form>
                 <div class="w-form-done"></div>
                 <div class="w-form-fail"></div>
-              </div>
-              <div
-                id="w-node-c5cf66c6-a6b4-59fc-bdba-80e505b9247e-07cb82d5"
-                class="div-block-48-copy"
-              >
-                <div class="w-form">
-                  <form
-                    id="email-form-3"
-                    name="email-form-3"
-                    data-name="Email Form 3"
-                    method="get"
-                    data-wf-page-id="660b9e8f66bf590207cb82d5"
-                    data-wf-element-id="c5cf66c6-a6b4-59fc-bdba-80e505b92480"
-                  >
-                    <div class="div-block-470">
-                      <label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >ROUTE</span
-                        ></label
-                      ><label
-                        class="w-checkbox checkbox-field-6"
-                        style="position: relative; right: 7px"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >EUR</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                        >
-                          SIO<br />(AREA-K)</span
-                        ></label
-                      >
-                    </div>
-                    <div class="div-block-470">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >EURAFI<br />(AREA-C)</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                        >
-                          AFRASIA<br />(AREA-D)</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >EURSAM<br />(AREA-B)</span
-                        ></label
-                      >
-                    </div>
-                    <div class="div-block-470">
-                      <label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                        >
-                          NAT<br />(AREA-H)</span
-                        >
-                      </label>
-                      <label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >EURSAM<br />(AREA-B)</span
-                        ></label
-                      >
-                      <label class="w-checkbox checkbox-field-6">
-                        <input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        />
-                        <span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >EURSAM<br />(AREA-C)</span
-                        ></label
-                      >
-                    </div>
-                  </form>
-                  <div class="w-form-done"></div>
-                  <div class="w-form-fail"></div>
-                </div>
               </div>
             </div>
           </div>
@@ -1420,140 +1214,110 @@
         <div class="div-block-473">
           <h1 class="heading"><strong>Wind/Temp Charts</strong></h1>
           <div class="div-block-478">
-            <div class="button-2-copy w-button">Clear All</div>
+            <div class="button-2-copy w-button" (click)="clearAll('windTemp')">
+              Clear All
+            </div>
           </div>
           <div class="w-layout-grid grid-45">
-            <div
-              id="w-node-aefede39-07b6-5ee7-7b5e-7b48aac0c383-07cb82d5"
-              class="div-block-48-copy"
-            >
+            <div class="div-block-48-copy">
               <div class="w-form">
-                <form
-                  id="email-form-3"
-                  name="email-form-3"
-                  data-name="Email Form 3"
-                  method="get"
-                  data-wf-page-id="660b9e8f66bf590207cb82d5"
-                  data-wf-element-id="aefede39-07b6-5ee7-7b5e-7b48aac0c385"
-                >
+                <form>
                   <div class="div-blue-copy"></div>
                 </form>
                 <div class="w-form-done"></div>
                 <div class="w-form-fail"></div>
               </div>
               <div
-                id="w-node-aefede39-07b6-5ee7-7b5e-7b48aac0c38d-07cb82d5"
                 class="div-block-48-copy"
                 style="flex-flow: column !important"
               >
                 <div class="w-form">
-                  <form
-                    id="email-form-3"
-                    name="email-form-3"
-                    data-name="Email Form 3"
-                    method="get"
-                    data-wf-page-id="660b9e8f66bf590207cb82d5"
-                    data-wf-element-id="aefede39-07b6-5ee7-7b5e-7b48aac0c38f"
-                  >
+                  <form>
                     <div class="div-block-470">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="wtRoute"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                          [(ngModel)]="settings.windTemp.route"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >ROUTE</span
                         >
-                          ROUTE</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
+                      </label>
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="wtSio"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                          [(ngModel)]="settings.windTemp.sio"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
                           >SIO <br />(AREA-K)</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
                         >
-                          WEST</span
-                        ></label
-                      >
+                      </label>
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
+                          type="checkbox"
+                          name="wtWest"
+                          class="w-checkbox-input zz"
+                          [(ngModel)]="settings.windTemp.west"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >WEST</span
+                        >
+                      </label>
                     </div>
                     <div class="div-block-470">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="wtNamafr"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                          [(ngModel)]="settings.windTemp.namafr"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >NAMAFR</span
                         >
-                          NAMAFR</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
+                      </label>
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="wtAfrica"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                          [(ngModel)]="settings.windTemp.africa"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >AFRICA</span
                         >
-                          AFRICA</span
-                        ></label
-                      ><label
+                      </label>
+                      <label
                         class="w-checkbox checkbox-field-6"
                         style="position: relative; left: 22px"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >EURAFI<br />(AREA-C)</span
-                        ></label
                       >
+                        <input
+                          type="checkbox"
+                          name="wtEurafi"
+                          class="w-checkbox-input zz"
+                          [(ngModel)]="settings.windTemp.eurafi"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >EURAFI<br />(AREA-C)</span
+                        >
+                      </label>
                     </div>
                     <div class="div-block-470">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="wtEast"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                          [(ngModel)]="settings.windTemp.east"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >EAST</span
                         >
-                          EAST</span
-                        ></label
-                      >
+                      </label>
                     </div>
                   </form>
                   <div class="w-form-done"></div>
@@ -1566,122 +1330,84 @@
         <div class="div-block-473">
           <h1 class="heading"><strong>Other Charts and Images </strong></h1>
           <div class="div-block-478">
-            <h4 class="heading-6-copy">
-              <strong>Local Charts</strong>
-            </h4>
-            <div class="button-2-copy w-button">Clear All</div>
+            <h4 class="heading-6-copy"><strong>Local Charts</strong></h4>
+            <div
+              class="button-2-copy w-button"
+              (click)="clearAll('localCharts')"
+            >
+              Clear All
+            </div>
           </div>
           <div class="w-layout-grid grid-45">
-            <div
-              id="w-node-d415e410-eac3-fafe-d196-dd6250301fd6-07cb82d5"
-              class="div-block-48-copy"
-            >
+            <div class="div-block-48-copy">
               <div class="w-form">
-                <form
-                  id="email-form-3"
-                  name="email-form-3"
-                  data-name="Email Form 3"
-                  method="get"
-                  data-wf-page-id="660b9e8f66bf590207cb82d5"
-                  data-wf-element-id="d415e410-eac3-fafe-d196-dd6250301fd8"
-                >
+                <form>
                   <div class="div-blue-copy"></div>
                 </form>
                 <div class="w-form-done"></div>
                 <div class="w-form-fail"></div>
               </div>
-              <div
-                id="w-node-d415e410-eac3-fafe-d196-dd6250301fe0-07cb82d5"
-                class="div-block-48-copy"
-              >
+              <div class="div-block-48-copy">
                 <div class="w-form">
-                  <form
-                    id="email-form-3"
-                    name="email-form-3"
-                    data-name="Email Form 3"
-                    method="get"
-                    data-wf-page-id="660b9e8f66bf590207cb82d5"
-                    data-wf-element-id="d415e410-eac3-fafe-d196-dd6250301fe2"
-                  >
+                  <form>
                     <div class="div-block-470">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="blockLow"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                          [(ngModel)]="settings.localCharts.blockLow"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
                           >Block<br />Winds:Low</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
+                        >
+                      </label>
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="blockHigh"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                          [(ngModel)]="settings.localCharts.blockHigh"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
                           >Block <br />Winds:High</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
+                        >
+                      </label>
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="ukAsh"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >Block<br />Winds:Low</span
-                        ></label
-                      >
+                          [(ngModel)]="settings.localCharts.ukAsh"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >UK<br />VolcanicAsh</span
+                        >
+                      </label>
                     </div>
                     <div class="div-block-470">
-                      <label class="w-checkbox checkbox-field-6"
-                        ><input
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="localHigh"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                          [(ngModel)]="settings.localCharts.high"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >High</span
                         >
-                          UK<br />VolcanicAsh</span
-                        ></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
+                      </label>
+                      <label class="w-checkbox checkbox-field-6">
+                        <input
                           type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
+                          name="localLow"
                           class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
+                          [(ngModel)]="settings.localCharts.low"
+                        />
+                        <span class="checkbox-label-2-copy w-form-label"
+                          >Low</span
                         >
-                          High
-                        </span></label
-                      ><label class="w-checkbox checkbox-field-6"
-                        ><input
-                          type="checkbox"
-                          id="checkbox-2"
-                          name="checkbox-2"
-                          data-name="Checkbox 2"
-                          class="w-checkbox-input zz"
-                        /><span
-                          class="checkbox-label-2-copy w-form-label"
-                          for="checkbox-2"
-                          >Low
-                        </span></label
-                      >
+                      </label>
                     </div>
                   </form>
                   <div class="w-form-done"></div>
@@ -1695,6 +1421,7 @@
           <div
             id="w-node-e348dcbb-d774-4ffe-7fb3-a0c6d69fceea-07cb82d5"
             class="div-block-471"
+            (click)="openPopup('folder')"
           >
             <img
               src="../../assets/Icon-ionic-ios-folder.svg"
@@ -1703,23 +1430,29 @@
             />
             <h3 class="heading-49">Folder Format <br />Settings</h3>
           </div>
+
           <div
             id="w-node-e348dcbb-d774-4ffe-7fb3-a0c6d69fcef0-07cb82d5"
             class="div-block-471"
+            (click)="addNewTemplate()"
           >
             <img src="../../assets/Layer-2.svg" loading="lazy" alt="" />
             <h3 class="heading-49">Save Flight<br /></h3>
           </div>
+
           <div
             id="w-node-e348dcbb-d774-4ffe-7fb3-a0c6d69fcef4-07cb82d5"
             class="div-block-471"
+            (click)="openPopup('operation')"
           >
             <img src="../../assets/route.svg" loading="lazy" alt="" />
             <h3 class="heading-49">Route <br />Building</h3>
           </div>
+
           <div
             id="w-node-e348dcbb-d774-4ffe-7fb3-a0c6d69fcefa-07cb82d5"
             class="div-block-471"
+            (click)="clearAllSettings()"
           >
             <img
               src="../../assets/Icon-material-cancel.svg"
@@ -1728,9 +1461,11 @@
             />
             <h3 class="heading-49">Clear All<br /></h3>
           </div>
+
           <div
             id="w-node-e348dcbb-d774-4ffe-7fb3-a0c6d69fcf00-07cb82d5"
             class="div-block-471"
+            (click)="openPopup('document')"
           >
             <img
               src="../../assets/content-management.svg"
@@ -1739,9 +1474,11 @@
             />
             <h3 class="heading-49">Generate <br />Document</h3>
           </div>
+
           <div
             id="w-node-f38dc051-43ea-93b2-0091-e770f58a5b12-07cb82d5"
             class="div-block-471"
+            (click)="calculateDefaults()"
           >
             <img
               src="../../assets/Icon-metro-calculator.svg"

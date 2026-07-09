@@ -1,0 +1,342 @@
+<div class="popup-container">
+  <button mat-dialog-close class="close-btn">×</button>
+
+  <div class="popup-header">
+    <h2 class="popup-title">
+      {{ data.title }}
+    </h2>
+    <div class="flight-subtitle" *ngIf="data.flightNumber">
+      <mat-icon>flight</mat-icon>
+      Flight: <b>{{ data.flightNumber }}</b> | {{ data.route }}
+    </div>
+  </div>
+
+  <div class="popup-content">
+    <ng-container [ngSwitch]="data.type">
+      <!-- Folder Format -->
+      <div *ngSwitchCase="'folder'">
+        <div class="setting-row">
+          <label>Station display</label>
+
+          <mat-form-field appearance="outline">
+            <mat-select [(value)]="data.stationDisplay">
+              <mat-option value="icao">
+                Info (ICAO/IATA/City/Airport)
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-row">
+          <label>FIR display</label>
+
+          <mat-form-field appearance="outline">
+            <mat-select [(value)]="data.firDisplay">
+              <mat-option value="fir"> Info (FIR/Name) </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-row">
+          <label>METAR/TAF grouping</label>
+
+          <mat-form-field appearance="outline">
+            <mat-select [(value)]="data.metarGrouping">
+              <mat-option value="station"> Group by station </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-row">
+          <label>SIGMET grouping</label>
+
+          <mat-form-field appearance="outline">
+            <mat-select [(value)]="data.sigmetGrouping">
+              <mat-option value="fir"> Group by FIR </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="checkbox-row">
+          <label>Include cover page</label>
+
+          <mat-checkbox [(ngModel)]="data.includeCoverPage"> </mat-checkbox>
+        </div>
+
+        <button class="save-btn">Save format settings</button>
+      </div>
+
+      <!-- Operational Options -->
+      <div *ngSwitchCase="'operation'">
+        <div class="setting-row">
+          <label>Pilot name:</label>
+
+          <mat-form-field appearance="outline">
+            <input matInput [(ngModel)]="data.pilotName" />
+          </mat-form-field>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-row">
+          <label>Pilot license:</label>
+
+          <mat-form-field appearance="outline">
+            <input matInput [(ngModel)]="data.pilotLicense" />
+          </mat-form-field>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-row">
+          <label>Dispatcher name:</label>
+
+          <mat-form-field appearance="outline">
+            <input matInput [(ngModel)]="data.dispatcherName" />
+          </mat-form-field>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="setting-row">
+          <label>Dispatcher License:</label>
+
+          <mat-form-field appearance="outline">
+            <input matInput [(ngModel)]="data.dispatcherLicense" />
+          </mat-form-field>
+        </div>
+
+        <button class="save-btn" (click)="saveOperationalSettings()">
+          Save settings
+        </button>
+      </div>
+
+      <div *ngSwitchCase="'scheduling'" class="scheduling-container">
+        <div class="form-group">
+          <div class="error-message" *ngIf="errorMessage">
+            <!-- <span class="error-icon">✖</span> -->
+            {{ errorMessage }}
+          </div>
+          <label>Time to generate</label>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <input
+              matInput
+              [(ngModel)]="data.timeToGenerate"
+              placeholder="0730"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="select-all">
+          <mat-checkbox [(ngModel)]="data.selectAll" (change)="toggleAllDays()">
+            Select all
+          </mat-checkbox>
+        </div>
+
+        <div class="days-grid">
+          <mat-checkbox [(ngModel)]="data.sun">Sun</mat-checkbox>
+          <mat-checkbox [(ngModel)]="data.mon">Mon</mat-checkbox>
+          <mat-checkbox [(ngModel)]="data.tue">Tue</mat-checkbox>
+          <mat-checkbox [(ngModel)]="data.wed">Wed</mat-checkbox>
+          <mat-checkbox [(ngModel)]="data.thu">Thu</mat-checkbox>
+          <mat-checkbox [(ngModel)]="data.fri">Fri</mat-checkbox>
+          <mat-checkbox [(ngModel)]="data.sat">Sat</mat-checkbox>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 class="section-title">Output destinations</h3>
+
+        <div class="destination-card" (click)="saveSchedule()">
+          <div class="destination-icon">💾</div>
+
+          <div class="destination-text">Save and close</div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'document'" class="document-container">
+        <button mat-stroked-button color="primary" (click)="printPage()">
+          <mat-icon>print</mat-icon> Print / PDF
+        </button>
+        <div class="doc-header">
+          <div>
+            <h2>METEOROLOGICAL DATA FOR FLIGHT</h2>
+            <h1 class="flight-no">{{ data.flightNumber }}</h1>
+          </div>
+        </div>
+
+        <mat-card class="summary-card">
+          <div class="summary-grid">
+            <div>
+              <label>Departure</label>
+              <p>
+                <b>{{ data.departureAirport }}</b> {{ data.depName }}
+              </p>
+            </div>
+            <div>
+              <label>Destination</label>
+              <p>
+                <b>{{ data.destinationAirport }}</b> {{ data.destName }}
+              </p>
+            </div>
+            <div>
+              <label>Enroute / Alternate</label>
+              <p>
+                <b>{{ data.enroute }}</b> {{ data.enrouteName }}
+              </p>
+            </div>
+            <div>
+              <label>Date</label>
+              <p>{{ data.date | date : "dd MMM yyyy HH:mm" }}Z</p>
+            </div>
+            <div>
+              <label>ETD</label>
+              <p>{{ data.etd }}</p>
+            </div>
+            <div>
+              <label>ETE</label>
+              <p>{{ data.ete }}</p>
+            </div>
+          </div>
+        </mat-card>
+
+        <h3 class="section-title"><mat-icon>cloud</mat-icon> METAR / TAF</h3>
+
+        <!-- Departure -->
+        <mat-card class="wx-card">
+          <mat-card-header>
+            <mat-card-title
+              >Departure: {{ data.departureAirport }}/{{
+                data.departureAirport?.substring(0, 3)
+              }}/{{ data.depName }}</mat-card-title
+            >
+          </mat-card-header>
+          <mat-card-content>
+            <div class="wx-block">
+              <span class="wx-label">METAR</span>
+              <code>{{ data.departureMetar || "No METAR" }}</code>
+            </div>
+            <div class="wx-block">
+              <span class="wx-label">TAF</span>
+              <code>{{ data.departureTaf || "No TAF" }}</code>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Destination -->
+        <mat-card class="wx-card">
+          <mat-card-header>
+            <mat-card-title
+              >Destination: {{ data.destinationAirport }}/{{
+                data.destinationAirport?.substring(0, 3)
+              }}/{{ data.destName }}</mat-card-title
+            >
+          </mat-card-header>
+          <mat-card-content>
+            <div class="wx-block">
+              <span class="wx-label">METAR</span>
+              <code>{{ data.destinationMetar || "No METAR" }}</code>
+            </div>
+            <div class="wx-block">
+              <span class="wx-label">TAF</span>
+              <code>{{ data.destinationTaf || "No TAF" }}</code>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Alternate -->
+        <mat-card class="wx-card" *ngIf="data.alternateICAO">
+          <mat-card-header>
+            <mat-card-title
+              >Alternate/En-route: {{ data.alternateICAO }}/{{
+                data.alternateICAO?.substring(0, 3)
+              }}/{{ data.alternateName }}</mat-card-title
+            >
+          </mat-card-header>
+          <mat-card-content>
+            <div class="wx-block">
+              <span class="wx-label">METAR</span>
+              <code>{{ data.alternateMetar || "No METAR" }}</code>
+            </div>
+            <div class="wx-block">
+              <span class="wx-label">TAF</span>
+              <code>{{ data.alternateTaf || "No TAF" }}</code>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- Takeoff Data -->
+        <h3 class="section-title" *ngIf="takeoffData">
+          <mat-icon>flight_takeoff</mat-icon> TAKE-OFF DATA
+        </h3>
+        <mat-card *ngIf="takeoffData">
+          <mat-card-content>
+            <pre class="takeoff-table">{{ takeoffData }}</pre>
+          </mat-card-content>
+        </mat-card>
+
+        <h3 class="section-title"><mat-icon>map</mat-icon> ROUTE CHARTS</h3>
+        <mat-card>
+          <mat-card-content>
+            <p>Charts will be listed here based on selections</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Generate Output -->
+      <div *ngSwitchCase="'output'" class="generate-container">
+        <!-- Warning -->
+        <div class="warning-box">
+          <mat-icon color="warn">warning</mat-icon>
+          <span>
+            Remember that any unsaved changes will not reflect in the document
+          </span>
+        </div>
+
+        <h2 class="generate-title">
+          Generate and send {{ data.flightNumber }}
+        </h2>
+
+        <div class="setting-row">
+          <label>Output destination:</label>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-select [(ngModel)]="data.outputDestination">
+              <mat-option
+                *ngFor="let destination of outputDestinations"
+                [value]="destination.id"
+              >
+                {{ destination.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="action-row">
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="manageOutputDestinations()"
+          >
+            <mat-icon>folder_open</mat-icon>
+            <span>Manage output destinations</span>
+          </button>
+
+          <button mat-raised-button color="primary" (click)="generateAndSend()">
+            <mat-icon>send</mat-icon>
+            <span>Generate and send</span>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

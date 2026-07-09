@@ -14,6 +14,8 @@ export class ShareComponent  implements OnInit {
 
   isLogged: boolean = false;
   loading: boolean = false;
+  usernameToShare: string = '';
+  errorMessage: string = '';
 
   constructor(
     private router: Router,
@@ -37,4 +39,17 @@ export class ShareComponent  implements OnInit {
     this.router.navigate(['/flight-briefing']);
   }
 
+  // Simple function - no API
+  shareFlight() {
+    this.errorMessage = '';
+    
+    if(!this.usernameToShare.trim()){
+      this.errorMessage = 'Please enter a username';
+      return;
+    }
+
+    // For now just always show this error
+    this.errorMessage = 'The username you entered does not exist';
+    this.usernameToShare = '';
+  }
 }

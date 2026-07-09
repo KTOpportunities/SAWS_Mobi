@@ -1,17 +1,14 @@
 <ion-content>
-  <!-- <div *ngIf="loading" class="loading-indicator">
-    <ion-spinner *ngIf="loading" name="bubbles"></ion-spinner>Loading...
-  </div> -->
   <app-loading *ngIf="loading"></app-loading>
   <div id="top"></div>
   <app-package-content>
     <app-service-header>
       Import and export flights for <br />
+      {{ currentUser.username }}
     </app-service-header>
 
     <app-package-list-items>
       <div class="import-and-export-main-div">
-        <!-- <h1 class="heading-6">Import and export flights for <br>lefentse_kto</h1> -->
         <div class="w-layout-grid trand-grid">
           <div
             id="w-node-_53e524b5-e4df-8ef2-c706-97ca6c55d083-8de35a57"
@@ -60,26 +57,19 @@
                     <nav class="dropdown-list1" *ngIf="isDropdownOpen1">
                       <div
                         class="w-dropdown-link"
-                        (click)="selectOption('', 'dropdown1')"
+                        *ngFor="let f of flights"
+                        (click)="selectOption(f.flightNumber, 'dropdown1')"
                       >
-                        Link 1
-                      </div>
-                      <div
-                        class="w-dropdown-link"
-                        (click)="selectOption('', 'dropdown1')"
-                      >
-                        Link 2
-                      </div>
-                      <div
-                        class="w-dropdown-link"
-                        (click)="selectOption('', 'dropdown1')"
-                      >
-                        Link 3
+                        {{ f.flightNumber }} - {{ f.departureICAO }} to
+                        {{ f.destinationICAO }}
                       </div>
                     </nav>
                   </div>
                 </div>
-                <div class="button-2-copy w-button">Export</div>
+                <div class="button-2-copy w-button" (click)="exportFlight()">
+                  Export
+                </div>
+                <!-- ADDED CLICK -->
               </div>
             </form>
             <div class="w-form-done"></div>
@@ -114,15 +104,29 @@
                     <div class="upload-div-copy">
                       <div class="upload-div">
                         <div class="w-embed">
-                          <form action="/action_page.php">
-                            <input type="file" id="myFile" name="filename" />
+                          <form>
+                            <input
+                              #fileInput
+                              type="file"
+                              id="myFile"
+                              name="filename"
+                              accept=".fb,.xml"
+                              (change)="onFileSelected($event)"
+                            />
+                            <!-- ADDED #fileInput AND CHANGE -->
                           </form>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="div-block-469">
-                    <a href="#" class="button-2-copy w-button">Upload</a>
+                    <a
+                      href="javascript:void(0)"
+                      class="button-2-copy w-button"
+                      (click)="fileInput.click()"
+                      >Upload</a
+                    >
+                    <!-- ADDED CLICK + REMOVED # -->
                   </div>
                 </div>
               </form>

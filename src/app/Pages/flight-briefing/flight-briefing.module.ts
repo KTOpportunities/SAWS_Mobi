@@ -11,6 +11,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { SharedModule } from "../../shared/shared.module";
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -21,7 +26,16 @@ import { SharedModule } from "../../shared/shared.module";
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    SharedModule
+    SharedModule,
+  
+    CommonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatInputModule
+  
+
   ],
   declarations: [FlightBriefingPage]
 })

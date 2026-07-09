@@ -4050,7 +4050,7 @@ ion-toast.custom-toast::part(button) {
     align-items: center;
     text-decoration: none;
     display: flex;
-    margin-top: -137px;
+            margin-top: -115px;
   }
 
   .heading-10 {
@@ -4777,3 +4777,12 @@ body, ion-router-outlet {
 }
 app-package-header{margin-top:14px !important;}
 app-package-sub-header{margin-top:14px !important;}
+.success-snackbar {
+  --mdc-snackbar-container-color: #4caf50 !important;
+  --mdc-snackbar-supporting-text-color: #ffffff !important;
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: #f44336 !important;
+  --mdc-snackbar-supporting-text-color: #ffffff !important;
+}

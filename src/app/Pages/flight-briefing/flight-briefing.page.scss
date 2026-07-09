@@ -7754,8 +7754,8 @@
   overflow-x: auto;
   // height: 28em;
   width: 95vw !important;
-  margin-top: 6%;
-  height: 48vh;
+      margin-top: 40%;
+        height: 44vh;
 }
 .depature-main-div,
 .import-and-export-main-div {
@@ -7918,4 +7918,35 @@
 /* Optional: Ensure that all child divs within the grid layout fill 100% */
 .div-block-48 {
   width: 95vw;
+}
+.flightScrol {
+  width: 100%;
+  overflow-x: auto; // allow horizontal scroll
+  -webkit-overflow-scrolling: touch; // smooth scroll on mobile
+}
+
+.table-contain {
+  min-width: 1000px; // force table to be wider than mobile. Adjust as needed
+}
+
+mat-table {
+  width: 100%;
+  min-width: 1000px; // must match.table-contain
+}
+
+mat-header-cell,
+mat-cell {
+  min-width: 160px; // give each column a min width so it doesn't squish
+  padding: 0 12px;
+}
+
+// Make last column sticky so Edit/Generate is always visible
+mat-header-cell.mat-column-edit,
+mat-cell.mat-column-edit {
+  min-width: 220px;
+  position: sticky;
+  right: 0;
+  background: white;
+  z-index: 1;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); // shadow to show it's sticky
 }

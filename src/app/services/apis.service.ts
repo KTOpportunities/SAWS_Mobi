@@ -23,7 +23,7 @@ export class APIService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
+  
     }),
   };
 
@@ -265,12 +265,11 @@ export class APIService {
     );
   }
 
-  GetActiveSubscriptionByUserProfileId(Id: number) {
-    return this.http.get<any>(
-      environment.serverAPI +
-        `v1/Subscriptions/GetActiveSubscriptionByUserProfileId?Id=${Id}`
-    );
-  }
+ GetActiveSubscriptionByUserProfileId(id: number) {
+  return this.http.get<any>(
+    environment.serverAPI + `v1/Subscriptions/GetActiveSubscriptionByUserProfileId?Id=${id}`
+  );
+}
 
   getSpeciReport(): Observable<any> {
     return this.http.get<any>(
@@ -324,4 +323,38 @@ export class APIService {
     };
     return this.http.get<any[]>(apiUrl, { params: queryParams });
   }
+
+  getFlightTemplates() {
+  return this.http.get<any>(
+    environment.serverAPI + 'v1/FlightTemplate'
+  );
+}
+
+createFlightTemplate(body: any) {
+  return this.http.post<any>(
+    environment.serverAPI + 'v1/FlightTemplate',
+    body
+  );
+}
+
+deleteFlightTemplate(id: number) {
+  return this.http.delete<any>(
+    environment.serverAPI + `v1/FlightTemplate/${id}`
+  );
+}
+
+
+  
+  saveOperationalSettings(data: any) {
+  return this.http.post(
+    environment.serverAPI + 'v1/OperationalSettings',
+    data
+  );
+}
+
+getOperationalSettings() {
+  return this.http.get(
+    environment.serverAPI + `v1/OperationalSettings`,
+  );
+}
 }

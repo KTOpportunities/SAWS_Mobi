@@ -1,7 +1,4 @@
 <ion-content>
-  <!-- <div *ngIf="loading" class="loading-indicator">
-    <ion-spinner *ngIf="loading" name="bubbles"></ion-spinner>Loading...
-  </div> -->
   <app-loading *ngIf="loading"></app-loading>
   <app-package-content>
     <app-package-header> Saved flight </app-package-header>
@@ -11,8 +8,9 @@
     <!-- <h1 class="heading-6">Saved flight </h1> -->
 
     <div>
-      <div class="button-2-copy w-button">Click here to add a new flight</div>
-      <div class="button-2-copy w-button">Delete all flights</div>
+      <div class="button-2-copy w-button" (click)="addNewFlight()">
+        Click here to add a new flight
+      </div>
     </div>
 
     <div class="flightScrol">
@@ -21,15 +19,15 @@
           <mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="Flight">
               <mat-header-cell *matHeaderCellDef mat-sort-header
-                >Flight
-              </mat-header-cell>
+                >Flight</mat-header-cell
+              >
               <mat-cell *matCellDef="let row"> {{ row.Flight }} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="departure">
               <mat-header-cell *matHeaderCellDef mat-sort-header
-                >Departure
-              </mat-header-cell>
+                >Departure</mat-header-cell
+              >
               <mat-cell *matCellDef="let row"> {{ row.departure }} </mat-cell>
             </ng-container>
 
@@ -42,19 +40,38 @@
 
             <ng-container matColumnDef="etd">
               <mat-header-cell *matHeaderCellDef mat-sort-header
-                >ETD
-              </mat-header-cell>
+                >ETD</mat-header-cell
+              >
               <mat-cell *matCellDef="let row"> {{ row.etd }} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="vfr">
               <mat-header-cell *matHeaderCellDef>VFR/IFR</mat-header-cell>
-              <mat-cell *matCellDef="let row"> </mat-cell>
+              <mat-cell *matCellDef="let row"> {{ row.vfr }} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="edit">
               <mat-header-cell *matHeaderCellDef>Edit/Generate</mat-header-cell>
-              <mat-cell *matCellDef="let row"> </mat-cell>
+              <mat-cell *matCellDef="let row">
+                <a
+                  href="javascript:void(0)"
+                  (click)="editFlight(row)"
+                  style="margin-right: 8px; text-decoration: underline"
+                  >Edit</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  (click)="generateFlight(row)"
+                  style="text-decoration: underline"
+                  >Generate</a
+                >
+                <a
+                  href="javascript:void(0)"
+                  (click)="generateFlight(row)"
+                  style="text-decoration: underline"
+                  >Generate to output</a
+                >
+              </mat-cell>
             </ng-container>
 
             <mat-header-row
@@ -70,6 +87,13 @@
       [pageSizeOptions]="[5, 10, 25]"
       showFirstLastButtons
     ></mat-paginator>
+
+    <!-- DELETE ALL MOVED TO BOTTOM -->
+    <div style="margin-top: 20px">
+      <div class="button-2-copy w-button" (click)="deleteAllFlights()">
+        Delete all flights
+      </div>
+    </div>
   </app-package-list-items>
 </ion-content>
 

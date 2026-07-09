@@ -1,0 +1,44 @@
+.icon-btn {
+    width: 80px;
+    height: 8cap;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    ion-icon {
+        font-size: 22px;
+    }
+}
+
+.add-btn {
+    background: #27ae60;
+    color: white;
+    font-size:24px;
+
+    &:hover {
+        background: #2ecc71;
+        transform: scale(1.05);
+    }
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: white;
+
+    &:hover {
+        background: #c0392b;
+        transform: scale(1.05);
+    }
+}
+
+.w-dropdown-link {
+    ion-icon {
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}

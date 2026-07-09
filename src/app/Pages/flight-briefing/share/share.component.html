@@ -54,9 +54,18 @@
                     id="field-2"
                     required=""
                     style="margin-top: -5px"
+                    [(ngModel)]="usernameToShare"
                   />
                 </div>
-                <div class="button-2-copy w-button">Export</div>
+                <div
+                  *ngIf="errorMessage"
+                  style="color: red; margin: 10px 0; font-weight: 500"
+                >
+                  {{ errorMessage }}
+                </div>
+                <div class="button-2-copy w-button" (click)="shareFlight()">
+                  Add user
+                </div>
               </div>
             </form>
           </div>
