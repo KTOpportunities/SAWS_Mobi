@@ -105,7 +105,11 @@ export class APIService {
       environment.serverAPI + `v1/Adverts/GetAllAdverts`
     );
   }
-
+  GetPagedAllAdverts(pageNumber: any, pageSize: any) {
+    return this.http.get<any>(
+      environment.serverAPI + `v1/Adverts/GetPagedAllAdverts?pageNumber=${pageNumber}&pageSize=${pageSize}`,
+    );
+  }
   getDocAdvertFileById(id: any) {
     return this.http.get(
       environment.serverAPI + `v1/FileManager/GetDocAdvertFileById?Id=${id}`,

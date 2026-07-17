@@ -9,7 +9,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if(req.url.includes('/Authenticate/')) return next.handle(req);
 
     const user = sessionStorage.getItem('CurrentUser'); // 🔥 was 'userData'
-    console.log('RAW STORAGE:', user);
+   
     
     if(!user) {
       console.warn('No token found in storage');

@@ -231,8 +231,13 @@ export class LandingPage implements OnInit {
       this.swiper.slideNext();
     }
   }
-
+//  GetPagedAllAdverts(pageNumber: any, pageSize: any) {
+//     return this.http.get<any>(
+//       environment.serverAPI + `v1/Adverts/GetPagedAllAdverts?pageNumber=${pageNumber}&pageSize=${pageSize}`,
+//     );
+//   }
   loadAllAdvertisements() {
+    debugger
     this.apiService.getAllAdverts().subscribe(
       (data: any[]) => {
         this.advertisements = data.map((ad) => {

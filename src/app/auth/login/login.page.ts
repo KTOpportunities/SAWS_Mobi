@@ -164,18 +164,20 @@ export class LoginPage implements OnInit, OnDestroy {
     }
   }
 
-  UpdateSubscription(userId: number) {
-    this.apiService.GetActiveSubscriptionByUserProfileId(userId).subscribe(
-      (data: any) => {
-        if (data.length > 0) {
-          this.authAPI.setSubscriptionStatus(data[0].package_name);
-        } else {
-          this.authAPI.setSubscriptionStatus('');
-        }
-      },
-      (err) => console.log('postSub err: ', err)
-    );
-  }
+ UpdateSubscription(userId: number) {
+  this.loading = true;
+  this.apiService.GetActiveSubscriptionByUserProfileId(userId).subscribe({
+    next: (res) => {
+      console.log('Subscription:', res);
+      this.authAPI.setSubscriptionStatus(res?.subscriptionType || '');
+      this.loading = false;
+    },
+    error: (err) => {
+      console.error('Failed to get subscription', err);
+      this.loading = false;
+    }
+  });
+}
 
   async presentToast(position: 'top' | 'middle' | 'bottom', message: string, color: string, icon: string) {
     const toast = await this.toastController.create({

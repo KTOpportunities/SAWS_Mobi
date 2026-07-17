@@ -7,7 +7,7 @@
 
     <app-package-sub-header> </app-package-sub-header>
 
-    <app-package-list-items>
+    <app-package-list-items *ngIf="!showReport">
       <h1 class="heading-6">Domestic/Regional Flight <br />Documentation</h1>
 
       <div class="div-block-473">
@@ -57,6 +57,7 @@
                           name="checkbox-1"
                           data-name="Checkbox 1"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="flightSections.metar"
                         />
                         METAR
                       </label>
@@ -69,6 +70,7 @@
                           name="checkbox-2"
                           data-name="Checkbox 2"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="flightSections.speci"
                         />
                         SPECI
                       </label>
@@ -81,6 +83,7 @@
                           name="checkbox-3"
                           data-name="Checkbox 3"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="flightSections.taf"
                         />
                         TAF
                       </label>
@@ -93,6 +96,7 @@
                           name="checkbox-4"
                           data-name="Checkbox 4"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="flightSections.warning"
                         />
                         Warnings
                       </label>
@@ -105,6 +109,7 @@
                           name="checkbox-4"
                           data-name="Checkbox 4"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="flightSections.sigmet"
                         />
                         Sigment/Airmet
                       </label>
@@ -117,6 +122,7 @@
                           name="checkbox-4"
                           data-name="Checkbox 4"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="flightSections.takeoff"
                         />
                         Take-Off<br />
                         Data
@@ -130,6 +136,7 @@
                           name="checkbox-4"
                           data-name="Checkbox 4"
                           class="w-checkbox-input zz"
+                          [(ngModel)]="flightSections.qnh"
                         />
                         QNH Chart
                       </label>
@@ -243,19 +250,55 @@
                           class="w-dropdown-link"
                           (click)="selectOption('Link 1')"
                         >
-                          Link 1
+                          xx
                         </div>
                         <div
                           class="w-dropdown-link"
                           (click)="selectOption('Link 2')"
                         >
-                          Link 2
+                          06
                         </div>
                         <div
                           class="w-dropdown-link"
                           (click)="selectOption('Link 3')"
                         >
-                          Link 3
+                          12
+                        </div>
+                        <div
+                          class="w-dropdown-link"
+                          (click)="selectOption('Link 3')"
+                        >
+                          18
+                        </div>
+                        <div
+                          class="w-dropdown-link"
+                          (click)="selectOption('Link 3')"
+                        >
+                          24
+                        </div>
+                        <div
+                          class="w-dropdown-link"
+                          (click)="selectOption('Link 3')"
+                        >
+                          30
+                        </div>
+                        <div
+                          class="w-dropdown-link"
+                          (click)="selectOption('Link 3')"
+                        >
+                          36
+                        </div>
+                        <div
+                          class="w-dropdown-link"
+                          (click)="selectOption('Link 3')"
+                        >
+                          42
+                        </div>
+                        <div
+                          class="w-dropdown-link"
+                          (click)="selectOption('Link 3')"
+                        >
+                          48
                         </div>
                       </nav>
                     </div>
@@ -432,19 +475,55 @@
                             class="w-dropdown-link"
                             (click)="selectOption('Link 1')"
                           >
-                            Link 1
+                            xx
                           </div>
                           <div
                             class="w-dropdown-link"
                             (click)="selectOption('Link 2')"
                           >
-                            Link 2
+                            00
                           </div>
                           <div
                             class="w-dropdown-link"
                             (click)="selectOption('Link 3')"
                           >
-                            Link 3
+                            03
+                          </div>
+                          <div
+                            class="w-dropdown-link"
+                            (click)="selectOption('Link 3')"
+                          >
+                            06
+                          </div>
+                          <div
+                            class="w-dropdown-link"
+                            (click)="selectOption('Link 3')"
+                          >
+                            09
+                          </div>
+                          <div
+                            class="w-dropdown-link"
+                            (click)="selectOption('Link 3')"
+                          >
+                            12
+                          </div>
+                          <div
+                            class="w-dropdown-link"
+                            (click)="selectOption('Link 3')"
+                          >
+                            15
+                          </div>
+                          <div
+                            class="w-dropdown-link"
+                            (click)="selectOption('Link 3')"
+                          >
+                            18
+                          </div>
+                          <div
+                            class="w-dropdown-link"
+                            (click)="selectOption('Link 3')"
+                          >
+                            21
                           </div>
                         </nav>
                       </div>
@@ -547,7 +626,7 @@
               >
                 <div class="div-block-470-copy">
                   <label for="" class="field-label-5-copy" id="hour"
-                    >Chart Hour</label
+                    >Regions</label
                   >
                   <div
                     class="dropdown-container"
@@ -555,6 +634,7 @@
                   >
                     <div class="dropdown-toggle">
                       <div class="text-block">{{ selectedOption4 }}</div>
+
                       <div class="dropdown-arrow">
                         <img
                           src="../../assets/icon/arrow-drop-down-svgrepo-com.svg"
@@ -564,24 +644,17 @@
                       </div>
                     </div>
 
-                    <nav class="dropdown-list1" *ngIf="isDropdownOpen4">
+                    <nav
+                      class="dropdown-list1"
+                      *ngIf="isDropdownOpen4"
+                      (click)="$event.stopPropagation()"
+                    >
                       <div
                         class="w-dropdown-link"
-                        (click)="selectOption('Link 1')"
+                        *ngFor="let region of regions"
+                        (click)="selectRegion(region)"
                       >
-                        Link 1
-                      </div>
-                      <div
-                        class="w-dropdown-link"
-                        (click)="selectOption('Link 2')"
-                      >
-                        Link 2
-                      </div>
-                      <div
-                        class="w-dropdown-link"
-                        (click)="selectOption('Link 3')"
-                      >
-                        Link 3
+                        {{ region }}
                       </div>
                     </nav>
                   </div>
@@ -599,15 +672,17 @@
                 </div>
                 <div>
                   <div class="div-block-470-copy">
-                    <label for="" class="field-label-5-copy" id="hour"
-                      >Station List</label
-                    >
+                    <label for="" class="field-label-5-copy" id="hour">
+                      Station List
+                    </label>
+
                     <div
                       class="dropdown-container"
                       (click)="toggleDropdown('dropdown6')"
                     >
                       <div class="dropdown-toggle">
                         <div class="text-block">{{ selectedOption6 }}</div>
+
                         <div class="dropdown-arrow">
                           <img
                             src="../../assets/icon/arrow-drop-down-svgrepo-com.svg"
@@ -617,46 +692,47 @@
                         </div>
                       </div>
 
-                      <nav class="dropdown-list1" *ngIf="isDropdownOpen6">
+                      <nav
+                        class="dropdown-list1"
+                        *ngIf="isDropdownOpen6"
+                        (click)="$event.stopPropagation()"
+                      >
                         <div
                           class="w-dropdown-link"
-                          (click)="selectOption('Link 1')"
+                          *ngFor="let station of filteredStations"
+                          (click)="selectStation(station)"
                         >
-                          Link 1
-                        </div>
-                        <div
-                          class="w-dropdown-link"
-                          (click)="selectOption('Link 2')"
-                        >
-                          Link 2
-                        </div>
-                        <div
-                          class="w-dropdown-link"
-                          (click)="selectOption('Link 3')"
-                        >
-                          Link 3
+                          {{ station }}
                         </div>
                       </nav>
                     </div>
 
                     <textarea
-                      placeholder="Example Text"
                       maxlength="5000"
-                      id="field-2"
-                      name="field-2"
-                      data-name="Field 2"
                       class="text-field-blue-fcopy w-input"
+                      [(ngModel)]="stationCodes"
+                      name="stationCodes"
                     ></textarea>
                   </div>
                 </div>
                 <div class="div-block-470-copy">
                   <div id="addremove1">
                     <div>
-                      <div class="remove-button w-button">Clear</div>
+                      <div
+                        class="remove-button w-button"
+                        (click)="clearStations()"
+                      >
+                        Clear
+                      </div>
                     </div>
 
                     <div>
-                      <div class="remove-button w-button">Sort</div>
+                      <div
+                        class="remove-button w-button"
+                        (click)="sortStations()"
+                      >
+                        Sort
+                      </div>
                     </div>
 
                     <div>
@@ -1076,7 +1152,9 @@
               <div class="button-2-copy w-button">Schedule</div>
             </div>
             <div>
-              <div class="button-2-copy w-button">View Report</div>
+              <div class="button-2-copy w-button" (click)="viewReport()">
+                View Report
+              </div>
             </div>
 
             <div>
@@ -1086,6 +1164,96 @@
         </div>
       </div>
     </app-package-list-items>
+  <app-package-list-items *ngIf="showReport">
+  <div class="report-viewer">
+    <div class="report-actions">
+      <button class="button-2-copy w-button" (click)="closeReport()">Close</button>
+      <button class="button-2-copy w-button" onclick="window.print()">Print / PDF</button>
+    </div>
+
+    <div class="report-page" *ngFor="let page of reportPages; let i = index">
+      <!-- SAWS HEADER ON EVERY PAGE -->
+      <div class="saws-header">
+        <p><strong>Aviation Weather Center</strong></p>
+        <p>designated Aeronautical Meteorological Authority for South Africa</p>
+        <p>Aeronautical Meteorological Documentation</p>
+        <p>Compiled at Aviation Weather Centre</p>
+        <p>O.R. Tambo International Airport, South Africa</p>
+        <p>Date: {{ reportDate | date : "yyyy-MM-dd" }} - Time: {{ reportDate | date : "HH:mm:ss" }} Z</p>
+        <hr />
+      </div>
+
+      <!-- Cover -->
+      <ng-container *ngIf="page.type == 'cover'">
+        <h1 class="report-title">Aeronautical Meteorological Documentation</h1>
+        <p>Compiled at Aviation Weather Centre</p>
+        <p>O.R. Tambo International Airport, South Africa</p>
+        <p>Date: {{ reportDate | date : "yyyy-MM-dd" }} - Time: {{ reportDate | date : "HH:mm:ss" }} Z</p>
+        <h3>Content</h3>
+      </ng-container>
+
+      <!-- Content -->
+      <ng-container *ngIf="page.type == 'content'">
+        <h2>Content</h2>
+        <table class="content-table">
+          <tr *ngIf="flightSections.metar"><td>METAR</td><td>Meteorological Aerodrome Report</td></tr>
+          <tr *ngIf="flightSections.speci"><td>SPECI</td><td>Special Meteorological Aerodrome Report</td></tr>
+          <tr *ngIf="flightSections.taf"><td>TAF</td><td>Terminal Aerodrome Forecast</td></tr>
+          <tr *ngIf="flightSections.sigmet"><td>SIGMET</td><td>Significant Weather</td></tr>
+          <tr *ngIf="flightSections.amo"><td>AMO</td><td>Aeronautical Meteorological Outlook</td></tr>
+          <tr *ngIf="flightSections.airmet"><td>AIRMET</td><td>Significant Weather below FL100 and in mountainous areas below FL150</td></tr>
+          <tr *ngIf="flightSections.takeoff"><td>Take-off Data</td><td>Forecast Runway parameters</td></tr>
+          <tr *ngIf="flightSections.warning"><td>Warnings</td><td>Aerodrome Warnings</td></tr>
+          <tr *ngIf="flightSections.qnh"><td>QNH Chart</td><td>QNH analysis</td></tr>
+          <tr *ngIf="flightSections.blockWindLow"><td>Block Wind</td><td>FL010 to FL240</td></tr>
+          <tr *ngIf="flightSections.blockWindHigh"><td>Block Wind</td><td>FL210 to FL450</td></tr>
+          <tr *ngIf="flightSections.barbWindLow"><td>Barb Wind</td><td>FL010 to FL210</td></tr>
+          <tr *ngIf="flightSections.barbWindHigh"><td>Barb Wind</td><td>FL150 to FL450</td></tr>
+          <tr *ngIf="flightSections.addLow"><td>ADD Low</td><td>Additional Low Sigwx chart, below FL100</td></tr>
+          <tr *ngIf="flightSections.lowSigwx"><td>LOW SIGWX</td><td>Sigwx chart from surface to FL180</td></tr>
+          <tr *ngIf="flightSections.highSigwx"><td>HIGH SIGWX</td><td>Sigwx chart above FL180</td></tr>
+        </table>
+        <p class="copyright">Copyright © South African Weather Service</p>
+      </ng-container>
+
+      <!-- Text Pages -->
+      <ng-container *ngIf="page.type == 'text'">
+        <h2>{{ page.title }}</h2>
+        <p>Compiled at Aviation Weather Centre, O.R. Tambo Intl. Airport</p>
+        <p>Date:{{ reportDate | date : "yyyy-MM-dd" }} - Time:{{ reportDate | date : "HH:mm:ss" }} Z</p>
+        <hr />
+
+        <!-- Grouped by Province for METAR/TAF/SPECI -->
+        <ng-container *ngIf="isGroupedReport(page); else normalText">
+          <div *ngIf="page.data && page.data.length > 0; else noData">
+            <div *ngFor="let group of page.data" class="province-block">
+              <h3 class="province-heading">{{ group.province }}</h3>
+              <pre *ngFor="let item of group.items">{{ item.filecontent || item.content }}</pre>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-template #normalText>
+          <div *ngIf="page.data && page.data.length > 0; else noData">
+            <pre *ngFor="let item of page.data">{{ item.filecontent || item.content }}</pre>
+          </div>
+        </ng-template>
+
+        <ng-template #noData><p>No data available for selected stations.</p></ng-template>
+      </ng-container>
+
+      <!-- Image Pages -->
+      <ng-container *ngIf="page.type == 'image'">
+        <h2>{{ page.title }}</h2>
+        <div *ngIf="page.image; else noImage">
+          <img [src]="page.image" class="report-image" alt="Report Image" />
+        </div>
+        <ng-template #noImage><p>Image not available</p></ng-template>
+      </ng-container>
+
+    </div>
+  </div>
+</app-package-list-items>
   </app-package-content>
 </ion-content>
 
