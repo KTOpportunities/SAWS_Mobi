@@ -7950,3 +7950,13 @@ mat-cell.mat-column-edit {
   z-index: 1;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); // shadow to show it's sticky
 }
+@media screen and (max-width: 479px) {
+  .link-block-5 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    display: flex;
+    margin-top: 6px;
+  }
+}

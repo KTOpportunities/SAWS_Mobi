@@ -11,6 +11,8 @@ import { APIService } from 'src/app/services/apis.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { PopupDialogComponent } from '../popup-dialog/popup-dialog.component';
 import { ActivatedRoute } from '@angular/router';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -556,6 +558,7 @@ airportNames: { [code: string]: string } = {
       }
     }
     if (key === 'document' && this.flightWeather.length === 0) {
+
       this.presentToast('Weather is still loading. Please wait...');
       return;
     }
@@ -577,6 +580,7 @@ airportNames: { [code: string]: string } = {
       data.alternateTaf = this.alternateTaf;
       data.flightWeather = this.flightWeather;
       data.airportNames = this.airportNames;
+      data.routeCharts = this.getSelectedRouteCharts();
     }
     this.dialog.open(PopupDialogComponent, { width: '99vw', data });
   }
@@ -657,6 +661,100 @@ airportNames: { [code: string]: string } = {
     this.flightName = ''; this.departureAirport = ''; this.destinationAirport = '';
     this.enroute = ''; this.etd = ''; this.ete = '';
   }
+async downloadPdf() {
+  const element = document.getElementById('pdf-content');
 
+  if (!element) {
+    this.presentToast('PDF content not found');
+    return;
+  }
+
+  try {
+    this.loading = true;
+
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: '#ffffff',
+      logging: false,
+      scrollX: 0,
+      scrollY: -window.scrollY
+    });
+
+    const imgData = canvas.toDataURL('image/png');
+
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = 210;
+    const pageHeight = 297;
+
+    const imgWidth = pdfWidth;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    let heightLeft = imgHeight;
+    let position = 0;
+
+    // First page
+    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+
+    // Additional pages if content is longer than one page
+    while (heightLeft > 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+    }
+
+    const fileName = this.flightName
+      ? `${this.flightName}-nsWEBPIB.pdf`
+      : 'nsWEBPIB-Query.pdf';
+
+    pdf.save(fileName);
+
+    this.presentToast('PDF generated successfully');
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    this.presentToast('Failed to generate PDF');
+  } finally {
+    this.loading = false;
+  }
+  }
+  getSelectedRouteCharts(): { label: string; url: string }[] {
+  const charts: { label: string; url: string }[] = [];
+
+  // BUFR Significant Weather chart
+  charts.push({
+    label: 'BUFR (Significant Weather) M0830+12 (FL250-FL630)',
+    url: 'https://your-api-or-file-link/bufr-significant-weather.pdf'
+  });
+
+  // GRIB Wind/Temp charts by selected flight level
+  const levels = [
+    'FL050', 'FL080', 'FL100', 'FL140', 'FL180', 'FL210',
+    'FL240', 'FL270', 'FL300', 'FL320', 'FL340', 'FL360',
+    'FL390', 'FL410', 'FL450', 'FL480', 'FL530'
+  ];
+
+  levels.forEach(level => {
+    const key = level.toLowerCase(); // e.g. FL050 -> fl050
+
+    if (this.settings.weatherLevels[key]) {
+      charts.push({
+        label: `GRIB (Wind/Temp) M0830+12 (${level})`,
+        url: `https://your-api-or-file-link/grib-${level.toLowerCase()}.pdf`
+      });
+    }
+  });
+
+  // Cross-section chart
+  if (this.includeCrossSection) {
+    charts.push({
+      label: 'Wind/Temp cross-section for M0830+12',
+      url: 'https://your-api-or-file-link/wind-temp-cross-section.pdf'
+    });
+  }
+
+  return charts;
+}
   presentToast(message: string) { alert(message); }
 }

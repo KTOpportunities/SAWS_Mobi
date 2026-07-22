@@ -3,6 +3,8 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { APIService } from 'src/app/services/apis.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-popup-dialog',
   templateUrl: './popup-dialog.component.html',
@@ -190,5 +192,81 @@ manageOutputDestinations(): void {
 generateAndSend(): void {
   console.log('Generate and Send', this.data.outputDestination);
   // Call your API here
+}
+  async generatePdf() {
+  const element = document.getElementById('pdf-content');
+
+  if (!element) {
+    this.snackBar.open('PDF content not found', 'Close', {
+      duration: 3000
+    });
+    return;
+  }
+
+  try {
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: '#ffffff',
+      logging: false,
+      scrollX: 0,
+      scrollY: -window.scrollY
+    });
+
+    const imgData = canvas.toDataURL('image/png');
+
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = 210;
+    const pageHeight = 297;
+
+    const imgWidth = pdfWidth;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    let heightLeft = imgHeight;
+    let position = 0;
+
+    // First page
+    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+
+    // Additional pages if content is longer than one page
+    while (heightLeft > 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+    }
+
+    const fileName = this.data.flightNumber
+      ? `${this.data.flightNumber}-nsWEBPIB.pdf`
+      : 'nsWEBPIB-Query.pdf';
+
+    pdf.save(fileName);
+
+    this.snackBar.open('PDF generated successfully', 'Close', {
+      duration: 3000
+    });
+
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+
+    this.snackBar.open('Failed to generate PDF', 'Close', {
+      duration: 3000
+    });
+  }
+    
+  }
+ downloadChart(chart: any) {
+  const link = document.createElement('a');
+
+  // Path to the image in assets
+  link.href = 'assets/nodata.png';
+
+  // File name when downloaded
+  link.download = chart.label.replace(/\s+/g, '_') + '.png';
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 }

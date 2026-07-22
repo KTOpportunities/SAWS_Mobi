@@ -6,7 +6,7 @@
       {{ data.title }}
     </h2>
     <div class="flight-subtitle" *ngIf="data.flightNumber">
-      <mat-icon>flight</mat-icon>
+      <!-- <mat-icon>flight</mat-icon> -->
       Flight: <b>{{ data.flightNumber }}</b> | {{ data.route }}
     </div>
   </div>
@@ -164,132 +164,165 @@
       </div>
 
       <div *ngSwitchCase="'document'" class="document-container">
-        <button mat-stroked-button color="primary" (click)="printPage()">
-          <mat-icon>print</mat-icon> Print / PDF
+        <!-- Button is OUTSIDE pdf-content, so it will not be included in the PDF -->
+        <button mat-stroked-button color="primary" (click)="generatePdf()">
+          <mat-icon>download</mat-icon> Download PDF
         </button>
-        <div class="doc-header">
-          <div>
-            <h2>METEOROLOGICAL DATA FOR FLIGHT</h2>
-            <h1 class="flight-no">{{ data.flightNumber }}</h1>
+
+        <!-- Everything inside this div will be included in the PDF -->
+
+        <div id="pdf-content">
+          <div class="doc-header">
+            <div>
+              <h2>METEOROLOGICAL DATA FOR FLIGHT</h2>
+              <h1 class="flight-no">{{ data.flightNumber }}</h1>
+            </div>
           </div>
+
+          <mat-card class="summary-card">
+            <div class="summary-grid">
+              <div>
+                <label>Departure</label>
+                <p>
+                  <b>{{ data.departureAirport }}</b> {{ data.depName }}
+                </p>
+              </div>
+
+              <div>
+                <label>Destination</label>
+                <p>
+                  <b>{{ data.destinationAirport }}</b> {{ data.destName }}
+                </p>
+              </div>
+
+              <div>
+                <label>Enroute / Alternate</label>
+                <p>
+                  <b>{{ data.enroute }}</b> {{ data.enrouteName }}
+                </p>
+              </div>
+
+              <div>
+                <label>Date</label>
+                <p>{{ data.date | date : "dd MMM yyyy HH:mm" }}Z</p>
+              </div>
+
+              <div>
+                <label>ETD</label>
+                <p>{{ data.etd }}</p>
+              </div>
+
+              <div>
+                <label>ETE</label>
+                <p>{{ data.ete }}</p>
+              </div>
+            </div>
+          </mat-card>
+
+          <h3 class="section-title"><mat-icon>cloud</mat-icon> METAR / TAF</h3>
+
+          <!-- Departure -->
+          <mat-card class="wx-card">
+            <mat-card-header>
+              <mat-card-title>
+                Departure: {{ data.departureAirport }}/{{
+                  data.departureAirport?.substring(0, 3)
+                }}/{{ data.depName }}
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="wx-block">
+                <span class="wx-label">METAR</span>
+                <code>{{ data.departureMetar || "No METAR" }}</code>
+              </div>
+
+              <div class="wx-block">
+                <span class="wx-label">TAF</span>
+                <code>{{ data.departureTaf || "No TAF" }}</code>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Destination -->
+          <mat-card class="wx-card">
+            <mat-card-header>
+              <mat-card-title>
+                Destination: {{ data.destinationAirport }}/{{
+                  data.destinationAirport?.substring(0, 3)
+                }}/{{ data.destName }}
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="wx-block">
+                <span class="wx-label">METAR</span>
+                <code>{{ data.destinationMetar || "No METAR" }}</code>
+              </div>
+
+              <div class="wx-block">
+                <span class="wx-label">TAF</span>
+                <code>{{ data.destinationTaf || "No TAF" }}</code>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Alternate -->
+          <mat-card class="wx-card" *ngIf="data.alternateICAO">
+            <mat-card-header>
+              <mat-card-title>
+                Alternate/En-route: {{ data.alternateICAO }}/{{
+                  data.alternateICAO?.substring(0, 3)
+                }}/{{ data.alternateName }}
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="wx-block">
+                <span class="wx-label">METAR</span>
+                <code>{{ data.alternateMetar || "No METAR" }}</code>
+              </div>
+
+              <div class="wx-block">
+                <span class="wx-label">TAF</span>
+                <code>{{ data.alternateTaf || "No TAF" }}</code>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Takeoff Data -->
+          <h3 class="section-title" *ngIf="takeoffData">
+            <mat-icon>flight_takeoff</mat-icon> TAKE-OFF DATA
+          </h3>
+
+          <mat-card *ngIf="takeoffData">
+            <mat-card-content>
+              <pre class="takeoff-table">{{ takeoffData }}</pre>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Route Charts -->
+          <h3 class="section-title"><mat-icon>map</mat-icon> ROUTE CHARTS</h3>
+
+          <mat-card>
+            <mat-card-content>
+              <div *ngIf="data.routeCharts?.length > 0; else noCharts">
+                <div
+                  *ngFor="let chart of data.routeCharts"
+                  style="margin-bottom: 8px"
+                >
+                  <a href="javascript:void(0)" (click)="downloadChart(chart)">
+                    {{ chart.label }}
+                  </a>
+                </div>
+              </div>
+
+              <ng-template #noCharts>
+                <p>No route charts selected.</p>
+              </ng-template>
+            </mat-card-content>
+          </mat-card>
         </div>
-
-        <mat-card class="summary-card">
-          <div class="summary-grid">
-            <div>
-              <label>Departure</label>
-              <p>
-                <b>{{ data.departureAirport }}</b> {{ data.depName }}
-              </p>
-            </div>
-            <div>
-              <label>Destination</label>
-              <p>
-                <b>{{ data.destinationAirport }}</b> {{ data.destName }}
-              </p>
-            </div>
-            <div>
-              <label>Enroute / Alternate</label>
-              <p>
-                <b>{{ data.enroute }}</b> {{ data.enrouteName }}
-              </p>
-            </div>
-            <div>
-              <label>Date</label>
-              <p>{{ data.date | date : "dd MMM yyyy HH:mm" }}Z</p>
-            </div>
-            <div>
-              <label>ETD</label>
-              <p>{{ data.etd }}</p>
-            </div>
-            <div>
-              <label>ETE</label>
-              <p>{{ data.ete }}</p>
-            </div>
-          </div>
-        </mat-card>
-
-        <h3 class="section-title"><mat-icon>cloud</mat-icon> METAR / TAF</h3>
-
-        <!-- Departure -->
-        <mat-card class="wx-card">
-          <mat-card-header>
-            <mat-card-title
-              >Departure: {{ data.departureAirport }}/{{
-                data.departureAirport?.substring(0, 3)
-              }}/{{ data.depName }}</mat-card-title
-            >
-          </mat-card-header>
-          <mat-card-content>
-            <div class="wx-block">
-              <span class="wx-label">METAR</span>
-              <code>{{ data.departureMetar || "No METAR" }}</code>
-            </div>
-            <div class="wx-block">
-              <span class="wx-label">TAF</span>
-              <code>{{ data.departureTaf || "No TAF" }}</code>
-            </div>
-          </mat-card-content>
-        </mat-card>
-
-        <!-- Destination -->
-        <mat-card class="wx-card">
-          <mat-card-header>
-            <mat-card-title
-              >Destination: {{ data.destinationAirport }}/{{
-                data.destinationAirport?.substring(0, 3)
-              }}/{{ data.destName }}</mat-card-title
-            >
-          </mat-card-header>
-          <mat-card-content>
-            <div class="wx-block">
-              <span class="wx-label">METAR</span>
-              <code>{{ data.destinationMetar || "No METAR" }}</code>
-            </div>
-            <div class="wx-block">
-              <span class="wx-label">TAF</span>
-              <code>{{ data.destinationTaf || "No TAF" }}</code>
-            </div>
-          </mat-card-content>
-        </mat-card>
-
-        <!-- Alternate -->
-        <mat-card class="wx-card" *ngIf="data.alternateICAO">
-          <mat-card-header>
-            <mat-card-title
-              >Alternate/En-route: {{ data.alternateICAO }}/{{
-                data.alternateICAO?.substring(0, 3)
-              }}/{{ data.alternateName }}</mat-card-title
-            >
-          </mat-card-header>
-          <mat-card-content>
-            <div class="wx-block">
-              <span class="wx-label">METAR</span>
-              <code>{{ data.alternateMetar || "No METAR" }}</code>
-            </div>
-            <div class="wx-block">
-              <span class="wx-label">TAF</span>
-              <code>{{ data.alternateTaf || "No TAF" }}</code>
-            </div>
-          </mat-card-content>
-        </mat-card>
-
-        <!-- Takeoff Data -->
-        <h3 class="section-title" *ngIf="takeoffData">
-          <mat-icon>flight_takeoff</mat-icon> TAKE-OFF DATA
-        </h3>
-        <mat-card *ngIf="takeoffData">
-          <mat-card-content>
-            <pre class="takeoff-table">{{ takeoffData }}</pre>
-          </mat-card-content>
-        </mat-card>
-
-        <h3 class="section-title"><mat-icon>map</mat-icon> ROUTE CHARTS</h3>
-        <mat-card>
-          <mat-card-content>
-            <p>Charts will be listed here based on selections</p>
-          </mat-card-content>
-        </mat-card>
       </div>
 
       <!-- Generate Output -->
@@ -330,12 +363,11 @@
             <mat-icon>folder_open</mat-icon>
             <span>Manage output destinations</span>
           </button>
-
-          <button mat-raised-button color="primary" (click)="generateAndSend()">
-            <mat-icon>send</mat-icon>
-            <span>Generate and send</span>
-          </button>
         </div>
+        <button mat-raised-button color="primary" (click)="generateAndSend()">
+          <mat-icon>send</mat-icon>
+          <span>Generate and send</span>
+        </button>
       </div>
     </ng-container>
   </div>

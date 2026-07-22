@@ -1,11 +1,8 @@
 <ion-content>
-  <app-loading *ngIf="loading" class="loading-indicator">
-    <!-- <ion-spinner *ngIf="loading" name="bubbles"></ion-spinner>Loading... -->
-  </app-loading>
-
+  <app-loading *ngIf="loading"></app-loading>
+  <div id="top"></div>
   <app-package-content>
-    <!-- <h1 class="heading-6">nsWEBPIB Query</h1> -->
-    <app-package-header> nsWEBPIB Query </app-package-header>
+    <app-service-header> nsWEBPIB Query </app-service-header>
 
     <app-package-list-items>
       <div style="margin-top: 19%">
@@ -156,10 +153,10 @@
                     align-items: center;
                   "
                   *ngFor="let template of templates"
-                  (click)="selectTemplate(template)"
+                  (click)="selectTemplate(template); $event.stopPropagation()"
                 >
                   <span>{{ template.flightNumber }}</span>
-                  <!-- DELETE ICON PER ITEM -->
+
                   <ion-icon
                     name="trash-outline"
                     (click)="deleteTemplate(template); $event.stopPropagation()"
@@ -191,7 +188,9 @@
                 id="w-node-_402f0a29-7fb8-8334-0d00-9b68054ba458-07cb82d5"
                 class="div-block-48"
               >
-                <h4 class="heading-21"><strong>Flight name/number</strong></h4>
+                <h4 class="heading-21">
+                  <strong>Flight name/number</strong>
+                </h4>
               </div>
               <div
                 id="w-node-_496d1ff9-7392-437a-4978-6791e9330dc9-07cb82d5"
@@ -547,7 +546,9 @@
                 id="w-node-_8d08ab63-9ea1-978f-8354-82f70af1b61f-07cb82d5"
                 class="div-block-48"
               >
-                <h4 class="heading-21"><strong>Include Advisories</strong></h4>
+                <h4 class="heading-21">
+                  <strong>Include Advisories</strong>
+                </h4>
               </div>
               <div
                 id="w-node-_68c50297-5a45-6ae8-4483-216ee779751d-07cb82d5"
