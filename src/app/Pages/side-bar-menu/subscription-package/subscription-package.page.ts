@@ -292,7 +292,7 @@ export class SubscriptionPackagePage implements OnInit {
   }
 
   GetSubscriptions() {
-    debugger;
+  
     var user: any = this.authService.getCurrentUser();
     const userLoginDetails = JSON.parse(user);
 
@@ -343,7 +343,7 @@ switch (this.subsArray.package_id) {
           }
         // });
 
-        debugger
+      
 
         if (packageExists) {
           this.presentToast(
@@ -405,7 +405,7 @@ switch (this.subsArray.package_id) {
 
     // PayFast may append query params, so avoid strict equality.
     if (returnUrl && url.startsWith(returnUrl)) {
-      debugger;
+
       this.authService.setIsToReturnToSub(true);
       this.browser.close();
       // this.saveSub();
@@ -473,7 +473,7 @@ switch (this.subsArray.package_id) {
     this.subsObj.subscription_type = this.subscriptionType;
 
     console.log('subO: ', this.subsObj);
-    debugger;
+
 
     this.APIService.paySubscription(this.subsObj).subscribe(
       (payRes: any) => {
@@ -493,7 +493,7 @@ switch (this.subsArray.package_id) {
   }
 
   provideFeedback(subscriptionPackageId: number, amount?: number) {
-    debugger
+
     console.log("subscriptionPackageId", subscriptionPackageId)
     if (!this.authService.getIsLoggedIn()) {
       const redirectUrl = `/subscription-package?id=${subscriptionPackageId}`;
@@ -577,11 +577,11 @@ switch (this.subsArray.package_id) {
 
     this.updateSub.userprofileid = userLoginDetails?.userProfileId;
 
-    debugger;
+  
 
     console.log('updateSub', this.updateSub);
 
-    debugger;
+
     this.APIService.PostInsertSubscription(this.updateSub).subscribe(
       (data: any) => {
         console.log('postSub: ', data);
@@ -622,7 +622,7 @@ switch (this.subsArray.package_id) {
 
     console.log(this.subsArray)
 
-    debugger
+
 
     this.APIService.CancelSubscription(
       this.subsArray.subscriptionId

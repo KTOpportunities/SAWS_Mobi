@@ -518,18 +518,15 @@
                     data-wf-page-id="660b9e8f66bf590207cb82d5"
                     data-wf-element-id="42186cc3-33ea-8c9a-884a-9f2800466b15"
                   >
-                    <label class="w-checkbox checkbox-field-6"
-                      ><input
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
                         type="checkbox"
-                        id="checkbox-2"
-                        name="checkbox-2"
-                        data-name="Checkbox 2"
-                        class="w-checkbox-input checkbox" /><span
-                        class="checkbox-label-2 w-form-label"
-                        for="checkbox-2"
+                        class="w-checkbox-input checkbox"
                         [(ngModel)]="includeCrossSection"
-                      ></span
-                    ></label>
+                        name="includeCrossSection"
+                      />
+                      <span class="checkbox-label-2 w-form-label"></span>
+                    </label>
                   </form>
                   <div class="w-form-done"></div>
                   <div class="w-form-fail"></div>
@@ -571,7 +568,7 @@
                           name="checkbox-2"
                           data-name="Checkbox 2"
                           class="w-checkbox-input zz"
-                          [(ngModel)]="includeTakeoff"
+                          [(ngModel)]="spaceWeather"
                         />
                         <span
                           class="checkbox-label-2-copy w-form-label"
@@ -1119,45 +1116,71 @@
               </div>
               <div class="div-block-48-copy">
                 <form>
-                  <div class="div-block-470">
+                  <div class="checkbox-list local-charts-grid">
                     <label class="w-checkbox checkbox-field-6">
                       <input
                         type="checkbox"
-                        name="routeChart"
                         class="w-checkbox-input zz"
                         [(ngModel)]="settings.charts.route"
                       />
-                      <span class="checkbox-label-2-copy w-form-label"
-                        >ROUTE</span
-                      >
+                      <span>ROUTE</span>
                     </label>
-                    <label
-                      class="w-checkbox checkbox-field-6"
-                      style="position: relative; right: 7px"
-                    >
-                      <input
-                        type="checkbox"
-                        name="eurChart"
-                        class="w-checkbox-input zz"
-                        [(ngModel)]="settings.charts.eur"
-                      />
-                      <span class="checkbox-label-2-copy w-form-label"
-                        >EUR</span
-                      >
-                    </label>
+
                     <label class="w-checkbox checkbox-field-6">
                       <input
                         type="checkbox"
-                        name="sioChart"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.eur"
+                      />
+                      <span>EUR</span>
+                    </label>
+
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
                         class="w-checkbox-input zz"
                         [(ngModel)]="settings.charts.sio"
                       />
-                      <span class="checkbox-label-2-copy w-form-label"
-                        >SIO<br />(AREA-K)</span
-                      >
+                      <span>SIO (AREA-K)</span>
+                    </label>
+
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.eurafi"
+                      />
+                      <span>EURAFI (AREA-C)</span>
+                    </label>
+
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.afrasia"
+                      />
+                      <span>AFRASIA (AREA-D)</span>
+                    </label>
+
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.eursam"
+                      />
+                      <span>EURSAM (AREA-B)</span>
+                    </label>
+
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="settings.charts.nat"
+                      />
+                      <span>NAT (AREA-H)</span>
                     </label>
                   </div>
-                  <div class="div-block-470">
+                  <div class="checkbox-list local-charts-grid">
                     <label class="w-checkbox checkbox-field-6">
                       <input
                         type="checkbox"
@@ -1192,7 +1215,7 @@
                       >
                     </label>
                   </div>
-                  <div class="div-block-470">
+                  <div class="checkbox-list local-charts-grid">
                     <label class="w-checkbox checkbox-field-6">
                       <input
                         type="checkbox"
@@ -1234,7 +1257,7 @@
               >
                 <div class="w-form">
                   <form>
-                    <div class="div-block-470">
+                    <div class="checkbox-list local-charts-grid">
                       <label class="w-checkbox checkbox-field-6">
                         <input
                           type="checkbox"
@@ -1269,7 +1292,7 @@
                         >
                       </label>
                     </div>
-                    <div class="div-block-470">
+                    <div class="checkbox-list local-charts-grid">
                       <label class="w-checkbox checkbox-field-6">
                         <input
                           type="checkbox"
@@ -1294,7 +1317,7 @@
                       </label>
                       <label
                         class="w-checkbox checkbox-field-6"
-                        style="position: relative; left: 22px"
+                    
                       >
                         <input
                           type="checkbox"
@@ -1307,7 +1330,7 @@
                         >
                       </label>
                     </div>
-                    <div class="div-block-470">
+                    <div class="checkbox-list local-charts-grid">
                       <label class="w-checkbox checkbox-field-6">
                         <input
                           type="checkbox"
@@ -1351,7 +1374,7 @@
               <div class="div-block-48-copy">
                 <div class="w-form">
                   <form>
-                    <div class="div-block-470">
+                    <div class="checkbox-list local-charts-grid">
                       <label class="w-checkbox checkbox-field-6">
                         <input
                           type="checkbox"
@@ -1386,7 +1409,7 @@
                         >
                       </label>
                     </div>
-                    <div class="div-block-470">
+                    <div class="checkbox-list local-charts-grid">
                       <label class="w-checkbox checkbox-field-6">
                         <input
                           type="checkbox"

@@ -101,7 +101,7 @@ blockWindsWL: any[] = [];
           this.blockWindsWH = this.BlockWinds.filter(item => item.filename.includes('WH'));
           this.blockWindsWL = this.BlockWinds.filter(item => item.filename.includes('WL'));
          
-          debugger
+     
         } else {
           console.warn('No valid data found in API response.');
         }
@@ -231,7 +231,7 @@ blockWindsWL: any[] = [];
     let ImageArray = type.filter((x) => x.filename.includes(item.filename));
 
     console.log('Image arrays:', ImageArray);
-    debugger
+ 
     this.ConvertImagesArray(ImageArray,item.foldername);
   }
   ConvertImagesArray(ImageArray: any[], foldername: any) {

@@ -6,6 +6,7 @@ import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { LandingPage } from './landing-page.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 @NgModule({
   imports: [
     CommonModule,
@@ -13,6 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     IonicModule,
     LandingPageRoutingModule,
     SharedModule
+  ],
+  providers: [
+    InAppBrowser
   ],
   declarations: [LandingPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

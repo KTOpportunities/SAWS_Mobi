@@ -3,155 +3,168 @@
 
   <div id="top"></div>
   <app-package-content>
-    <app-package-header> Domestic/Regional Flight </app-package-header>
+    <app-package-header>
+      Domestic/Regional Flight Documentation
+    </app-package-header>
 
     <app-package-sub-header> </app-package-sub-header>
 
     <app-package-list-items *ngIf="!showReport">
-      <h1 class="heading-6">Domestic/Regional Flight <br />Documentation</h1>
-
       <div class="div-block-473">
         <h1 class="heading-6"><strong>General Requests</strong></h1>
-        <div class="w-layout-grid grid-45" id="grid455">
-          <!-- Column 1: Forecasts / Actuals -->
-          <div>
-            <div class="div-blue-copy">
-              <div class="div-block-477">
-                <h1 class="heading-50"><strong>Forecasts / Actuals</strong></h1>
-              </div>
-            </div>
-            <div class="checkbox-container">
-              <div id="checkboxes">
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.metar"
-                      name="metar"
-                    />
-                    METAR</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.speci"
-                      name="speci"
-                    />
-                    SPECI</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.taf"
-                      name="taf"
-                    />
-                    TAF</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.sigmet"
-                      name="sigmet"
-                    />
-                    Sigmet/Airmet</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.takeoff"
-                      name="takeoff"
-                    />
-                    Take-off Data</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.qnh"
-                      name="qnh"
-                    />
-                    QNH Chart</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.warning"
-                      name="warning"
-                    />
-                    Warnings</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.amo"
-                      name="amo"
-                    />
-                    AMO</label
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Column 2: Winds -->
-          <div>
-            <div class="div-blue-copy">
-              <div class="div-block-477">
-                <h1 class="heading-50"><strong>Forecasts Winds</strong></h1>
-              </div>
-            </div>
-            <h1 class="heading-21-copy">Block Winds</h1>
-            <div class="checkbox-container">
-              <div id="checkboxes">
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.blockWindLow"
-                      name="bwLow"
-                    />
-                    FL010-240</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.blockWindHigh"
-                      name="bwHigh"
-                    />
-                    FL210-450</label
-                  >
+        <!-- WRAP IN IONIC GRID -->
+        <ion-grid class="grid-45" id="grid455">
+          <ion-row>
+            <!-- Column 1: Forecasts / Actuals -->
+            <ion-col size="12" size-md="4">
+              <div class="div-blue-copy">
+                <div class="div-block-477">
+                  <h1 class="heading-50">
+                    <strong>Forecasts / Actuals</strong>
+                  </h1>
                 </div>
               </div>
-              <div style="margin-top: 10px">
+              <div class="checkbox-container">
+                <div id="checkboxes">
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.metar"
+                        name="metar"
+                      />
+                      METAR
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.speci"
+                        name="speci"
+                      />
+                      SPECI
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.taf"
+                        name="taf"
+                      />
+                      TAF
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.sigmet"
+                        name="sigmet"
+                      />
+                      Sigmet/Airmet
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.takeoff"
+                        name="takeoff"
+                      />
+                      Take-off Data
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.qnh"
+                        name="qnh"
+                      />
+                      QNH Chart
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.warning"
+                        name="warning"
+                      />
+                      Warnings
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.amo"
+                        name="amo"
+                      />
+                      AMO
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+
+            <!-- Column 2: Winds -->
+            <ion-col size="12" size-md="4">
+              <div class="div-blue-copy">
+                <div class="div-block-477">
+                  <h1 class="heading-50"><strong>Forecasts Winds</strong></h1>
+                </div>
+              </div>
+
+              <!-- Block Winds -->
+              <div class="div-blue-copy" style="margin-top: 8px">
+                <div class="div-block-477">
+                  <h1 class="heading-10"><strong>Block Winds</strong></h1>
+                </div>
+              </div>
+              <div class="checkbox-container">
+                <div id="checkboxes">
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.blockWindLow"
+                        name="bwLow"
+                      />
+                      FL010-240
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.blockWindHigh"
+                        name="bwHigh"
+                      />
+                      FL210-450
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- Dropdown inside same container -->
+              <div style="margin-top: 10px; padding: 0 8px">
                 <label class="field-label">FCST Hour</label>
                 <div
                   class="dropdown-container"
-                  (click)="toggleDropdown('dropdown2')"
+                  (click)="toggleDropdown('dropdown2', $event)"
                 >
                   <div class="dropdown-toggle">
                     <div class="text-block">{{ selectedOption2 }}</div>
@@ -198,86 +211,97 @@
                   </nav>
                 </div>
               </div>
-            </div>
+              <!-- Vector Winds -->
+              <div class="div-blue-copy" style="margin-top: 8px">
+                <div class="div-block-477">
+                  <h1 class="heading-50"><strong>Vector Winds</strong></h1>
+                </div>
+              </div>
+              <div class="checkbox-container">
+                <div id="checkboxes">
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.barbWindLow"
+                        name="barbLow"
+                      />
+                      FL010-210
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.barbWindHigh"
+                        name="barbHigh"
+                      />
+                      FL150-450
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </ion-col>
 
-            <h1 class="heading-21-copy">Vector Winds</h1>
-            <div class="checkbox-container">
-              <div id="checkboxes">
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.barbWindLow"
-                      name="barbLow"
-                    />
-                    FL010-210</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.barbWindHigh"
-                      name="barbHigh"
-                    />
-                    FL150-450</label
-                  >
+            <!-- Column 3: Sigwx -->
+            <ion-col size="12" size-md="4">
+              <div class="div-blue-copy">
+                <div class="div-block-477">
+                  <h1 class="heading-50"><strong>Sigwx Charts</strong></h1>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Column 3: Sigwx -->
-          <div>
-            <div class="div-blue-copy">
-              <div class="div-block-477">
-                <h1 class="heading-50"><strong>Sigwx Charts</strong></h1>
-              </div>
-            </div>
-            <h1 class="heading-21-copy">A4 Size</h1>
-            <div class="checkbox-container">
-              <div id="checkboxes">
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.addLow"
-                      name="addLow"
-                    />
-                    ADD Low</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.lowSigwx"
-                      name="lowSig"
-                    />
-                    Low</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.highSigwx"
-                      name="highSig"
-                    />
-                    High</label
-                  >
+              <!-- A4 Size -->
+              <div class="div-blue-copy" style="margin-top: 8px">
+                <div class="div-block-477">
+                  <h1 class="heading-10"><strong>A4 Size</strong></h1>
                 </div>
               </div>
-              <div style="margin-top: 10px">
-                <label class="field-label-5">Chart Hour</label>
+              <div class="checkbox-container">
+                <div id="checkboxes">
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.addLow"
+                        name="addLow"
+                      />
+                      ADD Low
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.lowSigwx"
+                        name="lowSig"
+                      />
+                      Low
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.highSigwx"
+                        name="highSig"
+                      />
+                      High
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- Dropdown inside same container -->
+              <div style="margin-top: 10px; padding: 0 8px">
+                <label class="field-label">Chart Hour</label>
                 <div
                   class="dropdown-container"
-                  (click)="toggleDropdown('dropdown3')"
+                  (click)="toggleDropdown('dropdown3', $event)"
                 >
                   <div class="dropdown-toggle">
                     <div class="text-block">{{ selectedOption3 }}</div>
@@ -324,162 +348,172 @@
                   </nav>
                 </div>
               </div>
-            </div>
 
-            <div class="checkbox-container" style="margin-top: 10px">
-              <div id="checkboxes">
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.symbols"
-                      name="symbols"
-                    />
-                    Include Symbols</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.coverPage"
-                      name="cover"
-                    />
-                    Include Cover Page</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.pageBreaks"
-                      name="pageBreak"
-                    />
-                    Use page breaks</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.rotateImages"
-                      name="rotate"
-                    />
-                    Rotate Images</label
-                  >
-                </div>
-                <div class="checkbox-item">
-                  <label class="w-checkbox checkbox-field-6"
-                    ><input
-                      type="checkbox"
-                      class="w-checkbox-input zz"
-                      [(ngModel)]="flightSections.selectAll"
-                      (change)="toggleSelectAll()"
-                      name="selectAll"
-                    />
-                    Select All</label
-                  >
+              <div class="checkbox-container">
+                <div id="checkboxes">
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.symbols"
+                        name="symbols"
+                      />
+                      Include Symbols
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.coverPage"
+                        name="cover"
+                      />
+                      Include Cover Page
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.pageBreaks"
+                        name="pageBreak"
+                      />
+                      Use page breaks
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.rotateImages"
+                        name="rotate"
+                      />
+                      Rotate Images
+                    </label>
+                  </div>
+                  <div class="checkbox-item">
+                    <label class="w-checkbox checkbox-field-6">
+                      <input
+                        type="checkbox"
+                        class="w-checkbox-input zz"
+                        [(ngModel)]="flightSections.selectAll"
+                        (change)="toggleSelectAll()"
+                        name="selectAll"
+                      />
+                      Select All
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
         <!-- LOCATIONS -->
         <h1 class="heading-6"><strong>Locations</strong></h1>
-        <div class="w-layout-grid grid-45" id="grid455">
-          <div></div>
-          <div class="div-block-48">
-            <div class="div-block-470-copy">
-              <label class="field-label-5-copy">Regions</label>
-              <div
-                class="dropdown-container"
-                (click)="toggleDropdown('dropdown4')"
-              >
-                <div class="dropdown-toggle">
-                  <div class="text-block">{{ selectedOption4 }}</div>
-                  <div class="dropdown-arrow">
-                    <img
-                      src="../../assets/icon/arrow-drop-down-svgrepo-com.svg"
-                      loading="lazy"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <nav
-                  class="dropdown-list1"
-                  *ngIf="isDropdownOpen4"
-                  (click)="$event.stopPropagation()"
-                >
+        <ion-grid class="grid-45" id="grid455">
+          <ion-row>
+            <ion-col size="12" size-md="4"></ion-col>
+            <ion-col size="12" size-md="8">
+              <div class="div-block-48">
+                <div class="div-block-470-copy">
+                  <label class="field-label">Regions</label>
                   <div
-                    class="w-dropdown-link"
-                    *ngFor="let region of regions"
-                    (click)="selectRegion(region)"
+                    class="dropdown-container"
+                    (click)="toggleDropdown('dropdown4')"
                   >
-                    {{ region }}
-                  </div>
-                </nav>
-              </div>
-            </div>
-
-            <div class="div-block-470-copy">
-              <label class="field-label-5-copy">Station List</label>
-              <div
-                class="dropdown-container"
-                (click)="toggleDropdown('dropdown6')"
-              >
-                <div class="dropdown-toggle">
-                  <div class="text-block">{{ selectedOption6 }}</div>
-                  <div class="dropdown-arrow">
-                    <img
-                      src="../../assets/icon/arrow-drop-down-svgrepo-com.svg"
-                      loading="lazy"
-                      alt=""
-                    />
+                    <div class="dropdown-toggle">
+                      <div class="text-block">{{ selectedOption4 }}</div>
+                      <div class="dropdown-arrow">
+                        <img
+                          src="../../assets/icon/arrow-drop-down-svgrepo-com.svg"
+                          loading="lazy"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <nav
+                      class="dropdown-list1"
+                      *ngIf="isDropdownOpen4"
+                      (click)="$event.stopPropagation()"
+                    >
+                      <div
+                        class="w-dropdown-link"
+                        *ngFor="let region of regions"
+                        (click)="selectRegion(region)"
+                      >
+                        {{ region }}
+                      </div>
+                    </nav>
                   </div>
                 </div>
-                <nav
-                  class="dropdown-list1"
-                  *ngIf="isDropdownOpen6"
-                  (click)="$event.stopPropagation()"
-                >
+
+                <div class="div-block-470-copy">
+                  <label class="field-label">Station List</label>
                   <div
-                    class="w-dropdown-link"
-                    *ngFor="let station of filteredStations"
-                    (click)="selectStation(station)"
+                    class="dropdown-container"
+                    (click)="toggleDropdown('dropdown6')"
                   >
-                    {{ station }}
+                    <div class="dropdown-toggle">
+                      <div class="text-block">{{ selectedOption6 }}</div>
+                      <div class="dropdown-arrow">
+                        <img
+                          src="../../assets/icon/arrow-drop-down-svgrepo-com.svg"
+                          loading="lazy"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <nav
+                      class="dropdown-list1"
+                      *ngIf="isDropdownOpen6"
+                      (click)="$event.stopPropagation()"
+                    >
+                      <div
+                        class="w-dropdown-link"
+                        *ngFor="let station of filteredStations"
+                        (click)="selectStation(station)"
+                      >
+                        {{ station }}
+                      </div>
+                    </nav>
                   </div>
-                </nav>
-              </div>
-              <textarea
-                maxlength="5000"
-                class="text-field-blue-fcopy w-input"
-                [(ngModel)]="stationCodes"
-                name="stationCodes"
-              ></textarea>
-            </div>
+                  <textarea
+                    maxlength="5000"
+                    class="text-field-blue-fcopy w-input"
+                    [(ngModel)]="stationCodes"
+                    name="stationCodes"
+                  ></textarea>
+                </div>
 
-            <div class="div-block-470-copy">
-              <div id="addremove1">
-                <div>
-                  <div class="remove-button w-button" (click)="clearStations()">
-                    Clear
-                  </div>
-                </div>
-                <div>
-                  <div class="remove-button w-button" (click)="sortStations()">
-                    Sort
+                <div class="div-block-470-copy">
+                  <div id="addremove1">
+                    <div>
+                      <div
+                        class="remove-button w-button"
+                        (click)="clearStations()"
+                      >
+                        Clear
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="remove-button w-button"
+                        (click)="sortStations()"
+                      >
+                        Sort
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
         <!-- BUTTONS -->
         <div class="div-block-470-copy">
@@ -641,14 +675,28 @@
             </ng-container>
             <ng-template #normalText>
               <div *ngIf="page.data && page.data.length > 0; else noData">
-                <pre *ngFor="let item of page.data">{{
-                  item.filecontent || item.content
-                }}</pre>
+                <div *ngFor="let item of page.data" class="report-item">
+                  <!-- Heading for SIGMET/AIRMET -->
+                  <ng-container *ngIf="item.heading">
+                    <h3 class="report-heading">
+                      {{ item.heading }}
+                    </h3>
+                  </ng-container>
+
+                  <!-- Report -->
+                  <pre class="report-text"
+                    >{{ item.filecontent || item.content }}
+      </pre
+                  >
+
+                  <hr class="report-divider" />
+                </div>
               </div>
             </ng-template>
-            <ng-template #noData
-              ><p>No data available for selected stations.</p></ng-template
-            >
+
+            <ng-template #noData>
+              <p>No data available for selected stations.</p>
+            </ng-template>
           </ng-container>
 
           <!-- Image Pages -->

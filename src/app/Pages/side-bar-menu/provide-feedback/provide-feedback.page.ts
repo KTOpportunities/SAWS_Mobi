@@ -136,7 +136,7 @@ export class ProvideFeedbackPage implements OnInit {
     this.submitted = true;
 
     if (this.feedbackForm.valid) {
-      debugger;
+    
       const formValues = this.feedbackForm.value;
 
       let body = {
@@ -273,7 +273,7 @@ export class ProvideFeedbackPage implements OnInit {
   }
 
   async uploadFile(feedbackId: number) {
-    debugger;
+  
     if (this.files.length > 0) {
       this.files[0].Id = 0;
       this.files[0].feedbackMessageId = feedbackId;
@@ -317,7 +317,7 @@ export class ProvideFeedbackPage implements OnInit {
     this.APIService.postInsertNewFeedback(body).subscribe(
       (data: any) => {
         this.feedbackForm.reset();
-        debugger;
+      
         this.uploadFile(
           data.detailDescription.feedbackMessages[0].feedbackMessageId
         );
@@ -431,7 +431,7 @@ export class ProvideFeedbackPage implements OnInit {
   }
 
   onFileSelected(event: any) {
-    debugger;
+ 
     const file = event.target.files[0];
 
     this.selectedFile = file;
@@ -526,7 +526,7 @@ export class ProvideFeedbackPage implements OnInit {
     //   // If feedback data is not available, return or handle appropriately
     //   return;
     // }
-    debugger;
+   
 
     this.fileType = this.APIService.getFileType(
       element.file_mimetype || this.selectedFileType

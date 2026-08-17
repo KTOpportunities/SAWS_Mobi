@@ -11,7 +11,9 @@ export class AuthService {
   private userData: any;
   private redirectUrl: string | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.loadFromStorage(); // 1. ADD: Load on app start so we don't log out
+  }
 
   loginEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   private loginEventSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -22,6 +24,8 @@ export class AuthService {
     this.isLoggedIn = false;
     this.setIsFromSubscription(false);
     this.setSubscriptionStatus('');
+    sessionStorage.removeItem('CurrentUser'); // 2. ADD: clear storage on logout
+    this.loginEventSubject.next(false); // 3. ADD: notify subscribers
     // window.location.reload();
   }
   login(form: any) {
@@ -123,5 +127,20 @@ export class AuthService {
 
   getCurrentUser() {
     return sessionStorage.getItem('CurrentUser');
+  }
+
+  // 4. ADD: Load user back from sessionStorage on app start
+  private loadFromStorage() {
+    const userJson = this.getCurrentUser();
+    if (userJson) {
+      const user = JSON.parse(userJson);
+      this.userData = user;
+      this.setLoggedInStatus(true);
+      
+      // Restore other flags if they exist on your UserLoggedIn model
+      if (user.isAdmin !== undefined) this.setAdminStatus(user.isAdmin);
+      if (user.subscriptionStatus !== undefined) this.setSubscriptionStatus(user.subscriptionStatus);
+      if (user.subscriptionPackageId !== undefined) this.setSubscriptionPackageId(user.subscriptionPackageId);
+    }
   }
 }

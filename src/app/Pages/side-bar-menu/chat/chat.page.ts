@@ -109,7 +109,7 @@ export class ChatPage implements OnInit {
 
     this.APIService.getFeedbackById(this.Id).subscribe((fback: any) => {
       this.feedback = fback.detailDescription;
-      debugger
+   
       this.fdMessages = fback.detailDescription.feedbackMessages;
       console.log('feedback: ', this.feedback);
       this.feedbackForm.patchValue(this.feedback);
@@ -125,7 +125,7 @@ export class ChatPage implements OnInit {
   }
   onSubmit() {
     const formValues = this.feedbackForm.value;
-    debugger
+ 
     if (formValues != null) {
       const body = {
         feedbackId: formValues.feedbackId,
@@ -222,7 +222,7 @@ export class ChatPage implements OnInit {
   updateFeedbackForm(body: any) {
     this.APIService.postInsertNewFeedback(body).subscribe(
       (data: any) => {
-        debugger
+      
         this.feedbackForm.reset();
 
         this.getFeedback();

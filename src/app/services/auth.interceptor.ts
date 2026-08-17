@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     const token = JSON.parse(user).token; // 🔥 your login returns {token: 'eyJ...'}
-    console.log('TOKEN:', token?.substring(0,20));
+   
       
     const authReq = req.clone({
       setHeaders: { 

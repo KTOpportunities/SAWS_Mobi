@@ -38,10 +38,10 @@ export class ForgotPasswordPage implements OnInit {
   }
   @ViewChild('content') content!: ElementRef;
 
-  // Call this method when the keyboard is opened
   scrollContent(): void {
     this.content.nativeElement.scrollIntoView();
   }
+
   emailValidator(control: any) {
     if (control.value) {
       const matches = control.value.match(
@@ -52,6 +52,7 @@ export class ForgotPasswordPage implements OnInit {
       return null;
     }
   }
+
   constructor(
     private formBuilder: FormBuilder,
     private api: APIService,
@@ -75,12 +76,9 @@ export class ForgotPasswordPage implements OnInit {
 
   ngOnInit(): void {
     this.platform.ready().then(() => {
-      // Listen for keyboard will show event
       Keyboard.addListener('keyboardWillShow', () => {
         this.isKeyboardVisible = true;
       });
-
-      // Listen for keyboard will hide event
       Keyboard.addListener('keyboardWillHide', () => {
         this.isKeyboardVisible = false;
       });
@@ -88,7 +86,6 @@ export class ForgotPasswordPage implements OnInit {
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom', message: string, color: string, icon: string) {
-
     const toast = await this.toastController.create({
       message: message,
       duration: 5000,
@@ -100,13 +97,10 @@ export class ForgotPasswordPage implements OnInit {
       buttons: [
         {
           icon: 'close',
-          htmlAttributes: {
-            'aria-label': 'close',
-          },
+          htmlAttributes: { 'aria-label': 'close' },
         },
       ],
     });
-
     await toast.present();
   }
 
@@ -114,43 +108,48 @@ export class ForgotPasswordPage implements OnInit {
     this.loading = true;
     this.submitted = true;
 
-    var body = {
-      Email: this.userForm.controls['Email'].value,
+    const emailValue = this.userForm.controls['Email'].value;
+
+    const body = {
+      email: emailValue, // lowercase to match backend DTO
     };
 
     if (this.userForm.invalid) {
-       this.presentToast('top','Invalid form submission!', 'danger', 'close');
-       this.loading = false;
+      this.presentToast('top', 'Please enter a valid email', 'danger', 'close');
+      this.loading = false;
       return;
-    } else {
-      this.api.RequestPasswordReset(body).subscribe(
-        (data: any) => {
-          this.loading = false;
-
-          this.presentToast('top','Request Successful! Please check your email for further intructions', 'success', 'checkmark');
-          
-          setTimeout(() => {
-            this.navigateToLogin();
-          }, 5000);
-
-        },
-        (error) => {
-          if (
-            error &&
-            error.error &&
-            error.error.response === 'Invalid email'
-          ) {
-            this.presentToast('top','The provided email does not exist!', 'danger', 'close');
-          } else {
-            this.presentToast('top','Something went wrong the request!', 'danger', 'close');
-          }
-          this.loading = false;
-        }
-      );
     }
 
-    this.onReset();
+    // CHANGED: Call new OTP API
+    this.api.RequestPasswordResetOTP(body).subscribe(
+      (data: any) => {
+        this.loading = false;
+
+        if(data.success){
+          // FOR TESTING: Remove this in production
+          if(data.data?.otp){
+            console.log('OTP for testing:', data.data.otp);
+            this.presentToast('top', `OTP: ${data.data.otp}`, 'warning', 'key');
+          } else {
+            this.presentToast('top', 'OTP sent! Please check your email', 'success', 'mail');
+          }
+
+          this.onReset();
+
+          // Redirect to Reset Password page and pass email
+          setTimeout(() => {
+            this.router.navigate(['/reset-password'], { queryParams: { email: emailValue } });
+          }, 1000);
+        }
+      },
+      (error) => {
+        this.loading = false;
+        const errMsg = error.error?.errorMessage || 'Something went wrong';
+        this.presentToast('top', errMsg, 'danger', 'close');
+      }
+    );
   }
+
   login() {
     this.router.navigate(['/login']);
   }

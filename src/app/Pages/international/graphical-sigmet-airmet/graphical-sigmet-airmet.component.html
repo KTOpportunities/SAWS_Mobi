@@ -1,50 +1,42 @@
 <ion-content>
-  <div *ngIf="loading" class="loading-indicator">
-    <ion-spinner *ngIf="loading" name="bubbles"></ion-spinner>Loading...
+  <div
+    *ngIf="loading"
+    class="loading-indicator"
+    style="
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    "
+  >
+    <ion-spinner name="bubbles"></ion-spinner>
+    <p style="margin-top: 10px">Loading Graphical SIGMET/AIRMET...</p>
   </div>
-
-  <div id="top"></div>
-  <app-package-content>
-    <app-package-header> Graphical SIGMET/AIRMET</app-package-header>
-    <app-package-sub-header
-      ><h1 class="sub-headings"></h1>
-    </app-package-sub-header>
-
-    <app-package-list-items>
-      <div class="div-block-15">
-        <div>
-          <div class="scroll small-m">
-            <div class="rows-wrap">
-              <div
-                data-delay="4000"
-                data-animation="slide"
-                class="slider-2 w-slider"
-                data-autoplay="false"
-                data-easing="ease"
-                data-hide-arrows="false"
-                data-disable-swipe="false"
-                data-autoplay-limit="0"
-                data-nav-spacing="3"
-                data-duration="500"
-                data-infinite="true"
-              >
-                <div class="w-slider-mask prev">
-                  <img
-                    src="../../assets/graphicSigmentAirmet.png"
-                    loading="lazy"
-                    width="1216"
-                    alt=""
-                    class="image"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </app-package-list-items>
-  </app-package-content>
 </ion-content>
+
+<app-footer></app-footer>
+
+<div class="footerdiv" id="footerdivid1">
+  <div (click)="NavigateToInternational()" class="link-block-5 w-inline-block">
+    <img src="../../assets/Group-4522.svg" loading="lazy" alt="" />
+    <h6
+      class="heading-10-copy"
+      id="styleh6"
+      style="
+        color: #fff;
+        margin-top: 10px;
+        margin-bottom: 0;
+        font-family: Montserrat, sans-serif;
+        text-decoration: none;
+        font-size: 12px;
+        margin-top: 4px;
+      "
+    >
+      International
+    </h6>
+  </div>
+</div>
 
 <app-footer></app-footer>
 

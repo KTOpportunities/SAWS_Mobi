@@ -360,5 +360,37 @@ getOperationalSettings() {
   return this.http.get(
     environment.serverAPI + `v1/OperationalSettings`,
   );
+  }
+  
+  // 1. Request OTP - sends OTP to email
+RequestPasswordResetOTP(body: { email: string }) {
+  return this.http
+    .post<any>(
+      environment.serverAPI + 'v1/Authenticate/RequestPasswordResetOTP',
+      body,
+      this.httpOptions
+    )
+    .pipe(
+      catchError((error) => {
+        console.error('Request OTP Error:', error);
+        throw error;
+      })
+    );
+}
+
+// 2. Verify OTP + Reset Password
+VerifyOTPAndResetPassword(body: { email: string; otp: string; newPassword: string }) {
+  return this.http
+    .post<any>(
+      environment.serverAPI + 'v1/Authenticate/VerifyOTPAndResetPassword',
+      body,
+      this.httpOptions
+    )
+    .pipe(
+      catchError((error) => {
+        console.error('Verify OTP Error:', error);
+        throw error;
+      })
+    );
 }
 }

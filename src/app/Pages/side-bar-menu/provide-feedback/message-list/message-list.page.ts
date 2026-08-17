@@ -30,7 +30,7 @@ export class MessageListPage implements OnInit {
   ngOnInit() {
     // Check if user is logged in
 
-    // debugger
+
     var user: any = this.authService.getCurrentUser();
     console.log('userData in ProvideFeedbackPage:', this.userData);
     const userLoginDetails = JSON.parse(user);
@@ -48,7 +48,7 @@ export class MessageListPage implements OnInit {
 
   feedbacks() {
 
-       // debugger
+
     this.APIService.getFeedbackMessagesBySenderId(this.aspUserID).subscribe(
       (response) => {        
         this.feedbackMessages = response;

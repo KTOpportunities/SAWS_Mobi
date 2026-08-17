@@ -42,3 +42,153 @@
         }
     }
 }
+
+.template-select {
+    position: relative;
+    width: 100%;
+}
+
+.w-dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 15px;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dropdown-list1 {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+
+    max-height: 250px;
+    overflow-y: auto;
+
+    z-index: 99999;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.w-dropdown-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 15px;
+    cursor: pointer;
+    background: #fff;
+}
+
+.w-dropdown-link:hover {
+    background: #f5f7fa;
+}
+
+.delete-icon {
+    color: #e74c3c;
+    font-size: 18px;
+}
+
+.text-block {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dropdown-arrow img {
+    width: 18px;
+    height: 18px;
+}
+/* ============================================
+   EDIT COMPONENT - CHECKBOX SETTINGS
+   ============================================ */
+
+/* Weather Levels, Charts, Wind/Temp and Local Charts */
+.checkbox-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 12px;
+    width: 100%;
+}
+
+/* Individual checkbox */
+.checkbox-list .checkbox-field-6 {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    margin: 0;
+    padding: 5px 2px;
+    box-sizing: border-box;
+}
+
+/* Checkbox */
+.checkbox-list .w-checkbox-input {
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+    margin: 0 7px 0 0;
+}
+
+/* Text */
+.checkbox-list .checkbox-label-2-copy {
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+/* Keep the original layout on larger screens if required */
+@media (min-width: 768px) {
+    .checkbox-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+.local-charts-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 5px 10px !important;
+}
+
+/* Force 2 columns for checkboxes under Clear All */
+.local-charts-grid,
+.checkbox-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    /* 2 columns */
+    gap: 8px 16px !important;
+    width: 100%;
+}
+
+.local-charts-grid .checkbox-field-6,
+.checkbox-list .checkbox-field-6 {
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+    margin: 0 !important;
+    padding: 4px 0 !important;
+    white-space: nowrap;
+    /* prevent text wrapping weirdly */
+}
+
+/* Make the checkbox itself not stretch */
+.local-charts-grid .w-checkbox-input,
+.checkbox-list .w-checkbox-input {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* Mobile: go back to 1 column on very small screens */
+@media (max-width: 480px) {
+
+    .local-charts-grid,
+    .checkbox-list {
+        grid-template-columns: 1fr !important;
+    }
+}

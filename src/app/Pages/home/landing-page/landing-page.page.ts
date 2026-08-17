@@ -237,7 +237,7 @@ export class LandingPage implements OnInit {
 //     );
 //   }
   loadAllAdvertisements() {
-    debugger
+ 
     this.apiService.getAllAdverts().subscribe(
       (data: any[]) => {
         this.advertisements = data.map((ad) => {

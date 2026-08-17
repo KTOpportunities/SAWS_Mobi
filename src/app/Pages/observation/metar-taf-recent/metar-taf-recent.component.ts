@@ -524,7 +524,7 @@ this.apiService.GetSourceTextFolderFilesTime('tafft', 72).subscribe(
   }
 
   fetchRecentTafs(): void {
-    debugger;
+   
     this.loading = true; // Set loading to true when fetching starts
     this.spinner.show(); // Show the spinner
 
@@ -533,7 +533,7 @@ this.apiService.GetSourceTextFolderFilesTime('tafft', 72).subscribe(
       (data) => {
         // Assign fetched data to recentTafs array
         this.recentTafs = data;
-        debugger;
+       
         console.log('TEST:', this.recentTafs);
         // Set loading to false when fetching is complete
         this.loading = false;
@@ -708,7 +708,7 @@ fetchMetarReports(): void {
         this.groupFilteredReportsByProvince();
 
         console.log('✅ Combined Reports:', this.metarReports);
-        debugger
+      
       } catch (e) {
         console.error('Processing error (METAR/TAF):', e);
       }

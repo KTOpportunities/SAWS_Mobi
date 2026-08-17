@@ -103,7 +103,7 @@ export class GpmComponent implements OnInit {
         (data) => {
           console.log('IMAGE:', data);
           const imageUrl = 'data:image/png;base64,' + data.filecontent; // Adjust the MIME type accordingly
-debugger
+
           // Set the safe URL for the image
           this.fileBaseUrl =
             this.sanitizer.bypassSecurityTrustResourceUrl(imageUrl);
